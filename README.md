@@ -40,9 +40,6 @@ partidos jugados, ganados, empatados y perdidos, goles a favor y en contra, dife
 gol.
 o En los partidos de la fase final (de cuartos de final hasta la final) la simulación se realizará
 en 2 pasos: en primer lugar, el resultado de los 90 minutos, y luego, de corresponder, el de 
-UNIVERSIDAD FASTA
-PROGRAMACIÓN B
-PÁGINA 2/4 – TRABAJO PRÁCTICO GRUPAL
 la ejecución de tiros penales. En todos los casos, indicar el criterio que haya determinado al
 ganador.
  En cualquier momento se podrá emitir los siguientes reportes:
