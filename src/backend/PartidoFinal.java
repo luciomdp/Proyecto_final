@@ -1,11 +1,12 @@
-package proyecto_final;
+package backend;
 
-public class PartidoIdaVuelta extends Partido{
+public class PartidoFinal extends Partido{
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8847438604485174325L;
-	public PartidoIdaVuelta(Equipo a, Equipo b) {
+	private static final long serialVersionUID = 7173242858989911828L;
+	public PartidoFinal(Equipo a, Equipo b) {
 		super(a, b);
 		
 	}
@@ -14,11 +15,11 @@ public class PartidoIdaVuelta extends Partido{
 		golesP1 = 0;
 		golesP2 = 0;
 		if(getMedia_totE1()>getMedia_totE2()) {
-			probab1 = 75;
-			probab2 = 65;
+			probab1 = 55;
+			probab2 = 45;
 		}else {
-			probab1 = 65;
-			probab2 = 75;
+			probab1 = 45;
+			probab2 = 55;
 		}
 		int i;
 		for(i = 0;i<5;i++) {
@@ -37,4 +38,5 @@ public class PartidoIdaVuelta extends Partido{
 		}	
 	}
 	private int golesP1,golesP2;
+
 }

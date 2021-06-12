@@ -1,4 +1,4 @@
-package proyecto_final;
+package backend;
 
 public class PartidoZona extends Partido{
 

@@ -1,4 +1,4 @@
-package proyecto_final;
+package backend;
 
 import java.io.Serializable;
 

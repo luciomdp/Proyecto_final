@@ -1,4 +1,4 @@
-package proyecto_final;
+package frontend;
 
 import javax.swing.border.EmptyBorder;
 import javax.swing.*;
