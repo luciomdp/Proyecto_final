@@ -9,8 +9,12 @@ public class Equipo implements Serializable{
 	private String nombre;
 	private Pais pais;
 	private int ranking;
-	private ArrayList<Jugador> Jugadores = new ArrayList(17);
+	private ArrayList<Jugador> Jugadores = new ArrayList<Jugador>(17);
 	private Dt entrenador;
+	
+    private int puntos;
+    private int goles;
+    private int golesContra;
 	
 	public Equipo (String n, Pais p, int r, ArrayList<Jugador> j, Dt e){
 		nombre = n;
@@ -18,7 +22,37 @@ public class Equipo implements Serializable{
 		ranking = r;
 		Jugadores = j;
 		entrenador = e;
+		this.goles = 0;
+        this.golesContra = 0;
+        this.puntos = 0;
 	}
+	
+	public String getEstadisticas() {
+        return " Nombre: "+ nombre+"\n Puntos : "+ puntos +"\n Goles: "+ goles +"\n Goles en contra: "+ golesContra;
+    }
+
+    public int getGoles () {
+        return goles;
+    }
+    public int getGolesContra() {
+        return golesContra;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos  = this.puntos + puntos;
+    }
+
+    public void setGoles(int goles) {
+        this.goles = this.goles + goles;
+    }
+
+    public void setGolesContra(int golesContra) {
+        this.golesContra = this.puntos + golesContra;
+    }
 	
 	public double MediaJugadores() {
 		int media = 0;
