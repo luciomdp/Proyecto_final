@@ -1,6 +1,5 @@
 package backend;
 
-import proyecto_final.Equipo;
 
  public class Resultados {
 	private Equipo e1;

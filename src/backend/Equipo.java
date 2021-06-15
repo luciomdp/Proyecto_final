@@ -81,6 +81,24 @@ public class Equipo implements Serializable{
 	public void setEntrenador(Dt entrenador) {
 		this.entrenador = entrenador;
 	}
-	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public ArrayList<Jugador> getJugadores() {
+		return Jugadores;
+	}
+
+	public void setJugadores(ArrayList<Jugador> jugadores) {
+		Jugadores = jugadores;
+	}
+
+	public void setPais(Pais pais) {
+		this.pais = pais;
+	}
 
 }

@@ -7,6 +7,10 @@ public class Partido implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -1658384256163433401L;
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	private Equipo equipo1,equipo2;
 	private double Media_totE1,Media_totE2;
 	private Date fecha_juego;
@@ -55,5 +59,20 @@ public class Partido implements Serializable{
 	}
 	public void setMedia_totE2(double media_totE2) {
 		Media_totE2 = media_totE2;
+	}
+	public Equipo getEquipo1() {
+		return equipo1;
+	}
+
+	public void setEquipo1(Equipo equipo1) {
+		this.equipo1 = equipo1;
+	}
+
+	public Equipo getEquipo2() {
+		return equipo2;
+	}
+
+	public void setEquipo2(Equipo equipo2) {
+		this.equipo2 = equipo2;
 	}
 }

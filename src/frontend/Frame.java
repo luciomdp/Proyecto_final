@@ -59,17 +59,19 @@ public class Frame extends JFrame {
 		tabbedPane.addTab("Informacion", null, Informacion, null);
 		Inicio.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		Box caja_vert = Box.createVerticalBox();
+		//----------------------------------------INICIO----------------------------------------
+		
+		Box Ibox = Box.createVerticalBox();
 		
 		JButton Inicia_torneo = new JButton("Inicia torneo");
-		caja_vert.add(Inicia_torneo);
+		Ibox.add(Inicia_torneo);
 		
 		JButton Continua = new JButton("Continua desde donde lo dejaste");
-		caja_vert.add(Continua);
+		Ibox.add(Continua);
 		
 		JButton Guarda_progreso = new JButton("Guarda tu progreso");
-		caja_vert.add(Guarda_progreso);
-		Inicio.add(caja_vert);
+		Ibox.add(Guarda_progreso);
+		Inicio.add(Ibox);
 		
 		//----------------------------------------ZONA----------------------------------------
 		
@@ -79,55 +81,127 @@ public class Frame extends JFrame {
 		Zona.add(panel_central, BorderLayout.CENTER);
 		panel_central.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		JComboBox<String> comboBox1 = new JComboBox();
-		comboBox1.setEditable(false);
-		comboBox1.addItem("Zona 1");
-		comboBox1.addItem("Simula un partido");
-		comboBox1.addItem("Simula una fecha");
-		comboBox1.addItem("Simula una zona");
-		panel_sup.add(comboBox1);
+		JComboBox<String> ZcomboBox1 = new JComboBox();
+		ZcomboBox1.setEditable(false);
+		ZcomboBox1.addItem("Zona 1");
+		ZcomboBox1.addItem("Simula un partido");
+		ZcomboBox1.addItem("Simula una fecha");
+		ZcomboBox1.addItem("Simula una zona");
+		panel_sup.add(ZcomboBox1);
 		
-		JComboBox<String> comboBox2 = new JComboBox();
-		comboBox2.setEditable(false);
-		comboBox2.addItem("Zona 2");
-		comboBox2.addItem("Simula un partido");
-		comboBox2.addItem("Simula una fecha");
-		comboBox2.addItem("Simula una zona");
-		panel_sup.add(comboBox2);
+		JComboBox<String> ZcomboBox2 = new JComboBox();
+		ZcomboBox2.setEditable(false);
+		ZcomboBox2.addItem("Zona 2");
+		ZcomboBox2.addItem("Simula un partido");
+		ZcomboBox2.addItem("Simula una fecha");
+		ZcomboBox2.addItem("Simula una zona");
+		panel_sup.add(ZcomboBox2);
 		
-		JComboBox<String> comboBox3 = new JComboBox();
-		comboBox3.setEditable(false);
-		comboBox3.addItem("Zona 3");
-		comboBox3.addItem("Simula un partido");
-		comboBox3.addItem("Simula una fecha");
-		comboBox3.addItem("Simula una zona");
-		panel_sup.add(comboBox3);
+		JComboBox<String> ZcomboBox3 = new JComboBox();
+		ZcomboBox3.setEditable(false);
+		ZcomboBox3.addItem("Zona 3");
+		ZcomboBox3.addItem("Simula un partido");
+		ZcomboBox3.addItem("Simula una fecha");
+		ZcomboBox3.addItem("Simula una zona");
+		panel_sup.add(ZcomboBox3);
 		
-		JComboBox<String> comboBox4 = new JComboBox();
-		comboBox4.setEditable(false);
-		comboBox4.addItem("Zona 4");
-		comboBox4.addItem("Simula un partido");
-		comboBox4.addItem("Simula una fecha");
-		comboBox4.addItem("Simula una zona");
-		panel_sup.add(comboBox4);
+		JComboBox<String> ZcomboBox4 = new JComboBox();
+		ZcomboBox4.setEditable(false);
+		ZcomboBox4.addItem("Zona 4");
+		ZcomboBox4.addItem("Simula un partido");
+		ZcomboBox4.addItem("Simula una fecha");
+		ZcomboBox4.addItem("Simula una zona");
+		panel_sup.add(ZcomboBox4);
 		
-		Box caja_horiz = Box.createHorizontalBox();
+		Box Zbox = Box.createHorizontalBox();
 		
-		panel_central.add(caja_horiz);
+		panel_central.add(Zbox);
 		
 		JPanel panel_zona1 = new JPanel();
-		caja_horiz.add(panel_zona1);
+		Zbox.add(panel_zona1);
 		
 		JPanel panel_zona2 = new JPanel();
-		caja_horiz.add(panel_zona2);
+		Zbox.add(panel_zona2);
 		
 		JPanel panel_zona3 = new JPanel();
-		caja_horiz.add(panel_zona3);
+		Zbox.add(panel_zona3);
 		
 		JPanel panel_zona4 = new JPanel();
-		caja_horiz.add(panel_zona4);
+		Zbox.add(panel_zona4);
 		
 		//----------------------------------------CUARTOS----------------------------------------
+		
+		//---------------Paneles
+		JPanel CpanelN = new JPanel();
+		JPanel CpanelC = new JPanel();
+		CpanelC.setLayout(new BorderLayout());
+		//----------Cajas horizontales
+		Box CboxH1 = Box.createHorizontalBox();
+		Box CboxH2 = Box.createHorizontalBox();
+		//----------Cajas verticales con equipos
+		Box CboxV1 = Box.createHorizontalBox();
+		Box CboxV2 = Box.createHorizontalBox();
+		Box CboxV3 = Box.createHorizontalBox();
+		Box CboxV4 = Box.createHorizontalBox();
+		//---------------Equipos
+		
+		JLabel CEquipo1 = new JLabel("Equipo 1");
+		CboxV1.add(CEquipo1);
+		
+		//CboxV1.add(Box.createVerticalStrut(40));
+		CboxV1.add(Box.createVerticalGlue());
+		
+		JLabel CEquipo2 = new JLabel("Equipo 2");
+		CboxV1.add(CEquipo2);
+		
+		JLabel CEquipo3 = new JLabel("Equipo 3");
+		CboxV2.add(CEquipo3);
+		
+		CboxV2.add(Box.createVerticalGlue());
+		
+		JLabel CEquipo4 = new JLabel("Equipo 4");
+		CboxV2.add(CEquipo4);
+		
+		JLabel CEquipo5 = new JLabel("Equipo 5");
+		CboxV3.add(CEquipo5);
+		
+		CboxV3.add(Box.createVerticalGlue());
+		
+		JLabel CEquipo6 = new JLabel("Equipo 6");
+		CboxV3.add(CEquipo6);
+		
+		JLabel CEquipo7 = new JLabel("Equipo 7");
+		CboxV4.add(CEquipo7);
+		
+		CboxV4.add(Box.createVerticalGlue());
+		
+		JLabel CEquipo8 = new JLabel("Equipo 8");
+		CboxV4.add(CEquipo8);
+		//---------------Elecciones
+		
+		JComboBox<String> CcomboBox = new JComboBox();
+		CcomboBox.setEditable(false);
+		CcomboBox.addItem("Cuartos");
+		CcomboBox.addItem("Simula un partido");
+		CcomboBox.addItem("Simula una fecha");
+		CcomboBox.addItem("Simula una zona");
+		CpanelN.add(CcomboBox);
+		
+		//---------------Adds
+		
+		CboxH1.add(CboxV1);
+		CboxH1.add(Box.createHorizontalGlue());
+		CboxH1.add(CboxV2);
+		CboxH2.add(CboxV3);
+		CboxH2.add(Box.createHorizontalGlue());
+		CboxH2.add(CboxV4);
+		
+		Cuartos.setLayout(new BorderLayout());
+		CpanelC.add(CboxH1,BorderLayout.NORTH);
+		CpanelC.add(CboxH2,BorderLayout.SOUTH);
+		Cuartos.add(CpanelN,BorderLayout.NORTH);
+		Cuartos.add(CpanelC,BorderLayout.CENTER);
+		
 		
 		//----------------------------------------SEMIFINALES----------------------------------------
 		

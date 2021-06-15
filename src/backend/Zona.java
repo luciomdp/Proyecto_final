@@ -9,8 +9,21 @@ public class Zona implements Serializable{
 	 */
 	private static final long serialVersionUID = 2934756314623471362L;
 	//Implementar tabla de posiciones
-
-	private int i;
+	
+	//-------------------------VALORES DE PUNTOS--------------------------
+	final int PV = 3;
+	final int PE = 1;
+	final int PD = 0;
+	//-------------------------CANTIDAD DE PARTIDOS--------------------------
+	final int CANT_PZ = 6;
+	final int CANT_PF = 2;
+	
+	private int i,f;//f es fecha actual e i es partido actual
+	/*Cada partido va a tener asignado un valor "i", cada fecha son 2 partidos de i (teniendo en cuenta el valor
+	actual de i,tenes una variable fecha "f", que dice en que fecha se encuentra, y simular toda la zona, es iterar desde el i
+	actual hasta el final)*/
+	
+	//HACER ARREGLO DE EQUIPOS 
     private Equipo e1;
     private Equipo e2;
     private Equipo e3;
@@ -35,7 +48,7 @@ public class Zona implements Serializable{
         tabla.getValoresTabla();
         PartidoZona partido = new PartidoZona(e1, e2);
         partido.simulacion();
-        tabla.setResultados(new Resultados (partido.getE1(), partido.getE2(), partido.getGolE1(), partido.getGolE2())); 
+        tabla.setResultados(new Resultados (partido.getEquipo1(), partido.getEquipo2(), partido.getGolE1(), partido.getGolE2())); 
         e1.setGoles(partido.getGolE1());
         e2.setGoles(partido.getGolE2()); 
         e1.setGolesContra(partido.getGolE2());
@@ -49,7 +62,7 @@ public class Zona implements Serializable{
         tabla.getValoresTabla();
         PartidoZona partido1 = new PartidoZona(e1, e2);
         partido1.simulacion();
-        tabla.setResultados(new Resultados (partido1.getE1(), partido1.getE2(), partido1.getGolE1(), partido1.getGolE2()));
+        tabla.setResultados(new Resultados (partido1.getEquipo1(), partido1.getEquipo2(), partido1.getGolE1(), partido1.getGolE2()));
         i++;
         e1.setGoles(partido1.getGolE1());
         e2.setGoles(partido1.getGolE2());
@@ -67,7 +80,7 @@ public class Zona implements Serializable{
         
         PartidoZona partido2 = new PartidoZona(e3, e4);    
         partido2.simulacion();
-        tabla.setResultados(new Resultados (partido2.getE1(), partido2.getE2(), partido2.getGolE1(), partido2.getGolE2())); 
+        tabla.setResultados(new Resultados (partido2.getEquipo1(), partido2.getEquipo2(), partido2.getGolE1(), partido2.getGolE2())); 
         e3.setGoles(partido1.getGolE1());
         e4.setGoles(partido1.getGolE2());
         e3.setGolesContra(partido1.getGolE2());
@@ -94,4 +107,4 @@ public class Zona implements Serializable{
         
     }
 }
-}
+
