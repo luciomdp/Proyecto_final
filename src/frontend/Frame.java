@@ -7,29 +7,40 @@ import java.awt.geom.*;
 
 
 public class Frame extends JFrame {
+	//-----------------------------------CONSTANTES-----------------------------
 	
-	protected static final int CANCHA_TAMANO_RECTANGULO_C = 0;
-	final int WIDTH = 900,HEIGHT = 500;
+	//-----------------------------------ALTO Y LARGO FRAME-----------------------------
+	
+	final int WIDTH = 1000,HEIGHT = 600;
+	//-----------------------------------CANCHA-----------------------------
+	
 	final int CANCHA_TAMANO_CIRCULO_C = 10;
 	final int CANCHA_TAMANO_CIRCULO_G = 100;
 	final int CANCHA_TAMANO_RECT_C = 100;
 	final int CANCHA_TAMANO_RECT_G = 200;
-	final Color COLOR_LINEAS_CANCHA = Color.WHITE;
+	final Color COLOR_LINEAS_CANCHA = Color.GRAY;
+	//-----------------------------------BOTONES_INICIO-----------------------------
 	
-	final int FONT_SIZE = 30;
+	final int CANT_BTN = 3;
+	final int TAM_HOR_BTTN = 300,TAM_VER_BTTN = 40,TAMX_HOR_BTTN = 500,TAMX_VER_BTTN = 70;
+	final Color COLOR_BOTONES = new Color(38, 190, 35);
+	final Dimension TAMX_BTTN = new Dimension(TAMX_HOR_BTTN,TAMX_VER_BTTN),TAM_BTTN = new Dimension(TAM_HOR_BTTN,TAM_VER_BTTN);
+	//-----------------------------------TAMAÑO Y COLOR LETRA-----------------------------
+	
+	final int FONT_SIZE = 28;
 	final Color COLOR_LETRA = Color.WHITE;
+	//-----------------------------------COLORES FONDO-----------------------------
 	
 	final Color COLOR_INICIO = Color.GREEN;
 	final Color COLOR_PANEL_N = Color.GREEN;
 	final Color COLOR_PANEL_C = new Color(38, 190, 35);
 	final Color COLOR_FINAL = new Color(38, 190, 35);
 	final Color COLOR_INFORMACION = Color.GRAY;
-
+	//-----------------------------------PANEL-----------------------------
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,10 +55,13 @@ public class Frame extends JFrame {
 	}
 	public Frame() {
 		
+		
+		
 		//----------------------------------------PANEL PRINCIPAL----------------------------------------
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 100, WIDTH, HEIGHT);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -61,7 +75,7 @@ public class Frame extends JFrame {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 					Graphics2D g2 = (Graphics2D) g;
-					g2.setPaint(Color.GRAY);
+					g2.setPaint(COLOR_LINEAS_CANCHA);
 					g2.addRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
 					g2.fill(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_C/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_C/2),CANCHA_TAMANO_CIRCULO_C,CANCHA_TAMANO_CIRCULO_C));
 					g2.draw(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_G/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_G/2),CANCHA_TAMANO_CIRCULO_G,CANCHA_TAMANO_CIRCULO_G));
@@ -72,19 +86,15 @@ public class Frame extends JFrame {
 					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
 			}
 		};
-		tabbedPane.addTab("Inicio", null, Inicio, null);
+		Inicio.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
+		Inicio.setBackground(COLOR_INICIO);
 		JPanel Zona = new JPanel();
-		tabbedPane.addTab("Zona", null, Zona, null);
 		Zona.setLayout(new BorderLayout(0, 0));
-		
 		JPanel Cuartos = new JPanel();
-		tabbedPane.addTab("Cuartos", null, Cuartos, null);
-		
+		Cuartos.setLayout(new BorderLayout());
 		JPanel Semifinales = new JPanel();
-		tabbedPane.addTab("Semifinales", null, Semifinales, null);
 		Semifinales.setLayout(new BorderLayout(0, 0));
-		
 		JPanel Final = new JPanel(){
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -100,23 +110,34 @@ public class Frame extends JFrame {
 					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
 			}
 		};
-		tabbedPane.addTab("Final", null, Final, null);
-		
 		JPanel Informacion = new JPanel();
-		tabbedPane.addTab("Informacion", null, Informacion, null);
-		Inicio.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		//----------------------------------------INICIO----------------------------------------
-		Inicio.setBackground(COLOR_INICIO);
 		Box Ibox = Box.createVerticalBox();
-		
 		JButton Inicia_torneo = new JButton("Inicia torneo");
-		Ibox.add(Inicia_torneo);
-		
 		JButton Continua = new JButton("Continua desde donde lo dejaste");
-		Ibox.add(Continua);
-		
 		JButton Guarda_progreso = new JButton("Guarda tu progreso");
+		
+		Inicia_torneo.setMinimumSize(Inicia_torneo.getSize());
+		Inicia_torneo.setPreferredSize(TAM_BTTN);
+		Inicia_torneo.setMaximumSize(TAMX_BTTN);
+		Inicia_torneo.setBackground(COLOR_BOTONES);
+		
+		Continua.setMinimumSize(Continua.getSize());
+		Continua.setPreferredSize(TAM_BTTN);
+		Continua.setMaximumSize(TAMX_BTTN);
+		Continua.setBackground(COLOR_BOTONES);
+		
+		Guarda_progreso.setMinimumSize(Guarda_progreso.getSize());
+		Guarda_progreso.setPreferredSize(TAM_BTTN);
+		Guarda_progreso.setMaximumSize(TAMX_BTTN);
+		Guarda_progreso.setBackground(COLOR_BOTONES);
+		
+		Ibox.add(Box.createVerticalStrut((getHeight()/2)-CANT_BTN*TAM_BTTN.height));
+		Ibox.add(Inicia_torneo);
+		Ibox.add(Box.createVerticalStrut(TAM_BTTN.height/2));
+		Ibox.add(Continua);
+		Ibox.add(Box.createVerticalStrut(TAM_BTTN.height/2));
 		Ibox.add(Guarda_progreso);
 		Inicio.add(Ibox);
 		
@@ -279,7 +300,6 @@ public class Frame extends JFrame {
 		
 		//-------------------------Adds
 		
-		//----Equipos y cajas
 		CboxV1.add(CEquipo1);
 		CboxV1.add(Box.createVerticalGlue());
 		CboxV1.add(CEquipo2);
@@ -296,8 +316,6 @@ public class Frame extends JFrame {
 		CboxV4.add(Box.createVerticalGlue());
 		CboxV4.add(CEquipo8);
 		
-		//----cajas verticales
-		
 		CboxH1.add(CboxV1);
 		CboxH1.add(Box.createHorizontalGlue());
 		CboxH1.add(CboxV2);
@@ -305,8 +323,6 @@ public class Frame extends JFrame {
 		CboxH2.add(Box.createHorizontalGlue());
 		CboxH2.add(CboxV4);
 		
-		//----cajas horizontales y paneles
-		Cuartos.setLayout(new BorderLayout());
 		CpanelC.add(CboxH1,BorderLayout.NORTH);
 		CpanelC.add(CboxH2,BorderLayout.SOUTH);
 		Cuartos.add(CpanelN,BorderLayout.NORTH);
@@ -390,10 +406,22 @@ public class Frame extends JFrame {
 		Semifinales.add(SpanelC, BorderLayout.CENTER); 
 		
 		//----------------------------------------FINAL----------------------------------------
+		
 		Final.setBackground(COLOR_FINAL);
 		
 		//----------------------------------------INFORMACION----------------------------------------
+		
 		Informacion.setBackground(COLOR_INFORMACION);
+		
+		//-----------------------------------------------------------------------------------------
+		
+		tabbedPane.addTab("Inicio", null, Inicio, null);
+		tabbedPane.addTab("Zona", null, Zona, null);
+		tabbedPane.addTab("Cuartos", null, Cuartos, null);
+		tabbedPane.addTab("Semifinales", null, Semifinales, null);
+		tabbedPane.addTab("Informacion", null, Informacion, null);
+		tabbedPane.addTab("Final", null, Final, null);
+		
 		
 	}
 
