@@ -3,9 +3,18 @@ package frontend;
 import javax.swing.border.EmptyBorder;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.*;
 
 
 public class Frame extends JFrame {
+	
+	protected static final int CANCHA_TAMANO_RECTANGULO_C = 0;
+	final int WIDTH = 900,HEIGHT = 500;
+	final int CANCHA_TAMANO_CIRCULO_C = 10;
+	final int CANCHA_TAMANO_CIRCULO_G = 100;
+	final int CANCHA_TAMANO_RECT_C = 100;
+	final int CANCHA_TAMANO_RECT_G = 200;
+	final Color COLOR_LINEAS_CANCHA = Color.WHITE;
 	
 	final int FONT_SIZE = 30;
 	final Color COLOR_LETRA = Color.WHITE;
@@ -38,7 +47,7 @@ public class Frame extends JFrame {
 		//----------------------------------------PANEL PRINCIPAL----------------------------------------
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(200, 100, 900, 600);
+		setBounds(200, 100, WIDTH, HEIGHT);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -48,7 +57,21 @@ public class Frame extends JFrame {
 		
 		//----------------------------------------PESTAÑAS----------------------------------------
 		
-		JPanel Inicio = new JPanel();
+		JPanel Inicio = new JPanel(){
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+					Graphics2D g2 = (Graphics2D) g;
+					g2.setPaint(Color.GRAY);
+					g2.addRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
+					g2.fill(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_C/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_C/2),CANCHA_TAMANO_CIRCULO_C,CANCHA_TAMANO_CIRCULO_C));
+					g2.draw(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_G/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_G/2),CANCHA_TAMANO_CIRCULO_G,CANCHA_TAMANO_CIRCULO_G));
+					g2.draw(new Line2D.Double(getWidth()/2,0,getWidth()/2,getHeight()));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+			}
+		};
 		tabbedPane.addTab("Inicio", null, Inicio, null);
 		
 		JPanel Zona = new JPanel();
@@ -62,7 +85,21 @@ public class Frame extends JFrame {
 		tabbedPane.addTab("Semifinales", null, Semifinales, null);
 		Semifinales.setLayout(new BorderLayout(0, 0));
 		
-		JPanel Final = new JPanel();
+		JPanel Final = new JPanel(){
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+					Graphics2D g2 = (Graphics2D) g;
+					g2.setPaint(COLOR_LINEAS_CANCHA);
+					g2.addRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
+					g2.fill(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_C/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_C/2),CANCHA_TAMANO_CIRCULO_C,CANCHA_TAMANO_CIRCULO_C));
+					g2.draw(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_G/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_G/2),CANCHA_TAMANO_CIRCULO_G,CANCHA_TAMANO_CIRCULO_G));
+					g2.draw(new Line2D.Double(getWidth()/2,0,getWidth()/2,getHeight()));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+			}
+		};
 		tabbedPane.addTab("Final", null, Final, null);
 		
 		JPanel Informacion = new JPanel();
@@ -92,7 +129,21 @@ public class Frame extends JFrame {
 		JPanel panel_zona2 = new JPanel();
 		JPanel panel_zona3 = new JPanel();
 		JPanel panel_zona4 = new JPanel();
-		JPanel ZpanelC = new JPanel();
+		JPanel ZpanelC = new JPanel(){
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+					Graphics2D g2 = (Graphics2D) g;
+					g2.setPaint(COLOR_LINEAS_CANCHA);
+					g2.addRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
+					g2.fill(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_C/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_C/2),CANCHA_TAMANO_CIRCULO_C,CANCHA_TAMANO_CIRCULO_C));
+					g2.draw(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_G/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_G/2),CANCHA_TAMANO_CIRCULO_G,CANCHA_TAMANO_CIRCULO_G));
+					g2.draw(new Line2D.Double(getWidth()/2,0,getWidth()/2,getHeight()));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+			}
+		};
 		JComboBox<String> ZcomboBox1 = new JComboBox();
 		JComboBox<String> ZcomboBox2 = new JComboBox();
 		JComboBox<String> ZcomboBox3 = new JComboBox();
@@ -160,7 +211,21 @@ public class Frame extends JFrame {
 		
 		//---------------Variables
 		JPanel CpanelN = new JPanel();
-		JPanel CpanelC = new JPanel();
+		JPanel CpanelC = new JPanel() {
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+					Graphics2D g2 = (Graphics2D) g;
+					g2.setPaint(COLOR_LINEAS_CANCHA);
+					g2.addRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
+					g2.fill(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_C/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_C/2),CANCHA_TAMANO_CIRCULO_C,CANCHA_TAMANO_CIRCULO_C));
+					g2.draw(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_G/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_G/2),CANCHA_TAMANO_CIRCULO_G,CANCHA_TAMANO_CIRCULO_G));
+					g2.draw(new Line2D.Double(getWidth()/2,0,getWidth()/2,getHeight()));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+			}
+		};
 		JComboBox<String> CcomboBox = new JComboBox();
 		Box CboxH1 = Box.createHorizontalBox();
 		Box CboxH2 = Box.createHorizontalBox();
@@ -253,7 +318,21 @@ public class Frame extends JFrame {
 		//----------------Variables
 		
 		JPanel SpanelN = new JPanel();
-		JPanel SpanelC = new JPanel();
+		JPanel SpanelC = new JPanel() {
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+					Graphics2D g2 = (Graphics2D) g;
+					g2.setPaint(COLOR_LINEAS_CANCHA);
+					g2.addRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
+					g2.fill(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_C/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_C/2),CANCHA_TAMANO_CIRCULO_C,CANCHA_TAMANO_CIRCULO_C));
+					g2.draw(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_G/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_G/2),CANCHA_TAMANO_CIRCULO_G,CANCHA_TAMANO_CIRCULO_G));
+					g2.draw(new Line2D.Double(getWidth()/2,0,getWidth()/2,getHeight()));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
+					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+			}
+		};
 		Box SboxH = Box.createHorizontalBox();
 		Box SboxV1 = Box.createVerticalBox();
 		Box SboxV2 = Box.createVerticalBox();
@@ -308,7 +387,7 @@ public class Frame extends JFrame {
 		SpanelC.add(SboxH,BorderLayout.CENTER);
 		SpanelN.add(ScomboBox);
 		Semifinales.add(SpanelN, BorderLayout.NORTH);
-		Semifinales.add(SpanelC, BorderLayout.CENTER);
+		Semifinales.add(SpanelC, BorderLayout.CENTER); 
 		
 		//----------------------------------------FINAL----------------------------------------
 		Final.setBackground(COLOR_FINAL);
