@@ -20,48 +20,69 @@ public class Tabla {
     }
 
     public void ActualizaTabla(){
-        int k=0;
-        
-        for (int i = 0; i < tabla.length; i++){
+                
+        for (int i = 0; i < tabla.length-1; i++){ 
             
-            for (int j = 0; j < tabla.length -1; j++){
+            for (int j = 0; j < tabla.length-i -1; j++){ 
                 
-                if (tabla[i].getPuntos() < tabla[j].getPuntos()){
-                    aux = tabla[i];
-                    tabla[i] = tabla[j];
-                    tabla[j] = aux;
-                        
-                }    
-                else if (tabla[i].getPuntos() == tabla[j].getPuntos()){
-                    
-                    if (tabla[i].getGoles() < tabla[j].getGoles()){
-                        aux = tabla[i];
-                        tabla[i] = tabla[j];
-                        tabla[j] = aux;
-                    }
-                    else if (tabla[i].getGoles() == tabla[j].getGoles()){
-                        
-                        if ((tabla[i].getGoles()-tabla[i].getGolesContra()) < (tabla[j].getGoles()-tabla[j].getGolesContra())){
-                            aux = tabla[i];
-                            tabla[i] = tabla[j];
-                            tabla[j] = aux;                            
+                	if (tabla[j + 1].getPuntos() < tabla[j].getPuntos()){
+                		aux = tabla[j + 1];
+                		tabla[j + 1] = tabla[j];
+                		tabla[j] = aux;    
+                	}
+                	
+                	else if (tabla[j + 1].getPuntos() == tabla[j].getPuntos()){
+                        if (tabla[j + 1].getGoles() < tabla[j].getGoles()){
+                        	aux = tabla[j + 1];
+                    		tabla[j + 1] = tabla[j];
+                    		tabla[j] = aux;
                         }
-                        else if((tabla[i].getGoles()-tabla[i].getGolesContra()) == (tabla[j].getGoles()-tabla[j].getGolesContra())){
-                            
-                            
-                            
+                        else if (tabla[j + 1].getGoles() == tabla[j].getGoles()){
+                        	if ((tabla[j + 1].getGoles() - tabla[j + 1].getGolesContra()) < (tabla[j].getGoles()-tabla[j].getGolesContra())){
+                        		aux = tabla[j + 1];
+                        		tabla[j + 1] = tabla[j];
+                        		tabla[j] = aux;                            
+                        	}
+                        	else if((tabla[j + 1].getGoles() - tabla[j + 1].getGolesContra()) == (tabla[j].getGoles()-tabla[j].getGolesContra())){
+                        		int pos = this.buscaResultado(tabla[i].getNombre(), tabla[j].getNombre());
+                        		if (resultados[pos].getE1() == tabla[i].getNombre()) {
+                        			if (resultados[pos].getGolesE1() < resultados[pos].getGolesE2()) {
+                        				aux = tabla[j + 1];
+                                		tabla[j + 1] = tabla[j];
+                                		tabla[j] = aux;
+                        			}
+                        		}
+                        		else if (resultados[pos].getE1() == tabla[j].getNombre()){
+                        			if (resultados[pos].getGolesE1() > resultados[pos].getGolesE2()) {
+                        				aux = tabla[j + 1];
+                                		tabla[j + 1] = tabla[j];
+                                		tabla[j] = aux;
+                        			}
+                        		}
+                        	}
                         }
-                
-                    }
+                	}
                 }
-            }
-        }
-    }
+          }
+       }
+    
     
     public void setResultados(Resultados resultado) {
         this.resultados[i] = resultado ;
         i++;
     }
-    
-    
+    public int buscaResultado(String e1, String e2) {
+    	int k = 0;
+    	
+    	while (k <= resultados.length) {
+    		if (resultados[k].getE1() == e1 && resultados[k].getE2() == e2) {
+    			return k;
+    		} 
+    		else if (resultados[k].getE1() == e2 && resultados[k].getE2() == e1) {
+    			return k;
+    		} 
+    		k++;
+        }
+    		return -1;
+    }
 }
