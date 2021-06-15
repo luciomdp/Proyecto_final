@@ -6,6 +6,15 @@ import java.awt.*;
 
 
 public class Frame extends JFrame {
+	
+	final int FONT_SIZE = 30;
+	final Color COLOR_LETRA = Color.WHITE;
+	
+	final Color COLOR_INICIO = Color.GREEN;
+	final Color COLOR_PANEL_N = Color.GREEN;
+	final Color COLOR_PANEL_C = new Color(38, 190, 35);
+	final Color COLOR_FINAL = new Color(38, 190, 35);
+	final Color COLOR_INFORMACION = Color.GRAY;
 
 	private JPanel contentPane;
 
@@ -51,6 +60,7 @@ public class Frame extends JFrame {
 		
 		JPanel Semifinales = new JPanel();
 		tabbedPane.addTab("Semifinales", null, Semifinales, null);
+		Semifinales.setLayout(new BorderLayout(0, 0));
 		
 		JPanel Final = new JPanel();
 		tabbedPane.addTab("Final", null, Final, null);
@@ -60,7 +70,7 @@ public class Frame extends JFrame {
 		Inicio.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		//----------------------------------------INICIO----------------------------------------
-		
+		Inicio.setBackground(COLOR_INICIO);
 		Box Ibox = Box.createVerticalBox();
 		
 		JButton Inicia_torneo = new JButton("Inicia torneo");
@@ -75,119 +85,153 @@ public class Frame extends JFrame {
 		
 		//----------------------------------------ZONA----------------------------------------
 		
-		JPanel panel_sup = new JPanel();
-		Zona.add(panel_sup, BorderLayout.NORTH);
-		JPanel panel_central = new JPanel();
-		Zona.add(panel_central, BorderLayout.CENTER);
-		panel_central.setLayout(new GridLayout(1, 0, 0, 0));
-		
+		JButton Simula_todo = new JButton("Simular todas las zonas");
+		JPanel ZpanelN = new JPanel();
+		Box Zbox = Box.createHorizontalBox();
+		JPanel panel_zona1 = new JPanel();
+		JPanel panel_zona2 = new JPanel();
+		JPanel panel_zona3 = new JPanel();
+		JPanel panel_zona4 = new JPanel();
+		JPanel ZpanelC = new JPanel();
 		JComboBox<String> ZcomboBox1 = new JComboBox();
+		JComboBox<String> ZcomboBox2 = new JComboBox();
+		JComboBox<String> ZcomboBox3 = new JComboBox();
+		JComboBox<String> ZcomboBox4 = new JComboBox();
+		
+		ZpanelN.setBackground(COLOR_PANEL_N);
+		panel_zona1.setBackground(COLOR_PANEL_C);
+		panel_zona2.setBackground(COLOR_PANEL_C);
+		panel_zona3.setBackground(COLOR_PANEL_C);
+		panel_zona4.setBackground(COLOR_PANEL_C);
+		ZpanelC.setLayout(new GridLayout(1, 0, 0, 0));
+		
+		//------------------------------Elecciones
+		
+		
+		
 		ZcomboBox1.setEditable(false);
 		ZcomboBox1.addItem("Zona 1");
 		ZcomboBox1.addItem("Simula un partido");
 		ZcomboBox1.addItem("Simula una fecha");
 		ZcomboBox1.addItem("Simula una zona");
-		panel_sup.add(ZcomboBox1);
 		
-		JComboBox<String> ZcomboBox2 = new JComboBox();
+		
+		
 		ZcomboBox2.setEditable(false);
 		ZcomboBox2.addItem("Zona 2");
 		ZcomboBox2.addItem("Simula un partido");
 		ZcomboBox2.addItem("Simula una fecha");
 		ZcomboBox2.addItem("Simula una zona");
-		panel_sup.add(ZcomboBox2);
 		
-		JComboBox<String> ZcomboBox3 = new JComboBox();
+		
+		
 		ZcomboBox3.setEditable(false);
 		ZcomboBox3.addItem("Zona 3");
 		ZcomboBox3.addItem("Simula un partido");
 		ZcomboBox3.addItem("Simula una fecha");
 		ZcomboBox3.addItem("Simula una zona");
-		panel_sup.add(ZcomboBox3);
 		
-		JComboBox<String> ZcomboBox4 = new JComboBox();
+		
+		
 		ZcomboBox4.setEditable(false);
 		ZcomboBox4.addItem("Zona 4");
 		ZcomboBox4.addItem("Simula un partido");
 		ZcomboBox4.addItem("Simula una fecha");
 		ZcomboBox4.addItem("Simula una zona");
-		panel_sup.add(ZcomboBox4);
 		
-		Box Zbox = Box.createHorizontalBox();
 		
-		panel_central.add(Zbox);
 		
-		JPanel panel_zona1 = new JPanel();
+		//-------------------------Adds
+		
+		ZpanelN.add(ZcomboBox1);
+		ZpanelN.add(ZcomboBox2);
+		ZpanelN.add(ZcomboBox3);
+		ZpanelN.add(ZcomboBox4);
+		ZpanelN.add(Simula_todo);
 		Zbox.add(panel_zona1);
-		
-		JPanel panel_zona2 = new JPanel();
 		Zbox.add(panel_zona2);
-		
-		JPanel panel_zona3 = new JPanel();
 		Zbox.add(panel_zona3);
-		
-		JPanel panel_zona4 = new JPanel();
 		Zbox.add(panel_zona4);
+		ZpanelC.add(Zbox);
+		Zona.add(ZpanelN, BorderLayout.NORTH);
+		Zona.add(ZpanelC, BorderLayout.CENTER);
 		
 		//----------------------------------------CUARTOS----------------------------------------
 		
-		//---------------Paneles
+		//---------------Variables
 		JPanel CpanelN = new JPanel();
 		JPanel CpanelC = new JPanel();
-		CpanelC.setLayout(new BorderLayout());
-		//----------Cajas horizontales
+		JComboBox<String> CcomboBox = new JComboBox();
 		Box CboxH1 = Box.createHorizontalBox();
 		Box CboxH2 = Box.createHorizontalBox();
-		//----------Cajas verticales con equipos
-		Box CboxV1 = Box.createHorizontalBox();
-		Box CboxV2 = Box.createHorizontalBox();
-		Box CboxV3 = Box.createHorizontalBox();
-		Box CboxV4 = Box.createHorizontalBox();
-		//---------------Equipos
-		
+		Box CboxV1 = Box.createVerticalBox();
+		Box CboxV2 = Box.createVerticalBox();
+		Box CboxV3 = Box.createVerticalBox();
+		Box CboxV4 = Box.createVerticalBox();
 		JLabel CEquipo1 = new JLabel("Equipo 1");
-		CboxV1.add(CEquipo1);
-		
-		//CboxV1.add(Box.createVerticalStrut(40));
-		CboxV1.add(Box.createVerticalGlue());
-		
 		JLabel CEquipo2 = new JLabel("Equipo 2");
-		CboxV1.add(CEquipo2);
-		
 		JLabel CEquipo3 = new JLabel("Equipo 3");
-		CboxV2.add(CEquipo3);
-		
-		CboxV2.add(Box.createVerticalGlue());
-		
 		JLabel CEquipo4 = new JLabel("Equipo 4");
-		CboxV2.add(CEquipo4);
-		
 		JLabel CEquipo5 = new JLabel("Equipo 5");
-		CboxV3.add(CEquipo5);
-		
-		CboxV3.add(Box.createVerticalGlue());
-		
 		JLabel CEquipo6 = new JLabel("Equipo 6");
-		CboxV3.add(CEquipo6);
-		
 		JLabel CEquipo7 = new JLabel("Equipo 7");
-		CboxV4.add(CEquipo7);
-		
-		CboxV4.add(Box.createVerticalGlue());
-		
 		JLabel CEquipo8 = new JLabel("Equipo 8");
-		CboxV4.add(CEquipo8);
+		
+		//---------------Paneles
+		
+		CpanelN.setBackground(COLOR_PANEL_N);
+		CpanelC.setLayout(new BorderLayout());
+		CpanelC.setBackground(COLOR_PANEL_C);
+
+		//---------------Equipos
+	
+		CEquipo1.setForeground(COLOR_LETRA);
+		CEquipo1.setFont(new Font(null,0,FONT_SIZE));
+		CEquipo2.setForeground(COLOR_LETRA);
+		CEquipo2.setFont(new Font(null,0,FONT_SIZE));
+		CEquipo3.setForeground(COLOR_LETRA);
+		CEquipo3.setFont(new Font(null,0,FONT_SIZE));
+		CEquipo4.setForeground(COLOR_LETRA);
+		CEquipo4.setFont(new Font(null,0,FONT_SIZE));
+		CEquipo5.setForeground(COLOR_LETRA);
+		CEquipo5.setFont(new Font(null,0,FONT_SIZE));
+		CEquipo6.setForeground(COLOR_LETRA);
+		CEquipo6.setFont(new Font(null,0,FONT_SIZE));
+		CEquipo7.setForeground(COLOR_LETRA);
+		CEquipo7.setFont(new Font(null,0,FONT_SIZE));
+		CEquipo8.setForeground(COLOR_LETRA);
+		CEquipo8.setFont(new Font(null,0,FONT_SIZE));
+				
 		//---------------Elecciones
 		
-		JComboBox<String> CcomboBox = new JComboBox();
 		CcomboBox.setEditable(false);
 		CcomboBox.addItem("Cuartos");
-		CcomboBox.addItem("Simula un partido");
-		CcomboBox.addItem("Simula una fecha");
-		CcomboBox.addItem("Simula una zona");
+		CcomboBox.addItem("Simula partido");
+		CcomboBox.addItem("Simula todos los partidos de ida");
+		CcomboBox.addItem("Simula todos los partidos de vuelta");
+		CcomboBox.addItem("Simula todos los partidos");
 		CpanelN.add(CcomboBox);
 		
-		//---------------Adds
+		//-------------------------Adds
+		
+		//----Equipos y cajas
+		CboxV1.add(CEquipo1);
+		CboxV1.add(Box.createVerticalGlue());
+		CboxV1.add(CEquipo2);
+		
+		CboxV2.add(CEquipo3);
+		CboxV2.add(Box.createVerticalGlue());
+		CboxV2.add(CEquipo4);
+		
+		CboxV3.add(CEquipo5);
+		CboxV3.add(Box.createVerticalGlue());
+		CboxV3.add(CEquipo6);
+		
+		CboxV4.add(CEquipo7);
+		CboxV4.add(Box.createVerticalGlue());
+		CboxV4.add(CEquipo8);
+		
+		//----cajas verticales
 		
 		CboxH1.add(CboxV1);
 		CboxH1.add(Box.createHorizontalGlue());
@@ -196,6 +240,7 @@ public class Frame extends JFrame {
 		CboxH2.add(Box.createHorizontalGlue());
 		CboxH2.add(CboxV4);
 		
+		//----cajas horizontales y paneles
 		Cuartos.setLayout(new BorderLayout());
 		CpanelC.add(CboxH1,BorderLayout.NORTH);
 		CpanelC.add(CboxH2,BorderLayout.SOUTH);
@@ -205,9 +250,71 @@ public class Frame extends JFrame {
 		
 		//----------------------------------------SEMIFINALES----------------------------------------
 		
+		//----------------Variables
+		
+		JPanel SpanelN = new JPanel();
+		JPanel SpanelC = new JPanel();
+		Box SboxH = Box.createHorizontalBox();
+		Box SboxV1 = Box.createVerticalBox();
+		Box SboxV2 = Box.createVerticalBox();
+		JComboBox<String> ScomboBox = new JComboBox();
+		JLabel SEquipo1 = new JLabel("Equipo 1");
+		JLabel SEquipo2 = new JLabel("Equipo 2");
+		JLabel SEquipo3 = new JLabel("Equipo 3");
+		JLabel SEquipo4 = new JLabel("Equipo 4");
+		
+		//----------------Paneles
+		SpanelN.setBackground(COLOR_PANEL_N);
+		SpanelC.setBackground(COLOR_PANEL_C);
+		SpanelC.setLayout(new BorderLayout());
+		
+		//---------------Equipos
+		
+		
+		SEquipo1.setForeground(COLOR_LETRA);
+		SEquipo1.setFont(new Font(null,0,FONT_SIZE));
+		SEquipo2.setForeground(COLOR_LETRA);
+		SEquipo2.setFont(new Font(null,0,FONT_SIZE));
+		SEquipo3.setForeground(COLOR_LETRA);
+		SEquipo3.setFont(new Font(null,0,FONT_SIZE));
+		SEquipo4.setForeground(COLOR_LETRA);
+		SEquipo4.setFont(new Font(null,0,FONT_SIZE));
+		
+		//----------------Elecciones
+		
+		ScomboBox.setEditable(false);
+		ScomboBox.addItem("Semifinales");
+		ScomboBox.addItem("Simula partido");
+		ScomboBox.addItem("Simula todos los partidos de ida");
+		ScomboBox.addItem("Simula todos los partidos de vuelta");
+		ScomboBox.addItem("Simula todos los partidos");
+		
+		//-----------------Adds
+		
+		SboxV1.add(SEquipo1);
+		SboxV1.add(Box.createVerticalStrut(30));
+		SboxV1.add(SEquipo2);
+		
+		SboxV2.add(SEquipo3);
+		SboxV2.add(Box.createVerticalStrut(30));
+		SboxV2.add(SEquipo4);
+		
+		SboxH.add(Box.createHorizontalStrut(20));
+		SboxH.add(SboxV1);
+		SboxH.add(Box.createHorizontalStrut(500));
+		SboxH.add(Box.createHorizontalGlue());
+		SboxH.add(SboxV2);
+		
+		SpanelC.add(SboxH,BorderLayout.CENTER);
+		SpanelN.add(ScomboBox);
+		Semifinales.add(SpanelN, BorderLayout.NORTH);
+		Semifinales.add(SpanelC, BorderLayout.CENTER);
+		
 		//----------------------------------------FINAL----------------------------------------
+		Final.setBackground(COLOR_FINAL);
 		
 		//----------------------------------------INFORMACION----------------------------------------
+		Informacion.setBackground(COLOR_INFORMACION);
 		
 	}
 
