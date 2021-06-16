@@ -32,8 +32,8 @@ public class Frame extends JFrame {
 	//-----------------------------------COLORES FONDO-----------------------------
 	
 	final Color COLOR_INICIO = Color.GREEN;
-	final Color COLOR_PANEL_N = Color.GREEN;
-	final Color COLOR_PANEL_C = new Color(38, 190, 35);
+	final Color COLOR_PANEL_N = new Color(38, 190, 35);
+	final Color COLOR_PANEL_C = Color.GREEN;
 	final Color COLOR_FINAL = new Color(38, 190, 35);
 	final Color COLOR_INFORMACION = Color.GRAY;
 	//-----------------------------------PANEL-----------------------------
@@ -139,6 +139,7 @@ public class Frame extends JFrame {
 		Ibox.add(Continua);
 		Ibox.add(Box.createVerticalStrut(TAM_BTTN.height/2));
 		Ibox.add(Guarda_progreso);
+		Ibox.add(Box.createVerticalStrut((getHeight()/2)-CANT_BTN*TAM_BTTN.height));
 		Inicio.add(Ibox);
 		
 		//----------------------------------------ZONA----------------------------------------
