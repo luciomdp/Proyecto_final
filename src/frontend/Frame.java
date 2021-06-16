@@ -419,8 +419,8 @@ public class Frame extends JFrame {
 		tabbedPane.addTab("Zona", null, Zona, null);
 		tabbedPane.addTab("Cuartos", null, Cuartos, null);
 		tabbedPane.addTab("Semifinales", null, Semifinales, null);
-		tabbedPane.addTab("Informacion", null, Informacion, null);
 		tabbedPane.addTab("Final", null, Final, null);
+		tabbedPane.addTab("Informacion", null, Informacion, null);
 		
 		
 	}
