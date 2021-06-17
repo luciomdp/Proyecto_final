@@ -37,21 +37,20 @@ public class Frame extends JFrame {
 	
 	final int CANT_BTN = 3;
 	final int TAM_HOR_BTTN = 300,TAM_VER_BTTN = 40,TAMX_HOR_BTTN = 500,TAMX_VER_BTTN = 70;
-	final Color COLOR_BOTONES = new Color(38, 190, 35);
-	final Color COLOR_BOTONES_IF = Color.DARK_GRAY;
-	final Color COLOR_BOTONES_IFP =new Color (168, 168, 168);
-	final Color COLOR_LETRA_IF = Color.WHITE;
+	final Color COLOR_ETIQUETAS = Color.GREEN;//new Color(38, 190, 35);
+	final Color COLOR_BOTONES = Color.DARK_GRAY;
+	final Color COLOR_BOTONES_2 =new Color (168, 168, 168);
+	final Color COLOR_LETRA = Color.WHITE;
 	final Dimension TAMX_BTTN = new Dimension(TAMX_HOR_BTTN,TAMX_VER_BTTN),TAM_BTTN = new Dimension(TAM_HOR_BTTN,TAM_VER_BTTN);
 	final Dimension TAM_BTTN_IFP = new Dimension(TAMX_HOR_BTTN,TAMX_VER_BTTN/3);
 	//-----------------------------------TAMAÑO Y COLOR LETRA-----------------------------
 	
 	final int FONT_SIZE = 22;
-	final Color COLOR_LETRA = Color.WHITE;
 	//-----------------------------------COLORES FONDO-----------------------------
 	
-	final Color COLOR_INICIO = Color.GREEN;
-	final Color COLOR_PANEL_N = new Color(38, 190, 35);
-	final Color COLOR_PANEL_C = Color.GREEN;
+	final Color COLOR_INICIO = new Color(38, 190, 35);//Color.GREEN;
+	final Color COLOR_PANEL_N = new Color(0, 135, 5);//Color.DARK_GRAY;//new Color(38, 190, 35);
+	final Color COLOR_PANEL_C = new Color(38, 190, 35);//Color.GREEN;
 	final Color COLOR_FINAL = new Color(38, 190, 35);
 	final Color COLOR_INFORMACION = Color.GRAY;
 	//-----------------------------------PANEL-----------------------------
@@ -77,7 +76,6 @@ public class Frame extends JFrame {
 		//----------------------------------------PANEL PRINCIPAL----------------------------------------
 		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
 		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
-		Dimension d = MiPantalla.getScreenSize();
 		setTitle("Proyecto final en Java: Torneo de futbol");
 		setIconImage(imagen);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -151,10 +149,10 @@ public class Frame extends JFrame {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 					Graphics2D g2 = (Graphics2D) g;
-					g2.setPaint(COLOR_LETRA_IF);
+					g2.setPaint(COLOR_LETRA);
 					g2.draw(new Line2D.Double(getWidth()/16,getHeight(),getWidth()/16,0));
 					g2.draw(new Line2D.Double(getWidth()-getWidth()/16,getHeight(),getWidth()-getWidth()/16,0));
-					g2.draw(new Line2D.Double(getWidth(),getHeight()-getHeight()/16,0,getHeight()-getHeight()/16));
+					//g2.draw(new Line2D.Double(getWidth(),getHeight()-getHeight()/16,0,getHeight()-getHeight()/16));
 			}
 		};
 		
@@ -162,23 +160,29 @@ public class Frame extends JFrame {
 		//----------------------------------------INICIO----------------------------------------
 		Box Ibox = Box.createVerticalBox();
 		JButton Inicia_torneo = new JButton("Inicia torneo");
-		JButton Continua = new JButton("Continua desde donde lo dejaste");
+		JButton Continua = new JButton("Continua con el torneo");
 		JButton Guarda_progreso = new JButton("Guarda tu progreso");
 		
 		Inicia_torneo.setMinimumSize(Inicia_torneo.getSize());
+		Inicia_torneo.setForeground(COLOR_LETRA);
 		Inicia_torneo.setPreferredSize(TAM_BTTN);
 		Inicia_torneo.setMaximumSize(TAMX_BTTN);
-		Inicia_torneo.setBackground(COLOR_BOTONES);
+		Inicia_torneo.setBackground(COLOR_PANEL_N);
+		Inicia_torneo.setFont(new Font(null,0,FONT_SIZE));
 		
 		Continua.setMinimumSize(Continua.getSize());
+		Continua.setForeground(COLOR_LETRA);
 		Continua.setPreferredSize(TAM_BTTN);
 		Continua.setMaximumSize(TAMX_BTTN);
-		Continua.setBackground(COLOR_BOTONES);
+		Continua.setBackground(COLOR_PANEL_N);
+		Continua.setFont(new Font(null,0,FONT_SIZE));
 		
 		Guarda_progreso.setMinimumSize(Guarda_progreso.getSize());
 		Guarda_progreso.setPreferredSize(TAM_BTTN);
+		Guarda_progreso.setForeground(COLOR_LETRA);
 		Guarda_progreso.setMaximumSize(TAMX_BTTN);
-		Guarda_progreso.setBackground(COLOR_BOTONES);
+		Guarda_progreso.setBackground(COLOR_PANEL_N);
+		Guarda_progreso.setFont(new Font(null,0,FONT_SIZE));
 		
 		Ibox.add(Box.createVerticalStrut((getHeight()/2)-CANT_BTN*TAM_BTTN.height));
 		Ibox.add(Inicia_torneo);
@@ -296,42 +300,42 @@ public class Frame extends JFrame {
 		CEquipo1.setFont(new Font(null,0,FONT_SIZE));
 		CEquipo1.setEnabled(false);
 		CEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
-		CEquipo1.setBackground(COLOR_BOTONES);
+		CEquipo1.setBackground(COLOR_ETIQUETAS);
 		
 		CEquipo2.setFont(new Font(null,0,FONT_SIZE));
 		CEquipo2.setEnabled(false);
-		CEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2 + TAM_BTTN.height/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
-		CEquipo2.setBackground(COLOR_BOTONES);
+		CEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo2.setBackground(COLOR_ETIQUETAS);
 		
 		CEquipo3.setFont(new Font(null,0,FONT_SIZE));
 		CEquipo3.setEnabled(false);
-		CEquipo3.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
-		CEquipo3.setBackground(COLOR_BOTONES);
+		CEquipo3.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_BTTN.height/2) + AUM_Y_BTTN/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo3.setBackground(COLOR_ETIQUETAS);
 		
 		CEquipo4.setFont(new Font(null,0,FONT_SIZE));
 		CEquipo4.setEnabled(false);
-		CEquipo4.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
-		CEquipo4.setBackground(COLOR_BOTONES);
+		CEquipo4.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_BTTN.height/2) + AUM_Y_BTTN/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo4.setBackground(COLOR_ETIQUETAS);
 		
 		CEquipo5.setFont(new Font(null,0,FONT_SIZE));
 		CEquipo5.setEnabled(false);
-		CEquipo5.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
-		CEquipo5.setBackground(COLOR_BOTONES);
+		CEquipo5.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_BTTN.width/2+75,CANCHA_TAMANO_RECT_G/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo5.setBackground(COLOR_ETIQUETAS);
 		
 		CEquipo6.setFont(new Font(null,0,FONT_SIZE));
 		CEquipo6.setEnabled(false);
-		CEquipo6.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
-		CEquipo6.setBackground(COLOR_BOTONES);
+		CEquipo6.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_BTTN.width/2+75,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo6.setBackground(COLOR_ETIQUETAS);
 		
 		CEquipo7.setFont(new Font(null,0,FONT_SIZE));
 		CEquipo7.setEnabled(false);
-		CEquipo7.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
-		CEquipo7.setBackground(COLOR_BOTONES);
+		CEquipo7.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_BTTN.width/2+75,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_BTTN.height/2) + AUM_Y_BTTN/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo7.setBackground(COLOR_ETIQUETAS);
 		
 		CEquipo8.setFont(new Font(null,0,FONT_SIZE));
 		CEquipo8.setEnabled(false);
-		CEquipo8.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
-		CEquipo8.setBackground(COLOR_BOTONES);
+		CEquipo8.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_BTTN.width/2+75,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_BTTN.height/2) + AUM_Y_BTTN/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo8.setBackground(COLOR_ETIQUETAS);
 				
 		//---------------Elecciones
 		
@@ -398,22 +402,22 @@ public class Frame extends JFrame {
 		SEquipo1.setFont(new Font(null,0,FONT_SIZE));
 		SEquipo1.setEnabled(false);
 		SEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width,TAM_BTTN.height);
-		SEquipo1.setBackground(COLOR_BOTONES);
+		SEquipo1.setBackground(COLOR_ETIQUETAS);
 		
 		SEquipo2.setFont(new Font(null,0,FONT_SIZE));
 		SEquipo2.setEnabled(false);
 		SEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4+TAM_BTTN.height+AUM_Y_BTTN,TAM_BTTN.width,TAM_BTTN.height);
-		SEquipo2.setBackground(COLOR_BOTONES);
+		SEquipo2.setBackground(COLOR_ETIQUETAS);
 		
 		SEquipo3.setFont(new Font(null,0,FONT_SIZE));
 		SEquipo3.setEnabled(false);
 		SEquipo3.setBounds(WIDTH-TAM_BTTN.width-CANCHA_TAMANO_RECT_G/2+75,getHeight()/4,TAM_BTTN.width,TAM_BTTN.height);
-		SEquipo3.setBackground(COLOR_BOTONES);
+		SEquipo3.setBackground(COLOR_ETIQUETAS);
 		
 		SEquipo4.setFont(new Font(null,0,FONT_SIZE));
 		SEquipo4.setEnabled(false);
 		SEquipo4.setBounds(WIDTH-TAM_BTTN.width-CANCHA_TAMANO_RECT_G/2+75,getHeight()/4+TAM_BTTN.height+AUM_Y_BTTN,TAM_BTTN.width,TAM_BTTN.height);
-		SEquipo4.setBackground(COLOR_BOTONES);
+		SEquipo4.setBackground(COLOR_ETIQUETAS);
 		
 		//----------------Elecciones
 		
@@ -454,8 +458,8 @@ public class Frame extends JFrame {
 		Listado_equipos.setMinimumSize(Listado_equipos.getSize());
 		Listado_equipos.setPreferredSize(TAM_BTTN);
 		Listado_equipos.setMaximumSize(TAMX_BTTN);
-		Listado_equipos.setBackground(COLOR_BOTONES_IF);
-		Listado_equipos.setForeground(COLOR_LETRA_IF);
+		Listado_equipos.setBackground(COLOR_BOTONES);
+		Listado_equipos.setForeground(COLOR_LETRA);
 		Listado_equipos.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
@@ -469,8 +473,8 @@ public class Frame extends JFrame {
 		Ranking_referis.setMinimumSize(Ranking_referis.getSize());
 		Ranking_referis.setPreferredSize(TAM_BTTN);
 		Ranking_referis.setMaximumSize(TAMX_BTTN);
-		Ranking_referis.setBackground(COLOR_BOTONES_IF);
-		Ranking_referis.setForeground(COLOR_LETRA_IF);
+		Ranking_referis.setBackground(COLOR_BOTONES);
+		Ranking_referis.setForeground(COLOR_LETRA);
 		Ranking_referis.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
@@ -484,8 +488,8 @@ public class Frame extends JFrame {
 		Listado_jugadores.setMinimumSize(Listado_jugadores.getSize());
 		Listado_jugadores.setPreferredSize(TAM_BTTN);
 		Listado_jugadores.setMaximumSize(TAMX_BTTN);
-		Listado_jugadores.setBackground(COLOR_BOTONES_IF);
-		Listado_jugadores.setForeground(COLOR_LETRA_IF);
+		Listado_jugadores.setBackground(COLOR_BOTONES);
+		Listado_jugadores.setForeground(COLOR_LETRA);
 		Listado_jugadores.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
@@ -542,8 +546,8 @@ public class Frame extends JFrame {
 			boton_equipos.setMinimumSize(boton_equipos.getSize());
 			boton_equipos.setPreferredSize(TAM_BTTN_IFP);
 			boton_equipos.setMaximumSize(TAM_BTTN);
-			boton_equipos.setForeground(COLOR_LETRA_IF);
-			boton_equipos.setBackground(COLOR_BOTONES_IFP);
+			boton_equipos.setForeground(COLOR_LETRA);
+			boton_equipos.setBackground(COLOR_BOTONES_2);
 			add(boton_equipos,BorderLayout.NORTH);
 			add(panel_area,BorderLayout.CENTER);
 			setBorder(BorderFactory.createTitledBorder("Listado de equipos"));
@@ -575,8 +579,8 @@ public class Frame extends JFrame {
 			boton_muestra.setMinimumSize(boton_muestra.getSize());
 			boton_muestra.setPreferredSize(TAM_BTTN_IFP);
 			boton_muestra.setMaximumSize(TAM_BTTN);
-			boton_muestra.setForeground(COLOR_LETRA_IF);
-			boton_muestra.setBackground(COLOR_BOTONES_IFP);
+			boton_muestra.setForeground(COLOR_LETRA);
+			boton_muestra.setBackground(COLOR_BOTONES_2);
 			IFpos.addItem("Seleccione posicion");
 			IFpos.addItem("Arquero");
 			IFpos.addItem("Defensor");
@@ -613,8 +617,8 @@ public class Frame extends JFrame {
 			boton_equipos.setMinimumSize(boton_equipos.getSize());
 			boton_equipos.setPreferredSize(TAM_BTTN_IFP);
 			boton_equipos.setMaximumSize(TAM_BTTN);
-			boton_equipos.setForeground(COLOR_LETRA_IF);
-			boton_equipos.setBackground(COLOR_BOTONES_IFP);
+			boton_equipos.setForeground(COLOR_LETRA);
+			boton_equipos.setBackground(COLOR_BOTONES_2);
 			add(boton_equipos,BorderLayout.NORTH);
 			add(panel_area,BorderLayout.CENTER);
 			setBorder(BorderFactory.createTitledBorder("Ranking de referis"));
