@@ -18,7 +18,6 @@ public class Frame extends JFrame {
 	 */
 	private static final long serialVersionUID = 1903446880091767162L;
 
-	final int WIDTH = 1000,HEIGHT = 600;
 	//-----------------------------------INFO_BACKEND-----------------------------
 	
 	final int CANT_EQUIPOS = 16;
@@ -74,9 +73,14 @@ public class Frame extends JFrame {
 	public Frame() {	
 		
 		//----------------------------------------PANEL PRINCIPAL----------------------------------------
-		
+		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
+		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
+		Dimension d = MiPantalla.getScreenSize();
+		final int WIDTH = (int) (d.width*0.8),HEIGHT = (int) (d.height*0.8);
+		setTitle("Proyecto final en Java: Torneo de futbol");
+		setIconImage(imagen);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(200, 100, WIDTH, HEIGHT);
+		setBounds(200, 100,WIDTH,HEIGHT);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
