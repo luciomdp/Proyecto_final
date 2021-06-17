@@ -13,6 +13,8 @@ public class Frame extends JFrame {
 	
 	//-----------------------------------ALTO Y LARGO FRAME-----------------------------
 	
+	final int WIDTH = 900,HEIGHT = 500;
+	
 	/**
 	 * 
 	 */
@@ -43,7 +45,7 @@ public class Frame extends JFrame {
 	final Dimension TAM_BTTN_IFP = new Dimension(TAMX_HOR_BTTN,TAMX_VER_BTTN/3);
 	//-----------------------------------TAMAÑO Y COLOR LETRA-----------------------------
 	
-	final int FONT_SIZE = 28;
+	final int FONT_SIZE = 22;
 	final Color COLOR_LETRA = Color.WHITE;
 	//-----------------------------------COLORES FONDO-----------------------------
 	
@@ -76,11 +78,10 @@ public class Frame extends JFrame {
 		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
 		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
 		Dimension d = MiPantalla.getScreenSize();
-		final int WIDTH = (int) (d.width*0.8),HEIGHT = (int) (d.height*0.85);
 		setTitle("Proyecto final en Java: Torneo de futbol");
 		setIconImage(imagen);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(200, 100,WIDTH,HEIGHT);
+		setBounds(200, 100,1003,567);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -249,6 +250,8 @@ public class Frame extends JFrame {
 		
 		//----------------------------------------CUARTOS----------------------------------------
 		
+		final int AUM_Y_BTTN = getWidth()/16; //AUMENTO DE LOS BOTONES EN Y/2 PARA CUARTOS E Y SEMIS
+		
 		//---------------Variables
 		JPanel CpanelN = new JPanel();
 		JPanel CpanelC = new JPanel() {
@@ -272,45 +275,63 @@ public class Frame extends JFrame {
 			}
 		};
 		JComboBox<String> CcomboBox = new JComboBox<String>();
-		Box CboxH1 = Box.createHorizontalBox();
-		Box CboxH2 = Box.createHorizontalBox();
-		Box CboxV1 = Box.createVerticalBox();
-		Box CboxV2 = Box.createVerticalBox();
-		Box CboxV3 = Box.createVerticalBox();
-		Box CboxV4 = Box.createVerticalBox();
-		JLabel CEquipo1 = new JLabel("Equipo 1");
-		JLabel CEquipo2 = new JLabel("Equipo 2");
-		JLabel CEquipo3 = new JLabel("Equipo 3");
-		JLabel CEquipo4 = new JLabel("Equipo 4");
-		JLabel CEquipo5 = new JLabel("Equipo 5");
-		JLabel CEquipo6 = new JLabel("Equipo 6");
-		JLabel CEquipo7 = new JLabel("Equipo 7");
-		JLabel CEquipo8 = new JLabel("Equipo 8");
+		JButton CEquipo1 = new JButton("Equipo 1");
+		JButton CEquipo2 = new JButton("Equipo 2");
+		JButton CEquipo3 = new JButton("Equipo 3");
+		JButton CEquipo4 = new JButton("Equipo 4");
+		JButton CEquipo5 = new JButton("Equipo 5");
+		JButton CEquipo6 = new JButton("Equipo 6");
+		JButton CEquipo7 = new JButton("Equipo 7");
+		JButton CEquipo8 = new JButton("Equipo 8");
 		
 		//---------------Paneles
 		
 		CpanelN.setBackground(COLOR_PANEL_N);
-		CpanelC.setLayout(new BorderLayout());
+		CpanelC.setLayout(null);
 		CpanelC.setBackground(COLOR_PANEL_C);
 
 		//---------------Equipos
 	
-		CEquipo1.setForeground(COLOR_LETRA);
+		
 		CEquipo1.setFont(new Font(null,0,FONT_SIZE));
-		CEquipo2.setForeground(COLOR_LETRA);
+		CEquipo1.setEnabled(false);
+		CEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo1.setBackground(COLOR_BOTONES);
+		
 		CEquipo2.setFont(new Font(null,0,FONT_SIZE));
-		CEquipo3.setForeground(COLOR_LETRA);
+		CEquipo2.setEnabled(false);
+		CEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2 + TAM_BTTN.height/2,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo2.setBackground(COLOR_BOTONES);
+		
 		CEquipo3.setFont(new Font(null,0,FONT_SIZE));
-		CEquipo4.setForeground(COLOR_LETRA);
+		CEquipo3.setEnabled(false);
+		CEquipo3.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo3.setBackground(COLOR_BOTONES);
+		
 		CEquipo4.setFont(new Font(null,0,FONT_SIZE));
-		CEquipo5.setForeground(COLOR_LETRA);
+		CEquipo4.setEnabled(false);
+		CEquipo4.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo4.setBackground(COLOR_BOTONES);
+		
 		CEquipo5.setFont(new Font(null,0,FONT_SIZE));
-		CEquipo6.setForeground(COLOR_LETRA);
+		CEquipo5.setEnabled(false);
+		CEquipo5.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo5.setBackground(COLOR_BOTONES);
+		
 		CEquipo6.setFont(new Font(null,0,FONT_SIZE));
-		CEquipo7.setForeground(COLOR_LETRA);
+		CEquipo6.setEnabled(false);
+		CEquipo6.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo6.setBackground(COLOR_BOTONES);
+		
 		CEquipo7.setFont(new Font(null,0,FONT_SIZE));
-		CEquipo8.setForeground(COLOR_LETRA);
+		CEquipo7.setEnabled(false);
+		CEquipo7.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo7.setBackground(COLOR_BOTONES);
+		
 		CEquipo8.setFont(new Font(null,0,FONT_SIZE));
+		CEquipo8.setEnabled(false);
+		CEquipo8.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width/2,TAM_BTTN.height/2);
+		CEquipo8.setBackground(COLOR_BOTONES);
 				
 		//---------------Elecciones
 		
@@ -323,32 +344,15 @@ public class Frame extends JFrame {
 		CpanelN.add(CcomboBox);
 		
 		//-------------------------Adds
+		CpanelC.add(CEquipo1);
+		CpanelC.add(CEquipo2);
+		CpanelC.add(CEquipo3);
+		CpanelC.add(CEquipo4);
+		CpanelC.add(CEquipo5);
+		CpanelC.add(CEquipo6);
+		CpanelC.add(CEquipo7);
+		CpanelC.add(CEquipo8);
 		
-		CboxV1.add(CEquipo1);
-		CboxV1.add(Box.createVerticalGlue());
-		CboxV1.add(CEquipo2);
-		
-		CboxV2.add(CEquipo3);
-		CboxV2.add(Box.createVerticalGlue());
-		CboxV2.add(CEquipo4);
-		
-		CboxV3.add(CEquipo5);
-		CboxV3.add(Box.createVerticalGlue());
-		CboxV3.add(CEquipo6);
-		
-		CboxV4.add(CEquipo7);
-		CboxV4.add(Box.createVerticalGlue());
-		CboxV4.add(CEquipo8);
-		
-		CboxH1.add(CboxV1);
-		CboxH1.add(Box.createHorizontalGlue());
-		CboxH1.add(CboxV2);
-		CboxH2.add(CboxV3);
-		CboxH2.add(Box.createHorizontalGlue());
-		CboxH2.add(CboxV4);
-		
-		CpanelC.add(CboxH1,BorderLayout.NORTH);
-		CpanelC.add(CboxH2,BorderLayout.SOUTH);
 		Cuartos.add(CpanelN,BorderLayout.NORTH);
 		Cuartos.add(CpanelC,BorderLayout.CENTER);
 		
@@ -378,31 +382,38 @@ public class Frame extends JFrame {
 					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
 			}
 		};
-		Box SboxH = Box.createHorizontalBox();
-		Box SboxV1 = Box.createVerticalBox();
-		Box SboxV2 = Box.createVerticalBox();
 		JComboBox<String> ScomboBox = new JComboBox<String>();
-		JLabel SEquipo1 = new JLabel("Equipo 1");
-		JLabel SEquipo2 = new JLabel("Equipo 2");
-		JLabel SEquipo3 = new JLabel("Equipo 3");
-		JLabel SEquipo4 = new JLabel("Equipo 4");
+		JButton SEquipo1 = new JButton("Equipo 1");
+		JButton SEquipo2 = new JButton("Equipo 2");
+		JButton SEquipo3 = new JButton("Equipo 3");
+		JButton SEquipo4 = new JButton("Equipo 4");
 		
 		//----------------Paneles
 		SpanelN.setBackground(COLOR_PANEL_N);
 		SpanelC.setBackground(COLOR_PANEL_C);
-		SpanelC.setLayout(new BorderLayout());
+		SpanelC.setLayout(null);
 		
 		//---------------Equipos
 		
-		
-		SEquipo1.setForeground(COLOR_LETRA);
 		SEquipo1.setFont(new Font(null,0,FONT_SIZE));
-		SEquipo2.setForeground(COLOR_LETRA);
+		SEquipo1.setEnabled(false);
+		SEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4,TAM_BTTN.width,TAM_BTTN.height);
+		SEquipo1.setBackground(COLOR_BOTONES);
+		
 		SEquipo2.setFont(new Font(null,0,FONT_SIZE));
-		SEquipo3.setForeground(COLOR_LETRA);
+		SEquipo2.setEnabled(false);
+		SEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,getHeight()/4+TAM_BTTN.height+AUM_Y_BTTN,TAM_BTTN.width,TAM_BTTN.height);
+		SEquipo2.setBackground(COLOR_BOTONES);
+		
 		SEquipo3.setFont(new Font(null,0,FONT_SIZE));
-		SEquipo4.setForeground(COLOR_LETRA);
+		SEquipo3.setEnabled(false);
+		SEquipo3.setBounds(WIDTH-TAM_BTTN.width-CANCHA_TAMANO_RECT_G/2+75,getHeight()/4,TAM_BTTN.width,TAM_BTTN.height);
+		SEquipo3.setBackground(COLOR_BOTONES);
+		
 		SEquipo4.setFont(new Font(null,0,FONT_SIZE));
+		SEquipo4.setEnabled(false);
+		SEquipo4.setBounds(WIDTH-TAM_BTTN.width-CANCHA_TAMANO_RECT_G/2+75,getHeight()/4+TAM_BTTN.height+AUM_Y_BTTN,TAM_BTTN.width,TAM_BTTN.height);
+		SEquipo4.setBackground(COLOR_BOTONES);
 		
 		//----------------Elecciones
 		
@@ -415,21 +426,10 @@ public class Frame extends JFrame {
 		
 		//-----------------Adds
 		
-		SboxV1.add(SEquipo1);
-		SboxV1.add(Box.createVerticalStrut(30));
-		SboxV1.add(SEquipo2);
-		
-		SboxV2.add(SEquipo3);
-		SboxV2.add(Box.createVerticalStrut(30));
-		SboxV2.add(SEquipo4);
-		
-		SboxH.add(Box.createHorizontalStrut(20));
-		SboxH.add(SboxV1);
-		SboxH.add(Box.createHorizontalStrut(500));
-		SboxH.add(Box.createHorizontalGlue());
-		SboxH.add(SboxV2);
-		
-		SpanelC.add(SboxH,BorderLayout.CENTER);
+		SpanelC.add(SEquipo1);
+		SpanelC.add(SEquipo2);
+		SpanelC.add(SEquipo3);
+		SpanelC.add(SEquipo4);
 		SpanelN.add(ScomboBox);
 		Semifinales.add(SpanelN, BorderLayout.NORTH);
 		Semifinales.add(SpanelC, BorderLayout.CENTER); 
