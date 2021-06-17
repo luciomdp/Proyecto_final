@@ -3,6 +3,8 @@ package frontend;
 import javax.swing.border.EmptyBorder;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.*;
 
 
@@ -36,8 +38,10 @@ public class Frame extends JFrame {
 	final int TAM_HOR_BTTN = 300,TAM_VER_BTTN = 40,TAMX_HOR_BTTN = 500,TAMX_VER_BTTN = 70;
 	final Color COLOR_BOTONES = new Color(38, 190, 35);
 	final Color COLOR_BOTONES_IF = Color.DARK_GRAY;
+	final Color COLOR_BOTONES_IFP =new Color (168, 168, 168);
 	final Color COLOR_LETRA_IF = Color.WHITE;
 	final Dimension TAMX_BTTN = new Dimension(TAMX_HOR_BTTN,TAMX_VER_BTTN),TAM_BTTN = new Dimension(TAM_HOR_BTTN,TAM_VER_BTTN);
+	final Dimension TAM_BTTN_IFP = new Dimension(TAMX_HOR_BTTN,TAMX_VER_BTTN/3);
 	//-----------------------------------TAMAÑO Y COLOR LETRA-----------------------------
 	
 	final int FONT_SIZE = 28;
@@ -50,6 +54,7 @@ public class Frame extends JFrame {
 	final Color COLOR_FINAL = new Color(38, 190, 35);
 	final Color COLOR_INFORMACION = Color.GRAY;
 	//-----------------------------------PANEL-----------------------------
+	final Dimension DIMENSION_PANELES_INFO = new Dimension(15,75);
 	private JPanel contentPane;
 
 	
@@ -66,14 +71,13 @@ public class Frame extends JFrame {
 			}
 		});
 	}
-	public Frame() {
-		
-		
+	public Frame() {	
 		
 		//----------------------------------------PANEL PRINCIPAL----------------------------------------
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 100, WIDTH, HEIGHT);
+		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -133,7 +137,21 @@ public class Frame extends JFrame {
 					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
 			}
 		};
-		JPanel Informacion = new JPanel();
+		JPanel Informacion = new JPanel(){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 8184469625700639718L;
+
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+					Graphics2D g2 = (Graphics2D) g;
+					g2.setPaint(COLOR_LETRA_IF);
+					g2.draw(new Line2D.Double(getWidth()/16,getHeight(),getWidth()/16,0));
+					g2.draw(new Line2D.Double(getWidth()-getWidth()/16,getHeight(),getWidth()-getWidth()/16,0));
+					g2.draw(new Line2D.Double(getWidth(),getHeight()-getHeight()/16,0,getHeight()-getHeight()/16));
+			}
+		};
 		
 			
 		//----------------------------------------INICIO----------------------------------------
@@ -172,26 +190,7 @@ public class Frame extends JFrame {
 		JPanel ZpanelN = new JPanel();
 		Box Zbox = Box.createHorizontalBox();
 		JPanel ZpanelesZonas [] = new JPanel[CANT_ZONAS];
-		JPanel ZpanelC = new JPanel(){
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 6112162972467076759L;
-
-			public void paintComponent(Graphics g) {
-				super.paintComponent(g);
-					Graphics2D g2 = (Graphics2D) g;
-					g2.setPaint(COLOR_LINEAS_CANCHA);
-					g2.addRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
-					g2.fill(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_C/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_C/2),CANCHA_TAMANO_CIRCULO_C,CANCHA_TAMANO_CIRCULO_C));
-					g2.draw(new Ellipse2D.Double((getWidth()/2)-(CANCHA_TAMANO_CIRCULO_G/2),(getHeight()/2)-(CANCHA_TAMANO_CIRCULO_G/2),CANCHA_TAMANO_CIRCULO_G,CANCHA_TAMANO_CIRCULO_G));
-					g2.draw(new Line2D.Double(getWidth()/2,0,getWidth()/2,getHeight()));
-					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
-					g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
-					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
-					g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
-			}
-		};
+		JPanel ZpanelC = new JPanel();
 		JComboBox<String> ZcomboBox1 = new JComboBox<String>();
 		JComboBox<String> ZcomboBox2 = new JComboBox<String>();
 		JComboBox<String> ZcomboBox3 = new JComboBox<String>();
@@ -439,47 +438,77 @@ public class Frame extends JFrame {
 		
 		Informacion.setBackground(COLOR_INFORMACION);
 		Box IFbox = Box.createVerticalBox();
+		Box IFboxPPAL = Box.createVerticalBox();
 		JButton Listado_equipos = new JButton("Listado de equipos");
 		JButton Ranking_referis = new JButton("Ranking de referis");
 		JButton Listado_jugadores = new JButton("Listado de jugadores");
-		//JComboBox<String> IFpos = new JComboBox<String>();
-		
+		IFpanel_E PanelE = new IFpanel_E();
+		IFpanel_J PanelJ = new IFpanel_J();
+		IFpanel_R PanelR = new IFpanel_R();
+		JPanel IFpanelBotonera = new JPanel();
+ 
 		Listado_equipos.setMinimumSize(Listado_equipos.getSize());
 		Listado_equipos.setPreferredSize(TAM_BTTN);
 		Listado_equipos.setMaximumSize(TAMX_BTTN);
 		Listado_equipos.setBackground(COLOR_BOTONES_IF);
 		Listado_equipos.setForeground(COLOR_LETRA_IF);
+		Listado_equipos.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				PanelR.Desactiva();
+				PanelE.Activa();
+				PanelJ.Desactiva();
+			}
+			
+		});
 		
 		Ranking_referis.setMinimumSize(Ranking_referis.getSize());
 		Ranking_referis.setPreferredSize(TAM_BTTN);
 		Ranking_referis.setMaximumSize(TAMX_BTTN);
 		Ranking_referis.setBackground(COLOR_BOTONES_IF);
 		Ranking_referis.setForeground(COLOR_LETRA_IF);
+		Ranking_referis.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				PanelR.Activa();
+				PanelE.Desactiva();
+				PanelJ.Desactiva();
+			}
+			
+		});
 		
 		Listado_jugadores.setMinimumSize(Listado_jugadores.getSize());
 		Listado_jugadores.setPreferredSize(TAM_BTTN);
 		Listado_jugadores.setMaximumSize(TAMX_BTTN);
 		Listado_jugadores.setBackground(COLOR_BOTONES_IF);
 		Listado_jugadores.setForeground(COLOR_LETRA_IF);
+		Listado_jugadores.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				PanelR.Desactiva();
+				PanelE.Desactiva();
+				PanelJ.Activa();
+			}
+			
+		});
 		
-		//IFpos.setMinimumSize(IFpos.getSize());
-		//IFpos.setPreferredSize(new Dimension(TAM_BTTN.width,TAM_BTTN.height/2));
-		//IFpos.setMaximumSize(TAMX_BTTN);
-		/*IFpos.addItem("Seleccione posicion");
-		IFpos.addItem("Arquero");
-		IFpos.addItem("Defensor");
-		IFpos.addItem("Mediocampista");
-		IFpos.addItem("Delantero");*/
-		
-		IFbox.add(Box.createVerticalStrut((getHeight()/2)-CANT_BTN*TAM_BTTN.height));
 		IFbox.add(Listado_equipos);
-		IFbox.add(Box.createVerticalStrut(TAM_BTTN.height/2));
+		IFbox.add(Box.createVerticalStrut(TAM_BTTN.height/4));
 		IFbox.add(Ranking_referis);
-		IFbox.add(Box.createVerticalStrut(TAM_BTTN.height/2));
+		IFbox.add(Box.createVerticalStrut(TAM_BTTN.height/4));
 		IFbox.add(Listado_jugadores);
-		//IFbox.add(IFpos);
-		IFbox.add(Box.createVerticalStrut((getHeight()/2)-CANT_BTN*TAM_BTTN.height));
-		Informacion.add(IFbox,BorderLayout.CENTER);
+
+		//------------------------------PANELES
+		
+		IFpanelBotonera.add(IFbox);
+		IFpanelBotonera.setBackground(COLOR_INFORMACION);
+		IFboxPPAL.add(Box.createVerticalStrut((getHeight()/4)-CANT_BTN*TAM_BTTN.height));
+		IFboxPPAL.add(IFpanelBotonera,BorderLayout.NORTH);
+		PanelE.Activa();
+		IFboxPPAL.add(PanelE,BorderLayout.CENTER);
+		IFboxPPAL.add(PanelJ,BorderLayout.CENTER);
+		IFboxPPAL.add(PanelR,BorderLayout.CENTER);
+		Informacion.add(IFboxPPAL);
 		
 		//-----------------------------------------------------------------------------------------
 		
@@ -491,6 +520,108 @@ public class Frame extends JFrame {
 		tabbedPane.addTab("Informacion", null, Informacion, null);
 		
 		
+	}
+	
+	private class IFpanel_E extends JPanel {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -5076033681079441032L;
+		//panel que se muestra si se pide un listado de equipos
+		IFpanel_E() {
+			setLayout(new BorderLayout());
+			setBackground(Color.GRAY);
+			JTextArea area = new JTextArea(DIMENSION_PANELES_INFO.width,DIMENSION_PANELES_INFO.height);
+			area.setEditable(false);
+			JScrollPane panel_area = new JScrollPane(area);
+			JButton boton_equipos = new JButton("Mostrar equipos");
+			boton_equipos.setMinimumSize(boton_equipos.getSize());
+			boton_equipos.setPreferredSize(TAM_BTTN_IFP);
+			boton_equipos.setMaximumSize(TAM_BTTN);
+			boton_equipos.setForeground(COLOR_LETRA_IF);
+			boton_equipos.setBackground(COLOR_BOTONES_IFP);
+			add(boton_equipos,BorderLayout.NORTH);
+			add(panel_area,BorderLayout.CENTER);
+			setBorder(BorderFactory.createTitledBorder("Listado de equipos"));
+			setVisible(false);
+		}
+		public void Desactiva () {
+			setVisible(false);
+		}
+		public void Activa () {
+			setVisible(true);
+		}
+	}
+	
+	private class IFpanel_J extends JPanel {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -5076033681079441032L;
+		//panel que se muestra si se pide un listado de equipos
+		IFpanel_J() {
+			setLayout(new BorderLayout());
+			setBackground(Color.GRAY);
+			JTextArea area = new JTextArea(DIMENSION_PANELES_INFO.width,DIMENSION_PANELES_INFO.height);
+			area.setEditable(false);
+			JScrollPane panel_area = new JScrollPane(area);
+			JComboBox<String> IFpos = new JComboBox<String>();
+			JButton boton_muestra = new JButton("Mostrar jugadores");
+			JPanel panel_botonera = new JPanel();
+			boton_muestra.setMinimumSize(boton_muestra.getSize());
+			boton_muestra.setPreferredSize(TAM_BTTN_IFP);
+			boton_muestra.setMaximumSize(TAM_BTTN);
+			boton_muestra.setForeground(COLOR_LETRA_IF);
+			boton_muestra.setBackground(COLOR_BOTONES_IFP);
+			IFpos.addItem("Seleccione posicion");
+			IFpos.addItem("Arquero");
+			IFpos.addItem("Defensor");
+			IFpos.addItem("Mediocampista");
+			IFpos.addItem("Delantero");
+			panel_botonera.add(IFpos,BorderLayout.WEST);
+			panel_botonera.add(boton_muestra,BorderLayout.EAST);
+			add(panel_botonera,BorderLayout.NORTH);
+			add(panel_area,BorderLayout.CENTER);
+			setBorder(BorderFactory.createTitledBorder("Listado de jugadores"));
+			setVisible(false);
+		}
+		public void Desactiva () {
+			setVisible(false);
+		}
+		public void Activa () {
+			setVisible(true);
+		}
+	}
+	
+	private class IFpanel_R extends JPanel {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -5076033681079441032L;
+		//panel que se muestra si se pide un listado de equipos
+		IFpanel_R() {
+			setLayout(new BorderLayout());
+			setBackground(Color.GRAY);
+			JTextArea area = new JTextArea(DIMENSION_PANELES_INFO.width,DIMENSION_PANELES_INFO.height);
+			area.setEditable(false);
+			JScrollPane panel_area = new JScrollPane(area);
+			JButton boton_equipos = new JButton("Listar referis");
+			boton_equipos.setMinimumSize(boton_equipos.getSize());
+			boton_equipos.setPreferredSize(TAM_BTTN_IFP);
+			boton_equipos.setMaximumSize(TAM_BTTN);
+			boton_equipos.setForeground(COLOR_LETRA_IF);
+			boton_equipos.setBackground(COLOR_BOTONES_IFP);
+			add(boton_equipos,BorderLayout.NORTH);
+			add(panel_area,BorderLayout.CENTER);
+			setBorder(BorderFactory.createTitledBorder("Ranking de referis"));
+			setVisible(false);
+		}
+		public void Desactiva () {
+			setVisible(false);
+		}
+		public void Activa () {
+			setVisible(true);
+		}
 	}
 
 }
