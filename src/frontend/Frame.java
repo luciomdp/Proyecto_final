@@ -76,7 +76,7 @@ public class Frame extends JFrame {
 		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
 		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
 		Dimension d = MiPantalla.getScreenSize();
-		final int WIDTH = (int) (d.width*0.8),HEIGHT = (int) (d.height*0.8);
+		final int WIDTH = (int) (d.width*0.8),HEIGHT = (int) (d.height*0.85);
 		setTitle("Proyecto final en Java: Torneo de futbol");
 		setIconImage(imagen);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
