@@ -6,11 +6,8 @@ public class Tabla {
     private Equipo aux;
     Resultados resultados [] = new Resultados [3];
     
-    public Tabla (Equipo e1, Equipo e2, Equipo e3, Equipo e4){
-        tabla[0] = e1;
-        tabla[1] = e2;
-        tabla[2] = e3;
-        tabla[3] = e4;
+    public Tabla (Equipo equipos[]){
+    	this.tabla = equipos;
         this.i = 0;
     }
 
