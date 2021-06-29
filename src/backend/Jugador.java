@@ -10,11 +10,14 @@ public class Jugador extends Persona{
 	private static final long serialVersionUID = 5889112804468930644L;
 	private Posicion posicion;
 	private byte puntaje; //0 - 100
+	String tipoDni;
 	
-	public Jugador(String a, String no, Date n, int dni, Posicion po, byte pu) {
+	public Jugador(String a, String no, Date n, String ti, int dni, Posicion po, byte pu) {
 		super(a, no, n, dni);
 		posicion = po;
 		puntaje = pu;
+		tipoDni = ti;
+		
 	}
 	
 	public String DatosIdent() {

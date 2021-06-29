@@ -6,7 +6,7 @@ public class Equipo implements Serializable{
 
 
 	private static final long serialVersionUID = -6798555891375663146L;
-	private String[] nombre;
+	private String nombre;
 	private Pais pais;
 	private int ranking;
 	private ArrayList<Jugador> Jugadores = new ArrayList<Jugador>(17);
@@ -16,7 +16,7 @@ public class Equipo implements Serializable{
     private int goles;
     private int golesContra;
 	
-	public Equipo (String[] n, Pais p, int r, ArrayList<Jugador> j, Dt e){
+	public Equipo (String n, Pais p, int r, ArrayList<Jugador> j, Dt e){ 
 		nombre = n;
 		pais = p;
 		ranking = r;
@@ -81,11 +81,11 @@ public class Equipo implements Serializable{
 	public void setEntrenador(Dt entrenador) {
 		this.entrenador = entrenador;
 	}
-	public String[] getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String []nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
@@ -101,4 +101,11 @@ public class Equipo implements Serializable{
 		this.pais = pais;
 	}
 
+	@Override
+	public String toString() {
+		return "Equipo [nombre=" + nombre + ", pais=" + pais + ", ranking=" + ranking + ", Jugadores=" + Jugadores
+				+ ", entrenador=" + entrenador + ", puntos=" + puntos + ", goles=" + goles + ", golesContra="
+				+ golesContra + "]";
+	}
+	
 }
