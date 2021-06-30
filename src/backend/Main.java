@@ -47,7 +47,8 @@ public class Main {
 		
 		System.out.println("---------------------------------------------------------------------------------------------------");
 		
-		for (int i=0;i<totJugadores.size();i++) { 
+		for (int i=0;i<totJugadores.size();i++) { //comentario
+			
 			
 			List <Jugador> jugadores = new ArrayList<>();
 			List <Equipo> equipos = new ArrayList<>();
