@@ -8,7 +8,7 @@ public class Equipo implements Serializable{
 	private static final long serialVersionUID = -6798555891375663146L;
 	private String nombre;
 	private Pais pais;
-	private int ranking;
+	private int ranking; 
 	private ArrayList<Jugador> Jugadores = new ArrayList<Jugador>(17);
 	private Dt entrenador;
 	
@@ -27,6 +27,17 @@ public class Equipo implements Serializable{
         this.puntos = 0;
 	}
 	
+	/*public Equipo (String n, String p, int r,  Dt e){ 
+		nombre = n;
+		pais = p;
+		ranking = r;
+		entrenador = e;
+		this.goles = 0;
+        this.golesContra = 0;
+        this.puntos = 0;
+	}*/
+
+
 	public String getEstadisticas() {
         return " Nombre: "+ nombre+"\n Puntos : "+ puntos +"\n Goles: "+ goles +"\n Goles en contra: "+ golesContra;
     }
@@ -97,9 +108,9 @@ public class Equipo implements Serializable{
 		Jugadores = jugadores;
 	}
 
-	public void setPais(Pais pais) {
+	/*public void setPais(Pais pais) {
 		this.pais = pais;
-	}
+	}*/
 
 	@Override
 	public String toString() {

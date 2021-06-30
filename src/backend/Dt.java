@@ -12,10 +12,15 @@ public class Dt extends Persona{
 	
 	public Dt(String a, String no, Date n, int dni, String na, byte ti) {
 		super(a, no, n, dni);
-		nacionalidad = na;
+		setNacionalidad(na);
 		titulos = ti;
 	}
 	
+	/*public Dt(String a, String no, float f, String na, Byte ti) {
+		super(a, no, f);
+		nacionalidad = na;
+		titulos = ti;	}
+*/
 	public String DatosIdent() {
 		
 		return null;
@@ -27,5 +32,13 @@ public class Dt extends Persona{
 
 	public void setTitulos(byte titulos) {
 		this.titulos = titulos;
+	}
+
+	public String getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
 	}
 }

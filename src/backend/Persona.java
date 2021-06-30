@@ -21,6 +21,12 @@ public abstract class Persona implements Serializable {
 		this.dni = dni;	
 	}
 	
+	/*public Persona(String a, String no, float f) {
+		apellido = a;
+		nombre = no;
+		this.dni = f;	
+	}*/
+
 	public String getApellido() {
 		return apellido;
 	}
@@ -52,4 +58,11 @@ public abstract class Persona implements Serializable {
 	public void setDni(int dni) {
 		this.dni = dni;
 	}
+
+	@Override
+	public String toString() {
+		return "Persona [apellido=" + apellido + ", nombre=" + nombre + ", nacimiento=" + nacimiento + ", dni=" + dni
+				+ "]";
+	}
+	
 }

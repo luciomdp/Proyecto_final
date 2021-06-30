@@ -19,7 +19,7 @@ public class Jugador extends Persona{
 		tipoDni = ti;
 		
 	}
-	
+
 	public String DatosIdent() {
 		
 		return null;
@@ -39,6 +39,11 @@ public class Jugador extends Persona{
 
 	public void setPosicion(Posicion posicion) {
 		this.posicion = posicion;
+	}
+
+	@Override
+	public String toString() {
+		return "Jugador [apellido= "+super.getApellido()+", nombre= "+super.getNombre() + ", fecha= "+super.getNacimiento()+", dni= "+super.getDni()+", posicion= "+posicion+", puntaje= "+puntaje+", tipoDni= "+tipoDni+"]";
 	}
 
 	
