@@ -27,16 +27,6 @@ public class Equipo implements Serializable{
         this.puntos = 0;
 	}
 	
-	/*public Equipo (String n, String p, int r,  Dt e){ 
-		nombre = n;
-		pais = p;
-		ranking = r;
-		entrenador = e;
-		this.goles = 0;
-        this.golesContra = 0;
-        this.puntos = 0;
-	}*/
-
 
 	public String getEstadisticas() {
         return " Nombre: "+ nombre+"\n Puntos : "+ puntos +"\n Goles: "+ goles +"\n Goles en contra: "+ golesContra;

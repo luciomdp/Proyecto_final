@@ -26,7 +26,7 @@ public class Main {
 		       //System.out.println(datos[0] + ", " + datos[1] + ", " + datos[2] + ", " + datos[3] + ", " + datos[4] + ", " + datos[5] + ", " + datos[6] + ", " + datos[7]);
 		      
 		       
-		       Jugador jugador = new Jugador (datos[2], datos[3], formato.parse(datos[4]), datos[5], Integer.parseInt(datos[6]), Posicion.Mediocampista, Byte.parseByte(datos[7]));
+		       Jugador jugador = new Jugador (datos[2], datos[3], formato.parse(datos[4]), datos[5], Integer.parseInt(datos[6]), Posicion.Mediocampista, Byte.parseByte(datos[7])); //posicion?????
 		       totJugadores.add(jugador);
 		    }
 		} catch (FileNotFoundException e) {
