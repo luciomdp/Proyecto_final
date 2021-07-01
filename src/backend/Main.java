@@ -18,6 +18,8 @@ public class Main {
 		BufferedReader br2 = null;
 		String line = "";
 		String coma = ",";
+		ArrayList <Jugador> jugadores;
+		int j=0;
 		
 		try {
 		    br = new BufferedReader(new FileReader(Jugadores));
@@ -46,16 +48,20 @@ public class Main {
 		
 		
 		ArrayList <Equipo> equipos = new ArrayList<>(); //array de todos los equipos
-		for (int i=0;i<totJugadores.size();i++) { 			
+		//for (int i=0;i<totJugadores.size();i=i+18) { 	
+		int i= 0;
 				try {
 				    br2 = new BufferedReader(new FileReader(Equipos));
-				    while ((line = br2.readLine()) != null) {   
-				    	ArrayList <Jugador> jugadores = new ArrayList<>(); //array cada 18 jugadores
-						for (int j=0; j<18; j++) {
-							jugadores.add(totJugadores.get(j)); //guardo los 18 jugadores de totjugadores
+				    line = br2.readLine();
+			    	
+				    while (line!= null) { //16 lineas + referis 
+				    	jugadores = new ArrayList<>(); //array cada 18 jugadores
+					    for (j=0; j<18; j++) {
+							jugadores.add(totJugadores.get(i+j)); //guardo los 18 jugadores de totjugadores
 						}
-						//jugadores.forEach(System.out::println);
-				    	String[] datos = line.split(coma);
+					    i=i+18;
+					    //jugadores.forEach(System.out::println);
+						String[] datos = line.split(coma);
 				        //Imprime datos como los lee:
 				        //System.out.println(datos[0] + ", " + datos[1] + ", " + datos[2] + ", " + datos[3] + ", " + datos[4] + ", " + datos[5] + ", " + datos[6] + ", " + datos[7]+ ", " + datos[8] + ", " + datos[9]);
 				        Dt dt = new Dt (datos[3], datos[4], formato.parse(datos[5]), Integer.parseInt(datos[7]), datos[6], Pais.Alemania, Byte.parseByte(datos[9]));
@@ -63,6 +69,8 @@ public class Main {
 				    	Equipo equipo = new Equipo(datos[0], Pais.Argentina, Integer.parseInt(datos[2]), jugadores, dt);
 				    	System.out.println(equipo + "--------------------------------------------------------------------");
 				        equipos.add(equipo);
+				        line = br2.readLine();
+				        
 				    }
 				} catch (FileNotFoundException e) {
 				    e.printStackTrace();
@@ -77,7 +85,8 @@ public class Main {
 				        }
 				    }
 			    }
+				equipos.forEach(System.out::println); //no funcaa
 		}
-		equipos.forEach(System.out::println); //no funcaa
+		
 	}
-}
+//}
