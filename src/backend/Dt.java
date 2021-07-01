@@ -7,22 +7,15 @@ import java.util.Date;
 public class Dt extends Persona{
 	
 	private static final long serialVersionUID = -3580960837841978040L;
-	private String nacionalidad;
+	private Pais nacionalidad;
 	private byte titulos;
 	
-	public Dt(String a, String no, Date n, int dni, String na, byte ti) {
-		super(a, no, n, dni);
-		setNacionalidad(na);
-		titulos = ti;
+	public Dt(String a, String no, Date n, int dni, String ti, Pais na, byte titulos) {
+		super(a, no, n, dni, ti);
+		this.titulos = titulos;
 	}
 	
-	/*public Dt(String a, String no, float f, String na, Byte ti) {
-		super(a, no, f);
-		nacionalidad = na;
-		titulos = ti;	}
-*/
 	public String DatosIdent() {
-		
 		return null;
 	}
 
@@ -34,11 +27,18 @@ public class Dt extends Persona{
 		this.titulos = titulos;
 	}
 
-	public String getNacionalidad() {
+	public Pais getNacionalidad() {
 		return nacionalidad;
 	}
 
-	public void setNacionalidad(String nacionalidad) {
+	public void setNacionalidad(Pais nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
+
+	@Override
+	public String toString() {
+		return "Dt [nacionalidad=" + nacionalidad + ", titulos=" + titulos + ", tipoDni=" + tipoDni + "]";
+	}
+	
+
 }

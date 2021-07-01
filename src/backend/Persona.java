@@ -12,21 +12,17 @@ public abstract class Persona implements Serializable {
 	private String apellido, nombre;
 	private Date nacimiento;
 	private int dni;
+	String tipoDni;
 	public abstract String DatosIdent();
 	
-	public Persona (String a, String no, Date n, int dni){
+	public Persona (String a, String no, Date n, int dni, String ti){
 		apellido = a;
 		nombre = no;
 		nacimiento = n;
 		this.dni = dni;	
+		tipoDni = ti;
 	}
 	
-	/*public Persona(String a, String no, float f) {
-		apellido = a;
-		nombre = no;
-		this.dni = f;	
-	}*/
-
 	public String getApellido() {
 		return apellido;
 	}

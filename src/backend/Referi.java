@@ -11,8 +11,8 @@ public class Referi extends Persona{
 	private int años_referato;
 	
 
-	public Referi(String a, String no, Date n, int dni, Pais na, int an) {
-		super(a, no, n, dni);
+	public Referi(String a, String no, Date n, int dni, String ti, Pais na, int an) {
+		super(a, no, n, dni, ti);
 		nacionalidad = na;
 		años_referato = an;
 	}
