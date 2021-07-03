@@ -14,11 +14,11 @@ AS Roma,Italia,13,Mourinho,José,25/06/1963,Pasaporte extranjero,22246136,Portug
 Borussia Dortmund,Alemania,14,Terzić,Edin,16/11/1982,Pasaporte extranjero,22245149,Alemania,1
 Tottenham Hotspur,Inglaterra,15,Fonseca,Paulo,26/11/1973,Pasaporte extranjero,22244162,Portugal,9
 FC Oporto,Portugal,16,Conceição,Sérgio,23/06/1974,Pasaporte extranjero,22243175,Portugal,5
-Referís,,,Karasiov,Serguéi,12/07/1979,Pasaporte extranjero,22243458,Rusia,11
-,,,Ricci,Sandro,19/11/1974,Pasaporte extranjero,22243001,Brasil,10
-,,,Pitana,Néstor,17/06/1975,DNI,22242544,Argentina,11
-,,,Ramos,Arturo César,15/12/1983,Pasaporte extranjero,22242087,México,7
-,,,Brych,Felix,3/08/1975,Pasaporte extranjero,22241630,Alemania,14
-,,,Kuipers,Björn,28/03/1973,Pasaporte extranjero,22241173,Países Bajos,15
-,,,Geiger,Mark,25/08/1974,Pasaporte extranjero,22240716,Estados Unidos,13
-,,,Aguilar,Joel,2/07/1975,Pasaporte extranjero,22240259,El Salvador,20
+Referís,Karasiov,Serguéi,12/07/1979,Pasaporte extranjero,22243458,Rusia,11,,
+,Ricci,Sandro,19/11/1974,Pasaporte extranjero,22243001,Brasil,10,,
+,Pitana,Néstor,17/06/1975,DNI,22242544,Argentina,11,,
+,Ramos,Arturo César,15/12/1983,Pasaporte extranjero,22242087,México,7,,
+,Brych,Felix,3/08/1975,Pasaporte extranjero,22241630,Alemania,14,,
+,Kuipers,Björn,28/03/1973,Pasaporte extranjero,22241173,Países Bajos,15,,
+,Geiger,Mark,25/08/1974,Pasaporte extranjero,22240716,Estados Unidos,13,,
+,Aguilar,Joel,2/07/1975,Pasaporte extranjero,22240259,El Salvador,20,,

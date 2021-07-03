@@ -37,7 +37,9 @@ public class Dt extends Persona{
 
 	@Override
 	public String toString() {
-		return "Dt [nacionalidad=" + nacionalidad + ", titulos=" + titulos + ", tipoDni=" + tipoDni + "]";
+		return "Dt [nacionalidad=" + nacionalidad + ", titulos=" + titulos + ", tipoDni=" + tipoDni + ", getApellido()="
+				+ getApellido() + ", getNombre()=" + getNombre() + ", getNacimiento()=" + getNacimiento()
+				+ ", getDni()=" + getDni() + "]";
 	}
 	
 

@@ -106,7 +106,7 @@ public class Equipo implements Serializable{
 	public String toString() {
 		return "Equipo [nombre=" + nombre + ", pais=" + pais + ", ranking=" + ranking + ", Jugadores=" + Jugadores
 				+ ", entrenador=" + entrenador + ", puntos=" + puntos + ", goles=" + goles + ", golesContra="
-				+ golesContra + "]";
+				+ golesContra + ", getEntrenador()=" + getEntrenador() + "]";
 	}
 	
 }
