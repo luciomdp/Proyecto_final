@@ -12,13 +12,15 @@ public abstract class Persona implements Serializable {
 	private String apellido, nombre;
 	private Date nacimiento;
 	private int dni;
+	String tipoDni;
 	public abstract String DatosIdent();
 	
-	public Persona (String a, String no, Date n, int dni){
+	public Persona (String a, String no, Date n, int dni, String ti){
 		apellido = a;
 		nombre = no;
 		nacimiento = n;
 		this.dni = dni;	
+		tipoDni = ti;
 	}
 	
 	public String getApellido() {
@@ -52,4 +54,11 @@ public abstract class Persona implements Serializable {
 	public void setDni(int dni) {
 		this.dni = dni;
 	}
+
+	@Override
+	public String toString() {
+		return "Persona [apellido=" + apellido + ", nombre=" + nombre + ", nacimiento=" + nacimiento + ", dni=" + dni
+				+ "]";
+	}
+	
 }
