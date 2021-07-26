@@ -60,10 +60,20 @@ public class Zona implements Serializable{
 
 					tabla.getValoresTabla();
 					partidos[i].simulacion();
-					partidos[i].getEquipo1().setGoles(partidos[i].getGolE1());
-					partidos[i].getEquipo2().setGoles(partidos[i].getGolE2());
-					partidos[i].getEquipo1().setGolesContra(partidos[i].getGolE2());
+					partidos[i].getEquipo1().setGoles(partidos[i].getGolE1()); //ASIGNA GOLES A FAVOR DE CADA EQUIPO
+					partidos[i].getEquipo2().setGoles(partidos[i].getGolE2()); 
+					partidos[i].getEquipo1().setGolesContra(partidos[i].getGolE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
 					partidos[i].getEquipo2().setGolesContra(partidos[i].getGolE1());
+					
+					if (partidos[i].getGolE1() > partidos[i].getGolE2()) 
+						partidos[i].getEquipo1().setPuntos(3);
+					else if (partidos[i].getGolE2() > partidos[i].getGolE1()) 
+						partidos[i].getEquipo2().setPuntos(3);
+					else {
+						partidos[i].getEquipo1().setPuntos(1);
+						partidos[i].getEquipo2().setPuntos(1);
+					}
+					
 					tabla.ActualizaTabla();
 					tabla.getValoresTabla();
 					i++;
@@ -85,6 +95,7 @@ public class Zona implements Serializable{
 				this.SimulaPartido();
 			}
 	}
+	
 //---------------------------------------------------------- SIMULA TODOS LOS PARTIDOS DE LA ZONA ---------------------------------------------------------------
 	
 	public void SimulaZona () {
