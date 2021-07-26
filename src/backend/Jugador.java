@@ -3,6 +3,10 @@ package backend;
 import java.util.Date;
 
 //Implementar enum para posicion
+/*Listado de jugadores de determinada posición seleccionada por el operador (arquero, 
+defensor, mediocampista, delantero) mostrando toda la información disponible del mismo.
+En el caso de los arqueros, mostrar la cantidad de Goles en Contra que recibió su equipo y 
+el promedio de gol recibido por partido.*/
 public class Jugador extends Persona{
 	/**
 	 * 
@@ -19,6 +23,7 @@ public class Jugador extends Persona{
 		
 		
 	}
+	
 
 	public String DatosIdent() {
 		

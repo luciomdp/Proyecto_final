@@ -1,5 +1,7 @@
 package backend;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 
 public class Equipo implements Serializable{
@@ -15,6 +17,8 @@ public class Equipo implements Serializable{
     private int puntos;
     private int goles;
     private int golesContra;
+    private int pJ;
+    private int pG;
 	
 	public Equipo (String n, Pais p, int r, ArrayList<Jugador> j, Dt e){ 
 		nombre = n;
@@ -25,8 +29,28 @@ public class Equipo implements Serializable{
 		this.goles = 0;
         this.golesContra = 0;
         this.puntos = 0;
+        this.pG = 0;
+        this.pJ = 0;
 	}
 	
+	/*public String ListaEquipo() {
+		return "Nombre: "+ this.getNombre()+"\nEdad Promedio: "+ this.EdadMediaJugadores()+"\nEdad y Nacionalidad DT: "+ this.getEntrenador().getEdad()+ this.getEntrenador().getNacionalidad()+"\nEfectividad: "+ (this.getpG()/this.getpJ())*100;              
+	}*/
+	public int getpJ() {
+		return pJ;
+	}
+
+	public void setpJ(int pJ) {
+		this.pJ = pJ;
+	}
+
+	public int getpG() {
+		return pG;
+	}
+
+	public void setpG(int pG) {
+		this.pG = pG;
+	}
 
 	public String getEstadisticas() {
         return " Nombre: "+ nombre+"\n Puntos : "+ puntos +"\n Goles: "+ goles +"\n Goles en contra: "+ golesContra;
@@ -54,6 +78,16 @@ public class Equipo implements Serializable{
     public void setGolesContra(int golesContra) {
         this.golesContra = this.puntos + golesContra;
     }
+    
+    /*public double EdadMediaJugadores() {
+		int edadMedia = 0;
+		LocalDate fechaAct ; 
+		for (Jugador e: Jugadores) {
+			Period edad = Period.between(e.getNacimiento(), fechaAct.now()); //NECESITO PASAR DE DATE A LOCAL DATE e.getNacimiento()
+			edadMedia += edad.getYears();
+		}
+		return edadMedia/18;
+    }*/
 	
 	public double MediaJugadores() {
 		int media = 0;
