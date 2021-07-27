@@ -16,7 +16,7 @@ public class Tabla {
             System.out.println(tabla[i].getEstadisticas());
     }
 
-    public void ActualizaTabla(){
+    public void ActualizaTabla(){ // HAY QUE PROBARLO, PRINCIPALMENTE POR LA ULTIMA INSTANCIA
                 
         for (int i = 0; i < tabla.length-1; i++){ 
             
