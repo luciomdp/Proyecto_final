@@ -56,7 +56,7 @@ public class Zona implements Serializable{
 		if  (i <= CANT_PZ) {
 
 					tabla.getValoresTabla();
-					partidos[i].simulacion(); //SIMULA PARTIDO 
+					partidos[i].simulacionNM(); //SIMULA PARTIDO 
 					partidos[i].getEquipo1().setGoles(partidos[i].getGolE1()); //ASIGNA GOLES A FAVOR DE CADA EQUIPO
 					partidos[i].getEquipo2().setGoles(partidos[i].getGolE2()); 
 					partidos[i].getEquipo1().setGolesContra(partidos[i].getGolE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO

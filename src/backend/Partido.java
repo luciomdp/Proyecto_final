@@ -40,14 +40,33 @@ public class Partido implements Serializable{
 			OportunidadesGolB ++;
 		for(i = 0;i<OportunidadesGolA; i++) {
 			if(Math.random()*100<Media_totE1)//aumentar el *100 si se hacen muchos goles
-				golesE1++;
+				golesE1++; // NO DEBERÍA SER 
 		}
 		for(i = 0;i<=OportunidadesGolB; i++) {
 			if(Math.random()*100<Media_totE2)
 				golesE2++;
-		}		
+		}
+		
+		this.setGolesE1(golesE1);
+		this.setGolesE2(golesE2);
 	}
 	
+	public int getGolesE1() {
+		return golesE1;
+	}
+
+	public void setGolesE1(int golesE1) {
+		this.golesE1 = golesE1;
+	}
+
+	public int getGolesE2() {
+		return golesE2;
+	}
+
+	public void setGolesE2(int golesE2) {
+		this.golesE2 = golesE2;
+	}
+
 	public double getMedia_totE1() {
 		return Media_totE1;
 	}
