@@ -1,8 +1,8 @@
 package backend;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.ArrayList;
+import java.util.Calendar;
+
 
 public class Equipo implements Serializable{
 
@@ -33,9 +33,6 @@ public class Equipo implements Serializable{
         this.pJ = 0;
 	}
 	
-	/*public String ListaEquipo() {
-		return "Nombre: "+ this.getNombre()+"\nEdad Promedio: "+ this.EdadMediaJugadores()+"\nEdad y Nacionalidad DT: "+ this.getEntrenador().getEdad()+ this.getEntrenador().getNacionalidad()+"\nEfectividad: "+ (this.getpG()/this.getpJ())*100;              
-	}*/
 	public int getpJ() {
 		return pJ;
 	}
@@ -79,15 +76,17 @@ public class Equipo implements Serializable{
         this.golesContra = this.puntos + golesContra;
     }
     
-    /*public double EdadMediaJugadores() {
-		int edadMedia = 0;
-		LocalDate fechaAct ; 
+    public double edadMediaJugadores() { //REVISAR  
+		int edadMedia = 0; 
 		for (Jugador e: Jugadores) {
-			Period edad = Period.between(e.getNacimiento(), fechaAct.now()); //NECESITO PASAR DE DATE A LOCAL DATE e.getNacimiento()
-			edadMedia += edad.getYears();
+			Calendar fechaAct = Calendar.getInstance();
+			int act = fechaAct.get(Calendar.YEAR);
+			int edadJ = e.getNacimiento().getYear();
+			edadMedia += act-edadJ;
+			
 		}
 		return edadMedia/18;
-    }*/
+    }
 	
 	public double MediaJugadores() {
 		int media = 0;

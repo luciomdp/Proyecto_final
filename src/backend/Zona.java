@@ -61,15 +61,22 @@ public class Zona implements Serializable{
 					partidos[i].getEquipo2().setGoles(partidos[i].getGolE2()); 
 					partidos[i].getEquipo1().setGolesContra(partidos[i].getGolE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
 					partidos[i].getEquipo2().setGolesContra(partidos[i].getGolE1());
+					partidos[i].getEquipo1().setpJ(1); //INCREMENTA LOS PARTIDOS JUGADOS PARA CADA EQUIPO
+					partidos[i].getEquipo2().setpJ(1);
 					
-					if (partidos[i].getGolE1() > partidos[i].getGolE2()) //DEPENDIENDO QUIEN HAYA METIDO MAS GOLES, SUMA 3 PUNTOS O 1 SI EMPATARON
+					if (partidos[i].getGolE1() > partidos[i].getGolE2()) { //DEPENDIENDO QUIEN HAYA METIDO MAS GOLES, SUMA 3 PUNTOS O 1 SI EMPATARON. TAMBIEN INCREMENTA PARTIDOS GANADOS
 						partidos[i].getEquipo1().setPuntos(3);
-					else if (partidos[i].getGolE2() > partidos[i].getGolE1()) 
+						partidos[i].getEquipo1().setpG(1);						
+					}
+					else if (partidos[i].getGolE2() > partidos[i].getGolE1()) {
 						partidos[i].getEquipo2().setPuntos(3);
+						partidos[i].getEquipo2().setpG(1);					
+					}
 					else {
 						partidos[i].getEquipo1().setPuntos(1);
 						partidos[i].getEquipo2().setPuntos(1);
 					}
+					
 					Resultados result = new Resultados (partidos[i].getEquipo1(), partidos[i].getEquipo2(), partidos[i].getGolE1(), partidos[i].getGolE2() );
 					tabla.setResultados(result);
 					tabla.ActualizaTabla();

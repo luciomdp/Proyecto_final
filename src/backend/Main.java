@@ -6,7 +6,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Period;  
 
-public class Main {
+public class Main {		
+		ArrayList <Jugador> jugadores;// ESTOS TRES LOS PUSE ACA PARA QUE ME PERMITA TRABAJAR CON LOS ARRAYLIST EN LAS FUNCIONES DE LISTADO. CUANDO ARREGLEMOS EL MAIN Y CAMPEONATO SE PONE DONDE VA
+		ArrayList <Equipo> equipos; //
+		ArrayList <Referi> referis; //
 	public static void main (String[] args) throws NumberFormatException, ParseException {
 		String Jugadores = "Jugadores.txt"; String Equipos = "Equipos.txt";
 		BufferedReader br = null;
@@ -98,24 +101,49 @@ public class Main {
 			      }
 	}
 	
-	/*public void ListaJugadores(String pos) {
-		if (pos == "Arquero") {
-			for (Jugador  e: jugadores) {
-				e.toString();
+	public String ListaJugadores(Posicion pos) { 
+		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
+		Iterator < Jugador > it = jugadores.iterator();
+		Jugador j = it.next();
+		while (it.hasNext() && j.getPosicion() != pos) {
+			j = it.next();
+		}
+		j = it.next();
+		if (pos.name() == "Arquero" ) { //COMPLETAR GOLES EN CONTRA Y PROMEDIO POR PARTIDO DE GOLES EN CONTRA
+			while (it.hasNext() && j.getPosicion().name() == "Arquero") {
+				s += j.toString()+"\n";
 			}
 		}
 		else {
-			for (Jugador  e: jugadores) {
-				e.toString();
+			while (it.hasNext() && j.getPosicion().name() == "Arquero") {
+				s += j.toString()+"\n";
 			}
+		}
+		
+		return s;
+	}
+	public String ListaEquipos() { // CORROBORAR PROCESO DE OBTENCIÓN DE EDADES edadMediaJugadres y getEdad de entrenador
+		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
+		for (Equipo  e: equipos) {
+			s+= e.getNombre() + "\nEdad media jugadores: ";
+			s+= e.edadMediaJugadores() + "\nEdad DT:";
+			s+= e.getEntrenador().getEdad() + ", Nacionalidad DT: ";
+			s+= e.getEntrenador().getNacionalidad() + "\nEfectividad en el torneo" ;
+			s+= (e.getpG()/e.getpJ())*100+ "\n\n";
+		}
+		return s;
+	}
+	public String ListaArbitros() { 
+		int prom = 0; 
+		String s = "----------------------------------------ARBITROS--------------------------------------------\n\n";
+		for (Referi  e: referis) {
+			s+= e.getNombre()+"\nAños en el referato; ";
+			s+= e.getAños_referato()+ "\n\n";
+			prom += e.getAños_referato();
 			
 		}
-	}*/
-	public void ListaEquipos() {
-		
-	}
-	public void ListaArbitros() {
-		
+		s += "El promedio de años en el referato es: "+ prom/equipos.size();
+		return s;
 	}
 		
 }

@@ -2,6 +2,7 @@ package backend;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Calendar;
 import java.util.Date;
 
 //hacer enum de nacionalidad
@@ -21,11 +22,14 @@ public class Dt extends Persona{
 		return null;
 	}
 	
-	/*public int getEdad() {
-		LocalDate fechaAct ; 
-		Period edad = Period.between(this.getNacimiento(), fechaAct.now()); //NECESITO PASAR DE DATE A LOCAL DATE e.getNacimiento()
-		return edad.getYears();
-	} */
+	public int getEdad() { //REVISAR
+		int edad;
+		Calendar fechaAct = Calendar.getInstance();
+		int act = fechaAct.get(Calendar.YEAR);
+		int edadDT = this.getNacimiento().getYear();
+		edad = act - edadDT;
+		return edad;
+	} 
 
 	public byte getTitulos() {
 		return titulos;
