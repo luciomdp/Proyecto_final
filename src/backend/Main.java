@@ -108,21 +108,23 @@ public class Main {
 		while (it.hasNext() && j.getPosicion() != pos) {
 			j = it.next();
 		}
-		j = it.next();
+	
 		if (pos.name() == "Arquero" ) { //COMPLETAR GOLES EN CONTRA Y PROMEDIO POR PARTIDO DE GOLES EN CONTRA
-			while (it.hasNext() && j.getPosicion().name() == "Arquero") {
+			while (it.hasNext() && j.getPosicion() == pos) {
 				s += j.toString()+"\n";
+				j = it.next();
 			}
 		}
 		else {
-			while (it.hasNext() && j.getPosicion().name() == "Arquero") {
+			while (it.hasNext() && j.getPosicion() == pos) {
 				s += j.toString()+"\n";
+				j = it.next();
 			}
 		}
 		
 		return s;
 	}
-	public String ListaEquipos() { // CORROBORAR PROCESO DE OBTENCIÓN DE EDADES edadMediaJugadres y getEdad de entrenador
+	public String ListaEquipos() { // CORROBORAR PROCESO DE OBTENCIÓN DE EDADES edadMediaJugadres y getEdad de entrenador (se lo mande a claudio para estar seguro)
 		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
 		for (Equipo  e: equipos) {
 			s+= e.getNombre() + "\nEdad media jugadores: ";
