@@ -43,10 +43,6 @@ public class Zona implements Serializable{
         this.f = 1;
     }
     
-    public void Prueba () {
-        tabla.getValoresTabla();
-    }
-    
 	public void MuestraPartidos () {
 		for (int i= 0; i <=CANT_PZ; i++) {
 			System.out.println(partidos[i].getEquipo1().getNombre()+" vs "+partidos[i].getEquipo2().getNombre());

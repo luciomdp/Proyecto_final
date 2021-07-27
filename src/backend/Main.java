@@ -3,7 +3,8 @@ package backend;
 import java.io.*;
 import java.util.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;  
+import java.text.SimpleDateFormat;
+import java.time.Period;  
 
 public class Main {
 	public static void main (String[] args) throws NumberFormatException, ParseException {
@@ -95,6 +96,26 @@ public class Main {
 				    System.out.println(("Equipos:\n"));
 					equipos.forEach(System.out::println); 
 			      }
+	}
+	
+	/*public void ListaJugadores(String pos) {
+		if (pos == "Arquero") {
+			for (Jugador  e: jugadores) {
+				e.toString();
+			}
+		}
+		else {
+			for (Jugador  e: jugadores) {
+				e.toString();
+			}
+			
+		}
+	}*/
+	public void ListaEquipos() {
+		
+	}
+	public void ListaArbitros() {
+		
 	}
 		
 }
