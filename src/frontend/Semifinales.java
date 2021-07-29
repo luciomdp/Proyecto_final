@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Semifinales extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
-		
+	private int AUMENTO_FUENTE = 10;
 			
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 			
@@ -42,19 +42,19 @@ public class Semifinales extends General{
 		SpanelC.setBackground(COLOR_PANEL_C);
 		SpanelC.setLayout(null);
 			
-		SEquipo1.setFont(new Font(FONT_TYPE,0,FONT_SIZE*2));
+		SEquipo1.setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
 		SEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2,TAM_LABEL.width,TAM_LABEL.height);
 		SEquipo1.setBackground(COLOR_ETIQUETAS);
 		
-		SEquipo2.setFont(new Font(FONT_TYPE,0,FONT_SIZE*2));
+		SEquipo2.setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
 		SEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G + TAM_LABEL.height + AUM_Y_BTTN, TAM_LABEL.width,TAM_LABEL.height);
 		SEquipo2.setBackground(COLOR_ETIQUETAS);
 		
-		SEquipo3.setFont(new Font(FONT_TYPE,0,FONT_SIZE*2));
+		SEquipo3.setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
 		SEquipo3.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_LABEL.width/2+75,CANCHA_TAMANO_RECT_G/2,TAM_LABEL.width,TAM_LABEL.height);
 		SEquipo3.setBackground(COLOR_ETIQUETAS);
 		
-		SEquipo4.setFont(new Font(FONT_TYPE,0,FONT_SIZE*2));
+		SEquipo4.setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
 		SEquipo4.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_LABEL.width/2+75,CANCHA_TAMANO_RECT_G + TAM_LABEL.height + AUM_Y_BTTN,TAM_LABEL.width,TAM_LABEL.height);
 		SEquipo4.setBackground(COLOR_ETIQUETAS);
 			
