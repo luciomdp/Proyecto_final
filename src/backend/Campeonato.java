@@ -28,8 +28,7 @@ public class Campeonato implements Serializable{
 		this.jugadores = jugadores;
 		this.referis = referis;
 		//CREAR LAS ZONAS CON SUS RESPECTIVOS EQUIPOS
-		int k = 0;
-
+		
 	}
 	public String ListaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
