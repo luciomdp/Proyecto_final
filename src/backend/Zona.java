@@ -31,9 +31,11 @@ public class Zona implements Serializable{
     private Equipo e2;
     private Equipo e3;
     private Equipo e4;
+    private Equipo pasanACuartos [] = new Equipo [2];
     private Tabla tabla; 
     private PartidoZona partidos[];
     private Equipo equipos[] = new Equipo [CANTE];
+    private int k;
     
     public Zona (Equipo equipos[]) {
     	this.equipos = equipos;
@@ -41,6 +43,7 @@ public class Zona implements Serializable{
         this.tabla = new Tabla (equipos); 
         this.i = 0;
         this.f = 1;
+        this.k = 0;
     }
     
 	public void MuestraPartidos () {
@@ -108,7 +111,16 @@ public class Zona implements Serializable{
 		this.SimulaFecha();
 		this.SimulaFecha();
 		this.SimulaFecha();
+	
 		
 	}
+
+	public Equipo[] getPasanACuartos() {
+		this.tabla.GanadoresZona();
+		this.pasanACuartos = this.tabla.getGanadoresZona();
+		return pasanACuartos;
+	}
+
 }
+
 

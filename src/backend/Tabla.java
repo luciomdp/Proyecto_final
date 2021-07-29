@@ -1,12 +1,14 @@
 package backend;
 
 public class Tabla {
+	private final int PASAN_CUARTOS = 2;
 	private int i;
     private Equipo tabla [] = new Equipo[4];
     private Equipo aux;
-    Resultados resultados [] = new Resultados [3];
-    
-    public Tabla (Equipo equipos[]){
+    private Equipo ganadoresZona [] = new Equipo [2];
+    Resultados resultados [] = new Resultados [6];
+ 
+	public Tabla (Equipo equipos[]){
     	this.tabla = equipos;
         this.i = 0;
     }
@@ -82,4 +84,17 @@ public class Tabla {
         }
     		return -1;
     }
+    
+    public Equipo[] getGanadoresZona() {
+		return ganadoresZona;
+	}
+
+	public void GanadoresZona() {
+		for (int i = 0; i < PASAN_CUARTOS; i++) {
+			ganadoresZona[i] = tabla[i];
+		}
+		this.ganadoresZona = ganadoresZona;
+	}
+    
+ 
 }

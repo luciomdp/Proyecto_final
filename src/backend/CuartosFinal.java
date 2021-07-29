@@ -41,6 +41,8 @@ public class CuartosFinal {
 			partidos[i].getEquipo2().setGolesContraCuartos(partidos[i].getGolesE1());
 			resultados[i].setE1(partidos[i].getEquipo1());
 			resultados[i].setE2(partidos[i].getEquipo2());
+			resultados[i].setGolesE1(partidos[i].getGolesE1());
+			resultados[i].setGolesE2(partidos[i].getGolesE2());
 			i++;
 		}
 		else
@@ -56,6 +58,8 @@ public class CuartosFinal {
 			partidos[i].getEquipo2().setGolesContraCuartos(partidos[i].getGolesE1());
 			resultados[i].setE1(partidos[i].getEquipo1());
 			resultados[i].setE2(partidos[i].getEquipo2());
+			resultados[i].setGolesE1(partidos[i].getGolesE1());
+			resultados[i].setGolesE2(partidos[i].getGolesE2());
 			if (resultados[i].getGolesE1() + resultados [i-(CANT_P/2)].getGolesE2() == resultados[i].getGolesE2() + resultados [i-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL
 				if (resultados[i].getGolesE2() > resultados [i-(CANT_P/2)].getGolesE2()) { //SI LOS GOLES DEL EQUIPO 2 EN LA IDA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA VUELTA
 					this.setPasanASemis(partidos[i].getEquipo2());
