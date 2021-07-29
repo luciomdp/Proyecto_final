@@ -7,9 +7,8 @@ public class PartidoIdaVuelta extends Partido{
 	private static final long serialVersionUID = -8847438604485174325L;
 	public PartidoIdaVuelta(Equipo a, Equipo b) {
 		super(a, b);
-		
 	}
-	public void simulacionPen(Equipo a,Equipo b) {
+	public void simulacionPen() {
 		int probab1,probab2;
 		golesP1 = 0;
 		golesP2 = 0;
@@ -35,6 +34,18 @@ public class PartidoIdaVuelta extends Partido{
 			if(Math.random()*100<probab2)
 				golesP2++;
 		}	
+	}
+	public int getGolesP1() {
+		return golesP1;
+	}
+	public void setGolesP1(int golesP1) {
+		this.golesP1 = golesP1;
+	}
+	public int getGolesP2() {
+		return golesP2;
+	}
+	public void setGolesP2(int golesP2) {
+		this.golesP2 = golesP2;
 	}
 	private int golesP1,golesP2;
 }

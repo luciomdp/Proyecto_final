@@ -17,7 +17,43 @@ public class Equipo implements Serializable{
     private int puntos;
     private int goles;
     private int golesContra;
-    private int pJ;
+    private int golesCuartos;
+    private int golesSemis;
+    private int golesContraCuartos;
+    private int golesContraSemis;
+    public int getGolesCuartos() {
+		return golesCuartos;
+	}
+
+	public void setGolesCuartos(int golesCuartos) {
+		this.golesCuartos = golesCuartos;
+	}
+
+	public int getGolesSemis() {
+		return golesSemis;
+	}
+
+	public void setGolesSemis(int golesSemis) {
+		this.golesSemis = golesSemis;
+	}
+
+	public int getGolesContraCuartos() {
+		return golesContraCuartos;
+	}
+
+	public void setGolesContraCuartos(int golesContraCuartos) {
+		this.golesContraCuartos = golesContraCuartos;
+	}
+
+	public int getGolesContraSemis() {
+		return golesContraSemis;
+	}
+
+	public void setGolesContraSemis(int golesContraSemis) {
+		this.golesContraSemis = golesContraSemis;
+	}
+
+	private int pJ;
     private int pG;
 	
 	public Equipo (String n, Pais p, int r, ArrayList<Jugador> j, Dt e){ 
