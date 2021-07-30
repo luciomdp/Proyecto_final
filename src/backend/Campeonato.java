@@ -22,12 +22,14 @@ public class Campeonato implements Serializable{
 	private Final final_Campeonato;
 	
 	public Campeonato (ArrayList <Equipo> equipos, ArrayList <Jugador> jugadores, ArrayList <Referi> referis) {
+		
 		this.cuartosDeFinal = null;
 		this.semiFinal = null;
 		this.equipos = equipos;
 		this.jugadores = jugadores;
 		this.referis = referis;
 		//CREAR LAS ZONAS CON SUS RESPECTIVOS EQUIPOS
+		
 		
 	}
 	public String ListaJugadores(Posicion pos) { 

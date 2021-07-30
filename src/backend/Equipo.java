@@ -1,5 +1,6 @@
 package backend;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -112,13 +113,15 @@ public class Equipo implements Serializable{
         this.golesContra = this.puntos + golesContra;
     }
     
-    public double edadMediaJugadores() { //REVISAR  
+    public double edadMediaJugadores() {  
 		int edadMedia = 0; 
 		for (Jugador e: Jugadores) {
+			
+	        SimpleDateFormat getYearFormat = new SimpleDateFormat("yyyy");
+	        int edadJ = Integer.parseInt(getYearFormat.format(e.getNacimiento()));
 			Calendar fechaAct = Calendar.getInstance();
-			int act = fechaAct.get(Calendar.YEAR);
-			int edadJ = e.getNacimiento().getYear();
-			edadMedia += act-edadJ;
+			int actual = fechaAct.get(Calendar.YEAR);
+			edadMedia += actual-edadJ;
 			
 		}
 		return edadMedia/18;

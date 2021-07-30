@@ -1,5 +1,6 @@
 package backend;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Calendar;
@@ -22,13 +23,16 @@ public class Dt extends Persona{
 		return null;
 	}
 	
-	public int getEdad() { //REVISAR
+	public int getEdad() { 
+		
 		int edad;
+        SimpleDateFormat getYearFormat = new SimpleDateFormat("yyyy");
+        int edadDt = Integer.parseInt(getYearFormat.format(this.getNacimiento()));
 		Calendar fechaAct = Calendar.getInstance();
 		int act = fechaAct.get(Calendar.YEAR);
-		int edadDT = this.getNacimiento().getYear();
-		edad = act - edadDT;
+		edad = act - edadDt;
 		return edad;
+		
 	} 
 
 	public byte getTitulos() {
