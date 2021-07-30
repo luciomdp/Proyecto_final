@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Campeonato implements Serializable{
+public class Campeonato implements Serializable {
 	
 	private static final long serialVersionUID = 9176305150524899919L;
 	private final int CANTE = 16;
@@ -29,10 +29,13 @@ public class Campeonato implements Serializable{
 		this.jugadores = jugadores;
 		this.referis = referis;
 		//CREAR LAS ZONAS CON SUS RESPECTIVOS EQUIPOS
-		Zona z1; 
-		Zona z2;
-		Zona z3;
-		Zona z4;
+		int j = 0;
+        for (int z = 0; z < CANTZ; z++) {
+            Equipo equiposZona[] = {equipos.get(j), equipos.get(j+1), equipos.get(j+2), equipos.get(j+3)};
+            //0 1 2 3 /+4/ 4 5 6 7 /+4/ 8 9 10 11 /+4/ 12 13 14 15
+            zonas[z] = new Zona(equiposZona);
+            j += 4;
+        }
 		
 	}
 	

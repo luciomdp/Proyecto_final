@@ -141,17 +141,12 @@ public class Zona implements Serializable{
         cantFechas = 6 / 2 = 3;
         */
 
-        ArrayList<String> fechas = new ArrayList<>();
+        ArrayList<String> fechas = new ArrayList<>(); //TIENE QUE SER ARRAYLIST DE EQUIPOS
         int partidosSimultaneos = (equipos.length / 2);
         int partidosPosibles = ((factorial(equipos.length))/2) / partidosSimultaneos;
         int cantFechas = partidosPosibles / partidosSimultaneos;
         int i = 0; //indice de fechas
-
-        //paso a minuscula
-        for (int k = 0; k < equipos.length; k++) {
-            equipos[k] = equipos[k].toLowerCase(); //MODIFICAR
-        }
-
+   
         String[] equiposQueRotan = Arrays.copyOfRange(equipos, 1, equipos.length); //MODIFICAR
         //mientras que no llegue a completar todas las fechas
         while (i < cantFechas) {
@@ -169,7 +164,7 @@ public class Zona implements Serializable{
                     posibleFecha += equiposQueRotan[k] + " ";
                 }
             }
-            fechas.add(posibleFecha);
+            fechas.add(posibleFecha); // AGREGA FECHAS AL ARRAYLIST
             i++;
         }
     }

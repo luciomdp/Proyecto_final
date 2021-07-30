@@ -17,12 +17,12 @@ public class CuartosFinal {
 		this.equipos = equipos;
 		this.partidos = new PartidoIdaVuelta [CANT_P] ;
 		int k= 0;
-		for (int i = 0; i < CANT_P/2; i+=2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
+		for (int i = 0; i < CANT_P; i+=2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
 			partidos[k].setEquipo1(equipos[i]);
 			partidos[k].setEquipo2(equipos[i++]);
 			k++;
 		}
-		for (int i = 0; i < CANT_P/2; i+=2) {
+		for (int i = 0; i < CANT_P; i+=2) {
 			partidos[k].setEquipo1(equipos[i++]);
 			partidos[k].setEquipo2(equipos[i]);
 			k++;
@@ -77,6 +77,11 @@ public class CuartosFinal {
 					}
 				}
 			}
+			else if (resultados[i].getGolesE1() + resultados [i-(CANT_P/2)].getGolesE2() > resultados[i].getGolesE2() + resultados [i-(CANT_P/2)].getGolesE1())  //SI GANA EN EL TOTAL EL EQUIPO 1
+				this.setPasanASemis(partidos[i].getEquipo1());
+			else
+				this.setPasanASemis(partidos[i].getEquipo2()); //SI GANA EN EL TOTAL EL EQUIPO 2
+			
 			i++;
 		}
 		else
