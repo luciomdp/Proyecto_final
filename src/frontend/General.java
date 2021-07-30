@@ -31,7 +31,6 @@ public class General extends JPanel{
 	protected final int TAM_HOR_BTTN = 350;
 	protected final int TAM_VER_BTTN = 40;
 	protected int AUM_Y_BTTN = WIDTH/16;
-	protected final Color COLOR_ETIQUETAS = Color.GREEN;//new Color(38, 190, 35);
 	protected final Color COLOR_BOTONES = Color.DARK_GRAY;
 	protected final Color COLOR_BOTONES_2 =new Color (168, 168, 168);
 	protected final Color COLOR_LETRA = Color.WHITE;

@@ -8,7 +8,6 @@ import javax.swing.*;
 public class Informacion extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
-	private final Dimension TAM_BTTN_IFP = new Dimension(TAM_HOR_BTTN*2,TAM_VER_BTTN/2);
 	private final Dimension DIMENSION_PANELES_INFO = new Dimension(15,75);
 		
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -106,8 +105,6 @@ public class Informacion extends General{
 			area.setEditable(false);
 			panel_area = new JScrollPane(area);
 			boton_muestra = new JButton();
-			boton_muestra.setPreferredSize(TAM_BTTN_IFP);
-			boton_muestra.setMaximumSize(TAM_BTTN);
 			boton_muestra.setForeground(COLOR_LETRA);
 			boton_muestra.setBackground(COLOR_BOTONES_2);
 			add(panel_area,BorderLayout.CENTER);
@@ -139,23 +136,27 @@ public class Informacion extends General{
 	}
 	
 	private class IFpanel_J extends IFpanel {
+		private JComboBox<String> IFpos;
+		private JPanel panel_botonera;
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = -5076033681079441032L;
 		//panel que se muestra si se pide un listado de equipos
+		
 		IFpanel_J() {
 			super();
-			JComboBox<String> IFpos = new JComboBox<String>();
+			IFpos = new JComboBox<String>();
 			getBoton_muestra().setText("Mostrar jugadores");
-			JPanel panel_botonera = new JPanel();
+			panel_botonera = new JPanel();
+			panel_botonera.setLayout(new BorderLayout());
 			IFpos.addItem("Seleccione posicion");
 			IFpos.addItem("Arquero");
 			IFpos.addItem("Defensor");
 			IFpos.addItem("Mediocampista");
 			IFpos.addItem("Delantero");
 			panel_botonera.add(IFpos,BorderLayout.WEST);
-			panel_botonera.add(getBoton_muestra(),BorderLayout.EAST);
+			panel_botonera.add(getBoton_muestra(),BorderLayout.CENTER);
 			add(panel_botonera,BorderLayout.NORTH);
 			setBorder(BorderFactory.createTitledBorder("Listado de jugadores"));
 		}

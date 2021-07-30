@@ -1,5 +1,7 @@
 package frontend;
 import java.awt.*;
+import java.awt.event.*;
+
 import javax.swing.*;
 
 public class Inicio extends General{
@@ -14,9 +16,9 @@ public class Inicio extends General{
 	private JButtonI Inicia_torneo;
 	private JButtonI Continua;
 	private JButtonI Guarda_progreso;
-	//private Controlador c;
+	//private Controlador control;
 	public Inicio() {//Inicio(Controlador c)
-		//this.c = c;
+		//control = c;
 		
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 		
@@ -30,8 +32,22 @@ public class Inicio extends General{
 		Continua = new JButtonI("Continua tu torneo");
 		Guarda_progreso = new JButtonI("Guarda tu progreso");
 		
-		//-------------------------------------------------<<POSICIONO LOS BOTONES CENTRADOS>>-------------------------------------------------
-		
+		//-------------------------------------------------<<AGREGO LISTENERS Y BOTONES>>-------------------------------------------------
+		Inicia_torneo.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent e) {
+				//control.IniciaTorneo();
+			}	
+		});
+		Continua.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent e) {
+				//control.ContinuaTorneo();
+			}	
+		});
+		Guarda_progreso.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent e) {
+				//control.SerializaProgreso();
+			}	
+		});
 		Ibox.add(Box.createVerticalStrut((HEIGHT/2)-CANT_BTN*TAM_BTTN.height+20));
 		Ibox.add(Inicia_torneo);
 		Ibox.add(Box.createVerticalStrut(TAM_BTTN.height/2));
@@ -52,4 +68,5 @@ public class Inicio extends General{
 		}
 	}
 	//generar action listeners para los 3 botones (no van a haber cambios visuales)
+
 }

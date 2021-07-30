@@ -52,35 +52,35 @@ public class Cuartos extends General{
 		
 		CEquipo1.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		CEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2,TAM_LABEL.width/2,TAM_LABEL.height/2);
-		CEquipo1.setBackground(COLOR_ETIQUETAS);
+		CEquipo1.setForeground(COLOR_LETRA);
 		
 		CEquipo2.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		CEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,TAM_LABEL.width/2,TAM_LABEL.height/2);
-		CEquipo2.setBackground(COLOR_ETIQUETAS);
+		CEquipo2.setForeground(COLOR_LETRA);
 		
 		CEquipo3.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		CEquipo3.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,TAM_LABEL.width/2,TAM_LABEL.height/2);
-		CEquipo3.setBackground(COLOR_ETIQUETAS);
+		CEquipo3.setForeground(COLOR_LETRA);
 		
 		CEquipo4.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		CEquipo4.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,TAM_LABEL.width/2,TAM_LABEL.height/2);
-		CEquipo4.setBackground(COLOR_ETIQUETAS);
+		CEquipo4.setForeground(COLOR_LETRA);
 		
 		CEquipo5.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		CEquipo5.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_LABEL.width/2+75,CANCHA_TAMANO_RECT_G/2,TAM_LABEL.width/2,TAM_LABEL.height/2);
-		CEquipo5.setBackground(COLOR_ETIQUETAS);
+		CEquipo5.setForeground(COLOR_LETRA);
 		
 		CEquipo6.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		CEquipo6.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_LABEL.width/2+75,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,TAM_LABEL.width/2,TAM_LABEL.height/2);
-		CEquipo6.setBackground(COLOR_ETIQUETAS);
+		CEquipo6.setForeground(COLOR_LETRA);
 		
 		CEquipo7.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		CEquipo7.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_LABEL.width/2+75,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,TAM_LABEL.width/2,TAM_LABEL.height/2);
-		CEquipo7.setBackground(COLOR_ETIQUETAS);
+		CEquipo7.setForeground(COLOR_LETRA);
 		
 		CEquipo8.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		CEquipo8.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_LABEL.width/2+75,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,TAM_LABEL.width/2,TAM_LABEL.height/2);
-		CEquipo8.setBackground(COLOR_ETIQUETAS);
+		CEquipo8.setForeground(COLOR_LETRA);
 		
 		CcomboBox.setEditable(false);
 		CcomboBox.addItem("Cuartos");

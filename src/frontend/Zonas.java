@@ -1,5 +1,6 @@
 package frontend;
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class Zonas extends General{
@@ -24,9 +25,9 @@ public class Zonas extends General{
 	private Zona Zona3;
 	private Zona Zona4;
 	
-	//private Controlador c;
+	//private Controlador control;
 	public Zonas(){//Zona(Controlador c)
-		//this.c = c;
+		//control = c;
 				
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 				
@@ -63,24 +64,88 @@ public class Zonas extends General{
 		ZcomboBox1.addItem("Simula un partido");
 		ZcomboBox1.addItem("Simula una fecha");
 		ZcomboBox1.addItem("Simula una zona");
+		ZcomboBox1.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
+					//Zona1.setText(control.SimulaPartido(1));
+				}else {
+					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
+						//Zona1.setText(control.SimulaFecha(1));
+					}else 
+						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
+							//Zona1.setText(control.SimulaZona(1));
+						}
+				}
+			}
+			
+		});
 				
 		ZcomboBox2.setEditable(false);
 		ZcomboBox2.addItem("Zona 2");
 		ZcomboBox2.addItem("Simula un partido");
 		ZcomboBox2.addItem("Simula una fecha");
 		ZcomboBox2.addItem("Simula una zona");
+		ZcomboBox2.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
+					//Zona2.setText(control.SimulaPartido(2));
+				}else {
+					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
+						//Zona2.setText(control.SimulaFecha(2));
+					}else 
+						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
+							//Zona2.setText(control.SimulaZona(2));
+						}
+				}
+			}
+			
+		});
 				
 		ZcomboBox3.setEditable(false);
 		ZcomboBox3.addItem("Zona 3");
 		ZcomboBox3.addItem("Simula un partido");
 		ZcomboBox3.addItem("Simula una fecha");
 		ZcomboBox3.addItem("Simula una zona");
+		ZcomboBox3.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
+					//Zona3.setText(control.SimulaPartido(3));
+				}else {
+					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
+						//Zona3.setText(control.SimulaFecha(3));
+					}else 
+						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
+							//Zona3.setText(control.SimulaZona(3));
+						}
+				}
+			}
+			
+		});
 				
 		ZcomboBox4.setEditable(false);
 		ZcomboBox4.addItem("Zona 4");
 		ZcomboBox4.addItem("Simula un partido");
 		ZcomboBox4.addItem("Simula una fecha");
 		ZcomboBox4.addItem("Simula una zona");
+		ZcomboBox4.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
+					//Zona4.setText(control.SimulaPartido(4));
+				}else {
+					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
+						//Zona4.setText(control.SimulaFecha(4));
+					}else 
+						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
+							//Zona4.setText(control.SimulaZona(4));
+						}
+				}
+			}
+			
+		});
 		
 		//------------------------------Resolver panel central	
 		
@@ -102,7 +167,7 @@ public class Zonas extends General{
 		add(ZpanelC, BorderLayout.CENTER);			
 		
 	}
-		//generar action listeners para los combo box y metodos para actualizar las tablas
+		//generar action listeners para los combo box, las tablas se actualizan con setText 
 	private class panelZ extends General {
 		panelZ () {
 			super.paint(getGraphics());
@@ -113,10 +178,12 @@ public class Zonas extends General{
 		Zona(String s) {
 			setText(s);
 			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
+			setForeground(COLOR_LETRA);
 			setBackground(COLOR_ZONA);
 		}
 		Zona() {
 			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
+			setForeground(COLOR_LETRA);
 			setBackground(COLOR_ZONA);
 		}
 	}
