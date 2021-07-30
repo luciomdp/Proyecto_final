@@ -102,15 +102,15 @@ public class Equipo implements Serializable{
     }
 
     public void setPuntos(int puntos) {
-        this.puntos  = this.puntos + puntos;
+        this.puntos  += puntos;
     }
 
     public void setGoles(int goles) {
-        this.goles = this.goles + goles;
+        this.goles += goles;
     }
 
     public void setGolesContra(int golesContra) {
-        this.golesContra = this.puntos + golesContra;
+        this.golesContra += golesContra;
     }
     
     public double edadMediaJugadores() {  

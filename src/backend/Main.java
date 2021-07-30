@@ -6,8 +6,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Period;  
 
-public class Main {		
+public class Main {	
+	
+	static ArrayList <Jugador> jugadores;
+	static ArrayList <Equipo> equipos;
+	static ArrayList <Referi> referis; //falta
+	
 	public static void main (String[] args) throws NumberFormatException, ParseException {
+		
 		String Jugadores = "Jugadores.txt"; String Equipos = "Equipos.txt";
 		BufferedReader br = null;
 		BufferedReader br2 = null;
@@ -18,9 +24,9 @@ public class Main {
 		
 		List <Jugador> totJugadores = new ArrayList<>();  //creo un arraylist con toooodos los jugadores
 		((ArrayList<Jugador>) totJugadores).ensureCapacity(288);
-		ArrayList <Jugador> jugadores;
+		/*ArrayList <Jugador> jugadores;
 		ArrayList <Equipo> equipos;
-		ArrayList <Referi> referis; //falta
+		ArrayList <Referi> referis; //falta*/
 		                         
 		int j=0,  i= 0;
 		
@@ -46,6 +52,7 @@ public class Main {
 		    }
 		}
 		totJugadores.forEach(System.out::println);
+		
 		
 		
 		System.out.println("---------------------------------------------------------------------------------------------------\n\n");
@@ -96,6 +103,9 @@ public class Main {
 				    System.out.println(("Equipos:\n"));
 					equipos.forEach(System.out::println); 
 			      }
+				
+	
+		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
 				
 
 	}

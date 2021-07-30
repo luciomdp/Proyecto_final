@@ -29,9 +29,13 @@ public class Campeonato implements Serializable{
 		this.jugadores = jugadores;
 		this.referis = referis;
 		//CREAR LAS ZONAS CON SUS RESPECTIVOS EQUIPOS
-		
+		Zona z1; 
+		Zona z2;
+		Zona z3;
+		Zona z4;
 		
 	}
+	
 	public String ListaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
 		Iterator < Jugador > it = jugadores.iterator();
@@ -55,7 +59,8 @@ public class Campeonato implements Serializable{
 		
 		return s;
 	}
-	public String ListaEquipos() { // CORROBORAR PROCESO DE OBTENCIÓN DE EDADES edadMediaJugadres y getEdad de entrenador (se lo mande a claudio para estar seguro)
+	
+	public String ListaEquipos() { 
 		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
 		for (Equipo  e: equipos) {
 			s+= e.getNombre() + "\nEdad media jugadores: ";
@@ -66,6 +71,7 @@ public class Campeonato implements Serializable{
 		}
 		return s;
 	}
+	
 	public String ListaArbitros() { 
 		int prom = 0; 
 		String s = "----------------------------------------ARBITROS--------------------------------------------\n\n";
