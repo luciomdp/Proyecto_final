@@ -14,7 +14,7 @@ public class Dt extends Persona{
 	private Pais nacionalidad;
 	private byte titulos;
 	
-	public Dt(String a, String no, Date n, int dni, String ti, Pais na, byte titulos) {
+	public Dt(String a, String no, LocalDate n, int dni, String ti, Pais na, byte titulos) {
 		super(a, no, n, dni, ti);
 		this.titulos = titulos;
 	}
@@ -25,13 +25,10 @@ public class Dt extends Persona{
 	
 	public int getEdad() { 
 		
-		int edad;
-        SimpleDateFormat getYearFormat = new SimpleDateFormat("yyyy");
-        int edadDt = Integer.parseInt(getYearFormat.format(this.getNacimiento()));
-		Calendar fechaAct = Calendar.getInstance();
-		int act = fechaAct.get(Calendar.YEAR);
-		edad = act - edadDt;
-		return edad;
+		LocalDate fechaAct = null ;
+		Period edad = Period.between(getNacimiento(), fechaAct.now()); 
+		
+		return edad.getYears();
 		
 	} 
 

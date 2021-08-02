@@ -34,9 +34,9 @@ public class Main {
 		    br = new BufferedReader(new FileReader(Jugadores));
 		    while ((line = br.readLine()) != null) {                
 		        String[] datos = line.split(coma);      
-		        Jugador jugador = new Jugador (datos[2], datos[3], formato.parse(datos[4]), datos[5], Integer.parseInt(datos[6]), 
+		        /*Jugador jugador = new Jugador (datos[2], datos[3], formato.parse(datos[4]), datos[5], Integer.parseInt(datos[6]), 
 		        								Posicion.Mediocampista, Byte.parseByte(datos[7])); //posicion?????
-		        totJugadores.add(jugador);
+		        totJugadores.add(jugador);*/
 		    }
 		} catch (FileNotFoundException e) {
 		    e.printStackTrace();
@@ -78,13 +78,13 @@ public class Main {
 						String[] datos = line.split(coma);
 				        //Imprime datos como los lee:
 				        //System.out.println(datos[0] + ", " + datos[1] + ", " + datos[2] + ", " + datos[3] + ", " + datos[4] + ", " + datos[5] + ", " + datos[6] + ", " + datos[7]+ ", " + datos[8] + ", " + datos[9]);
-				        Dt dt = new Dt (datos[3], datos[4], formato.parse(datos[5]), Integer.parseInt(datos[7]), datos[6], Pais.Alemania, 
-				        		Byte.parseByte(datos[9])); //pais?????
+				       /* Dt dt = new Dt (datos[3], datos[4], formato.parse(datos[5]), Integer.parseInt(datos[7]), datos[6], Pais.Alemania, 
+				        		Byte.parseByte(datos[9])); //pais?????*/
 				        //System.out.println(dt);
 				    	
-				        Equipo equipo = new Equipo(datos[0], Pais.Argentina, Integer.parseInt(datos[2]), jugadores, dt); //pais????????
+				        /*Equipo equipo = new Equipo(datos[0], Pais.Argentina, Integer.parseInt(datos[2]), jugadores, dt); //pais????????
 				    	//System.out.println(equipo + "--------------------------------------------------------------------\\n");
-				        equipos.add(equipo);
+				        equipos.add(equipo);*/
 				        
 				        line = br2.readLine();
 				    }

@@ -1,6 +1,7 @@
 package backend;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 public abstract class Persona implements Serializable {
@@ -10,12 +11,12 @@ public abstract class Persona implements Serializable {
 	private static final long serialVersionUID = -6085890580210945177L;
 
 	private String apellido, nombre;
-	private Date nacimiento;
+	private LocalDate nacimiento;
 	private int dni;
 	String tipoDni;
 	public abstract String DatosIdent();
 	
-	public Persona (String a, String no, Date n, int dni, String ti){
+	public Persona (String a, String no, LocalDate n, int dni, String ti){
 		apellido = a;
 		nombre = no;
 		nacimiento = n;
@@ -39,11 +40,11 @@ public abstract class Persona implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Date getNacimiento() {
+	public LocalDate getNacimiento() {
 		return nacimiento;
 	}
 
-	public void setNacimiento(Date nacimiento) {
+	public void setNacimiento(LocalDate nacimiento) {
 		this.nacimiento = nacimiento;
 	}
 

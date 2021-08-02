@@ -1,5 +1,6 @@
 package backend;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 //Implementar enum para posicion
@@ -16,7 +17,7 @@ public class Jugador extends Persona{
 	private byte puntaje; //0 - 100
 	
 	
-	public Jugador(String a, String no, Date n, String ti, int dni, Posicion po, byte pu) {
+	public Jugador(String a, String no, LocalDate n, String ti, int dni, Posicion po, byte pu) {
 		super(a, no, n, dni, ti);
 		posicion = po;
 		puntaje = pu;

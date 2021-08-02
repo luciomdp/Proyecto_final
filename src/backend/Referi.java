@@ -1,5 +1,6 @@
 package backend;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,7 +16,7 @@ public class Referi extends Persona{
 	private int años_referato;
 	private ArrayList<Referi> Referis = new ArrayList<Referi>(17);
 
-	public Referi(String a, String no, Date n, int dni, String ti, Pais na, int an) {
+	public Referi(String a, String no, LocalDate n, int dni, String ti, Pais na, int an) {
 		super(a, no, n, dni, ti);
 		nacionalidad = na;
 		años_referato = an;
