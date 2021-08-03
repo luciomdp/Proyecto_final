@@ -96,6 +96,8 @@ public class SemiFinal {
 		this.pasaAFinal[k] = pasaAFinal;
 		k++;
 	}
+
+	
 }
 
 

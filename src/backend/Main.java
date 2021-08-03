@@ -106,7 +106,7 @@ public class Main {
 				
 	
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
-				
+		//formulario?		
 
 	}
 	

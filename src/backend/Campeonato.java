@@ -2,6 +2,7 @@ package backend;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class Campeonato implements Serializable {
@@ -13,9 +14,9 @@ public class Campeonato implements Serializable {
 	private final int CANTZ = 4;
 	private final int EQUIPOS_ZONA = 4;
 	
-	private ArrayList <Equipo> equipos;
-	private ArrayList <Jugador> jugadores;
-	private ArrayList <Referi> referis;
+	private static ArrayList <Equipo> equipos;
+	private static ArrayList <Jugador> jugadores;
+	private static ArrayList <Referi> referis;
 	private Zona zonas [] = new Zona [CANTZ];
 	private CuartosFinal cuartosDeFinal;
 	private SemiFinal semiFinal;
@@ -39,7 +40,7 @@ public class Campeonato implements Serializable {
 		
 	}
 	
-	public String ListaJugadores(Posicion pos) { 
+	public static String listaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
 		Iterator < Jugador > it = jugadores.iterator();
 		Jugador j = it.next();
@@ -63,7 +64,8 @@ public class Campeonato implements Serializable {
 		return s;
 	}
 	
-	public String ListaEquipos() { 
+
+	public static String listaEquipos() { 
 		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
 		for (Equipo  e: equipos) {
 			s+= e.getNombre() + "\nEdad media jugadores: ";
@@ -75,7 +77,7 @@ public class Campeonato implements Serializable {
 		return s;
 	}
 	
-	public String ListaArbitros() { 
+	public static String listaArbitros() { 
 		int prom = 0; 
 		String s = "----------------------------------------ARBITROS--------------------------------------------\n\n";
 		for (Referi  e: referis) {
@@ -88,5 +90,30 @@ public class Campeonato implements Serializable {
 		return s;
 	}
 
+	public CuartosFinal getCuartosFinal() {
+		
+		Equipo[] aux = null;
+		Equipo[] aux2 = null;
+		for (int i = 0; i < CANTZ; i += 2) {
+			aux2 = this.zonas[i].getPasanACuartos();
+			aux[i] = aux2[0];
+			aux[i+1] = aux2[1];
+		}
+		this.cuartosDeFinal = new CuartosFinal(aux);
+		
+		return cuartosDeFinal;
+	}
 	
+	public SemiFinal getSemiFinal() {
+		
+		semiFinal = new SemiFinal(this.cuartosDeFinal.getPasanASemis());
+		return semiFinal;
+	}
+	
+	public Final getFinal() {
+		
+		this.final_Campeonato = new Final(this.semiFinal.getPasanAFinal());
+		return final_Campeonato;
+	
+	}
 }
