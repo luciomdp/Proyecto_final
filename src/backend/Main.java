@@ -4,7 +4,8 @@ import java.io.*;
 import java.util.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Period;  
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;  
 
 public class Main {	
 	
@@ -20,23 +21,22 @@ public class Main {
 		String line = "";
 		String coma = ",";
 		
-		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate fecha;
 		
-		List <Jugador> totJugadores = new ArrayList<>();  //creo un arraylist con toooodos los jugadores
+		List <Jugador> totJugadores = new ArrayList<>(); 
 		((ArrayList<Jugador>) totJugadores).ensureCapacity(288);
-		/*ArrayList <Jugador> jugadores;
-		ArrayList <Equipo> equipos;
-		ArrayList <Referi> referis; //falta*/
 		                         
 		int j=0,  i= 0;
 		
 		try {
 		    br = new BufferedReader(new FileReader(Jugadores));
 		    while ((line = br.readLine()) != null) {                
-		        String[] datos = line.split(coma);      
-		        /*Jugador jugador = new Jugador (datos[2], datos[3], formato.parse(datos[4]), datos[5], Integer.parseInt(datos[6]), 
+		        String[] datos = line.split(coma);  
+		        fecha = LocalDate.parse(datos[4], formato);
+		        Jugador jugador = new Jugador (datos[2], datos[3], fecha, datos[5], Integer.parseInt(datos[6]), 
 		        								Posicion.Mediocampista, Byte.parseByte(datos[7])); //posicion?????
-		        totJugadores.add(jugador);*/
+		        totJugadores.add(jugador);
 		    }
 		} catch (FileNotFoundException e) {
 		    e.printStackTrace();
@@ -51,14 +51,13 @@ public class Main {
 		        }
 		    }
 		}
-		totJugadores.forEach(System.out::println);
-		
+		//totJugadores.forEach(System.out::println);
 		
 		
 		System.out.println("---------------------------------------------------------------------------------------------------\n\n");
 		
 		
-		equipos = new ArrayList<>(); //array de todos los equipos
+		equipos = new ArrayList<>(); 
 		(equipos).ensureCapacity(16);
 		//for (int i=0;i<totJugadores.size();i=i+18) { 	
 		
@@ -76,15 +75,14 @@ public class Main {
 					    i=i+18;
 					    //jugadores.forEach(System.out::println);
 						String[] datos = line.split(coma);
-				        //Imprime datos como los lee:
-				        //System.out.println(datos[0] + ", " + datos[1] + ", " + datos[2] + ", " + datos[3] + ", " + datos[4] + ", " + datos[5] + ", " + datos[6] + ", " + datos[7]+ ", " + datos[8] + ", " + datos[9]);
-				       /* Dt dt = new Dt (datos[3], datos[4], formato.parse(datos[5]), Integer.parseInt(datos[7]), datos[6], Pais.Alemania, 
-				        		Byte.parseByte(datos[9])); //pais?????*/
+						fecha = LocalDate.parse(datos[5], formato);
+				        Dt dt = new Dt (datos[3], datos[4], fecha, Integer.parseInt(datos[7]), datos[6], Pais.Alemania, 
+				        		Byte.parseByte(datos[9])); //pais?????*/ 
 				        //System.out.println(dt);
 				    	
-				        /*Equipo equipo = new Equipo(datos[0], Pais.Argentina, Integer.parseInt(datos[2]), jugadores, dt); //pais????????
+				        Equipo equipo = new Equipo(datos[0], Pais.Argentina, Integer.parseInt(datos[2]), jugadores, dt); //pais????????
 				    	//System.out.println(equipo + "--------------------------------------------------------------------\\n");
-				        equipos.add(equipo);*/
+				        equipos.add(equipo);
 				        
 				        line = br2.readLine();
 				    }
@@ -100,7 +98,7 @@ public class Main {
 				            e.printStackTrace();
 				        }
 				    }
-				    System.out.println(("Equipos:\n"));
+				   System.out.println(("Equipos:\n"));
 					equipos.forEach(System.out::println); 
 			      }
 				
