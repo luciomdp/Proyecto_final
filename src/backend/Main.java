@@ -3,7 +3,6 @@ package backend;
 import java.io.*;
 import java.util.*;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;  
 
@@ -24,6 +23,9 @@ public class Main {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate fecha;
 		
+		
+		Pais pais; Posicion pos;
+		
 		List <Jugador> totJugadores = new ArrayList<>(); 
 		((ArrayList<Jugador>) totJugadores).ensureCapacity(288);
 		                         
@@ -31,11 +33,14 @@ public class Main {
 		
 		try {
 		    br = new BufferedReader(new FileReader(Jugadores));
-		    while ((line = br.readLine()) != null) {                
+		    while ((line = br.readLine()) != null) {  
+		    	
 		        String[] datos = line.split(coma);  
 		        fecha = LocalDate.parse(datos[4], formato);
+		        pos = Posicion.valueOf(datos[1]);
+		        
 		        Jugador jugador = new Jugador (datos[2], datos[3], fecha, datos[5], Integer.parseInt(datos[6]), 
-		        								Posicion.Mediocampista, Byte.parseByte(datos[7])); //posicion?????
+		        								pos , Byte.parseByte(datos[7]));
 		        totJugadores.add(jugador);
 		    }
 		} catch (FileNotFoundException e) {
@@ -59,7 +64,6 @@ public class Main {
 		
 		equipos = new ArrayList<>(); 
 		(equipos).ensureCapacity(16);
-		//for (int i=0;i<totJugadores.size();i=i+18) { 	
 		
 				try {
 				    br2 = new BufferedReader(new FileReader(Equipos));
@@ -74,13 +78,18 @@ public class Main {
 						}
 					    i=i+18;
 					    //jugadores.forEach(System.out::println);
+					    
 						String[] datos = line.split(coma);
 						fecha = LocalDate.parse(datos[5], formato);
-				        Dt dt = new Dt (datos[3], datos[4], fecha, Integer.parseInt(datos[7]), datos[6], Pais.Alemania, 
-				        		Byte.parseByte(datos[9])); //pais?????*/ 
-				        //System.out.println(dt);
-				    	
-				        Equipo equipo = new Equipo(datos[0], Pais.Argentina, Integer.parseInt(datos[2]), jugadores, dt); //pais????????
+						pais = Pais.valueOf(datos[8]);
+						
+						Dt dt = new Dt (datos[3], datos[4], fecha, Integer.parseInt(datos[7]), datos[6], pais, 
+				        		Byte.parseByte(datos[9])); //pais. revisar
+				       System.out.println(dt);
+				        
+				        
+				        pais = Pais.valueOf(datos[1]);
+				        Equipo equipo = new Equipo(datos[0], pais, Integer.parseInt(datos[2]), jugadores, dt); 
 				    	//System.out.println(equipo + "--------------------------------------------------------------------\\n");
 				        equipos.add(equipo);
 				        
@@ -98,8 +107,8 @@ public class Main {
 				            e.printStackTrace();
 				        }
 				    }
-				   System.out.println(("Equipos:\n"));
-					equipos.forEach(System.out::println); 
+				  /*System.out.println(("Equipos:\n"));
+					equipos.forEach(System.out::println); */
 			      }
 				
 	
