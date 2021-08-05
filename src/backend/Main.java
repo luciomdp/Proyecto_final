@@ -84,8 +84,8 @@ public class Main {
 						pais = Pais.valueOf(datos[8]);
 						
 						Dt dt = new Dt (datos[3], datos[4], fecha, Integer.parseInt(datos[7]), datos[6], pais, 
-				        		Byte.parseByte(datos[9])); //pais. revisar
-				       System.out.println(dt);
+				        		Byte.parseByte(datos[9]));
+				       //System.out.println(dt);
 				        
 				        
 				        pais = Pais.valueOf(datos[1]);
@@ -107,8 +107,8 @@ public class Main {
 				            e.printStackTrace();
 				        }
 				    }
-				  /*System.out.println(("Equipos:\n"));
-					equipos.forEach(System.out::println); */
+				  System.out.println(("Equipos:\n"));
+					equipos.forEach(System.out::println); 
 			      }
 				
 	

@@ -17,6 +17,7 @@ public class Dt extends Persona{
 	public Dt(String a, String no, LocalDate n, int dni, String ti, Pais na, byte titulos) {
 		super(a, no, n, dni, ti);
 		this.titulos = titulos;
+		this.nacionalidad = na;
 	}
 	
 	public String DatosIdent() {
