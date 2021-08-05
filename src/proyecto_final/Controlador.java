@@ -9,6 +9,12 @@ public class Controlador {
 	private Campeonato campeonatoActual = null;
 	private Frame frameActual = null;
 	
+	/* Constructor de controlador de campeonato*/
+	public Controlador (Campeonato c, Frame f) {
+		this.campeonatoActual = c;
+		this.frameActual = f;
+	}
+	
 	/*Inicia torneo*/
 	public void iniciaTorneo() {
 		//acá hay que leer todos los datos e iniciar uno nuevo
@@ -44,9 +50,5 @@ public class Controlador {
 		return campeonatoActual.listaArbitros();
 	}
 	
-	/* Constructor de controlador de campeonato*/
-	public Controlador (Campeonato c, Frame f) {
-		this.campeonatoActual = c;
-		this.frameActual = f;
-	}
+	
 }
