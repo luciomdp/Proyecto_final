@@ -40,7 +40,7 @@ public class Campeonato implements Serializable {
 		
 	}
 	
-	public static String listaJugadores(Posicion pos) { 
+	public String listaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
 		Iterator < Jugador > it = jugadores.iterator();
 		Jugador j = it.next();
@@ -65,7 +65,7 @@ public class Campeonato implements Serializable {
 	}
 	
 
-	public static String listaEquipos() { 
+	public String listaEquipos() { 
 		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
 		for (Equipo  e: equipos) {
 			s+= e.getNombre() + "\nEdad media jugadores: ";
@@ -77,7 +77,7 @@ public class Campeonato implements Serializable {
 		return s;
 	}
 	
-	public static String listaArbitros() { 
+	public String listaArbitros() { 
 		int prom = 0; 
 		String s = "----------------------------------------ARBITROS--------------------------------------------\n\n";
 		for (Referi  e: referis) {
