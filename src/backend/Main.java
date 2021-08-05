@@ -2,6 +2,10 @@ package backend;
 
 import java.io.*;
 import java.util.*;
+
+import frontend.Frame;
+import proyecto_final.Controlador;
+
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;  
@@ -142,6 +146,9 @@ public class Main {
 							    	
 				
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
+		Frame vista = new Frame ();
+		Controlador control = new Controlador (torneo,vista);
+		
 		//formulario?		
 
 	}

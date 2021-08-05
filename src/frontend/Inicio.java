@@ -16,9 +16,7 @@ public class Inicio extends General{
 	private JButtonI Inicia_torneo;
 	private JButtonI Continua;
 	private JButtonI Guarda_progreso;
-	//private Controlador control;
-	public Inicio() {//Inicio(Controlador c)
-		//control = c;
+	public Inicio() {
 		
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 		
@@ -35,17 +33,17 @@ public class Inicio extends General{
 		//-------------------------------------------------<<AGREGO LISTENERS Y BOTONES>>-------------------------------------------------
 		Inicia_torneo.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
-				//control.IniciaTorneo();
+				//getControl().IniciaTorneo();
 			}	
 		});
 		Continua.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
-				//control.ContinuaTorneo();
+				//getControl().ContinuaTorneo();
 			}	
 		});
 		Guarda_progreso.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
-				//control.SerializaProgreso();
+				//getControl().SerializaProgreso();
 			}	
 		});
 		Ibox.add(Box.createVerticalStrut((HEIGHT/2)-CANT_BTN*TAM_BTTN.height+20));
@@ -57,6 +55,7 @@ public class Inicio extends General{
 		Ibox.add(Box.createVerticalStrut((HEIGHT/2)-CANT_BTN*TAM_BTTN.height));
 		add(Ibox);
 	}
+	
 	private class JButtonI extends JButton {
 		JButtonI (String s){
 			super(s);
@@ -67,5 +66,6 @@ public class Inicio extends General{
 			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		}
 	}
+	
 
 }

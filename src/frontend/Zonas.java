@@ -25,9 +25,7 @@ public class Zonas extends General{
 	private Zona Zona3;
 	private Zona Zona4;
 	
-	//private Controlador control;
-	public Zonas(){//Zona(Controlador c)
-		//control = c;
+	public Zonas(){
 				
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 				
@@ -67,13 +65,13 @@ public class Zonas extends General{
 		ZcomboBox1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
-					//Zona1.setText(control.SimulaPartido(1));
+					//Zona1.setText(getControl().SimulaPartido(1));
 				}else {
 					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
-						//Zona1.setText(control.SimulaFecha(1));
+						//Zona1.setText(getControl().SimulaFecha(1));
 					}else 
 						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
-							//Zona1.setText(control.SimulaZona(1));
+							//Zona1.setText(getControl().SimulaZona(1));
 						}
 				}
 			}
@@ -88,13 +86,13 @@ public class Zonas extends General{
 		ZcomboBox2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
-					//Zona2.setText(control.SimulaPartido(2));
+					//Zona2.setText(getControl().SimulaPartido(2));
 				}else {
 					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
-						//Zona2.setText(control.SimulaFecha(2));
+						//Zona2.setText(getControl().SimulaFecha(2));
 					}else 
 						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
-							//Zona2.setText(control.SimulaZona(2));
+							//Zona2.setText(getControl().SimulaZona(2));
 						}
 				}
 			}
@@ -109,13 +107,13 @@ public class Zonas extends General{
 		ZcomboBox3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
-					//Zona3.setText(control.SimulaPartido(3));
+					//Zona3.setText(getControl().SimulaPartido(3));
 				}else {
 					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
-						//Zona3.setText(control.SimulaFecha(3));
+						//Zona3.setText(getControl().SimulaFecha(3));
 					}else 
 						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
-							//Zona3.setText(control.SimulaZona(3));
+							//Zona3.setText(getControl().SimulaZona(3));
 						}
 				}
 			}
@@ -130,13 +128,13 @@ public class Zonas extends General{
 		ZcomboBox4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
-					//Zona4.setText(control.SimulaPartido(4));
+					//Zona4.setText(getControl().SimulaPartido(4));
 				}else {
 					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
-						//Zona4.setText(control.SimulaFecha(4));
+						//Zona4.setText(getControl().SimulaFecha(4));
 					}else 
 						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
-							//Zona4.setText(control.SimulaZona(4));
+							//Zona4.setText(getControl().SimulaZona(4));
 						}
 				}
 			}
@@ -145,11 +143,11 @@ public class Zonas extends General{
 		
 		Simula_todo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				  /*control.SimulaZonas();
-					Zona1.setText(control.getZona1());
-					Zona2.setText(control.getZona2());
-					Zona3.setText(control.getZona3());
-					Zona4.setText(control.getZona4());*/
+				  /*getControl().SimulaZonas();
+					Zona1.setText(getControl().getZona1());
+					Zona2.setText(getControl().getZona2());
+					Zona3.setText(getControl().getZona3());
+					Zona4.setText(getControl().getZona4());*/
 			}
 		});
 		

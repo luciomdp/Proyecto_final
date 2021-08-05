@@ -1,7 +1,16 @@
 package frontend;
-import java.awt.geom.*;
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
+
+import javax.swing.JPanel;
+
+import proyecto_final.Controlador;
 
 
 public class General extends JPanel{
@@ -47,7 +56,7 @@ public class General extends JPanel{
 	protected final Color COLOR_FINAL = new Color(38, 190, 35);
 	protected final Color COLOR_INFORMACION = Color.GRAY;
 	//-----------------------------------PANEL-----------------------------
-	
+	private Controlador control;
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -61,6 +70,14 @@ public class General extends JPanel{
 			g2.draw(new Rectangle2D.Double(0-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
 			g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_C/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_C/2),CANCHA_TAMANO_RECT_C,CANCHA_TAMANO_RECT_C));
 			g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
+	}
+
+	public Controlador getControl() {
+		return control;
+	}
+
+	public void setControl(Controlador control) {
+		this.control = control;
 	}
 
 }

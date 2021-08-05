@@ -2,6 +2,9 @@ package frontend;
 
 import javax.swing.border.*;
 import javax.swing.table.*;
+
+import proyecto_final.Controlador;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -17,8 +20,6 @@ public class Frame extends JFrame {
 	private Semifinales semis;
 	private Final fin;
 	private Informacion info;
-	//private Controlador control;
-	
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -32,8 +33,7 @@ public class Frame extends JFrame {
 			}
 		});
 	}
-	public Frame() {//public Frame (Controlador c )
-		//control = c;
+	public Frame() {
 		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
 		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
 		setTitle("Proyecto final en Java: Torneo de futbol");
@@ -42,12 +42,12 @@ public class Frame extends JFrame {
 		setBounds(200, 100,1003,567);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		inicio = new Inicio();//control
-		zona = new Zonas();//control
-		cuartos = new Cuartos();//control
-		semis = new Semifinales();//control
-		fin = new Final();//control
-		info = new Informacion();//control
+		inicio = new Inicio();
+		zona = new Zonas();
+		cuartos = new Cuartos();
+		semis = new Semifinales();
+		fin = new Final();
+		info = new Informacion();
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("Inicio", null, inicio, null);
 		tabbedPane.addTab("Zona", null, zona, null);
@@ -60,5 +60,13 @@ public class Frame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		contentPane.add(tabbedPane);
 		setContentPane(contentPane);
+	}
+	public void setControlador (Controlador c) {
+		inicio.setControl(c);
+		zona.setControl(c);
+		cuartos.setControl(c);
+		semis.setControl(c);
+		fin.setControl(c);
+		info.setControl(c);
 	}
 }

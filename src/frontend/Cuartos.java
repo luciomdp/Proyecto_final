@@ -23,9 +23,7 @@ public class Cuartos extends General{
 	private JLabel CEquipo7;
 	private JLabel CEquipo8;
 	
-	//private Controlador control;
-	public Cuartos (){//Cuartos(Controlador c)
-		//control = c;
+	public Cuartos (){
 				
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 				
@@ -95,52 +93,52 @@ public class Cuartos extends General{
 				int partido_simulado = 0;
 				if((String)CcomboBox.getSelectedItem() != "Cuartos") {
 					if((String)CcomboBox.getSelectedItem() == "Simula partido") {
-						/*partido_simulado = control.SimulaPartidoCuartos(); // 0 si no se pueden jugar mas partidos
+						/*partido_simulado = getControl().SimulaPartidoCuartos(); // 0 si no se pueden jugar mas partidos
 						  switch(partido_simulado) {
 						  		case 1:
-						  			 CEquipo1.setText(control.getE1Cuartos());
-						  			 CEquipo2.setText(control.getE2Cuartos());
+						  			 CEquipo1.setText(getControl().getE1Cuartos());
+						  			 CEquipo2.setText(getControl().getE2Cuartos());
 						  		break;
 						  		case 2:
-						            CEquipo3.setText(control.getE3Cuartos());
-						  			 CEquipo4.setText(control.getE4Cuartos());
+						            CEquipo3.setText(getControl().getE3Cuartos());
+						  			 CEquipo4.setText(getControl().getE4Cuartos());
 						  		break;
 						  		case 3:
-						  			 CEquipo5.setText(control.getE5Cuartos());
-						  			 CEquipo6.setText(control.getE6Cuartos());
+						  			 CEquipo5.setText(getControl().getE5Cuartos());
+						  			 CEquipo6.setText(getControl().getE6Cuartos());
 						  		break;
 						  		case 4:
-						  			 CEquipo7.setText(control.getE7Cuartos());
-						  			 CEquipo8.setText(control.getE8Cuartos());
+						  			 CEquipo7.setText(getControl().getE7Cuartos());
+						  			 CEquipo8.setText(getControl().getE8Cuartos());
 						  		break;
 						  }
 						  */ 
 						//se simula el partido que sea
 					}else {
 						if((String)CcomboBox.getSelectedItem() == "Simula todos los partidos de ida") {
-							//partido_simulado = control.simulaPartidosIdaC();
+							//partido_simulado = getControl().simulaPartidosIdaC();
 						}else {
 							if((String)CcomboBox.getSelectedItem() == "Simula todos los partidos de vuelta") {
-								//partido_simulado = control.simulaPartidosVueltaC();
+								//partido_simulado = getControl().simulaPartidosVueltaC();
 							}else {
-								//partido_simulado = control.simulaPartidosCuartos(); 
+								//partido_simulado = getControl().simulaPartidosCuartos(); 
 							}
 						}
 						//cambio el string de los partidos de cuartos a partir del partido "partido_simulado", ya que el resto de opciones
 						//simula todo, por lo que si se simula un anterior, se simulara el posterior (siempre se simulan los partidos en orden)
 						/*switch(partido_simulado) {
 						  		case 1:
-						  			 CEquipo1.setText(control.getE1Cuartos());
-						  			 CEquipo2.setText(control.getE2Cuartos());
+						  			 CEquipo1.setText(getControl().getE1Cuartos());
+						  			 CEquipo2.setText(getControl().getE2Cuartos());
 						  		case 2:
-						            CEquipo3.setText(control.getE3Cuartos());
-						  			 CEquipo4.setText(control.getE4Cuartos());
+						            CEquipo3.setText(getControl().getE3Cuartos());
+						  			 CEquipo4.setText(getControl().getE4Cuartos());
 						  		case 3:
-						  			 CEquipo5.setText(control.getE5Cuartos());
-						  			 CEquipo6.setText(control.getE6Cuartos());
+						  			 CEquipo5.setText(getControl().getE5Cuartos());
+						  			 CEquipo6.setText(getControl().getE6Cuartos());
 						  		case 4:
-						  			 CEquipo7.setText(control.getE7Cuartos());
-						  			 CEquipo8.setText(control.getE8Cuartos());
+						  			 CEquipo7.setText(getControl().getE7Cuartos());
+						  			 CEquipo8.setText(getControl().getE8Cuartos());
 						  }*///le saco el break asi dependiendo el que sea, ejecuta tambien las sentencias del de abajo
 					}
 				}

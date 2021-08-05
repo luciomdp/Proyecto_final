@@ -24,9 +24,7 @@ public class Informacion extends General{
 	private IFpanel_R PanelR;
 	private JPanel IFpanelBotonera;
 	
-	//private Controlador c;
-	public Informacion (){//Informacion(Controlador c)
-		//this.c = c;
+	public Informacion (){
 				
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 		
@@ -87,7 +85,8 @@ public class Informacion extends General{
 		add(IFboxPPAL);
 			
 	}
-	//generar action listeners para los combo box y metodos para actualizar los equipos
+
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 			Graphics2D g2 = (Graphics2D) g;
@@ -96,7 +95,7 @@ public class Informacion extends General{
 			g2.draw(new Line2D.Double(getWidth()-getWidth()/16,getHeight(),getWidth()-getWidth()/16,0));
 	}
 	
-	private abstract class IFpanel extends JPanel { //Controlador se manda aca
+	private abstract class IFpanel extends JPanel { 
 		private JTextArea area;
 		private JScrollPane panel_area;
 		private JButton boton_muestra;
@@ -112,9 +111,7 @@ public class Informacion extends General{
 			add(panel_area,BorderLayout.CENTER);
 			setVisible(false);
 		}
-		public JTextArea getArea() {
-			return area;
-		}
+	
 		public void Desactiva () {
 			setVisible(false);
 		}
@@ -139,7 +136,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Listado de equipos"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//getArea().setText(control.getListadoEquipos());
+					//getArea().setText(getControl().getListadoEquipos());
 				}		
 			});
 		}
@@ -170,7 +167,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Listado de jugadores"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//getArea().setText(control.getListadoJugadores((Posicion)IFpos.getSelectedItem()));
+					//getArea().setText(getControl().getListadoJugadores((Posicion)IFpos.getSelectedItem()));
 				}
 			});
 		}
@@ -189,7 +186,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Ranking de referis"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//getArea().setText(control.getListadoReferis());
+					//getArea().setText(getControl().getListadoReferis());
 				}
 			});
 		}

@@ -20,9 +20,7 @@ public class Semifinales extends General{
 	private JLabel SEquipo3;
 	private JLabel SEquipo4;
 		
-	//private Controlador control;
-	public Semifinales (){//Semifinales(Controlador c)
-		//control = c;
+	public Semifinales (){
 					
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 					
@@ -73,37 +71,37 @@ public class Semifinales extends General{
 				int partido_simulado = 0;
 				if((String)ScomboBox.getSelectedItem() != "Semifinales") {
 					if((String)ScomboBox.getSelectedItem() == "Simula partido") {
-						/*partido_simulado = control.SimulaPartidoSemis(); // 0 si no se pueden jugar mas partidos
+						/*partido_simulado = getgetControl()().SimulaPartidoSemis(); // 0 si no se pueden jugar mas partidos
 						 * switch(partido_simulado) {
 						 * 		case 1:
-						 * 			 SEquipo1.setText(control.getE1Semis());
-						 * 			 SEquipo2.setText(control.getE2Semis());
+						 * 			 SEquipo1.setText(getgetControl()().getE1Semis());
+						 * 			 SEquipo2.setText(getgetControl()().getE2Semis());
 						 * 		break;
 						 * 		case 2:
-						 *           SEquipo3.setText(control.getE3Semis());
-						 * 			 SEquipo4.setText(control.getE4Semis());
+						 *           SEquipo3.setText(getControl().getE3Semis());
+						 * 			 SEquipo4.setText(getControl().getE4Semis());
 						 * 		break;
 						 * }
 						 * */ 
 						//se simula el partido que sea
 					}else {
 						if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos de ida") {
-							//partido_simulado = control.simulaPartidosIdaS();
+							//partido_simulado = getControl().simulaPartidosIdaS();
 						}else {
 							if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos de vuelta") {
-								//partido_simulado = control.simulaPartidosVueltaS(); 
+								//partido_simulado = getControl().simulaPartidosVueltaS(); 
 							}else {
-								//partido_simulado = control.simulaPartidosSemis();
+								//partido_simulado = getControl().simulaPartidosSemis();
 							}
 						}
-						/*partido_simulado = control.SimulaPartidoSemis(); // 0 si no se pueden jugar mas partidos
+						/*partido_simulado = getControl().SimulaPartidoSemis(); // 0 si no se pueden jugar mas partidos
 						  switch(partido_simulado) {
 						  		case 1:
-						  			 SEquipo1.setText(control.getE1Semis());
-						 			 SEquipo2.setText(control.getE2Semis());
+						  			 SEquipo1.setText(getControl().getE1Semis());
+						 			 SEquipo2.setText(getControl().getE2Semis());
 						  		case 2:
-						            SEquipo3.setText(control.getE3Semis());
-						 			 SEquipo4.setText(control.getE4Semis());
+						            SEquipo3.setText(getControl().getE3Semis());
+						 			 SEquipo4.setText(getControl().getE4Semis());
 						  }
 						  */
 					}
