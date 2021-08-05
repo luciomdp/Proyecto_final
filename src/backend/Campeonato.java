@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 
+import proyecto_final.Controlador;
+
 public class Campeonato implements Serializable {
 	
 	private static final long serialVersionUID = 9176305150524899919L;
@@ -21,6 +23,7 @@ public class Campeonato implements Serializable {
 	private CuartosFinal cuartosDeFinal;
 	private SemiFinal semiFinal;
 	private Final final_Campeonato;
+	private Controlador control;
 	
 	public Campeonato (ArrayList <Equipo> equipos, ArrayList <Jugador> jugadores, ArrayList <Referi> referis) {
 		
@@ -38,6 +41,12 @@ public class Campeonato implements Serializable {
             j += 4;
         }
 		
+	}
+	
+	public void IniciaTorneo() {//pasar parametros para iniciar UN SOLO INICIATORNEO
+		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
+		 * en caso de iniciar torneo de 0, todos los parametros serian null, en caso contrario, se pasarian los
+		 * parametros que se hayan modificado (osea que se haya jugado) y el resto que no, podrian ser null tambien*/
 	}
 	
 	public String listaJugadores(Posicion pos) { 
@@ -115,5 +124,13 @@ public class Campeonato implements Serializable {
 		this.final_Campeonato = new Final(this.semiFinal.getPasanAFinal());
 		return final_Campeonato;
 	
+	}
+
+	public Controlador getControlador() {
+		return control;
+	}
+
+	public void setControlador(Controlador control) {
+		this.control = control;
 	}
 }

@@ -147,9 +147,10 @@ public class Main {
 				
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
 		Frame vista = new Frame ();
-		//Controlador control = new Controlador (torneo,vista);
+		Controlador control = new Controlador (torneo,vista);
+		vista.setControlador(control);
+		torneo.setControlador(control);
 		
-		//formulario?		
 
 	}
 	

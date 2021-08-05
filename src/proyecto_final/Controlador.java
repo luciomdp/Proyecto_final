@@ -6,8 +6,8 @@ import frontend.Frame;
 
 public class Controlador {
 
-	private Campeonato campeonatoActual = null;
-	private Frame frameActual = null;
+	private Campeonato campeonatoActual;
+	private Frame frameActual;
 	
 	/* Constructor de controlador de campeonato*/
 	public Controlador (Campeonato c, Frame f) {
@@ -17,12 +17,12 @@ public class Controlador {
 	
 	/*Inicia torneo*/
 	public void iniciaTorneo() {
-		//acá hay que leer todos los datos e iniciar uno nuevo
+		//inicia torneo con todos datos neutros (no paso nada)
 	}
 	
 	/*Reanuda torneo*/
 	public void continuaTorneo() {
-		//acá hay que continuar el torneo
+		//inicia torneo con todos datos serializados (se pasan por parametro de IniciaTorneo())
 	}
 	
 	/*Guarda torneo*/
