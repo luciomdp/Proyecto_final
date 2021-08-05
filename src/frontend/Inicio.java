@@ -57,7 +57,7 @@ public class Inicio extends General{
 		Ibox.add(Box.createVerticalStrut((HEIGHT/2)-CANT_BTN*TAM_BTTN.height));
 		add(Ibox);
 	}
-	private class JButtonI extends JButton { //faltan action listeners
+	private class JButtonI extends JButton {
 		JButtonI (String s){
 			super(s);
 			setForeground(COLOR_LETRA);
@@ -67,6 +67,5 @@ public class Inicio extends General{
 			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		}
 	}
-	//generar action listeners para los 3 botones (no van a haber cambios visuales)
 
 }

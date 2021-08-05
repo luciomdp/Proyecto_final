@@ -17,7 +17,7 @@ public class Frame extends JFrame {
 	private Semifinales semis;
 	private Final fin;
 	private Informacion info;
-
+	//private Controlador control;
 	
 	
 	public static void main(String[] args) {
@@ -32,7 +32,8 @@ public class Frame extends JFrame {
 			}
 		});
 	}
-	public Frame() {	
+	public Frame() {//public Frame (Controlador c )
+		//control = c;
 		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
 		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
 		setTitle("Proyecto final en Java: Torneo de futbol");
@@ -41,12 +42,12 @@ public class Frame extends JFrame {
 		setBounds(200, 100,1003,567);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		inicio = new Inicio();
-		zona = new Zonas();
-		cuartos = new Cuartos();
-		semis = new Semifinales();
-		fin = new Final();
-		info = new Informacion();
+		inicio = new Inicio();//control
+		zona = new Zonas();//control
+		cuartos = new Cuartos();//control
+		semis = new Semifinales();//control
+		fin = new Final();//control
+		info = new Informacion();//control
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.addTab("Inicio", null, inicio, null);
 		tabbedPane.addTab("Zona", null, zona, null);

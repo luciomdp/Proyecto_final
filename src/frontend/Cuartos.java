@@ -1,5 +1,6 @@
 package frontend;
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 
@@ -22,9 +23,9 @@ public class Cuartos extends General{
 	private JLabel CEquipo7;
 	private JLabel CEquipo8;
 	
-	//private Controlador c;
+	//private Controlador control;
 	public Cuartos (){//Cuartos(Controlador c)
-		//this.c = c;
+		//control = c;
 				
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 				
@@ -88,6 +89,64 @@ public class Cuartos extends General{
 		CcomboBox.addItem("Simula todos los partidos de ida");
 		CcomboBox.addItem("Simula todos los partidos de vuelta");
 		CcomboBox.addItem("Simula todos los partidos");
+		
+		CcomboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int partido_simulado = 0;
+				if((String)CcomboBox.getSelectedItem() != "Cuartos") {
+					if((String)CcomboBox.getSelectedItem() == "Simula partido") {
+						/*partido_simulado = control.SimulaPartidoCuartos(); // 0 si no se pueden jugar mas partidos
+						  switch(partido_simulado) {
+						  		case 1:
+						  			 CEquipo1.setText(control.getE1Cuartos());
+						  			 CEquipo2.setText(control.getE2Cuartos());
+						  		break;
+						  		case 2:
+						            CEquipo3.setText(control.getE3Cuartos());
+						  			 CEquipo4.setText(control.getE4Cuartos());
+						  		break;
+						  		case 3:
+						  			 CEquipo5.setText(control.getE5Cuartos());
+						  			 CEquipo6.setText(control.getE6Cuartos());
+						  		break;
+						  		case 4:
+						  			 CEquipo7.setText(control.getE7Cuartos());
+						  			 CEquipo8.setText(control.getE8Cuartos());
+						  		break;
+						  }
+						  */ 
+						//se simula el partido que sea
+					}else {
+						if((String)CcomboBox.getSelectedItem() == "Simula todos los partidos de ida") {
+							//partido_simulado = control.simulaPartidosIdaC();
+						}else {
+							if((String)CcomboBox.getSelectedItem() == "Simula todos los partidos de vuelta") {
+								//partido_simulado = control.simulaPartidosVueltaC();
+							}else {
+								//partido_simulado = control.simulaPartidosCuartos(); 
+							}
+						}
+						//cambio el string de los partidos de cuartos a partir del partido "partido_simulado", ya que el resto de opciones
+						//simula todo, por lo que si se simula un anterior, se simulara el posterior (siempre se simulan los partidos en orden)
+						/*switch(partido_simulado) {
+						  		case 1:
+						  			 CEquipo1.setText(control.getE1Cuartos());
+						  			 CEquipo2.setText(control.getE2Cuartos());
+						  		case 2:
+						            CEquipo3.setText(control.getE3Cuartos());
+						  			 CEquipo4.setText(control.getE4Cuartos());
+						  		case 3:
+						  			 CEquipo5.setText(control.getE5Cuartos());
+						  			 CEquipo6.setText(control.getE6Cuartos());
+						  		case 4:
+						  			 CEquipo7.setText(control.getE7Cuartos());
+						  			 CEquipo8.setText(control.getE8Cuartos());
+						  }*///le saco el break asi dependiendo el que sea, ejecuta tambien las sentencias del de abajo
+					}
+				}
+			}	
+		});
+		
 		CpanelN.add(CcomboBox);
 		
 		//------------------------------Resolver panel central	
