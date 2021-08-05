@@ -65,7 +65,6 @@ public class Zonas extends General{
 		ZcomboBox1.addItem("Simula una fecha");
 		ZcomboBox1.addItem("Simula una zona");
 		ZcomboBox1.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
 					//Zona1.setText(control.SimulaPartido(1));
@@ -87,7 +86,6 @@ public class Zonas extends General{
 		ZcomboBox2.addItem("Simula una fecha");
 		ZcomboBox2.addItem("Simula una zona");
 		ZcomboBox2.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
 					//Zona2.setText(control.SimulaPartido(2));
@@ -109,7 +107,6 @@ public class Zonas extends General{
 		ZcomboBox3.addItem("Simula una fecha");
 		ZcomboBox3.addItem("Simula una zona");
 		ZcomboBox3.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
 					//Zona3.setText(control.SimulaPartido(3));
@@ -131,7 +128,6 @@ public class Zonas extends General{
 		ZcomboBox4.addItem("Simula una fecha");
 		ZcomboBox4.addItem("Simula una zona");
 		ZcomboBox4.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
 					//Zona4.setText(control.SimulaPartido(4));
@@ -147,9 +143,18 @@ public class Zonas extends General{
 			
 		});
 		
-		//------------------------------Resolver panel central	
+		Simula_todo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				  /*control.SimulaZonas();
+					Zona1.setText(control.getZona1());
+					Zona2.setText(control.getZona2());
+					Zona3.setText(control.getZona3());
+					Zona4.setText(control.getZona4());*/
+			}
+		});
 		
 		//-------------------------------------------------<<AÑADO TODO A LA ZONA>>-------------------------------------------------
+		
 		ZpanelN.add(ZcomboBox1);
 		ZpanelN.add(ZcomboBox2);
 		ZpanelN.add(ZcomboBox3);

@@ -4,6 +4,8 @@ import java.awt.event.*;
 import java.awt.geom.*;
 import javax.swing.*;
 
+import backend.Posicion;
+
 
 public class Informacion extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
@@ -110,6 +112,9 @@ public class Informacion extends General{
 			add(panel_area,BorderLayout.CENTER);
 			setVisible(false);
 		}
+		public JTextArea getArea() {
+			return area;
+		}
 		public void Desactiva () {
 			setVisible(false);
 		}
@@ -132,11 +137,16 @@ public class Informacion extends General{
 			getBoton_muestra().setText("Mostrar equipos");
 			add(getBoton_muestra(),BorderLayout.NORTH);
 			setBorder(BorderFactory.createTitledBorder("Listado de equipos"));
+			getBoton_muestra().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					//getArea().setText(control.getListadoEquipos());
+				}		
+			});
 		}
 	}
 	
 	private class IFpanel_J extends IFpanel {
-		private JComboBox<String> IFpos;
+		private JComboBox <Posicion> IFpos;
 		private JPanel panel_botonera;
 		/**
 		 * 
@@ -146,19 +156,23 @@ public class Informacion extends General{
 		
 		IFpanel_J() {
 			super();
-			IFpos = new JComboBox<String>();
+			IFpos = new JComboBox<Posicion>();
 			getBoton_muestra().setText("Mostrar jugadores");
 			panel_botonera = new JPanel();
 			panel_botonera.setLayout(new BorderLayout());
-			IFpos.addItem("Seleccione posicion");
-			IFpos.addItem("Arquero");
-			IFpos.addItem("Defensor");
-			IFpos.addItem("Mediocampista");
-			IFpos.addItem("Delantero");
+			IFpos.addItem(Posicion.Arquero);
+			IFpos.addItem(Posicion.Defensor);
+			IFpos.addItem(Posicion.Mediocampista);
+			IFpos.addItem(Posicion.Delantero);
 			panel_botonera.add(IFpos,BorderLayout.WEST);
 			panel_botonera.add(getBoton_muestra(),BorderLayout.CENTER);
 			add(panel_botonera,BorderLayout.NORTH);
 			setBorder(BorderFactory.createTitledBorder("Listado de jugadores"));
+			getBoton_muestra().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					//getArea().setText(control.getListadoJugadores((Posicion)IFpos.getSelectedItem()));
+				}
+			});
 		}
 		
 	}
@@ -173,10 +187,14 @@ public class Informacion extends General{
 			getBoton_muestra().setText("Listar referis");
 			add(getBoton_muestra(),BorderLayout.NORTH);
 			setBorder(BorderFactory.createTitledBorder("Ranking de referis"));
+			getBoton_muestra().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					//getArea().setText(control.getListadoReferis());
+				}
+			});
 		}
 		
 	}
-	
 	private class JButtonIF extends JButton {
 		
 		JButtonIF(String s,ActionListener L) {

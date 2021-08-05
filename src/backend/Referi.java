@@ -45,4 +45,11 @@ public class Referi extends Persona{
 		return null;
 	}
 
+	@Override
+	public String toString() {
+		return "Referi [nacionalidad=" + nacionalidad + ", años_referato=" + años_referato + ", tipoDni=" + tipoDni
+				+ ", getApellido()=" + getApellido() + ", getNombre()=" + getNombre() + ", getNacimiento()="
+				+ getNacimiento() + ", getDni()=" + getDni() + "]";
+	}
+
 }
