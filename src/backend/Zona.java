@@ -11,7 +11,6 @@ public class Zona implements Serializable{
 
 	private static final long serialVersionUID = 2934756314623471362L;
 	//Implementar tabla de posiciones
-	
 	//-------------------------VALORES DE PUNTOS--------------------------
 	final int PV = 3;
 	final int PE = 1;
