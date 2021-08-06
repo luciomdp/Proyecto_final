@@ -14,7 +14,7 @@ public class Main {
 	
 	static ArrayList <Jugador> jugadores;
 	static ArrayList <Equipo> equipos;
-	static ArrayList <Referi> referis; //falta
+	static ArrayList <Referi> referis; 
 	
 	public static void main (String[] args) throws NumberFormatException, ParseException {
 		
@@ -106,8 +106,8 @@ public class Main {
 				            e.printStackTrace();
 				        }
 				    }
-				    /*System.out.println(("Equipos:\n"));
-					equipos.forEach(System.out::println); */
+				    System.out.println(("Equipos:\n"));
+					equipos.forEach(System.out::println); 
 			      }
 		
 		System.out.println("---------------------------------------------------------------------------------------------------\n\n");
@@ -125,7 +125,7 @@ public class Main {
 			    		Referi referi = new Referi (datos[0], datos[1], fecha, Integer.parseInt(datos[4]), datos[3], pais, 
 		    										Byte.parseByte(datos[6]));
 			    		referis.add(referi);
-			    		System.out.println(referis.size());
+	
 			    		line = br2.readLine();	
 			    		
 				   }
@@ -141,6 +141,7 @@ public class Main {
 				            e.printStackTrace();
 				        }
 				    }
+				    System.out.println(("Referis:\n"));
 				    referis.forEach(System.out::println);
 			      }
 							    	
