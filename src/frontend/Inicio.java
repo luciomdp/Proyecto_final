@@ -4,6 +4,8 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+import proyecto_final.Controlador;
+
 public class Inicio extends General{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
@@ -16,8 +18,9 @@ public class Inicio extends General{
 	private JButtonI Inicia_torneo;
 	private JButtonI Continua;
 	private JButtonI Guarda_progreso;
+	
 	public Inicio() {
-		
+
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 		
 		setBackground(COLOR_INICIO);
@@ -30,22 +33,8 @@ public class Inicio extends General{
 		Continua = new JButtonI("Continua tu torneo");
 		Guarda_progreso = new JButtonI("Guarda tu progreso");
 		
-		//-------------------------------------------------<<AGREGO LISTENERS Y BOTONES>>-------------------------------------------------
-		Inicia_torneo.addActionListener(new ActionListener () {
-			public void actionPerformed(ActionEvent e) {
-				//getControl().IniciaTorneo();
-			}	
-		});
-		Continua.addActionListener(new ActionListener () {
-			public void actionPerformed(ActionEvent e) {
-				//getControl().ContinuaTorneo();
-			}	
-		});
-		Guarda_progreso.addActionListener(new ActionListener () {
-			public void actionPerformed(ActionEvent e) {
-				//getControl().SerializaProgreso();
-			}	
-		});
+		//-------------------------------------------------<<AGREGO BOTONES>>-------------------------------------------------
+		
 		Ibox.add(Box.createVerticalStrut((HEIGHT/2)-CANT_BTN*TAM_BTTN.height+20));
 		Ibox.add(Inicia_torneo);
 		Ibox.add(Box.createVerticalStrut(TAM_BTTN.height/2));
@@ -55,6 +44,29 @@ public class Inicio extends General{
 		Ibox.add(Box.createVerticalStrut((HEIGHT/2)-CANT_BTN*TAM_BTTN.height));
 		add(Ibox);
 	}
+	
+	//-------------------------------------------------<<METODOS DE CLASE>>-------------------------------------------------
+	
+	public void AccionaBotones(Controlador c) {
+		setControl(c);
+		Inicia_torneo.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent e) {
+				getControlador().IniciaTorneo();
+			}	
+		});
+		Continua.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent e) {
+				getControlador().ContinuaTorneo();
+			}	
+		});
+		Guarda_progreso.addActionListener(new ActionListener () {
+			public void actionPerformed(ActionEvent e) {
+				getControlador().SerializaProgreso();
+			}	
+		});
+	}
+	
+	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
 	private class JButtonI extends JButton {
 		JButtonI (String s){

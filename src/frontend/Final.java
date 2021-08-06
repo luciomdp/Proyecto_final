@@ -1,5 +1,7 @@
 package frontend;
 
+import proyecto_final.Controlador;
+
 public class Final extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
@@ -8,7 +10,9 @@ public class Final extends General{
 	//-------------------------------------------------<<VARIABLES>>------------------------------------------------
 	
 	
-	public Final (){
+	public Final (Controlador c){
+		
+		setControl(c);
 				
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 				
@@ -23,5 +27,14 @@ public class Final extends General{
 		//-------------------------------------------------<<AÑADO TODO A LA ZONA>>------------------------------------------------- 
 		
 	}
-	//hacerla toda
+	
+	//-------------------------------------------------<<METODOS DE CLASE>>-------------------------------------------------
+	
+		public void FinalSimulada() {
+			//deshabilitar botones
+		}
+		
+		//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
+		
+		
 }

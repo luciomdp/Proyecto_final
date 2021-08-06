@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import proyecto_final.Controlador;
+
 public class Semifinales extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
@@ -20,8 +22,10 @@ public class Semifinales extends General{
 	private JLabel SEquipo3;
 	private JLabel SEquipo4;
 		
-	public Semifinales (){
-					
+	public Semifinales (Controlador c){
+		
+		setControl(c);
+		
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 					
 		setLayout(new BorderLayout(0, 0));
@@ -63,7 +67,6 @@ public class Semifinales extends General{
 		ScomboBox.addItem("Semifinales");
 		ScomboBox.addItem("Simula partido");
 		ScomboBox.addItem("Simula todos los partidos de ida");
-		ScomboBox.addItem("Simula todos los partidos de vuelta");
 		ScomboBox.addItem("Simula todos los partidos");
 		
 		ScomboBox.addActionListener(new ActionListener() {
@@ -71,39 +74,35 @@ public class Semifinales extends General{
 				int partido_simulado = 0;
 				if((String)ScomboBox.getSelectedItem() != "Semifinales") {
 					if((String)ScomboBox.getSelectedItem() == "Simula partido") {
-						/*partido_simulado = getgetControl()().SimulaPartidoSemis(); // 0 si no se pueden jugar mas partidos
-						 * switch(partido_simulado) {
-						 * 		case 1:
-						 * 			 SEquipo1.setText(getgetControl()().getE1Semis());
-						 * 			 SEquipo2.setText(getgetControl()().getE2Semis());
-						 * 		break;
-						 * 		case 2:
-						 *           SEquipo3.setText(getControl().getE3Semis());
-						 * 			 SEquipo4.setText(getControl().getE4Semis());
-						 * 		break;
-						 * }
-						 * */ 
+						partido_simulado = getControlador().SimulaPartidoS(); 
+						  switch(partido_simulado) {
+						  		case 1:
+						  			 SEquipo1.setText(getControlador().getESemis(1));
+						  			 SEquipo2.setText(getControlador().getESemis(2));
+						  		break;
+						  		case 2:
+						            SEquipo3.setText(getControlador().getESemis(3));
+						 			 SEquipo4.setText(getControlador().getESemis(4));
+						  		break;
+						  }
+						 
 						//se simula el partido que sea
 					}else {
 						if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos de ida") {
-							//partido_simulado = getControl().simulaPartidosIdaS();
+							partido_simulado = getControlador().simulaPartidosIdaS();
 						}else {
-							if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos de vuelta") {
-								//partido_simulado = getControl().simulaPartidosVueltaS(); 
-							}else {
-								//partido_simulado = getControl().simulaPartidosSemis();
-							}
+							if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos")
+								partido_simulado = getControlador().simulaPartidosSemis();
 						}
-						/*partido_simulado = getControl().SimulaPartidoSemis(); // 0 si no se pueden jugar mas partidos
+						partido_simulado = getControlador().simulaPartidosSemis();
 						  switch(partido_simulado) {
 						  		case 1:
-						  			 SEquipo1.setText(getControl().getE1Semis());
-						 			 SEquipo2.setText(getControl().getE2Semis());
+						  			 SEquipo1.setText(getControlador().getESemis(1));
+						 			 SEquipo2.setText(getControlador().getESemis(2));
 						  		case 2:
-						            SEquipo3.setText(getControl().getE3Semis());
-						 			 SEquipo4.setText(getControl().getE4Semis());
+						            SEquipo3.setText(getControlador().getESemis(3));
+						 			 SEquipo4.setText(getControlador().getESemis(4));
 						  }
-						  */
 					}
 				}
 			}	
@@ -119,7 +118,19 @@ public class Semifinales extends General{
 		add(SpanelC, BorderLayout.CENTER); 
 			
 	}
-	//generar action listeners para los combo box y metodos para actualizar los equipos
+	
+	//-------------------------------------------------<<METODOS DE CLASE>>-------------------------------------------------
+	
+	public void SemisSimuladaIda() {
+		ScomboBox.removeItem("Simula todos los partidos de ida");
+	}
+	
+	public void SemisSimulada() {
+		ScomboBox.setEnabled(false);
+	}
+	
+	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
+	
 	private class panelS extends General {
 		panelS () {
 			super.paint(getGraphics());

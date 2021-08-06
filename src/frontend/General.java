@@ -72,7 +72,7 @@ public class General extends JPanel{
 			g2.draw(new Rectangle2D.Double(getWidth()-(CANCHA_TAMANO_RECT_G/2),(getHeight()/2)-(CANCHA_TAMANO_RECT_G/2),CANCHA_TAMANO_RECT_G,CANCHA_TAMANO_RECT_G));
 	}
 
-	public Controlador getControl() {
+	public Controlador getControlador() {
 		return control;
 	}
 

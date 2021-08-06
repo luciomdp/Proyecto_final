@@ -3,7 +3,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import proyecto_final.Controlador;
+
 public class Zonas extends General{
+	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private final Color COLOR_FONDO_ZONA = new Color(38, 190, 35);
@@ -16,19 +19,20 @@ public class Zonas extends General{
 	private panelZ ZpanelC;
 	private JPanel Zpanel12;
 	private JPanel Zpanel34;
-	private JComboBox<String> ZcomboBox1;
-	private JComboBox<String> ZcomboBox2;
-	private JComboBox<String> ZcomboBox3;
-	private JComboBox<String> ZcomboBox4;
+	private ZComboBox ZcomboBox1;
+	private ZComboBox ZcomboBox2;
+	private ZComboBox ZcomboBox3;
+	private ZComboBox ZcomboBox4;
 	private Zona Zona1;
 	private Zona Zona2;
 	private Zona Zona3;
 	private Zona Zona4;
 	
-	public Zonas(){
+	public Zonas(Controlador c){
 				
-		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
-				
+		//-------------------------------------------------<<SETEO CONTROLADOR Y LAYOUT>>-------------------------------------------------
+		
+		setControl(c);		
 		setLayout(new BorderLayout(0, 0));
 
 		//-------------------------------------------------<<INICIALIZO VARIABLES>>-------------------------------------------------
@@ -38,10 +42,10 @@ public class Zonas extends General{
 		Zpanel12 = new JPanel();
 		Zpanel34 = new JPanel();
 		ZpanelC = new panelZ();
-		ZcomboBox1 = new JComboBox<String>();
-		ZcomboBox2 = new JComboBox<String>();
-		ZcomboBox3 = new JComboBox<String>();
-		ZcomboBox4 = new JComboBox<String>();
+		ZcomboBox1 = new ZComboBox(1);
+		ZcomboBox2 = new ZComboBox(2);
+		ZcomboBox3 = new ZComboBox(3);
+		ZcomboBox4 = new ZComboBox(4);
 		Zona1 = new Zona();
 		Zona2 = new Zona();
 		Zona3 = new Zona();
@@ -52,102 +56,14 @@ public class Zonas extends General{
 		Zpanel12.setLayout(new BorderLayout());
 		Zpanel34.setLayout(new BorderLayout());
 		ZpanelN.setBackground(COLOR_PANEL_N);
-		Zona1.setText("ZONA 1\nEquipo    PG PE PP DG \nEquipo 1 | 2 | 1 | 0 | 4 \nEquipo 2 | 1 | 2 | 0 | 2\nEquipo 3 | 1 | 1 | 1 | 1\nEquipo 4 | 0 | 1 | 2 | -2");
-		Zona2.setText("ZONA 2\nEquipo    PG PE PP DG \nEquipo 1 | 2 | 1 | 0 | 4 \nEquipo 2 | 1 | 2 | 0 | 2\nEquipo 3 | 1 | 1 | 1 | 1\nEquipo 4 | 0 | 1 | 2 | -2");
-		Zona3.setText("ZONA 3\nEquipo    PG PE PP DG \nEquipo 1 | 2 | 1 | 0 | 4 \nEquipo 2 | 1 | 2 | 0 | 2\nEquipo 3 | 1 | 1 | 1 | 1\nEquipo 4 | 0 | 1 | 2 | -2");
-		Zona4.setText("ZONA 4\nEquipo    PG PE PP DG \nEquipo 1 | 2 | 1 | 0 | 4 \nEquipo 2 | 1 | 2 | 0 | 2\nEquipo 3 | 1 | 1 | 1 | 1\nEquipo 4 | 0 | 1 | 2 | -2");
-		
-		ZcomboBox1.setEditable(false);
-		ZcomboBox1.addItem("Zona 1");
-		ZcomboBox1.addItem("Simula un partido");
-		ZcomboBox1.addItem("Simula una fecha");
-		ZcomboBox1.addItem("Simula una zona");
-		ZcomboBox1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
-					//Zona1.setText(getControl().SimulaPartido(1));
-				}else {
-					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
-						//Zona1.setText(getControl().SimulaFecha(1));
-					}else 
-						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
-							//Zona1.setText(getControl().SimulaZona(1));
-						}
-				}
-			}
-			
-		});
-				
-		ZcomboBox2.setEditable(false);
-		ZcomboBox2.addItem("Zona 2");
-		ZcomboBox2.addItem("Simula un partido");
-		ZcomboBox2.addItem("Simula una fecha");
-		ZcomboBox2.addItem("Simula una zona");
-		ZcomboBox2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
-					//Zona2.setText(getControl().SimulaPartido(2));
-				}else {
-					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
-						//Zona2.setText(getControl().SimulaFecha(2));
-					}else 
-						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
-							//Zona2.setText(getControl().SimulaZona(2));
-						}
-				}
-			}
-			
-		});
-				
-		ZcomboBox3.setEditable(false);
-		ZcomboBox3.addItem("Zona 3");
-		ZcomboBox3.addItem("Simula un partido");
-		ZcomboBox3.addItem("Simula una fecha");
-		ZcomboBox3.addItem("Simula una zona");
-		ZcomboBox3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
-					//Zona3.setText(getControl().SimulaPartido(3));
-				}else {
-					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
-						//Zona3.setText(getControl().SimulaFecha(3));
-					}else 
-						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
-							//Zona3.setText(getControl().SimulaZona(3));
-						}
-				}
-			}
-			
-		});
-				
-		ZcomboBox4.setEditable(false);
-		ZcomboBox4.addItem("Zona 4");
-		ZcomboBox4.addItem("Simula un partido");
-		ZcomboBox4.addItem("Simula una fecha");
-		ZcomboBox4.addItem("Simula una zona");
-		ZcomboBox4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if((String)ZcomboBox1.getSelectedItem() == "Simula un partido") {
-					//Zona4.setText(getControl().SimulaPartido(4));
-				}else {
-					if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
-						//Zona4.setText(getControl().SimulaFecha(4));
-					}else 
-						if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
-							//Zona4.setText(getControl().SimulaZona(4));
-						}
-				}
-			}
-			
-		});
 		
 		Simula_todo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				  /*getControl().SimulaZonas();
-					Zona1.setText(getControl().getZona1());
-					Zona2.setText(getControl().getZona2());
-					Zona3.setText(getControl().getZona3());
-					Zona4.setText(getControl().getZona4());*/
+				  getControlador().SimulaZonas();
+				  Zona1.setText(getControlador().getZona(1));
+				  Zona2.setText(getControlador().getZona(2));
+				  Zona3.setText(getControlador().getZona(3));
+				  Zona4.setText(getControlador().getZona(4));
 			}
 		});
 		
@@ -170,7 +86,15 @@ public class Zonas extends General{
 		add(ZpanelC, BorderLayout.CENTER);			
 		
 	}
-		//generar action listeners para los combo box, las tablas se actualizan con setText 
+
+	//-------------------------------------------------<<METODOS DE CLASE>>-------------------------------------------------
+	
+	public void ZonaSimulada(int zona) {
+		getCombo(zona).setEnabled(false);
+	}
+	
+	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
+	
 	private class panelZ extends General {
 		panelZ () {
 			super.paint(getGraphics());
@@ -178,16 +102,81 @@ public class Zonas extends General{
 		}
 	}
 	private class Zona extends JTextPane{
-		Zona(String s) {
-			setText(s);
-			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-			setForeground(COLOR_LETRA);
-			setBackground(COLOR_ZONA);
-		}
 		Zona() {
 			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 			setForeground(COLOR_LETRA);
 			setBackground(COLOR_ZONA);
+			setEditable(false);
 		}
 	}
+	private class ZComboBox extends JComboBox<String> {
+		ZComboBox(int zona) {
+			setEditable(false);
+			addItem("Zona " + zona);
+			addItem("Simula un partido");
+			addItem("Simula una fecha");
+			addItem("Simula una zona");
+			addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if((String)getSelectedItem() == "Simula un partido") {
+							getControlador().SimulaPartidoZ(zona);
+							getZona(zona).setText(getControlador().getZona(zona));
+					}else {
+						if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
+							getControlador().SimulaFechaZ(zona);
+							getZona(zona).setText(getControlador().getZona(zona));
+						}else 
+							if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
+								getControlador().SimulaZonaZ(zona);
+								getZona(zona).setText(getControlador().getZona(zona));
+							}
+					}
+				}
+			});
+		}
+	}
+	
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
+	
+	public void setZona1(String texto) {
+		Zona1.setText(texto);
+	}
+	public void setZona2(String texto) {
+		Zona2.setText(texto);
+	}
+	public void setZona3(String texto) {
+		Zona3.setText(texto);
+	}
+	public void setZona4(String texto) {
+		Zona4.setText(texto);
+	}
+	public Zona getZona(int zona) {
+		if(zona == 1) {
+			return Zona1;
+		}else {
+			if(zona == 2) {
+				return Zona2;
+			}else {
+				if(zona == 3)
+					return Zona3;
+				else 
+					return Zona4;
+			}
+		}
+	}
+	public ZComboBox getCombo(int combo) {
+		if(combo == 1) {
+			return ZcomboBox1;
+		}else {
+			if(combo == 2) {
+				return ZcomboBox2;
+			}else {
+				if(combo == 3)
+					return ZcomboBox3;
+				else 
+					return ZcomboBox4;
+			}
+		}
+	}
+	
 }

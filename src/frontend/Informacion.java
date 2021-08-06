@@ -5,6 +5,7 @@ import java.awt.geom.*;
 import javax.swing.*;
 
 import backend.Posicion;
+import proyecto_final.Controlador;
 
 
 public class Informacion extends General{
@@ -24,7 +25,9 @@ public class Informacion extends General{
 	private IFpanel_R PanelR;
 	private JPanel IFpanelBotonera;
 	
-	public Informacion (){
+	public Informacion (Controlador c){
+		
+		setControl(c);
 				
 		//-------------------------------------------------<<SETEO BACK Y LAYOUT>>-------------------------------------------------
 		
@@ -136,7 +139,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Listado de equipos"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//getArea().setText(getControl().getListadoEquipos());
+					//getArea().setText(control.getListadoEquipos());
 				}		
 			});
 		}
@@ -167,7 +170,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Listado de jugadores"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//getArea().setText(getControl().getListadoJugadores((Posicion)IFpos.getSelectedItem()));
+					//getArea().setText(control.getListadoJugadores((Posicion)IFpos.getSelectedItem()));
 				}
 			});
 		}
@@ -186,7 +189,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Ranking de referis"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//getArea().setText(getControl().getListadoReferis());
+					//getArea().setText(control.getListadoReferis());
 				}
 			});
 		}
