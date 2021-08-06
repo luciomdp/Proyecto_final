@@ -75,18 +75,16 @@ public class Main {
 				    		((ArrayList<Jugador>) jugadores).ensureCapacity(18);
 					    
 				    		for (j=0; j<18; j++) {
-				    			jugadores.add(totJugadores.get(i+j)); //guardo los 18 jugadores de totjugadores
+				    			jugadores.add(totJugadores.get(i+j));
 				    		}
 				    		i=i+18;
-				    		//jugadores.forEach(System.out::println);
-					    
+				    		
 				    		String[] datos = line.split(coma);
 				    		fecha = LocalDate.parse(datos[5], formato);
 				    		pais = Pais.valueOf(datos[8]);
 						
 				    		Dt dt = new Dt (datos[3], datos[4], fecha, Integer.parseInt(datos[7]), datos[6], pais, 
 				    						Byte.parseByte(datos[9]));
-				    		//System.out.println(dt);
 				        
 				    		pais = Pais.valueOf(datos[1]);
 				    		Equipo equipo = new Equipo(datos[0], pais, Integer.parseInt(datos[2]), jugadores, dt); 
@@ -148,7 +146,7 @@ public class Main {
 				
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
 		Frame vista = new Frame ();
-		Controlador control = new Controlador (torneo,vista);
+		Controlador control = new Controlador (torneo, vista);
 		vista.setControlador(control);
 		torneo.setControlador(control);
 		
