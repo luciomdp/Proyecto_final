@@ -66,31 +66,41 @@ public class Frame extends JFrame {
 		zona.setZona3("ZONA 3\nEquipo    PG PE PP DG \nEquipo 1 | 2 | 1 | 0 | 4 \nEquipo 2 | 1 | 2 | 0 | 2\nEquipo 3 | 1 | 1 | 1 | 1\nEquipo 4 | 0 | 1 | 2 | -2");
 		zona.setZona4("ZONA 3\nEquipo    PG PE PP DG \nEquipo 1 | 2 | 1 | 0 | 4 \nEquipo 2 | 1 | 2 | 0 | 2\nEquipo 3 | 1 | 1 | 1 | 1\nEquipo 4 | 0 | 1 | 2 | -2");
 		
-		//-------------------------------------------------<<AGREGO LAS PESTAÑAS>>-------------------------------------------------
+		//-------------------------------------------------<<AGREGO LAS PESTAÑAS INFORMACION Y ZONA>>-------------------------------------------------
 		
-		tabbedPane.addTab("Zona", null, zona, null);
-		tabbedPane.addTab("Cuartos", null, cuartos, null);
-		tabbedPane.addTab("Semifinales", null, semis, null);
-		tabbedPane.addTab("Final", null, fin, null);
 		tabbedPane.addTab("Informacion", null, info, null);
+		tabbedPane.addTab("Zona", null, zona, null);
 	}
 	
 	//-------------------------------------------------<<METODOS DE SIMULACION FINALIZADA>>-------------------------------------------------
 	
 	public void ZtodoSimulado(int nrozona) {
 		zona.ZonaSimulada(nrozona);
+		//le pongo los equipos correspondientes a cuartos, y lo añado
+		cuartos.InicializaVariables();
+		tabbedPane.addTab("Cuartos", null, cuartos, null);
 	}
 	public void CtodoSimulado(int i) {
 		if(i == 0)
 			cuartos.CuartosSimuladoIda();
-		else
-			cuartos.CuartosSimulado();
+		else {
+			cuartos.CuartosSimulado(); //se simulo todo cuartos
+			//le pongo los equipos correspondientes a semis, y la añado
+			semis.InicializaVariables();
+			tabbedPane.addTab("Semifinales", null, semis, null);
+		}
+			
 	}
 	public void StodoSimulado(int i) {
 		if(i == 0)
 			semis.SemisSimuladaIda();
-		else
+		else {
 			semis.SemisSimulada();
+			//le pongo los equipos correspondientes a la final, y la añado
+			fin.InicializaVariables();
+			tabbedPane.addTab("Final", null, fin, null);
+		}
+			
 	}
 	public void FtodoSimulado() { //falta implementar cuando se cree la final
 		fin.FinalSimulada();

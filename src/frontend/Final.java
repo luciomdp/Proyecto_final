@@ -33,6 +33,11 @@ public class Final extends General{
 		public void FinalSimulada() {
 			//deshabilitar botones
 		}
+
+		public void InicializaVariables() {
+			// TODO Auto-generated method stub
+			
+		}
 		
 		//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 		

@@ -35,14 +35,14 @@ public class Cuartos extends General{
 		CpanelN = new JPanel();
 		CpanelC = new panelC(); 
 		CcomboBox = new JComboBox<String>();
-		CEquipo1 = new JLabel("Equipo 1");
-		CEquipo2 = new JLabel("Equipo 2");
-		CEquipo3 = new JLabel("Equipo 3");
-		CEquipo4 = new JLabel("Equipo 4");
-		CEquipo5 = new JLabel("Equipo 5");
-		CEquipo6 = new JLabel("Equipo 6");
-		CEquipo7 = new JLabel("Equipo 7");
-		CEquipo8 = new JLabel("Equipo 8");
+		CEquipo1 = new JLabel();
+		CEquipo2 = new JLabel();
+		CEquipo3 = new JLabel();
+		CEquipo4 = new JLabel();
+		CEquipo5 = new JLabel();
+		CEquipo6 = new JLabel();
+		CEquipo7 = new JLabel();
+		CEquipo8 = new JLabel();
 		
 		//-------------------------------------------------<<SETEO VARIABLES>>-------------------------------------------------
 		
@@ -168,6 +168,17 @@ public class Cuartos extends General{
 		CcomboBox.setEnabled(false);
 	}
 	
+	public void InicializaVariables() {
+		CEquipo1.setText(getControlador().getECuartos(1));
+		CEquipo2.setText(getControlador().getECuartos(2));
+		CEquipo3.setText(getControlador().getECuartos(3));
+		CEquipo4.setText(getControlador().getECuartos(4));
+		CEquipo5.setText(getControlador().getECuartos(5));
+		CEquipo6.setText(getControlador().getECuartos(6));
+		CEquipo7.setText(getControlador().getECuartos(7));
+		CEquipo8.setText(getControlador().getECuartos(8));
+	}
+
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
 	private class panelC extends General {
@@ -209,4 +220,5 @@ public class Cuartos extends General{
 	public void setCEquipo8(String cEquipo8) {
 		CEquipo8.setText(cEquipo8);
 	}
+
 }

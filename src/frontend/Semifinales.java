@@ -35,10 +35,10 @@ public class Semifinales extends General{
 		SpanelN = new JPanel();
 		SpanelC = new panelS(); 
 		ScomboBox = new JComboBox<String>();
-		SEquipo1 = new JLabel("Equipo 1");
-		SEquipo2 = new JLabel("Equipo 2");
-		SEquipo3 = new JLabel("Equipo 3");
-		SEquipo4 = new JLabel("Equipo 4");
+		SEquipo1 = new JLabel();
+		SEquipo2 = new JLabel();
+		SEquipo3 = new JLabel();
+		SEquipo4 = new JLabel();
 		
 			
 		//-------------------------------------------------<<SETEO VARIABLES>>-------------------------------------------------
@@ -100,7 +100,7 @@ public class Semifinales extends General{
 						  			 SEquipo1.setText(getControlador().getESemis(1));
 						 			 SEquipo2.setText(getControlador().getESemis(2));
 						  		case 2:
-						            SEquipo3.setText(getControlador().getESemis(3));
+						             SEquipo3.setText(getControlador().getESemis(3));
 						 			 SEquipo4.setText(getControlador().getESemis(4));
 						  }
 					}
@@ -129,6 +129,13 @@ public class Semifinales extends General{
 		ScomboBox.setEnabled(false);
 	}
 	
+	public void InicializaVariables() {
+		SEquipo1.setText(getControlador().getESemis(1));
+		SEquipo2.setText(getControlador().getESemis(2));
+		SEquipo3.setText(getControlador().getESemis(3));
+		SEquipo4.setText(getControlador().getESemis(4));
+	}
+	
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
 	private class panelS extends General {
@@ -136,4 +143,5 @@ public class Semifinales extends General{
 			super.paint(getGraphics());
 		}
 	}
+
 }
