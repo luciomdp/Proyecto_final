@@ -14,7 +14,6 @@ public class Referi extends Persona{
 	private static final long serialVersionUID = 4414849362119102514L;
 	private Pais nacionalidad;
 	private int años_referato;
-	private ArrayList<Referi> Referis = new ArrayList<Referi>(17);
 
 	public Referi(String a, String no, LocalDate n, int dni, String ti, Pais na, int an) {
 		super(a, no, n, dni, ti);
