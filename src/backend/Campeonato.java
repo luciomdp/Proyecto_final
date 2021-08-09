@@ -47,7 +47,14 @@ public class Campeonato implements Serializable {
 		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
 		 * en caso de iniciar torneo de 0, todos los parametros serian null, en caso contrario, se pasarian los
 		 * parametros que se hayan modificado (osea que se haya jugado) y el resto que no, podrian ser null tambien*/
+		
 	}
+	
+	public String getTablaZona (int zona) { //DEVUELVE LA TABLA DE LA ZONA
+		String s= "";
+		return "s";
+	}
+	
 	
 	public String listaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
