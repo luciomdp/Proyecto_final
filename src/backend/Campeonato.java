@@ -2,6 +2,8 @@ package backend;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 
 import proyecto_final.Controlador;
@@ -31,8 +33,8 @@ public class Campeonato implements Serializable {
 		this.equipos = equipos;
 		this.jugadores = jugadores;
 		this.referis = referis;
-		//CREAR LAS ZONAS CON SUS RESPECTIVOS EQUIPOS
 		int j = 0;
+        Collections.shuffle(equipos); //MEZCLA EL ARRAYLIST PARA QUE CADA VEZ QUE SE QUIERA CREAR UN CAMPEONATO, LAS ZONAS SEAN DISTINTAS
         for (int z = 0; z < CANTZ; z++) {
             Equipo equiposZona[] = {equipos.get(j), equipos.get(j+1), equipos.get(j+2), equipos.get(j+3)};
             //0 1 2 3 /+4/ 4 5 6 7 /+4/ 8 9 10 11 /+4/ 12 13 14 15
@@ -41,10 +43,7 @@ public class Campeonato implements Serializable {
         }
 		
 	}
-	
-	public void setControlador(Controlador control) {
-		this.control = control;
-	}
+
 	
 	public void IniciaTorneo() {//pasar parametros para iniciar UN SOLO INICIATORNEO
 		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
@@ -130,6 +129,10 @@ public class Campeonato implements Serializable {
 	public Final getFinal() {
 		this.final_Campeonato = new Final(this.semiFinal.getPasanAFinal());
 		return final_Campeonato;	
+	}
+	
+	public void setControlador(Controlador control) {
+		this.control = control;
 	}
 
 }

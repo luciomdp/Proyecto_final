@@ -81,16 +81,8 @@ public class Equipo implements Serializable{
 		return golesCuartos;
 	}
 
-	public void setGolesCuartos(int golesCuartos) {
-		this.golesCuartos = golesCuartos;
-	}
-
 	public int getGolesSemis() {
 		return golesSemis;
-	}
-
-	public void setGolesSemis(int golesSemis) {
-		this.golesSemis = golesSemis;
 	}
 
 	public int getGolesContraCuartos() {
@@ -104,25 +96,13 @@ public class Equipo implements Serializable{
 	public int getGolesContraSemis() {
 		return golesContraSemis;
 	}
-
-	public void setGolesContraSemis(int golesContraSemis) {
-		this.golesContraSemis = golesContraSemis;
-	}
 	
 	public int getpJ() {
 		return pJ;
 	}
 
-	public void setpJ(int pJ) {
-		this.pJ = pJ;
-	}
-
 	public int getpG() {
 		return pG;
-	}
-
-	public void setpG(int pG) {
-		this.pG = pG;
 	}
 
     public int getGoles () {
@@ -134,18 +114,6 @@ public class Equipo implements Serializable{
 
     public int getPuntos() {
         return puntos;
-    }
-
-    public void setPuntos(int puntos) {
-        this.puntos  += puntos;
-    }
-
-    public void setGoles(int goles) {
-        this.goles += goles;
-    }
-
-    public void setGolesContra(int golesContra) {
-        this.golesContra += golesContra;
     }
     
 	public Pais getPais (){
@@ -164,15 +132,8 @@ public class Equipo implements Serializable{
 		return entrenador;
 	}
 
-	public void setEntrenador(Dt entrenador) {
-		this.entrenador = entrenador;
-	}
 	public String getNombre() {
 		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public ArrayList<Jugador> getJugadores() {
@@ -182,4 +143,44 @@ public class Equipo implements Serializable{
 	public void setJugadores(ArrayList<Jugador> jugadores) {
 		Jugadores = jugadores;
 	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public void setEntrenador(Dt entrenador) {
+		this.entrenador = entrenador;
+	}
+	
+	public void setpG(int pG) {
+		this.pG = pG;
+	}
+	
+	public void setpJ(int pJ) {
+		this.pJ = pJ;
+	}
+	
+	public void setGolesContraSemis(int golesContraSemis) {
+		this.golesContraSemis = golesContraSemis;
+	}
+	
+	public void setGolesSemis(int golesSemis) {
+		this.golesSemis = golesSemis;
+	}
+	
+	public void setGolesCuartos(int golesCuartos) {
+		this.golesCuartos = golesCuartos;
+	}
+
+    public void setPuntos(int puntos) {
+        this.puntos  += puntos;
+    }
+
+    public void setGoles(int goles) {
+        this.goles += goles;
+    }
+
+    public void setGolesContra(int golesContra) {
+        this.golesContra += golesContra;
+    }
 }

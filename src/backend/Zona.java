@@ -1,10 +1,13 @@
 package backend;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
 import javax.swing.JOptionPane;
+
+
 
 
 public class Zona implements Serializable{
@@ -108,13 +111,8 @@ public class Zona implements Serializable{
   		this.SimulaFecha();
   		this.SimulaFecha();
   	
-  		
   	}
   
-  
-
-
-	
 	//---------------------------------------------------------- CREA LAS FECHAS DE LA ZONA ----------------------------------------------------------------------
 	
 	public Partido[] creaFechas (Equipo[] equipos) {
