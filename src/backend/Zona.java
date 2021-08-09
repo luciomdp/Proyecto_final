@@ -103,6 +103,7 @@ public class Zona implements Serializable{
   	
   	public void SimulaZona () {
 
+
   		this.SimulaFecha();
   		this.SimulaFecha();
   		this.SimulaFecha();
@@ -110,9 +111,14 @@ public class Zona implements Serializable{
   		
   	}
   
-  // ------------------------------------------------------------------- OTROS METODOS DE LA CLASE --------------------------------------------------------------------------
+  
 
+
+	
+	//---------------------------------------------------------- CREA LAS FECHAS DE LA ZONA ----------------------------------------------------------------------
+	
 	public Partido[] creaFechas (Equipo[] equipos) {
+
 
         /*  
          * DEVUELVE = [Boca vs River] [Racing vs Indep] .....
@@ -228,7 +234,5 @@ public class Zona implements Serializable{
 	
 }
 	
-
-
 
 

@@ -3,9 +3,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Partido implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -1658384256163433401L;
 
 	public static long getSerialversionuid() {
@@ -70,15 +68,19 @@ public class Partido implements Serializable{
 	public double getMedia_totE1() {
 		return Media_totE1;
 	}
+	
 	public void setMedia_totE1(double media_totE1) {
 		Media_totE1 = media_totE1;
 	}
+	
 	public double getMedia_totE2() {
 		return Media_totE2;
 	}
+	
 	public void setMedia_totE2(double media_totE2) {
 		Media_totE2 = media_totE2;
 	}
+	
 	public Equipo getEquipo1() {
 		return equipo1;
 	}

@@ -1,12 +1,7 @@
 package backend;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Calendar;
-import java.util.Date;
-
-//hacer enum de nacionalidad
 
 public class Dt extends Persona{
 	
@@ -18,6 +13,13 @@ public class Dt extends Persona{
 		super(a, no, n, dni, ti);
 		this.titulos = titulos;
 		this.nacionalidad = na;
+	}
+	
+	@Override
+	public String toString() {
+		return "Dt [nacionalidad=" + nacionalidad + ", titulos=" + titulos + ", tipoDni=" + tipoDni + ", getApellido()="
+				+ getApellido() + ", getNombre()=" + getNombre() + ", getNacimiento()=" + getNacimiento()
+				+ ", getDni()=" + getDni() + "]";
 	}
 	
 	public String DatosIdent() {
@@ -48,13 +50,4 @@ public class Dt extends Persona{
 	public void setNacionalidad(Pais nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-
-	@Override
-	public String toString() {
-		return "Dt [nacionalidad=" + nacionalidad + ", titulos=" + titulos + ", tipoDni=" + tipoDni + ", getApellido()="
-				+ getApellido() + ", getNombre()=" + getNombre() + ", getNacimiento()=" + getNacimiento()
-				+ ", getDni()=" + getDni() + "]";
-	}
-	
-
 }
