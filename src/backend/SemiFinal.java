@@ -84,11 +84,9 @@ public class SemiFinal {
 		}
 		else
 			JOptionPane.showMessageDialog(null, "Ya se jugaron todos los partidos de vuelta de cuartos de final");
-			
-		
 	}
 	
-	public Equipo[] getPasanAFinal() {
+	public Equipo[] getPasanAFinal() { //pa que es esto 
 		return pasaAFinal;
 	}
 
@@ -96,8 +94,4 @@ public class SemiFinal {
 		this.pasaAFinal[k] = pasaAFinal;
 		k++;
 	}
-
-	
 }
-
-

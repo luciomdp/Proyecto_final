@@ -32,6 +32,8 @@ public class Main {
 		                         
 		int j=0,  i= 0;
 		
+		//-------------------------------------------------<<JUGADORES>>-------------------------------------------------
+		
 		try {
 		    br = new BufferedReader(new FileReader(Jugadores));
 		    while ((line = br.readLine()) != null) {  
@@ -59,9 +61,7 @@ public class Main {
 		}
 		//totJugadores.forEach(System.out::println);
 		
-		
-		System.out.println("---------------------------------------------------------------------------------------------------\n\n");
-		
+		//-------------------------------------------------<<EQUIPOS>>-------------------------------------------------
 		
 		equipos = new ArrayList<>(); 
 		(equipos).ensureCapacity(16);
@@ -108,7 +108,7 @@ public class Main {
 					equipos.forEach(System.out::println); 
 			      }
 		
-		System.out.println("---------------------------------------------------------------------------------------------------\n\n");
+		//-------------------------------------------------<<REFERIS>>-------------------------------------------------
 		referis = new ArrayList <>();
 				try {
 				    br = new BufferedReader(new FileReader(Referis));
@@ -143,12 +143,11 @@ public class Main {
 				    referis.forEach(System.out::println);
 			      }
 							    	
-				
+		//lo siguiente, al menos campeonato, deberia ir aca porque recien ahora se cargan los valores de los arraylist. esta bien?
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
 		Frame vista = new Frame ();
 		Controlador control = new Controlador (torneo, vista);
 		vista.setControlador(control);
 		torneo.setControlador(control);
-		
 	}		
 }

@@ -106,12 +106,9 @@ public class Zona implements Serializable{
 //---------------------------------------------------------- SIMULA TODOS LOS PARTIDOS DE LA ZONA ---------------------------------------------------------------
 	
 	public void SimulaZona () {
-
 		this.SimulaFecha();
 		this.SimulaFecha();
 		this.SimulaFecha();
-	
-		
 	}
 
 	public Equipo[] getPasanACuartos() {
@@ -142,6 +139,3 @@ public class Zona implements Serializable{
     }
 
 }
-
-
-

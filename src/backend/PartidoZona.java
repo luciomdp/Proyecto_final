@@ -1,9 +1,5 @@
 package backend;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-
 public class PartidoZona extends Partido{
 	private int GolE1, GolE2;
 	
@@ -13,7 +9,6 @@ public class PartidoZona extends Partido{
 		super(a, b);
 		this.GolE1 = 0;
         this.GolE2 = 0;
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void simulacion() {
@@ -35,7 +30,4 @@ public class PartidoZona extends Partido{
     public void setGolE2(int golE2) {
         GolE2 = golE2;
     }
-    
-    
-    
 }

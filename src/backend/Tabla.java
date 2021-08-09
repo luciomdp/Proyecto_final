@@ -8,14 +8,10 @@ public class Tabla {
     private Equipo ganadoresZona [] = new Equipo [2];
     Resultados resultados [] = new Resultados [6];
  
+  //-------------------------------------------------<<TABLA>>-------------------------------------------------
 	public Tabla (Equipo equipos[]){
     	this.tabla = equipos;
         this.i = 0;
-    }
-
-    public void getValoresTabla(){
-        for (int i = 0; i<4; i++ )
-            System.out.println(tabla[i].getEstadisticas());
     }
 
     public void ActualizaTabla(){ // HAY QUE PROBARLO, PRINCIPALMENTE POR LA ULTIMA INSTANCIA
@@ -65,11 +61,16 @@ public class Tabla {
           }
        }
     
-    
+    public void getValoresTabla(){
+        for (int i = 0; i<4; i++ )
+            System.out.println(tabla[i].getEstadisticas());
+    }
+  //-------------------------------------------------<<RESULTADOS>>-------------------------------------------------
     public void setResultados(Resultados resultado) {
         this.resultados[i] = resultado ;
         i++;
     }
+    
     public int buscaResultado(String e1, String e2) {
     	int k = 0;
     	
@@ -84,17 +85,15 @@ public class Tabla {
         }
     		return -1;
     }
-    
-    public Equipo[] getGanadoresZona() {
-		return ganadoresZona;
-	}
-
+  //----------------------------------------------<<GANADORES ZONA>>----------------------------------------------
 	public void GanadoresZona() {
 		for (int i = 0; i < PASAN_CUARTOS; i++) {
 			ganadoresZona[i] = tabla[i];
 		}
 		this.ganadoresZona = ganadoresZona;
 	}
-    
- 
+	
+    public Equipo[] getGanadoresZona() {
+		return ganadoresZona;
+	}
 }

@@ -2,7 +2,6 @@ package backend;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 
 import proyecto_final.Controlador;
@@ -41,6 +40,10 @@ public class Campeonato implements Serializable {
             j += 4;
         }
 		
+	}
+	
+	public void setControlador(Controlador control) {
+		this.control = control;
 	}
 	
 	public void IniciaTorneo() {//pasar parametros para iniciar UN SOLO INICIATORNEO
@@ -107,7 +110,6 @@ public class Campeonato implements Serializable {
 	}
 
 	public CuartosFinal getCuartosFinal() {
-		
 		Equipo[] aux = null;
 		Equipo[] aux2 = null;
 		for (int i = 0; i < CANTZ; i += 2) {
@@ -121,23 +123,13 @@ public class Campeonato implements Serializable {
 	}
 	
 	public SemiFinal getSemiFinal() {
-		
 		semiFinal = new SemiFinal(this.cuartosDeFinal.getPasanASemis());
 		return semiFinal;
 	}
 	
 	public Final getFinal() {
-		
 		this.final_Campeonato = new Final(this.semiFinal.getPasanAFinal());
-		return final_Campeonato;
-	
+		return final_Campeonato;	
 	}
 
-	public Controlador getControlador() {
-		return control;
-	}
-
-	public void setControlador(Controlador control) {
-		this.control = control;
-	}
 }
