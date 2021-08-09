@@ -10,11 +10,11 @@ import proyecto_final.Controlador;
 public class Campeonato implements Serializable {
 	
 	private static final long serialVersionUID = 9176305150524899919L;
-	private final int CANTE = 16;
-	private final int CANTJ = 18;
-	private final int CANTR = 12;
-	private final int CANTZ = 4;
-	private final int EQUIPOS_ZONA = 4;
+	private final int CANTE = 16; //CANTIDAD DE EQUIPOS
+	private final int CANTJ = 18; // CANTIDAD DE JUGADORES POR EQUIPO
+	private final int CANTR = 12; // CANTIDAD DE REFERIS
+	private final int CANTZ = 4; // CANTIDAD DE ZONAS
+	private final int EQUIPOS_ZONA = 4; 
 	
 	private static ArrayList <Equipo> equipos;
 	private static ArrayList <Jugador> jugadores;
@@ -51,8 +51,8 @@ public class Campeonato implements Serializable {
 	}
 	
 	public String getTablaZona (int zona) { //DEVUELVE LA TABLA DE LA ZONA
-		String s= "";
-		return "s";
+		
+		return zonas[zona].getValoresTabla();
 	}
 	
 	
@@ -111,7 +111,7 @@ public class Campeonato implements Serializable {
 		Equipo[] aux = null;
 		Equipo[] aux2 = null;
 		for (int i = 0; i < CANTZ; i += 2) {
-			aux2 = this.zonas[i].getPasanACuartos();
+			aux2 = this.zonas[i].getGanadoresZona();
 			aux[i] = aux2[0];
 			aux[i+1] = aux2[1];
 		}
