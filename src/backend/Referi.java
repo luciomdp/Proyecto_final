@@ -2,7 +2,6 @@ package backend;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 /* Ranking de referís por cantidad de partidos dirigidos en el campeonato. Indicar para cada 
 uno la cantidad de años en el referato, y al final del listado el promedio de los mismos.*/
