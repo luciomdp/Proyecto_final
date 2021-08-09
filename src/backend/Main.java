@@ -19,7 +19,7 @@ public class Main {
 	public static void main (String[] args) throws NumberFormatException, ParseException {
 		
 		String Jugadores = "Jugadores.txt"; String Equipos = "Equipos.txt"; String Referis = "Referis.txt";
-		BufferedReader br = null; BufferedReader br1 = null; BufferedReader br2 = null;
+		BufferedReader br = null;
 		String line = ""; String coma = ",";
 		
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -27,7 +27,7 @@ public class Main {
 				
 		Pais pais; Posicion pos;
 		
-		List <Jugador> totJugadores = new ArrayList<>(); 
+		ArrayList <Jugador> totJugadores = new ArrayList<>();
 		((ArrayList<Jugador>) totJugadores).ensureCapacity(288);
 		                         
 		int j=0,  i= 0;
@@ -67,8 +67,8 @@ public class Main {
 		(equipos).ensureCapacity(16);
 				
 				try {
-				    br1 = new BufferedReader(new FileReader(Equipos));
-				    line = br1.readLine();
+				    br = new BufferedReader(new FileReader(Equipos));
+				    line = br.readLine();
 			    	
 				    while (line!= null) {
 				    		jugadores = new ArrayList<>(); //array cada 18 jugadores
@@ -90,16 +90,16 @@ public class Main {
 				    		Equipo equipo = new Equipo(datos[0], pais, Integer.parseInt(datos[2]), jugadores, dt); 
 				    		equipos.add(equipo);
 				    		
-				    		line = br1.readLine();				    	
+				    		line = br.readLine();				    	
 				   }
 				} catch (FileNotFoundException e) {
 				    e.printStackTrace();
 				} catch (IOException e) {
 				    e.printStackTrace();
 				} finally {
-				    if (br1 != null) {
+				    if (br != null) {
 				        try {
-				            br1.close();
+				            br.close();
 				        } catch (IOException e) {
 				            e.printStackTrace();
 				        }
@@ -111,8 +111,8 @@ public class Main {
 		System.out.println("---------------------------------------------------------------------------------------------------\n\n");
 		referis = new ArrayList <>();
 				try {
-				    br2 = new BufferedReader(new FileReader(Referis));
-				    line = br2.readLine();
+				    br = new BufferedReader(new FileReader(Referis));
+				    line = br.readLine();
 			    	
 				    while (line!= null) {
 				    		
@@ -124,7 +124,7 @@ public class Main {
 		    										Byte.parseByte(datos[6]));
 			    		referis.add(referi);
 	
-			    		line = br2.readLine();	
+			    		line = br.readLine();	
 			    		
 				   }
 				} catch (FileNotFoundException e) {
@@ -132,9 +132,9 @@ public class Main {
 				} catch (IOException e) {
 				    e.printStackTrace();
 				} finally {
-				    if (br2 != null) {
+				    if (br != null) {
 				        try {
-				            br2.close();
+				            br.close();
 				        } catch (IOException e) {
 				            e.printStackTrace();
 				        }
@@ -150,8 +150,5 @@ public class Main {
 		vista.setControlador(control);
 		torneo.setControlador(control);
 		
-
-	}
-	
-		
+	}		
 }
