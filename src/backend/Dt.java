@@ -4,10 +4,13 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Dt extends Persona{
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	private static final long serialVersionUID = -3580960837841978040L;
 	private Pais nacionalidad;
 	private byte titulos;
+	
+	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public Dt(String a, String no, LocalDate n, int dni, String ti, Pais na, byte titulos) {
 		super(a, no, n, dni, ti);
@@ -15,16 +18,10 @@ public class Dt extends Persona{
 		this.nacionalidad = na;
 	}
 	
-	@Override
-	public String toString() {
-		return "Dt [nacionalidad=" + nacionalidad + ", titulos=" + titulos + ", tipoDni=" + tipoDni + ", getApellido()="
-				+ getApellido() + ", getNombre()=" + getNombre() + ", getNacimiento()=" + getNacimiento()
-				+ ", getDni()=" + getDni() + "]";
-	}
+	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 	
-	public String DatosIdent() {
-		return null;
-	}
+	
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public int getEdad() { 
 		
@@ -49,5 +46,16 @@ public class Dt extends Persona{
 
 	public void setNacionalidad(Pais nacionalidad) {
 		this.nacionalidad = nacionalidad;
+	}
+	
+	@Override
+	public String toString() {
+		return "Dt [nacionalidad=" + nacionalidad + ", titulos=" + titulos + ", tipoDni=" + tipoDni + ", getApellido()="
+				+ getApellido() + ", getNombre()=" + getNombre() + ", getNacimiento()=" + getNacimiento()
+				+ ", getDni()=" + getDni() + "]";
+	}
+	
+	public String DatosIdent() {
+		return null;
 	}
 }

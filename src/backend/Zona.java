@@ -7,10 +7,9 @@ import java.util.Collections;
 
 import javax.swing.JOptionPane;
 
-
-
-
 public class Zona implements Serializable{
+	
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 
 	private static final long serialVersionUID = 2934756314623471362L;
 	//Implementar tabla de posiciones
@@ -36,6 +35,8 @@ public class Zona implements Serializable{
     Resultados resultados [] = new Resultados [CANT_PZ];
     private int k;
     
+  //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
+    
     public Zona (Equipo equipos[]) {
     	this.partidosZona = new Partido[CANT_PZ];
         for (int i = 0; i < CANTE; i++) {
@@ -46,7 +47,7 @@ public class Zona implements Serializable{
         this.k = 0;
         this.partidosZona = creaFechas(equipos);
     }
-    
+      
   //---------------------------------------------------------- SIMULA UN SOLO PARTIDO A LA VEZ ---------------------------------------------------------------
 	
   	public void SimulaPartido () { 

@@ -2,11 +2,18 @@ package backend;
 
 public class PartidoIdaVuelta extends Partido{
 
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private static final long serialVersionUID = -8847438604485174325L;
 	private int golesP1,golesP2;
+	
+	//-------------------------------------------------<<COSNTRUCTOR>>-------------------------------------------------
+	
 	public PartidoIdaVuelta(Equipo a, Equipo b) {
 		super(a, b);
 	}
+	
+	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 	
 	public void simulacionPen() {
 		
@@ -45,6 +52,8 @@ public class PartidoIdaVuelta extends Partido{
 			
 		}	
 	}
+	
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public int getGolesP1() {
 		return golesP1;
