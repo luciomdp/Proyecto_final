@@ -28,7 +28,7 @@ public class Zona implements Serializable{
 	actual de i,tenes una variable fecha "f", que dice en que fecha se encuentra, y simular toda la zona, es iterar desde el i
 	actual hasta el final)*/
 
-    private Equipo aux; // ESTE AUX SE USA A LA HORA DE TENER QUE ACTUALIZAR LA TABLA, PARA GUARDAR EL EQUIPO CUYA POSICIÓN SERÍA REEMPLAZADA
+   
     private Equipo [] tabla = new Equipo [CANTE]; // TABLA DE LA ZONA 
     private Equipo ganadoresZona [] = new Equipo [PASAN_CUARTOS]; // SON LOS DOS EQUIPOS QUE GANAN LA ZONA
     private Partido partidosZona[]; 
@@ -137,51 +137,58 @@ public class Zona implements Serializable{
     }
 
     public void ActualizaTabla(){ // HAY QUE PROBARLO, PRINCIPALMENTE POR LA ULTIMA INSTANCIA
-        
-        for (int i = 0; i < tabla.length-1; i++){ 
-            
-            for (int j = 0; j < tabla.length-i -1; j++){ 
-                
-                	if (tabla[j + 1].getPuntos() < tabla[j].getPuntos()){
-                		aux = tabla[j + 1];
-                		tabla[j + 1] = tabla[j];
-                		tabla[j] = aux;    
-                	}
-                	
-                	else if (tabla[j + 1].getPuntos() == tabla[j].getPuntos()){
-                        if (tabla[j + 1].getGoles() < tabla[j].getGoles()){
-                        	aux = tabla[j + 1];
-                    		tabla[j + 1] = tabla[j];
-                    		tabla[j] = aux;
-                        }
-                        else if (tabla[j + 1].getGoles() == tabla[j].getGoles()){
-                        	if ((tabla[j + 1].getGoles() - tabla[j + 1].getGolesContra()) < (tabla[j].getGoles()-tabla[j].getGolesContra())){
-                        		aux = tabla[j + 1];
-                        		tabla[j + 1] = tabla[j];
-                        		tabla[j] = aux;                            
-                        	}
-                        	else if((tabla[j + 1].getGoles() - tabla[j + 1].getGolesContra()) == (tabla[j].getGoles()-tabla[j].getGolesContra())){
-                        		int pos = this.buscaResultado(tabla[i].getNombre(), tabla[j].getNombre());
-                        		if (resultados[pos].getE1() == tabla[i].getNombre()) {
-                        			if (resultados[pos].getGolesE1() < resultados[pos].getGolesE2()) {
-                        				aux = tabla[j + 1];
-                                		tabla[j + 1] = tabla[j];
-                                		tabla[j] = aux;
-                        			}
-                        		}
-                        		else if (resultados[pos].getE1() == tabla[j].getNombre()){
-                        			if (resultados[pos].getGolesE1() > resultados[pos].getGolesE2()) {
-                        				aux = tabla[j + 1];
-                                		tabla[j + 1] = tabla[j];
-                                		tabla[j] = aux;
-                        			}
-                        		}
-                        	}
-                        }
-                	}
+    	
+    	Equipo aux;
+    	
+        for (int i = 0; i < tabla.length - 1; i++) {
+            for (int j = 0; j < tabla.length - i - 1; j++) {
+            	
+                if (tabla[j + 1].getPuntos() > tabla[j].getPuntos()) {
+                    aux = tabla[j + 1];
+                    tabla[j + 1] = tabla[j];
+                    tabla[j] = aux;
                 }
-          }
-       }
+                else if (tabla[j + 1].getPuntos() == tabla[j].getPuntos()) {
+                	
+                    if (tabla[j + 1].getGoles() > tabla[j].getGoles()) {
+                        aux = tabla[j + 1];
+                        tabla[j + 1] = tabla[j];
+                        tabla[j] = aux;
+                    }
+                    else if (tabla[j + 1].getGoles() == tabla[j].getGoles()) {
+                    	
+                        if (tabla[j + 1].getGoles() - tabla[j + 1].getGolesContra() > tabla[j].getGoles() - tabla[j].getGolesContra() ) {
+                            aux = tabla[j + 1];
+                            tabla[j + 1] = tabla[j];
+                            tabla[j] = aux;
+                        }
+                        else if (tabla[j + 1].getGoles() - tabla[j + 1].getGolesContra() == tabla[j].getGoles() - tabla[j].getGolesContra() ) {
+                        	
+                        	int posicion = buscaResultado (tabla[j].getNombre(), tabla[j + 1].getNombre()); // 	BUSCAMOS LA POSICION DONDE ESTÁ EL PARTIDO ENTRE LOS EQUIPOS QUE ESTAN IGUALADOS EN PUNTOS, GOLES Y DIF DE GOLES
+                        	if (posicion >= 0) { // SI ES >= 0 YA SE JUGÓ EL PARTIDO
+                        		if (resultados [posicion].getGolesE1() > resultados [posicion].getGolesE2()) {
+                        			if (resultados [posicion].getE1() == tabla [j+1].getNombre()) {
+                                        aux = tabla[j + 1];
+                                        tabla[j + 1] = tabla[j];
+                                        tabla[j] = aux;
+                        			}
+                        		}
+                        		else if (resultados [posicion].getGolesE1() < resultados [posicion].getGolesE2()) {
+                            			if (resultados [posicion].getE2() == tabla [j+1].getNombre()) {
+                                            aux = tabla[j + 1];
+                                            tabla[j + 1] = tabla[j];
+                                            tabla[j] = aux;
+                            			}
+                            		
+                        		}
+                        	}
+                        }
+                    	
+                    }
+                }
+            }
+        }
+    }
     
     public int buscaResultado(String e1, String e2) {
     	int k = 0;
