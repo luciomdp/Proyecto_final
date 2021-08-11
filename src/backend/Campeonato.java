@@ -131,6 +131,10 @@ public class Campeonato implements Serializable {
 		return final_Campeonato;	
 	}
 	
+	public Zona getZona(int zona) {
+		return zonas[zona];
+	}
+	
 	public void setControlador(Controlador control) {
 		this.control = control;
 	}

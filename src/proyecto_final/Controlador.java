@@ -54,7 +54,7 @@ public class Controlador {
 	//-------------------------------------------------<<SIMULADORES ZONA>>-------------------------------------------------
 	
 	public void SimulaPartidoZ (int zona) { //recibe la zona de la que se simula un partido 
-
+		
 		//evaluar si se puede simular otro partido, sino, llamar al metodo ZtodoSimulado(zona) del Frame
 	}
 	public void SimulaFechaZ (int zona) { //recibe la zona de la que se simula una fecha 
