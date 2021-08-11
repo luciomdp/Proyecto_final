@@ -4,16 +4,20 @@ import java.util.Date;
 
 public class Partido implements Serializable{
 	
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private static final long serialVersionUID = -1658384256163433401L;
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
+	} //?
 	private Equipo equipo1,equipo2;
 	private double Media_totE1,Media_totE2;
 	private Date fecha_juego;
 	private Referi arbitro;//no puede tener misma nacionalidad que equipos, a menos que los dos sean de la misma (IMPLEMENTAR)
 	private int golesE1,golesE2;
+	
+	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public Partido(Equipo a, Equipo b) {
 		equipo1 = a;
@@ -27,6 +31,8 @@ public class Partido implements Serializable{
 		golesE1 = 0;
 		golesE2 = 0;
 	}
+	
+	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 	
 	public void simulacionNM() { 
 		int OportunidadesGolA = (int) Math.round(Math.random()*10);//Cada equipo tiene como maximo 10 oportunidades de gol
@@ -48,6 +54,8 @@ public class Partido implements Serializable{
 		this.setGolesE1(golesE1);
 		this.setGolesE2(golesE2);
 	}
+	
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public int getGolesE1() {
 		return golesE1;

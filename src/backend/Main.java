@@ -18,6 +18,8 @@ public class Main {
 	
 	public static void main (String[] args) throws NumberFormatException, ParseException {
 		
+		//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+		
 		String Jugadores = "Jugadores.txt"; String Equipos = "Equipos.txt"; String Referis = "Referis.txt";
 		BufferedReader br = null;
 		String line = ""; String coma = ",";
@@ -109,6 +111,7 @@ public class Main {
 			      }
 		
 		//-------------------------------------------------<<REFERIS>>-------------------------------------------------
+				
 		referis = new ArrayList <>();
 				try {
 				    br = new BufferedReader(new FileReader(Referis));
@@ -142,7 +145,7 @@ public class Main {
 				    System.out.println(("Referis:\n"));
 				    referis.forEach(System.out::println);
 			      }
-							    	
+		
 		//lo siguiente, al menos campeonato, deberia ir aca porque recien ahora se cargan los valores de los arraylist. esta bien?
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
 		Frame vista = new Frame ();

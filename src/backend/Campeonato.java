@@ -10,6 +10,8 @@ import proyecto_final.Controlador;
 
 public class Campeonato implements Serializable {
 	
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private static final long serialVersionUID = 9176305150524899919L;
 	private final int CANTE = 16; //CANTIDAD DE EQUIPOS
 	private final int CANTJ = 18; // CANTIDAD DE JUGADORES POR EQUIPO
@@ -25,6 +27,8 @@ public class Campeonato implements Serializable {
 	private SemiFinal semiFinal;
 	private Final final_Campeonato;
 	private Controlador control;
+	
+	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public Campeonato (ArrayList <Equipo> equipos, ArrayList <Jugador> jugadores, ArrayList <Referi> referis) {
 		
@@ -44,6 +48,7 @@ public class Campeonato implements Serializable {
 		
 	}
 
+	//-------------------------------------------------<<MÉTODOS DE LA CLASE>>-------------------------------------------------
 	
 	public void IniciaTorneo() {//pasar parametros para iniciar UN SOLO INICIATORNEO
 		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
@@ -120,6 +125,8 @@ public class Campeonato implements Serializable {
 		
 		return cuartosDeFinal;
 	}
+	
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public SemiFinal getSemiFinal() {
 		semiFinal = new SemiFinal(this.cuartosDeFinal.getPasanASemis());

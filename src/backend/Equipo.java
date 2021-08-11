@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Equipo implements Serializable{
 	
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private static final long serialVersionUID = -6798555891375663146L;
 	private String nombre;
 	private Pais pais;
@@ -24,6 +26,8 @@ public class Equipo implements Serializable{
     private int pG;
     private int pP;
     
+  //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
+    
     public Equipo (String n, Pais p, int r, ArrayList<Jugador> j, Dt e){ 
 		nombre = n;
 		pais = p;
@@ -38,13 +42,7 @@ public class Equipo implements Serializable{
         this.pP = 0;
 	}
     
-    public int getpP() {
-		return pP;
-	}
-
-	public void setpP(int pP) {
-		this.pP = pP;
-	}
+  //-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 
 	public double edadMediaJugadores() { 
     	
@@ -66,12 +64,7 @@ public class Equipo implements Serializable{
 		return media/18;
 	}
 	
-	@Override
-	public String toString() {
-		return "Equipo [nombre=" + nombre + ", pais=" + pais + ", ranking=" + ranking + ", Jugadores=" + Jugadores
-				+ ", entrenador=" + entrenador + ", puntos=" + puntos + ", goles=" + goles + ", golesContra="
-				+ golesContra + ", getEntrenador()=" + getEntrenador() + "]";
-	}
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public String getEstadisticas() {
         return " Nombre: "+ nombre+"\n Puntos : "+ puntos +"\n Goles: "+ goles +"\n Goles en contra: "+ golesContra;
@@ -97,6 +90,14 @@ public class Equipo implements Serializable{
 		return golesContraSemis;
 	}
 	
+	public int getpP() {
+		return pP;
+	}
+
+	public void setpP(int pP) {
+		this.pP = pP;
+	}
+	
 	public int getpJ() {
 		return pJ;
 	}
@@ -110,6 +111,38 @@ public class Equipo implements Serializable{
     }
     public int getGolesContra() {
         return golesContra;
+    }
+    
+    public void setpG(int pG) {
+		this.pG = pG;
+	}
+	
+	public void setpJ(int pJ) {
+		this.pJ = pJ;
+	}
+	
+	public void setGolesContraSemis(int golesContraSemis) {
+		this.golesContraSemis = golesContraSemis;
+	}
+	
+	public void setGolesSemis(int golesSemis) {
+		this.golesSemis = golesSemis;
+	}
+	
+	public void setGolesCuartos(int golesCuartos) {
+		this.golesCuartos = golesCuartos;
+	}
+
+    public void setPuntos(int puntos) {
+        this.puntos  += puntos;
+    }
+
+    public void setGoles(int goles) {
+        this.goles += goles;
+    }
+
+    public void setGolesContra(int golesContra) {
+        this.golesContra += golesContra;
     }
 
     public int getPuntos() {
@@ -152,35 +185,10 @@ public class Equipo implements Serializable{
 		this.entrenador = entrenador;
 	}
 	
-	public void setpG(int pG) {
-		this.pG = pG;
+	@Override
+	public String toString() {
+		return "Equipo [nombre=" + nombre + ", pais=" + pais + ", ranking=" + ranking + ", Jugadores=" + Jugadores
+				+ ", entrenador=" + entrenador + ", puntos=" + puntos + ", goles=" + goles + ", golesContra="
+				+ golesContra + ", getEntrenador()=" + getEntrenador() + "]";
 	}
-	
-	public void setpJ(int pJ) {
-		this.pJ = pJ;
-	}
-	
-	public void setGolesContraSemis(int golesContraSemis) {
-		this.golesContraSemis = golesContraSemis;
-	}
-	
-	public void setGolesSemis(int golesSemis) {
-		this.golesSemis = golesSemis;
-	}
-	
-	public void setGolesCuartos(int golesCuartos) {
-		this.golesCuartos = golesCuartos;
-	}
-
-    public void setPuntos(int puntos) {
-        this.puntos  += puntos;
-    }
-
-    public void setGoles(int goles) {
-        this.goles += goles;
-    }
-
-    public void setGolesContra(int golesContra) {
-        this.golesContra += golesContra;
-    }
 }

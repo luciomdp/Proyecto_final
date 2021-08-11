@@ -5,6 +5,8 @@ import java.time.LocalDate;
 
 public abstract class Persona implements Serializable {
 
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private static final long serialVersionUID = -6085890580210945177L;
 
 	private String apellido, nombre;
@@ -12,6 +14,8 @@ public abstract class Persona implements Serializable {
 	private int dni;
 	String tipoDni;
 	public abstract String DatosIdent(); //estos procedimientos están vacíos... qué debería ir acá? (ver referi o jugador por ejemplo)
+	
+	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public Persona (String a, String no, LocalDate n, int dni, String ti){
 		apellido = a;
@@ -21,11 +25,9 @@ public abstract class Persona implements Serializable {
 		tipoDni = ti;
 	}
 	
-	@Override
-	public String toString() {
-		return "Persona [apellido=" + apellido + ", nombre=" + nombre + ", nacimiento=" + nacimiento + ", dni=" + dni
-				+ "]";
-	}
+	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
+	
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public String getApellido() {
 		return apellido;
@@ -57,5 +59,11 @@ public abstract class Persona implements Serializable {
 
 	public void setDni(int dni) {
 		this.dni = dni;
+	}
+	
+	@Override
+	public String toString() {
+		return "Persona [apellido=" + apellido + ", nombre=" + nombre + ", nacimiento=" + nacimiento + ", dni=" + dni
+				+ "]";
 	}
 }

@@ -7,33 +7,22 @@ uno la cantidad de años en el referato, y al final del listado el promedio de lo
 
 public class Referi extends Persona{
 
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private static final long serialVersionUID = 4414849362119102514L;
 	private Pais nacionalidad;
 	private int años_referato;
 
+	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
+	
 	public Referi(String a, String no, LocalDate n, int dni, String ti, Pais na, int an) {
 		super(a, no, n, dni, ti);
 		nacionalidad = na;
 		años_referato = an;
 	}
 	
-	public String ListaReferi () {
-		return "Nombre: "+ this.getNombre()+ "\nAnios en el referato: "+ this.getAños_referato(); 
-	}
-	
-	@Override
-	public String toString() { //este procedimiento se podría borrar más adelante, es para revisar la lectura
-		return "Referi [nacionalidad=" + nacionalidad + ", años_referato=" + años_referato + ", tipoDni=" + tipoDni
-				+ ", getApellido()=" + getApellido() + ", getNombre()=" + getNombre() + ", getNacimiento()="
-				+ getNacimiento() + ", getDni()=" + getDni() + "]";
-	}
-
-	@Override
-	public String DatosIdent() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
+		
 	public Pais getNacionalidad() {
 		return nacionalidad;
 	}
@@ -53,4 +42,21 @@ public class Referi extends Persona{
 	public Pais getPais (){
 		return nacionalidad;
 	} 
+	
+	public String ListaReferi () {
+		return "Nombre: "+ this.getNombre()+ "\nAnios en el referato: "+ this.getAños_referato(); 
+	}
+	
+	@Override
+	public String toString() { //este procedimiento se podría borrar más adelante, es para revisar la lectura
+		return "Referi [nacionalidad=" + nacionalidad + ", años_referato=" + años_referato + ", tipoDni=" + tipoDni
+				+ ", getApellido()=" + getApellido() + ", getNombre()=" + getNombre() + ", getNacimiento()="
+				+ getNacimiento() + ", getDni()=" + getDni() + "]";
+	}
+
+	@Override
+	public String DatosIdent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

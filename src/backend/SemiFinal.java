@@ -3,6 +3,9 @@ package backend;
 import javax.swing.JOptionPane;
 
 public class SemiFinal {
+	
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private final int CANT_P = 4;
 	private final int CANTE = 4;
 	private Equipo e1, e2;
@@ -12,6 +15,8 @@ public class SemiFinal {
 	private Equipo pasaAFinal [];
 	private int i, k;
 
+	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
+	
 	public SemiFinal(Equipo equipos []) {
 		
 		this.equipos = equipos;
@@ -28,6 +33,8 @@ public class SemiFinal {
 		this.i = 0;
 		this.k = 0;
 	}
+	
+	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 	
 	public void SimulaIda () {
 		if (i < CANT_P/2){
@@ -85,6 +92,8 @@ public class SemiFinal {
 		else
 			JOptionPane.showMessageDialog(null, "Ya se jugaron todos los partidos de vuelta de cuartos de final");
 	}
+	
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public Equipo[] getPasanAFinal() { //pa que es esto 
 		return pasaAFinal;

@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 
 public class CuartosFinal {
 	
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private final int CANT_P = 8;
 	private final int CANTE = 8;
 	private Equipo e1, e2;
@@ -12,6 +14,8 @@ public class CuartosFinal {
 	private Resultados resultados [];
 	private Equipo pasanASemis [];
 	private int i, k;
+	
+	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public CuartosFinal(Equipo equipos []) {
 		this.equipos = equipos;
@@ -31,6 +35,7 @@ public class CuartosFinal {
 		this.i = 0;
 		this.k = 0;
 	}
+	//-------------------------------------------------<<MÉTODOS DE LA CLASE>>-------------------------------------------------
 	
 	public void SimulaIda () {
 		if (i < CANT_P/2){
@@ -89,6 +94,8 @@ public class CuartosFinal {
 			
 		
 	}
+	
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public Equipo[] getPasanASemis() {
 		return pasanASemis;
