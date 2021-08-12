@@ -31,12 +31,17 @@ public class Campeonato implements Serializable {
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public Campeonato (ArrayList <Equipo> equipos, ArrayList <Jugador> jugadores, ArrayList <Referi> referis) {
-		
-		this.cuartosDeFinal = null;
-		this.semiFinal = null;
 		this.equipos = equipos;
 		this.jugadores = jugadores;
-		this.referis = referis;
+		this.referis = referis;	
+	}
+
+	//-------------------------------------------------<<MÉTODOS DE LA CLASE>>-------------------------------------------------
+	
+	public void IniciaTorneo() {//pasar parametros para iniciar UN SOLO INICIATORNEO ??????
+		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
+		 * en caso de iniciar torneo de 0, todos los parametros serian null, en caso contrario, se pasarian los
+		 * parametros que se hayan modificado (osea que se haya jugado) y el resto que no, podrian ser null tambien*/
 		int j = 0;
         Collections.shuffle(equipos); //MEZCLA EL ARRAYLIST PARA QUE CADA VEZ QUE SE QUIERA CREAR UN CAMPEONATO, LAS ZONAS SEAN DISTINTAS
         for (int z = 0; z < CANTZ; z++) {
@@ -45,15 +50,8 @@ public class Campeonato implements Serializable {
             zonas[z] = new Zona(equiposZona);
             j += 4;
         }
-		
-	}
-
-	//-------------------------------------------------<<MÉTODOS DE LA CLASE>>-------------------------------------------------
-	
-	public void IniciaTorneo() {//pasar parametros para iniciar UN SOLO INICIATORNEO
-		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
-		 * en caso de iniciar torneo de 0, todos los parametros serian null, en caso contrario, se pasarian los
-		 * parametros que se hayan modificado (osea que se haya jugado) y el resto que no, podrian ser null tambien*/
+		this.cuartosDeFinal = null;
+		this.semiFinal = null;
 		
 	}
 	

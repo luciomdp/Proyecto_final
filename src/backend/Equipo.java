@@ -18,10 +18,8 @@ public class Equipo implements Serializable{
     private int puntos;
     private int goles;
     private int golesContra;
-    private int golesCuartos;
-    private int golesSemis;
-    private int golesContraCuartos;
-    private int golesContraSemis;
+    private int golesIda;
+    private int golesVuelta;
     private int pJ;
     private int pG;
     private int pP;
@@ -36,6 +34,8 @@ public class Equipo implements Serializable{
 		entrenador = e;
 		this.goles = 0;
         this.golesContra = 0;
+        this.golesIda = 0;
+        this.golesVuelta = 0;
         this.puntos = 0;
         this.pG = 0;
         this.pJ = 0;
@@ -64,31 +64,16 @@ public class Equipo implements Serializable{
 		return media/18;
 	}
 	
+	public String estadisticasCuartos () {
+		return nombre + golesIda + golesVuelta;
+	}
+	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public String getEstadisticas() {
-        return " Nombre: "+ nombre+"\n Puntos : "+ puntos +"\n Goles: "+ goles +"\n Goles en contra: "+ golesContra;
+        return nombre+ puntos + pJ + pG + pP + goles + golesContra + (goles - golesContra);
     }
 	
-    public int getGolesCuartos() {
-		return golesCuartos;
-	}
-
-	public int getGolesSemis() {
-		return golesSemis;
-	}
-
-	public int getGolesContraCuartos() {
-		return golesContraCuartos;
-	}
-
-	public void setGolesContraCuartos(int golesContraCuartos) {
-		this.golesContraCuartos = golesContraCuartos;
-	}
-
-	public int getGolesContraSemis() {
-		return golesContraSemis;
-	}
 	
 	public int getpP() {
 		return pP;
@@ -121,17 +106,7 @@ public class Equipo implements Serializable{
 		this.pJ = pJ;
 	}
 	
-	public void setGolesContraSemis(int golesContraSemis) {
-		this.golesContraSemis = golesContraSemis;
-	}
-	
-	public void setGolesSemis(int golesSemis) {
-		this.golesSemis = golesSemis;
-	}
-	
-	public void setGolesCuartos(int golesCuartos) {
-		this.golesCuartos = golesCuartos;
-	}
+
 
     public void setPuntos(int puntos) {
         this.puntos  += puntos;
@@ -184,6 +159,22 @@ public class Equipo implements Serializable{
 	public void setEntrenador(Dt entrenador) {
 		this.entrenador = entrenador;
 	}
+	public int getGolesIda() {
+		return golesIda;
+	}
+
+	public void setGolesIda(int golesIda) {
+		this.golesIda = golesIda;
+	}
+
+	public int getGolesVuelta() {
+		return golesVuelta;
+	}
+
+	public void setGolesVuelta(int golesVuelta) {
+		this.golesVuelta = golesVuelta;
+	}
+
 	
 	@Override
 	public String toString() {

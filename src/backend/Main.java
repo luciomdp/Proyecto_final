@@ -146,7 +146,6 @@ public class Main {
 				    referis.forEach(System.out::println);
 			      }
 		
-		//lo siguiente, al menos campeonato, deberia ir aca porque recien ahora se cargan los valores de los arraylist. esta bien?
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
 		Frame vista = new Frame ();
 		Controlador control = new Controlador (torneo, vista);

@@ -97,7 +97,8 @@ public class Zona implements Serializable{
   	
   //---------------------------------------------------------- SIMULA UNA FECHA SOLA  ---------------------------------------------------------------------------
   	
-  	public void SimulaFecha () {
+
+	public void SimulaFecha () {
   			for (;i<=f*CANT_PF;) {
   				this.SimulaPartido();
   			}
@@ -220,7 +221,7 @@ public class Zona implements Serializable{
 	
     public String getValoresTabla(){
     	String s = "EQUIPO		Pts		PJ	PG	PP		G	GC	DG \n\n";
-        for (int i = 0; i<4; i++ )
+        for (int i = 0; i < CANTE; i++ )
             s +=tabla[i].getEstadisticas()+ "\n";
         
         return s;
@@ -237,6 +238,14 @@ public class Zona implements Serializable{
         this.resultados[i] = resultado ;
         i++;
     }
+    
+  	public int getI() {
+		return i;
+	}
+
+	public void setI(int i) {
+		this.i = i;
+	}
 	
 }
 	

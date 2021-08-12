@@ -40,10 +40,8 @@ public class CuartosFinal {
 	public void SimulaIda () {
 		if (i < CANT_P/2){
 			partidos[i].simulacionNM();
-			partidos[i].getEquipo1().setGolesCuartos(partidos[i].getGolesE1());
-			partidos[i].getEquipo2().setGolesCuartos(partidos[i].getGolesE2());
-			partidos[i].getEquipo1().setGolesContraCuartos(partidos[i].getGolesE2());
-			partidos[i].getEquipo2().setGolesContraCuartos(partidos[i].getGolesE1());
+			partidos[i].getEquipo1().setGolesIda(partidos[i].getGolesE1());
+			partidos[i].getEquipo2().setGolesIda(partidos[i].getGolesE2());
 			resultados[i].setE1(partidos[i].getEquipo1());
 			resultados[i].setE2(partidos[i].getEquipo2());
 			resultados[i].setGolesE1(partidos[i].getGolesE1());
@@ -57,10 +55,8 @@ public class CuartosFinal {
 	public void SimulaVuelta() {
 		if (i < CANT_P) {
 			partidos[i].simulacionNM();
-			partidos[i].getEquipo1().setGolesCuartos(partidos[i].getGolesE1());
-			partidos[i].getEquipo2().setGolesCuartos(partidos[i].getGolesE2());
-			partidos[i].getEquipo1().setGolesContraCuartos(partidos[i].getGolesE2());
-			partidos[i].getEquipo2().setGolesContraCuartos(partidos[i].getGolesE1());
+			partidos[i].getEquipo1().setGolesVuelta(partidos[i].getGolesE1());
+			partidos[i].getEquipo2().setGolesVuelta(partidos[i].getGolesE2());
 			resultados[i].setE1(partidos[i].getEquipo1());
 			resultados[i].setE2(partidos[i].getEquipo2());
 			resultados[i].setGolesE1(partidos[i].getGolesE1());
@@ -97,6 +93,9 @@ public class CuartosFinal {
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
+	public Equipo getEquipoCuartos (int equipo) {
+		return equipos [equipo];
+	}
 	public Equipo[] getPasanASemis() {
 		return pasanASemis;
 	}

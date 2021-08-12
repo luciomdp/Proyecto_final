@@ -20,6 +20,10 @@ public class SemiFinal {
 	public SemiFinal(Equipo equipos []) {
 		
 		this.equipos = equipos;
+		for  (int i= 0; i < this.equipos.length; i++) {
+			this.equipos[i].setGolesIda(0);
+			this.equipos[i].setGolesVuelta(0);
+		}
 		int k= 0;
 		for (int i = 0; i < CANT_P; i += 2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
 			this.partidos [k] = new PartidoIdaVuelta (equipos[i], equipos[i++]);
@@ -39,10 +43,8 @@ public class SemiFinal {
 	public void SimulaIda () {
 		if (i < CANT_P/2){
 			partidos[i].simulacionNM();
-			partidos[i].getEquipo1().setGolesCuartos(partidos[i].getGolesE1());
-			partidos[i].getEquipo2().setGolesCuartos(partidos[i].getGolesE2());
-			partidos[i].getEquipo1().setGolesContraCuartos(partidos[i].getGolesE2());
-			partidos[i].getEquipo2().setGolesContraCuartos(partidos[i].getGolesE1());
+			partidos[i].getEquipo1().setGolesIda(partidos[i].getGolesE1());
+			partidos[i].getEquipo2().setGolesIda(partidos[i].getGolesE2());
 			resultados[i].setE1(partidos[i].getEquipo1());
 			resultados[i].setE2(partidos[i].getEquipo2());
 			resultados[i].setGolesE1(partidos[i].getGolesE1());
@@ -56,10 +58,9 @@ public class SemiFinal {
 	public void SimulaVuelta() {
 		if (i < CANT_P) {
 			partidos[i].simulacionNM();
-			partidos[i].getEquipo1().setGolesCuartos(partidos[i].getGolesE1());
-			partidos[i].getEquipo2().setGolesCuartos(partidos[i].getGolesE2());
-			partidos[i].getEquipo1().setGolesContraCuartos(partidos[i].getGolesE2());
-			partidos[i].getEquipo2().setGolesContraCuartos(partidos[i].getGolesE1());
+			partidos[i].getEquipo1().setGolesVuelta(partidos[i].getGolesE1());
+			partidos[i].getEquipo2().setGolesVuelta(partidos[i].getGolesE2());
+
 			resultados[i].setE1(partidos[i].getEquipo1());
 			resultados[i].setE2(partidos[i].getEquipo2());
 			resultados[i].setGolesE1(partidos[i].getGolesE1());
@@ -95,11 +96,14 @@ public class SemiFinal {
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
-	public Equipo[] getPasanAFinal() { //pa que es esto 
+	public Equipo getEquipoSemis (int equipo) {
+		return equipos [equipo];
+	}
+	public Equipo[] getPasanAFinal() { //DEVUELVE EL ARREGLO COMPLETO CON LOS DOS EQUIPOS FINALISTAS
 		return pasaAFinal;
 	}
 
-	public void setPasanAFinal(Equipo pasaAFinal) {
+	public void setPasanAFinal(Equipo pasaAFinal) { // INGRESA EQUIPO FINALISTA
 		this.pasaAFinal[k] = pasaAFinal;
 		k++;
 	}
