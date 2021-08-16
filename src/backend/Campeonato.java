@@ -52,6 +52,7 @@ public class Campeonato implements Serializable {
         }
 		this.cuartosDeFinal = null;
 		this.semiFinal = null;
+		this.final_Campeonato = null;
 		
 	}
 	

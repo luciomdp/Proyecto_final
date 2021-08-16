@@ -2,13 +2,11 @@ package backend;
 
 import javax.swing.JOptionPane;
 
-public class SemiFinal {
+public class SemiFinal extends Final {
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	private final int CANT_P = 4;
-	private final int CANTE = 4;
-	private Equipo e1, e2;
 	private PartidoIdaVuelta partidos [];
 	private Equipo equipos [];
 	private Resultados resultados [];
@@ -19,7 +17,7 @@ public class SemiFinal {
 	
 	public SemiFinal(Equipo equipos []) {
 		
-		this.equipos = equipos;
+		super (equipos);
 		for  (int i= 0; i < this.equipos.length; i++) {
 			this.equipos[i].setGolesIda(0);
 			this.equipos[i].setGolesVuelta(0);
@@ -98,6 +96,9 @@ public class SemiFinal {
 	
 	public Equipo getEquipoSemis (int equipo) {
 		return equipos [equipo];
+	}
+	public String getResultado (int partido) {
+		return resultados[partido].getE1() + " " + resultados[partido].getGolesE1()+"\n"+resultados[partido].getE2() + " " + resultados[partido].getGolesE2();
 	}
 	public Equipo[] getPasanAFinal() { //DEVUELVE EL ARREGLO COMPLETO CON LOS DOS EQUIPOS FINALISTAS
 		return pasaAFinal;

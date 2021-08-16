@@ -160,10 +160,10 @@ public class Informacion extends General{
 			getBoton_muestra().setText("Mostrar jugadores");
 			panel_botonera = new JPanel();
 			panel_botonera.setLayout(new BorderLayout());
-			IFpos.addItem(Posicion.Arquero);
-			IFpos.addItem(Posicion.Defensor);
-			IFpos.addItem(Posicion.Mediocampista);
-			IFpos.addItem(Posicion.Delantero);
+			IFpos.addItem(Posicion.arquero);
+			IFpos.addItem(Posicion.defensor);
+			IFpos.addItem(Posicion.mediocampista);
+			IFpos.addItem(Posicion.delantero);
 			panel_botonera.add(IFpos,BorderLayout.WEST);
 			panel_botonera.add(getBoton_muestra(),BorderLayout.CENTER);
 			add(panel_botonera,BorderLayout.NORTH);

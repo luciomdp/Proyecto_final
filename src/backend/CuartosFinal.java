@@ -96,6 +96,11 @@ public class CuartosFinal {
 	public Equipo getEquipoCuartos (int equipo) {
 		return equipos [equipo];
 	}
+	 /* SE SUPONE QUE HEREDA DE SEMIFINAL
+	public String getResultado (int partido) { 
+		return resultados[partido].getE1() + " " + resultados[partido].getGolesE1()+"\n"+resultados[partido].getE2() + " " + resultados[partido].getGolesE2();
+	}*/
+	
 	public Equipo[] getPasanASemis() {
 		return pasanASemis;
 	}

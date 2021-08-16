@@ -33,7 +33,7 @@ public class Zona implements Serializable{
     private Equipo ganadoresZona [] = new Equipo [PASAN_CUARTOS]; // SON LOS DOS EQUIPOS QUE GANAN LA ZONA
     private Partido partidosZona[]; 
     Resultados resultados [] = new Resultados [CANT_PZ];
-    private int k;
+   
     
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
     
@@ -44,7 +44,6 @@ public class Zona implements Serializable{
         }
         this.i = 0;
         this.f = 1;
-        this.k = 0;
         this.partidosZona = creaFechas(equipos);
     }
       

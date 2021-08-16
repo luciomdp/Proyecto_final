@@ -1,5 +1,5 @@
 package backend;
 
 public enum Posicion {
-	Delantero, Mediocampista, Defensor, Arquero;
+	delantero, mediocampista, defensor, arquero;
 }
