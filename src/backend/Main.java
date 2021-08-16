@@ -144,7 +144,6 @@ public class Main {
 				    System.out.println(("Referis:\n"));
 				    referis.forEach(System.out::println);
 			      }
-		
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
 		Frame vista = new Frame ();
 		Controlador control = new Controlador (torneo, vista);
