@@ -109,7 +109,6 @@ public class Main {
 				    System.out.println(("Equipos:\n"));
 					equipos.forEach(System.out::println); 
 			      }
-		
 		//-------------------------------------------------<<REFERIS>>-------------------------------------------------
 				
 		referis = new ArrayList <>();
