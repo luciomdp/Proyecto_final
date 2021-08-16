@@ -16,6 +16,7 @@ public class Main {
 	static ArrayList <Equipo> equipos;
 	static ArrayList <Referi> referis; 
 	
+	
 	public static void main (String[] args) throws NumberFormatException, ParseException {
 		
 		//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
