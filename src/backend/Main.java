@@ -87,7 +87,7 @@ public class Main {
 						
 				    		Dt dt = new Dt (datos[3], datos[4], fecha, Integer.parseInt(datos[7]), datos[6], pais, 
 				    						Byte.parseByte(datos[9]));
-				        
+				    		
 				    		pais = Pais.valueOf(datos[1]);
 				    		Equipo equipo = new Equipo(datos[0], pais, Integer.parseInt(datos[2]), jugadores, dt); 
 				    		equipos.add(equipo);
@@ -106,8 +106,8 @@ public class Main {
 				            e.printStackTrace();
 				        }
 				    }
-				    System.out.println(("Equipos:\n"));
-					equipos.forEach(System.out::println); 
+				   System.out.println(("Equipos:\n"));
+					equipos.forEach(System.out::println);
 			      }
 		//-------------------------------------------------<<REFERIS>>-------------------------------------------------
 				
@@ -141,13 +141,15 @@ public class Main {
 				            e.printStackTrace();
 				        }
 				    }
-				    System.out.println(("Referis:\n"));
-				    referis.forEach(System.out::println);
+				  /*  System.out.println(("Referis:\n"));
+				    referis.forEach(System.out::println);*/
 			      }
+				
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
 		Frame vista = new Frame ();
 		Controlador control = new Controlador (torneo, vista);
 		vista.setControlador(control);
 		torneo.setControlador(control);
+		
 	}		
 }
