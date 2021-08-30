@@ -104,8 +104,14 @@ public class Main {
          										
          										for (int m=0; m<2; m++) {
          											
-         											Posicion _posicion = null; Byte _puntuacion = 0;
-         											
+         											Posicion _posicion = null;
+         											Byte _puntuacion = 0;
+         											String _tipoDocumento = "";
+         											int _nroDocumento = 0;
+         											String _nombreApellido = "";
+         											String _nombre = "";
+         											String _apellido = "";
+         											LocalDate _fecha = null;
          											if (m == 0) {
          												NamedNodeMap att = listaChildren3.item(l).getAttributes();
              											_posicion = Posicion.valueOf(att.getNamedItem("posicion").getNodeValue()); 
@@ -116,17 +122,18 @@ public class Main {
          												NodeList listaChildren5 = children4.getChildNodes();
          												NodeList children5 = listaChildren5.item(1).getChildNodes();
          												         										
-         												String _tipoDocumento = children5.item(1).getTextContent(); //tipo doc
-         												int _nroDocumento = Integer.parseInt(children5.item(3).getTextContent());
-         												String _nombreApellido = children5.item(5).getTextContent();
-         												String _nombre = _nombreApellido.substring(0, _nombreApellido.indexOf(" ")-1);
-         												String _apellido = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
-         												LocalDate _fecha = LocalDate.parse(children5.item(7).getTextContent(), formato);
+         												_tipoDocumento = children5.item(1).getTextContent(); //tipo doc
+         												_nroDocumento = Integer.parseInt(children5.item(3).getTextContent());
+         												_nombreApellido = children5.item(5).getTextContent();
+         												_nombre = _nombreApellido.substring(0, _nombreApellido.indexOf(" ")-1);
+         												_apellido = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
+         												_fecha = LocalDate.parse(children5.item(7).getTextContent(), formato);
          												
-         												Jugador jugador = new Jugador(_apellido, _nombre, _fecha, _tipoDocumento, _nroDocumento, _posicion, _puntuacion);
-         												//puntaje devuelve null y posicion, 0. REVISAR
-         												jugadores.add(jugador);
          											}
+         											//aca creamos el jugador;
+         											Jugador jugador = new Jugador(_apellido, _nombre, _fecha, _tipoDocumento, _nroDocumento, _posicion, _puntuacion);
+     												//puntaje devuelve null y posicion, 0. REVISAR
+     												jugadores.add(jugador);
          										}
          									}
          								}
