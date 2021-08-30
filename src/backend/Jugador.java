@@ -46,8 +46,9 @@ public class Jugador extends Persona{
 	
 	@Override
 	public String toString() {
-		return "Jugador [apellido= "+super.getApellido()+", nombre= "+super.getNombre() + ", fecha= "+super.getNacimiento()+
-				", dni= "+super.getDni()+", posicion= "+posicion+", puntaje= "+puntaje+", tipoDni= "+tipoDni+"]";
+		return "Jugador [apellido= " +super.getApellido()+ ", nombre= " +super.getNombre()+ ", fecha= "+ 
+				super.getNacimiento()+", dni= " +super.getDni()+ ", posicion= " +posicion+ ", puntaje= " +
+				puntaje+ ", tipoDni= " +tipoDni+ "]";
 	}
 
 	public String DatosIdent() { 

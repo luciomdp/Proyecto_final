@@ -36,18 +36,15 @@ public class Main {
 			Document doc = db.parse(archivo);
 			doc.getDocumentElement().normalize();
 			
-			
 			System.out.println(doc.getDocumentElement().getNodeName());
 			Element raiz = doc.getDocumentElement();
 			leeArchivo(raiz);
 			
-			
-		}catch (Exception e) {
+		} catch (Exception e) {
 			
 			e.printStackTrace();
 			
 		}
-		
 		
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
 		Frame vista = new Frame ();
@@ -55,7 +52,8 @@ public class Main {
 		vista.setControlador(control);
 		torneo.setControlador(control);
 		
-	}	
+	}
+	
 	public static void leeArchivo(Element _raiz) {
 		
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -72,7 +70,7 @@ public class Main {
          			
          			NodeList listaChildren = nodo.getChildNodes(); //lista de equipo's
          			
-         			for (int j = 0; j<listaChildren.getLength(); j++) { 
+         			for (int j=0; j<listaChildren.getLength(); j++) { 
          				
          				Node children2 = listaChildren.item(j); //agarramos un equipo
          				
@@ -81,7 +79,6 @@ public class Main {
          					if (children2.getNodeName() == "equipo") { 
          						
          						System.out.println(children2.getNodeName());
-         						//1-nombre; 3-pais; 5-ranking
          						String _nombreE = children2.getChildNodes().item(1).getTextContent();
          						Pais _paisE = Pais.valueOf(children2.getChildNodes().item(3).getTextContent());
          						int _ranking = Byte.parseByte(children2.getChildNodes().item(5).getTextContent());
@@ -98,11 +95,13 @@ public class Main {
          							if (children3.getNodeName() == "jugadores") {
          								
          								NodeList listaChildren3 = children3.getChildNodes(); //entro a jugador
-         								for(int l = 0; l<listaChildren3.getLength(); l++) {
+         								
+         								for (int l=0; l<listaChildren3.getLength(); l++) {
          									
          									if (l%2 !=0) { //tira dos valores por nodo. no sabemos porqué :)
          										
          										Node children4 = listaChildren3.item(l); 
+         										
          										for (int m=0; m<2; m++) {
          											
          											Posicion _posicion = null; Byte _puntuacion = 0;
@@ -125,6 +124,7 @@ public class Main {
          												LocalDate _fecha = LocalDate.parse(children5.item(7).getTextContent(), formato);
          												
          												Jugador jugador = new Jugador(_apellido, _nombre, _fecha, _tipoDocumento, _nroDocumento, _posicion, _puntuacion);
+         												//puntaje devuelve null y posicion, 0. REVISAR
          												jugadores.add(jugador);
          											}
          										}
@@ -144,30 +144,29 @@ public class Main {
 										
 										Pais _pais = null; Byte _titulos = 0;
 										
-										for (int n = 3; n<=5; n+=2) {
+										for (int n=3; n<=5; n+=2) {
+											
 											NodeList children5 = listaChildren3.item(n).getChildNodes();
+											
 											if (n == 3) {
+											
 												_pais = Pais.valueOf(children5.item(0).getTextContent());
 												
 											} else {
+												
 												_titulos = Byte.parseByte(children5.item(0).getTextContent());
 												
 											}
 										}
 										dt = new Dt (_apellido, _nombre, _fecha, _nroDocumento, _tipoDocumento, _pais, _titulos);
-         								
          							}
-         							
          						}
-         						
          						
          						Equipo e = new Equipo(_nombreE, _paisE, _ranking, jugadores, dt);
          						System.out.println(e.toString());
          						//ArrayList equipos.push
-         						
          					}
          				}
-                  				
          			}
          			
          				
@@ -180,11 +179,6 @@ public class Main {
          			
          		}
 		 	}
-        	
         }
 	}
 }
-
-
-
-
