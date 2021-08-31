@@ -104,7 +104,7 @@ public class Controlador {
 		} 
 		return "Equipo " + campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas(); */
 		
-		return campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas(); // NO ES LO MISMO QUE HACER ESTE RETURN ?
+		return campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticasCuartosIda(); // NO ES LO MISMO QUE HACER ESTE RETURN ?
 	}
 	public int SimulaPartidoC() { //Devuelve el partido que se jugo (1,2,3 o 4)
 		//evaluar si se puede simular otro partido de ida, sino, llamar al metodo CtodoSimulado(0) del Frame

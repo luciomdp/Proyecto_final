@@ -18,8 +18,11 @@ public class Equipo implements Serializable{
     private int puntos;
     private int goles;
     private int golesContra;
-    private int golesIda;
-    private int golesVuelta;
+    private int golesIdaCuartos;
+    private int golesVueltaCuartos;
+    private int golesIdaSemis;
+    private int golesVueltaSemis;
+    private int golesFinal;
     private int pJ;
     private int pG;
     private int pP;
@@ -34,8 +37,10 @@ public class Equipo implements Serializable{
 		entrenador = e;
 		this.goles = 0;
         this.golesContra = 0;
-        this.golesIda = 0;
-        this.golesVuelta = 0;
+        this.golesIdaCuartos = 0;
+        this.golesVueltaCuartos = 0;
+        this.golesIdaSemis = 0;
+        this.golesVueltaSemis = 0;
         this.puntos = 0;
         this.pG = 0;
         this.pJ = 0;
@@ -64,9 +69,7 @@ public class Equipo implements Serializable{
 		return media/18;
 	}
 	
-	public String estadisticasCuartos () {
-		return nombre + golesIda + golesVuelta;
-	}
+
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
@@ -74,6 +77,13 @@ public class Equipo implements Serializable{
         return nombre+ puntos + pJ + pG + pP + goles + golesContra + (goles - golesContra);
     }
 	
+	public String getEstadisticasCuartosIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
+        return nombre + " " +golesIdaCuartos;
+    }
+	
+	public String getEstadisticasCuartosVuelta() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA VUELTA DE LOS CUARTOS
+        return nombre + " " +golesVueltaCuartos;
+    }
 	
 	public int getpP() {
 		return pP;
@@ -159,20 +169,41 @@ public class Equipo implements Serializable{
 	public void setEntrenador(Dt entrenador) {
 		this.entrenador = entrenador;
 	}
-	public int getGolesIda() {
-		return golesIda;
+	public int getGolesIdaCuartos() {
+		return golesIdaCuartos;
 	}
 
-	public void setGolesIda(int golesIda) {
-		this.golesIda = golesIda;
+	public void setGolesIdaCuartos(int golesIda) {
+		this.golesIdaCuartos = golesIda;
 	}
 
-	public int getGolesVuelta() {
-		return golesVuelta;
+	public int getGolesVueltaCuartos() {
+		return golesVueltaCuartos;
 	}
 
-	public void setGolesVuelta(int golesVuelta) {
-		this.golesVuelta = golesVuelta;
+	public void setGolesVueltaCuartos(int golesVuelta) {
+		this.golesVueltaCuartos = golesVuelta;
+	}
+	public int getGolesIdaSemis() {
+		return golesIdaSemis;
+	}
+
+	public void setGolesIdaSemis(int golesIda) {
+		this.golesIdaSemis = golesIda;
+	}
+
+	public int getGolesVueltaSemis() {
+		return golesVueltaSemis;
+	}
+
+	public void setGolesVueltaSemis(int golesVuelta) {
+		this.golesVueltaSemis = golesVuelta;
+	}
+	public void setGolesFinal(int golesFinal) {
+		this.golesFinal = golesFinal;
+	}
+	public int getGolesFinal () {
+		return golesFinal;
 	}
 
 	

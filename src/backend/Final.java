@@ -11,8 +11,8 @@ public class Final {
 
 	public Final(Equipo[] equipos) {
 		this.partidoFinal = new PartidoIdaVuelta (equipos[0], equipos[1]);
-		this.equipos[0].setGolesIda(0);
-		this.equipos[1].setGolesIda(0);
+		this.equipos[0].setGolesFinal(0);
+		this.equipos[1].setGolesFinal(0);
 		this.resultado = null;
 		this.campeon = null;
 	}
@@ -22,6 +22,8 @@ public class Final {
 		partidoFinal.simulacionNM();
 		resultado.setE1(partidoFinal.getEquipo1());
 		resultado.setGolesE1(partidoFinal.getGolesE1());
+		partidoFinal.getEquipo1().setGolesFinal(partidoFinal.getGolesE1());
+		partidoFinal.getEquipo2().setGolesFinal(partidoFinal.getGolesE2());
 		resultado.setE2(partidoFinal.getEquipo2());
 		resultado.setGolesE2(partidoFinal.getGolesE2());
 		if (resultado.getGolesE1() == resultado.getGolesE2()) {

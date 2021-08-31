@@ -19,8 +19,8 @@ public class SemiFinal extends Final {
 		
 		super (equipos);
 		for  (int i= 0; i < this.equipos.length; i++) {
-			this.equipos[i].setGolesIda(0);
-			this.equipos[i].setGolesVuelta(0);
+			this.equipos[i].setGolesIdaSemis(0);
+			this.equipos[i].setGolesVueltaSemis(0);
 		}
 		int k= 0;
 		for (int i = 0; i < CANT_P; i += 2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
@@ -41,8 +41,8 @@ public class SemiFinal extends Final {
 	public void SimulaIda () {
 		if (i < CANT_P/2){
 			partidos[i].simulacionNM();
-			partidos[i].getEquipo1().setGolesIda(partidos[i].getGolesE1());
-			partidos[i].getEquipo2().setGolesIda(partidos[i].getGolesE2());
+			partidos[i].getEquipo1().setGolesIdaSemis(partidos[i].getGolesE1());
+			partidos[i].getEquipo2().setGolesIdaSemis(partidos[i].getGolesE2());
 			resultados[i].setE1(partidos[i].getEquipo1());
 			resultados[i].setE2(partidos[i].getEquipo2());
 			resultados[i].setGolesE1(partidos[i].getGolesE1());
@@ -56,8 +56,8 @@ public class SemiFinal extends Final {
 	public void SimulaVuelta() {
 		if (i < CANT_P) {
 			partidos[i].simulacionNM();
-			partidos[i].getEquipo1().setGolesVuelta(partidos[i].getGolesE1());
-			partidos[i].getEquipo2().setGolesVuelta(partidos[i].getGolesE2());
+			partidos[i].getEquipo1().setGolesVueltaSemis(partidos[i].getGolesE1());
+			partidos[i].getEquipo2().setGolesVueltaSemis(partidos[i].getGolesE2());
 
 			resultados[i].setE1(partidos[i].getEquipo1());
 			resultados[i].setE2(partidos[i].getEquipo2());
