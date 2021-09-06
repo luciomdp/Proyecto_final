@@ -50,8 +50,8 @@ public class Referi extends Persona{
 	@Override
 	public String toString() { //este procedimiento se podría borrar más adelante, es para revisar la lectura
 		return "Referi [nacionalidad=" + nacionalidad + ", años_referato=" + años_referato + ", tipoDni=" + tipoDni
-				+ ", getApellido()=" + getApellido() + ", getNombre()=" + getNombre() + ", getNacimiento()="
-				+ getNacimiento() + ", getDni()=" + getDni() + "]";
+				+ ", getApellido: " + getApellido() + ", getNombre" + getNombre() + ", getNacimiento()="
+				+ getNacimiento() + ", getDni" + getDni() + "]";
 	}
 
 	@Override

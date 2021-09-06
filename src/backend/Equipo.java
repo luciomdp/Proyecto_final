@@ -12,7 +12,7 @@ public class Equipo implements Serializable{
 	private String nombre;
 	private Pais pais;
 	private int ranking; 
-	private ArrayList<Jugador> Jugadores = new ArrayList<Jugador>(17);
+	private ArrayList<Jugador> Jugadores = new ArrayList<Jugador>(18);
 	private Dt entrenador;
 	
     private int puntos;
