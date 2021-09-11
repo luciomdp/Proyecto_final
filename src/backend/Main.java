@@ -1,8 +1,8 @@
 package backend;
-
+//modificar esto (importar solo lo necesario)
 import java.io.*;
 import java.util.*;
-
+//////////
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -28,21 +28,19 @@ public class Main {
 	public static void main (String[] args) throws NumberFormatException, ParseException {
 				
 		try {
-			
+			//abrimos el archivo
 			File archivo = new File ("torneo.xml");
+			//hacemos creamos una Factory de documentos y .setValidating para usar el dtd
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			dbf.setValidating(true);
+			//creamos el documento basandonos en el archivo
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(archivo);
 			doc.getDocumentElement().normalize();
-			
-			System.out.println(doc.getDocumentElement().getNodeName());
+			//agarramos el nodo raiz (torneo)
 			Element raiz = doc.getDocumentElement();
+			//funcion principal de lectura
 			leeArchivo(raiz);
-			
-			
-			
-			//System.out.println(equipos.get(0).getJugadores().get(0).getApellido());
 			
 		} catch (Exception e) {
 			
@@ -51,9 +49,11 @@ public class Main {
 		}
 		
 		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
+		//debug
 		for (int i=0; i<referis.size(); i++) {
 			System.out.println(referis.get(i).toString());
 		}
+		//
 		Frame vista = new Frame ();
 		Controlador control = new Controlador (torneo, vista);
 		vista.setControlador(control);
@@ -182,7 +182,6 @@ public class Main {
          		         		
          		} else if (nodo.getNodeName() == "arbitros") {
          			
-         			
          			NodeList _arbitro = nodo.getChildNodes();
          			for (int n= 1; n<_arbitro.getLength(); n=n+2) { //pasamos por todos los arbitros
          				
@@ -201,10 +200,8 @@ public class Main {
 						
 						Referi referi = new Referi (_apellido, _nombre, _fecha, _nroDoc, _tipoDoc, _pais, _anios);
 						referis.add(referi);
-         			}
-         			
+         			}     			
          		}
-		 	
         }
 	}
 }
