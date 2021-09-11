@@ -2447,6 +2447,169 @@
         </dt>
       </plantel>
     </equipo>
+    <equipo>
+      <nombre>Sweat and Tears</nombre>
+      <pais>Britanilandia</pais>
+      <ranking>15</ranking>
+      <plantel>
+        <jugadores>
+          <jugador posicion="arquero" puntuacion="7">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313001</nroDocumento>
+              <nombre>Handswith Finger</nombre>
+              <fechaNacimiento>30/11/1981</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="arquero"  puntuacion="6">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313002</nroDocumento>
+              <nombre>Tupper Ware</nombre>
+              <fechaNacimiento>30/03/2002</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="defensor" puntuacion="6">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313003</nroDocumento>
+              <nombre>Bouncy Freddy</nombre>
+              <fechaNacimiento>30/11/1998</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="defensor" puntuacion="7">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313004</nroDocumento>
+              <nombre>Greenwood Jack</nombre>
+              <fechaNacimiento>30/11/1996</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="defensor" puntuacion="6">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313005</nroDocumento>
+              <nombre>Time Justin</nombre>
+              <fechaNacimiento>01/11/1994</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="defensor" puntuacion="6">
+            <persona>
+              <tipoDocumento>PAS</tipoDocumento>
+              <nroDocumento>313006</nroDocumento>
+              <nombre>Broom Lewis</nombre>
+              <fechaNacimiento>30/11/1995</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="defensor" puntuacion="8">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313007</nroDocumento>
+              <nombre>Brokenbridge Jeremy</nombre>
+              <fechaNacimiento>30/11/2001</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="defensor" puntuacion="9">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313008</nroDocumento>
+              <nombre>Passingshot Rudolph</nombre>
+              <fechaNacimiento>17/02/1999</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="mediocampista" puntuacion="8">
+            <persona>
+              <tipoDocumento>PAS</tipoDocumento>
+              <nroDocumento>313009</nroDocumento>
+              <nombre>Wonderful Mike</nombre>
+              <fechaNacimiento>17/05/1995</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="mediocampista" puntuacion="8">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313010</nroDocumento>
+              <nombre>Patrol Tommy</nombre>
+              <fechaNacimiento>31/05/1982</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="mediocampista" puntuacion="8">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313011</nroDocumento>
+              <nombre>Octopus Kerry</nombre>
+              <fechaNacimiento>31/08/1997</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="mediocampista" puntuacion="7">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313012</nroDocumento>
+              <nombre>Indianchief Mel</nombre>
+              <fechaNacimiento>31/01/2004</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="mediocampista" puntuacion="7">
+            <persona>
+              <tipoDocumento>PAS</tipoDocumento>
+              <nroDocumento>313013</nroDocumento>
+              <nombre>Littleboss Jack</nombre>
+              <fechaNacimiento>31/01/2002</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="delantero" puntuacion="7">
+            <persona>
+              <tipoDocumento>PAS</tipoDocumento>
+              <nroDocumento>313014</nroDocumento>
+              <nombre>Breaknets Isahia</nombre>
+              <fechaNacimiento>31/03/1988</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="delantero" puntuacion="6">
+            <persona>
+              <tipoDocumento>PAS</tipoDocumento>
+              <nroDocumento>313015</nroDocumento>
+              <nombre>LowSocks Aaron</nombre>
+              <fechaNacimiento>31/03/1990</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="delantero" puntuacion="6">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313016</nroDocumento>
+              <nombre>Tired Jeff</nombre>
+              <fechaNacimiento>01/03/1992</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="delantero" puntuacion="7">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313017</nroDocumento>
+              <nombre>Locomotive Ted</nombre>
+              <fechaNacimiento>01/03/1995</fechaNacimiento>
+            </persona>
+          </jugador>
+          <jugador posicion="delantero" puntuacion="7">
+            <persona>
+              <tipoDocumento>DU</tipoDocumento>
+              <nroDocumento>313018</nroDocumento>
+              <nombre>Bullet Charlie</nombre>
+              <fechaNacimiento>01/03/1991</fechaNacimiento>
+            </persona>
+          </jugador>
+        </jugadores>
+        <dt>
+          <persona>
+            <tipoDocumento>DU</tipoDocumento>
+            <nroDocumento>313019</nroDocumento>
+            <nombre>Success Don</nombre>
+            <fechaNacimiento>26/06/1960</fechaNacimiento>
+          </persona>
+          <pais>Britanilandia</pais>
+          <titulosObtenidos>12</titulosObtenidos>
+        </dt>
+      </plantel>
+    </equipo>
   </equipos>
   <arbitros>
     <arbitro>

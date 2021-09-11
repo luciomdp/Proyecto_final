@@ -94,7 +94,10 @@ public class Campeonato implements Serializable {
 			s+= e.edadMediaJugadores() + "\nEdad DT:";
 			s+= e.getEntrenador().getEdad() + ", Nacionalidad DT: ";
 			s+= e.getEntrenador().getNacionalidad() + "\nEfectividad en el torneo" ;
-			s+= (e.getpG()/e.getpJ())*100+ "\n\n";
+			if(e.getpJ() != 0)
+				s+= (e.getpG()/e.getpJ())*100+ "\n\n";
+			else
+				s+= 0 + "\n\n";
 		}
 		return s;
 	}

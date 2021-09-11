@@ -21,18 +21,6 @@ public class Frame extends JFrame {
 	private Final fin;
 	private Informacion info;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Frame frame = new Frame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	public Frame() {
 		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
 		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
@@ -50,6 +38,7 @@ public class Frame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		contentPane.add(tabbedPane);
 		setContentPane(contentPane);
+		setVisible(true);
 	}
 	public void setControlador (Controlador c) {
 		inicio.AccionaBotones(c);

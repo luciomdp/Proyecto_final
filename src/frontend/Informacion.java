@@ -124,6 +124,9 @@ public class Informacion extends General{
 		public JButton getBoton_muestra() {
 			return boton_muestra;
 		}
+		public JTextArea getArea() {
+			return area;
+		}
 
 	}
 	private class IFpanel_E extends IFpanel {
@@ -139,7 +142,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Listado de equipos"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//getArea().setText(control.getListadoEquipos());
+					getArea().setText(getControlador().getListadoEquipos());
 				}		
 			});
 		}
@@ -170,7 +173,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Listado de jugadores"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//getArea().setText(control.getListadoJugadores((Posicion)IFpos.getSelectedItem()));
+					getArea().setText(getControlador().getListadoJugadores((Posicion)IFpos.getSelectedItem()));
 				}
 			});
 		}
@@ -189,7 +192,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Ranking de referis"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					//getArea().setText(control.getListadoReferis());
+					getArea().setText(getControlador().getListadoArbitros());
 				}
 			});
 		}

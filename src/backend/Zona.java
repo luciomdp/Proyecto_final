@@ -51,7 +51,7 @@ public class Zona implements Serializable{
 	
   	public void SimulaPartido () { 
   		
-  		if  (i <= CANT_PZ) {
+  		if  (i < CANT_PZ) {
 
   					this.getValoresTabla();
   					partidosZona[i].simulacionNM(); //SIMULA PARTIDO 
@@ -123,7 +123,7 @@ public class Zona implements Serializable{
          * DEVUELVE = [Boca vs River] [Racing vs Indep] .....
         */
 		
-		Partido[] partidos = null; //cada dos partidos, una fecha
+		Partido[] partidos = new Partido[CANT_PZ]; //cada dos partidos, una fecha
 
         Equipo[] equiposQueRotan = Arrays.copyOfRange(equipos, 1, equipos.length); //array de equipos que van a ir rotando {1, 2, 3}
         

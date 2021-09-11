@@ -50,6 +50,7 @@ public class General extends JPanel{
 	
 	protected final int FONT_SIZE = 24;
 	protected final String FONT_TYPE = "Consolas";
+	
 	//-----------------------------------COLORES FONDO-----------------------------
 	protected final Color COLOR_PANEL_N = new Color(0, 135, 5);//Color.DARK_GRAY;//new Color(38, 190, 35);
 	protected final Color COLOR_PANEL_C = new Color(38, 190, 35);//Color.GREEN;
