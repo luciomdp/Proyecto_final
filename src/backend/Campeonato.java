@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 import proyecto_final.Controlador;
@@ -24,9 +25,6 @@ private static ArrayList <Referi> referis;
 
 67- Arreglar metodo listaJugadores()
 92- Arreglar metodo listaEquipos()
-107- Arreglar metodo listaArbitros() para que esté hecho el
-ranking en relación a la cantidad de partidos dirigidos en el campeonato
-(desde el que más hasta el que menos)
 
 En los 3, terminar de verificar que no tengan errores, y armar un formato
 un poco mas estético.
@@ -135,14 +133,20 @@ public class Campeonato implements Serializable {
 	
 	public String listaArbitros() { 
 		int prom = 0; 
+		Collections.sort(referis, new Comparator<Referi>() { //
+			public int compare(Referi r1, Referi r2) {
+				return new Integer(r2.getPartidosDirigidos()).compareTo(new Integer(r1.getPartidosDirigidos()));
+			}
+		});
 		String s = "----------------------------------------ARBITROS--------------------------------------------\n\n";
 		for (Referi  e: referis) {
 			s+= e.getNombre()+"\nAños en el referato; ";
-			s+= e.getAños_referato()+ "\n\n";
+			s+= e.getAños_referato()+ "\nPartidos Dirigidos: \n\n";
+			s+= e.getPartidosDirigidos();
 			prom += e.getAños_referato();
 			
 		}
-		s += "El promedio de años en el referato es: "+ prom/equipos.size();
+		s += "El promedio de años en el referato es: "+ prom/referis.size();
 		return s;
 	}
 	

@@ -2,17 +2,7 @@ package backend;
 
 import java.time.LocalDate;
 /*
-* 20- public Jugador(String a, String no, LocalDate n, String ti, int dni, Posicion po, byte pu)
-Se podría ser un poco mas especifico con el nombre de las variables que se pasan por parametro
-y se hace super().
-* 48-¿Está bien el toString()?
-public String toString() {
-		return "Jugador [apellido= " +super.getApellido()+ ", nombre= " +super.getNombre()+ ", fecha= "+ 
-			super.getNacimiento()+", dni= " +super.getDni()+ ", posicion= " +posicion+ ", puntaje= " +
-			puntaje+ ", tipoDni= " +tipoDni+ "]";
-}
-Sino cambiarlo
-*/
+
 
 /*Listado de jugadores de determinada posición seleccionada por el operador (arquero, 
 defensor, mediocampista, delantero) mostrando toda la información disponible del mismo.
@@ -29,10 +19,10 @@ public class Jugador extends Persona{
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public Jugador(String a, String no, LocalDate n, String ti, int dni, Posicion po, byte pu) {
-		super(a, no, n, dni, ti);
-		posicion = po;
-		puntaje = pu;
+	public Jugador(String apellido, String nombre, LocalDate nacimiento, String tipo, int dni, Posicion posicion, byte puuntaje) {
+		super(apellido, nombre, nacimiento, dni, tipo);
+		this.posicion = posicion;
+		this.puntaje = puntaje;
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
@@ -58,9 +48,9 @@ public class Jugador extends Persona{
 	
 	@Override
 	public String toString() {
-		return "Jugador [apellido= " +super.getApellido()+ ", nombre= " +super.getNombre()+ ", fecha= "+ 
-				super.getNacimiento()+", dni= " +super.getDni()+ ", posicion= " +posicion+ ", puntaje= " +
-				puntaje+ ", tipoDni= " +tipoDni+ "]";
+		return "Jugador: " +super.getApellido()+ " " +super.getNombre()+ "\nFecha Nacimiento: "+ 
+				super.getNacimiento()+"\nDNI: " +super.getDni()+ "\nPosicion: " +posicion+ "\nPuntaje: " +
+				puntaje+ "\nTipoDni: " +tipoDni + "\n\n";
 	}
 
 	public String DatosIdent() { 

@@ -33,47 +33,38 @@ public class Referi extends Persona{
 	private static final long serialVersionUID = 4414849362119102514L;
 	private Pais nacionalidad;
 	private int años_referato;
-
+	private int partidosDirigidos;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public Referi(String a, String no, LocalDate n, int dni, String ti, Pais na, int an) {
-		super(a, no, n, dni, ti);
-		nacionalidad = na;
-		años_referato = an;
+	public Referi(String apellido, String nombre, LocalDate nacimiento, int dni, String tipo, Pais nacionalidad, int añosReferato) {
+		super(apellido, nombre, nacimiento, dni, tipo);
+		this.nacionalidad = nacionalidad;
+		this.años_referato = añosReferato;
+		this.partidosDirigidos = 0;
 	}
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 		
-	public Pais getNacionalidad() {
-		return nacionalidad;
-	}
 	
-	public void setNacionalidad(Pais nacionalidad) {
-		this.nacionalidad = nacionalidad;
-	}
 	
 	public int getAños_referato() {
 		return años_referato;
 	}
 	
-	public void setAños_referato(int años_referato) {
-		this.años_referato = años_referato;
+	public void dirigePartido () {
+		this.partidosDirigidos ++;
 	}
 	
-	public Pais getPais (){
-		return nacionalidad;
-	} 
+	public int getPartidosDirigidos() {
+		// TODO Auto-generated method stub
+		return partidosDirigidos;
+	}
+
 	
 	public String ListaReferi () {
-		return "Nombre: "+ this.getNombre()+ "\nAnios en el referato: "+ this.getAños_referato(); 
+		return "Nombre: "+ this.getNombre()+ "\nAnios en el referato: "+ this.getAños_referato()+ "\nPartidos Dirigidos: "+ this.getAños_referato(); 
 	}
-	
-	@Override
-	public String toString() { //este procedimiento se podría borrar más adelante, es para revisar la lectura
-		return "Referi [nacionalidad=" + nacionalidad + ", años_referato=" + años_referato + ", tipoDni=" + tipoDni
-				+ ", getApellido: " + getApellido() + ", getNombre" + getNombre() + ", getNacimiento()="
-				+ getNacimiento() + ", getDni" + getDni() + "]";
-	}
+
 
 	@Override
 	public String DatosIdent() {
@@ -81,3 +72,5 @@ public class Referi extends Persona{
 		return null;
 	}
 }
+
+

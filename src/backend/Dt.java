@@ -3,9 +3,7 @@ package backend;
 import java.time.LocalDate;
 import java.time.Period;
 
-/*15-public Dt(String a, String no, LocalDate n, int dni, String ti, Pais na, byte titulos)
-Se podría ser un poco mas especifico con el nombre de las variables que se pasan por parametro
-y se hace super().
+/*
 
 28-Period edad = Period.between(e.getNacimiento(), fechaAct.now()); 
 ¿Por que haces fechaAct.now()? si now() es un metodo estatico
@@ -13,12 +11,7 @@ Debería ser LocalDate.now();
 Borre tu variable de tipo LocalDate y utilice el metodo como deberia ser (de forma estatica)
 LO CAMBIÉ, SI NO ESTA BIEN EL CAMBIO DECIME
 
-49-public String toString() {
-		return "Dt [nacionalidad=" + nacionalidad + ", titulos=" + titulos + ", tipoDni=" + tipoDni + ", Apellido="
-			+ getApellido() + ", Nombre=" + getNombre() + ", Nacimiento=" + getNacimiento()
-			+ ", Dni=" + getDni() + "]";
-}
-¿Está bien el toString()? sino cambiarlo*/
+*/
 
 public class Dt extends Persona{
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -29,10 +22,10 @@ public class Dt extends Persona{
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public Dt(String a, String no, LocalDate n, int dni, String ti, Pais na, byte titulos) {
-		super(a, no, n, dni, ti);
+	public Dt(String apellido, String nombre, LocalDate nacimiento, int dni, String tipo, Pais nacionalidad, byte titulos) {
+		super(apellido, nombre, nacimiento, dni, tipo);
 		this.titulos = titulos;
-		this.nacionalidad = na;
+		this.nacionalidad = nacionalidad;
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
@@ -62,12 +55,6 @@ public class Dt extends Persona{
 		this.nacionalidad = nacionalidad;
 	}
 	
-	@Override
-	public String toString() {
-		return "Dt [nacionalidad=" + nacionalidad + ", titulos=" + titulos + ", tipoDni=" + tipoDni + ", Apellido="
-				+ getApellido() + ", Nombre=" + getNombre() + ", Nacimiento=" + getNacimiento()
-				+ ", Dni=" + getDni() + "]";
-	}
 	
 	public String DatosIdent() {
 		return null;
