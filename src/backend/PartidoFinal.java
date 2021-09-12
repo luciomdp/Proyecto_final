@@ -1,15 +1,22 @@
 package backend;
 
+/*Mejorar un poco si hay tiempo la simulacion de penales*/
+
 public class PartidoFinal extends Partido{
 	
-	/**
-	 * 
-	 */
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private static final long serialVersionUID = 7173242858989911828L;
+	private int golesP1,golesP2;
+	
+	//-------------------------------------------------<<COSNTRUCTOR>>-------------------------------------------------
+	
 	public PartidoFinal(Equipo a, Equipo b) {
-		super(a, b);
-		
+		super(a, b);	
 	}
+	
+	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
+	
 	public void simulacionPen(Equipo a,Equipo b) {
 		int probab1,probab2;
 		golesP1 = 0;
@@ -37,6 +44,5 @@ public class PartidoFinal extends Partido{
 				golesP2++;
 		}	
 	}
-	private int golesP1,golesP2;
 
 }

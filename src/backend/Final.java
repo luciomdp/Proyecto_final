@@ -1,12 +1,19 @@
 package backend;
 
+/*59- ¿Qué pasa si todavía no se jugó la final cuando se invoca el metodo?
+
+¿Qué sucede cuando se termina de jugar la final? hay que avisar al controlador
+*/
+
 public class Final {
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private PartidoIdaVuelta partidoFinal;
 	private Resultados resultado;
 	private Equipo [] equipos;
 	private Equipo campeon;
+	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
 	public Final(Equipo[] equipos) {
@@ -18,6 +25,7 @@ public class Final {
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
+	
 	public void juegaFinal () {
 		partidoFinal.simulacionNM();
 		resultado.setE1(partidoFinal.getEquipo1());

@@ -1,6 +1,18 @@
 package backend;
 
 import java.time.LocalDate;
+/*
+* 20- public Jugador(String a, String no, LocalDate n, String ti, int dni, Posicion po, byte pu)
+Se podría ser un poco mas especifico con el nombre de las variables que se pasan por parametro
+y se hace super().
+* 48-¿Está bien el toString()?
+public String toString() {
+		return "Jugador [apellido= " +super.getApellido()+ ", nombre= " +super.getNombre()+ ", fecha= "+ 
+			super.getNacimiento()+", dni= " +super.getDni()+ ", posicion= " +posicion+ ", puntaje= " +
+			puntaje+ ", tipoDni= " +tipoDni+ "]";
+}
+Sino cambiarlo
+*/
 
 /*Listado de jugadores de determinada posición seleccionada por el operador (arquero, 
 defensor, mediocampista, delantero) mostrando toda la información disponible del mismo.

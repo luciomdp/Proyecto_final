@@ -2,15 +2,24 @@ package backend;
 import java.io.Serializable;
 import java.util.Date;
 
+/*11-public static long getSerialversionuid() {
+		return serialVersionUID;
+	} 
+?? Lo borré, si es necesario (que creo que no lo es), ponerlo devuelta
+
+19- Revisar algoritmo de resolución de partidos (si hay tiempo) y hacerlo un poco mas piola
+
+55- Hacen falta tantos getters y setters ? borrar los que no tengan sentido
+
+El referi no puede tener misma nacionalidad que equipos, a menos que los dos sean de la misma (IMPLEMENTAR)
+*/
+
 public class Partido implements Serializable{
+	
+	private static final long serialVersionUID = -1658384256163433401L;
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
-	private static final long serialVersionUID = -1658384256163433401L;
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	} //?
 	private Equipo equipo1,equipo2;
 	private double Media_totE1,Media_totE2;
 	private Date fecha_juego;

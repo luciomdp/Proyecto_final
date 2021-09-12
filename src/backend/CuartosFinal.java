@@ -2,12 +2,23 @@ package backend;
 
 import javax.swing.JOptionPane;
 
+/*
+55 y 92- En el back no se usa el showMessageDialog, salvo que
+sea para mostrar errores. Si se jugaron todos los partidos,
+tendrías que avisar al front mediante el controlador.
+
+102- ¿Qué es ese metodo comentado, es necesario? resolver
+*/
+
 public class CuartosFinal {
 	
-	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private final int CANT_P = 8;
 	private final int CANTE = 8;
+	
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private Equipo e1, e2;
 	private PartidoIdaVuelta partidos [];
 	private Equipo equipos [];

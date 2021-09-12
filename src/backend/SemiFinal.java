@@ -2,11 +2,18 @@ package backend;
 
 import javax.swing.JOptionPane;
 
+/*55-95 En el back no se usa el showMessageDialog, salvo que
+sea para mostrar errores. Si se jugaron todos los partidos,
+tendrías que avisar al front mediante el controlador.*/
+
 public class SemiFinal extends Final {
+	
+	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
+	
+	private final int CANT_P = 4;
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
-	private final int CANT_P = 4;
 	private PartidoIdaVuelta partidos [];
 	private Equipo equipos [];
 	private Resultados resultados [];

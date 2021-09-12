@@ -7,10 +7,23 @@ import java.util.Collections;
 
 import javax.swing.JOptionPane;
 
+/*17- Las constantes no deberían ser privadas?
+
+36- resultados no deberia ser privado?
+
+53-Como funciona SimulaPartido() ? Onda que hace
+
+90- En el back no se usa el showMessageDialog, salvo que
+sea para mostrar errores. Si se jugaron todos los partidos,
+tendrías que avisar al front mediante el controlador.
+
+Ver todos los otros metodos que puedan inferir en el front, para conectar
+con el controlador*/
+
 public class Zona implements Serializable{
 	
-	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
-
+	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
+	
 	private static final long serialVersionUID = 2934756314623471362L;
 	//Implementar tabla de posiciones
 	//-------------------------VALORES DE PUNTOS--------------------------
@@ -23,12 +36,13 @@ public class Zona implements Serializable{
 	final int CANTE = 4;
 	//-------------------------CANTIDAD DE EQUIPOS QUE PASAN A CUARTOS POR ZONA---------------------
 	final int PASAN_CUARTOS = 2;
+	
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	
 	private int i,f;//f es fecha actual e i es partido actual
 	/*Cada partido va a tener asignado un valor "i", cada fecha son 2 partidos de i (teniendo en cuenta el valor
 	actual de i,tenes una variable fecha "f", que dice en que fecha se encuentra, y simular toda la zona, es iterar desde el i
 	actual hasta el final)*/
-
-   
     private Equipo [] tabla = new Equipo [CANTE]; // TABLA DE LA ZONA 
     private Equipo ganadoresZona [] = new Equipo [PASAN_CUARTOS]; // SON LOS DOS EQUIPOS QUE GANAN LA ZONA
     private Partido partidosZona[]; 

@@ -20,9 +20,28 @@ import proyecto_final.Controlador;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;  
-/*-----------------------------------------------------<<TAREAS A REALIZAR>>-----------------------------------------------------
- * public static void leeArchivo(Element _raiz) Agregarle los throw correspondientes de la funcion
+/* public static void leeArchivo(Element _raiz) Agregarle los throw correspondientes de la funcion
+ * 
  * catch (Exception e) Diversificar las excepciones para tratar cada una en particular, y mostrarlas con showmessagedialog
+ * 
+ * Cambiar nombre a las clases compartidas entre el back y front (como final,semifinal,cuartos,zona) para diferenciarlas
+ * (sugerencia, las que son del back llamarlas BackFinal,BackSemifinal ... y las del Front, FrontFinal,FrontSemifinal ...)
+ * 
+ * La clase SemiFinal debería ser Semifinal
+ * 
+ * No debería haber una clase abstracta partido?, de la que hereden los 3 tipos de partidos que existen. (sino lo dejamos como está
+ * donde Partido actúa como una clase abstracta pero implementa la funcionalidad de ser un partido normal)
+ * 
+ * Estaría bueno separar dentro del backend, en paquetes, Las clases relacionadas con partidos, las relacionadas con Personas, 
+ * las relacionadas con etapas del torneo (cuartos,semis...) y los enums
+ * 
+ * El main no debería estar en proyecto_final?
+ * 
+ * Verificar que todas las clases del back, tengan atributos private
+ * 
+ * Cual es la diferencia entre PartidoIdaVuelta y PartidoFinal ??
+ * 
+ * Resolver tareas en cada clase del back
  */
 public class Main {	
 	

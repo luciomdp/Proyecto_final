@@ -1,7 +1,8 @@
 package backend;
 
-
+/*¿Que pija es esta clase? jajajajajaj*/
  public class Resultados {
+	 
 	private Equipo e1;
     private Equipo e2;
     private int golesE1;

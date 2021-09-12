@@ -8,9 +8,38 @@ import java.util.Iterator;
 
 import proyecto_final.Controlador;
 
+/*Campeonato
+
+14- Hacia falta diferenciar entre variables y constantes, si esto sucede en otras
+Clases tambien, hacerlo.
+
+24-private static ArrayList <Equipo> equipos;
+private static ArrayList <Jugador> jugadores;
+private static ArrayList <Referi> referis;
+¿Variables estaticas por algo en particular?
+
+31- ¿No se utiliza el controlador para mandar información del back al front?
+
+43- Terminar metodo IniciaTorneo() 
+
+67- Arreglar metodo listaJugadores()
+92- Arreglar metodo listaEquipos()
+107- Arreglar metodo listaArbitros() para que esté hecho el
+ranking en relación a la cantidad de partidos dirigidos en el campeonato
+(desde el que más hasta el que menos)
+
+En los 3, terminar de verificar que no tengan errores, y armar un formato
+un poco mas estético.
+
+122- ¿Qué son esos getters de cuartos semis y final? por qué se crean esas instancias
+en getters ?
+
+153- revisar que hay un error si o si, porque una variable solo puede ser nula en ese punto
+*/
+
 public class Campeonato implements Serializable {
 	
-	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
+	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private static final long serialVersionUID = 9176305150524899919L;
 	private final int CANTE = 16; //CANTIDAD DE EQUIPOS
@@ -18,6 +47,8 @@ public class Campeonato implements Serializable {
 	private final int CANTR = 12; // CANTIDAD DE REFERIS
 	private final int CANTZ = 4; // CANTIDAD DE ZONAS
 	private final int EQUIPOS_ZONA = 4; 
+	
+	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	private static ArrayList <Equipo> equipos;
 	private static ArrayList <Jugador> jugadores;
@@ -114,7 +145,9 @@ public class Campeonato implements Serializable {
 		s += "El promedio de años en el referato es: "+ prom/equipos.size();
 		return s;
 	}
-
+	
+	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
+	
 	public CuartosFinal getCuartosFinal() {
 		Equipo[] aux = null;
 		Equipo[] aux2 = null;
@@ -127,8 +160,6 @@ public class Campeonato implements Serializable {
 		
 		return cuartosDeFinal;
 	}
-	
-	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public SemiFinal getSemiFinal() {
 		semiFinal = new SemiFinal(this.cuartosDeFinal.getPasanASemis());

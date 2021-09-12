@@ -1,5 +1,7 @@
 package backend;
 
+/*Mejorar un poco si hay tiempo la simulacion de penales*/
+
 public class PartidoIdaVuelta extends Partido{
 
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
