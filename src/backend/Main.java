@@ -2,6 +2,8 @@ package backend;
 //modificar esto (importar solo lo necesario)
 import java.io.*;
 import java.util.*;
+
+import javax.swing.JOptionPane;
 //////////
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,7 +20,10 @@ import proyecto_final.Controlador;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;  
-
+/*-----------------------------------------------------<<TAREAS A REALIZAR>>-----------------------------------------------------
+ * public static void leeArchivo(Element _raiz) Agregarle los throw correspondientes de la funcion
+ * catch (Exception e) Diversificar las excepciones para tratar cada una en particular, y mostrarlas con showmessagedialog
+ */
 public class Main {	
 	
 	static ArrayList <Jugador> jugadores = new ArrayList <Jugador>();
@@ -41,23 +46,20 @@ public class Main {
 			Element raiz = doc.getDocumentElement();
 			//funcion principal de lectura
 			leeArchivo(raiz);
+			Campeonato torneo = new Campeonato (equipos, jugadores, referis);
+			/*for (int i=0; i<referis.size(); i++) {
+				System.out.println(referis.get(i).toString());
+			}*/
+			Frame vista = new Frame ();
+			Controlador control = new Controlador (torneo, vista);
+			vista.setControlador(control);
+			torneo.setControlador(control);
 			
 		} catch (Exception e) {
-			
 			e.printStackTrace();
-			
+			//e.getMessage(); interesante por si quieren ver el tipo de mensaje que lanzaría por consola
+			//JOptionPane.showMessageDialog(null, "Se produjo un error en la lectura de archivos, por lo que es imposible iniciar el programa correctamente.","Error de lectura",JOptionPane.ERROR_MESSAGE);
 		}
-		
-		Campeonato torneo = new Campeonato (equipos, jugadores, referis);
-		//debug
-		for (int i=0; i<referis.size(); i++) {
-			System.out.println(referis.get(i).toString());
-		}
-		//
-		Frame vista = new Frame ();
-		Controlador control = new Controlador (torneo, vista);
-		vista.setControlador(control);
-		torneo.setControlador(control);
 	}
 	
 	public static void leeArchivo(Element _raiz) {
