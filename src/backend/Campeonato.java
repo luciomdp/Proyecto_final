@@ -90,7 +90,6 @@ public class Campeonato implements Serializable {
 		return zonas[zona].getValoresTabla();
 	}
 	
-	
 	public String listaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
 		Iterator < Jugador > it = jugadores.iterator();
