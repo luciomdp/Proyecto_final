@@ -21,8 +21,12 @@ public class Controlador {
 	/*Inicia torneo*/
 	public void IniciaTorneo() {
 		//inicia torneo con todos datos neutros (no paso nada)
+		String Zonas[] = new String[4];
 		campeonatoActual.IniciaTorneo();
-		frameActual.IniciaTorneo();
+		for(int i = 0; i<4; i++) 
+			Zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
+		//pasarle por parametro al inicia torneo del frame, los strings de las 4 zonas.
+		frameActual.IniciaTorneo(Zonas);
 	}
 	
 	/*Reanuda torneo*/

@@ -233,7 +233,7 @@ public class Zona implements Serializable{
 
 	
     public String getValoresTabla(){
-    	String s = "EQUIPO		Pts		PJ	PG	PP		G	GC	DG \n\n";
+    	String s = "ZONA 1\nEquipo   PP PG PE PP DG \n"; //Equipo 1 | 2 | 1 | 0 | 4 \\nEquipo 2 | 1 | 2 | 0 | 2\\nEquipo 3 | 1 | 1 | 1 | 1\\nEquipo 4 | 0 | 1 | 2 | -2";
         for (int i = 0; i < CANTE; i++ )
             s +=tabla[i].getEstadisticas()+ "\n";
         

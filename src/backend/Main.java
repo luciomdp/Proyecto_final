@@ -196,7 +196,7 @@ public class Main {
          						}
          						//Equipo e = new Equipo(_nombreE, _paisE, _ranking, jugadoresEquipo, dt);
              					equipos.add(new Equipo(_nombreE, _paisE, _ranking, jugadoresEquipo, dt));
-         						
+             					
          					}
          			}
          			

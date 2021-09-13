@@ -88,7 +88,7 @@ public class Equipo implements Serializable{
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public String getEstadisticas() {
-        return nombre + puntos + pJ + pG + pP + goles + golesContra + (goles - golesContra);
+        return nombre + " | " + puntos + " | " + pJ + " | " + pG + " | " + pP + " | " + (goles - golesContra) + " | ";//+ golesContra + (goles - golesContra);
     }
 	
 	public String getEstadisticasCuartosIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
