@@ -60,8 +60,6 @@ public class Partido implements Serializable{
 				golesE2++;
 		}
 		
-		this.setGolesE1(golesE1);
-		this.setGolesE2(golesE2);
 	}
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------

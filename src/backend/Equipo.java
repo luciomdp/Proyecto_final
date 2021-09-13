@@ -105,8 +105,8 @@ public class Equipo implements Serializable{
 		return pP;
 	}
 
-	public void setpP(int pP) {
-		this.pP = pP;
+	public void setpP() {
+		this.pP++;
 	}
 	
 	public int getpJ() {
@@ -124,12 +124,12 @@ public class Equipo implements Serializable{
         return golesContra;
     }
     
-    public void setpG(int pG) {
-		this.pG = pG;
+    public void setpG() {
+		this.pG ++;
 	}
 	
-	public void setpJ(int pJ) {
-		this.pJ = pJ;
+	public void setpJ() {
+		this.pJ ++;;
 	}
 	
 
