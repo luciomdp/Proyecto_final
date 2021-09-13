@@ -48,7 +48,7 @@ public class General extends JPanel{
 	
 	//-----------------------------------TAMAÑO Y COLOR LETRA-----------------------------
 	
-	protected final int FONT_SIZE = 18;
+	protected final int FONT_SIZE = 17;
 	protected final String FONT_TYPE = "Consolas";
 	
 	//-----------------------------------COLORES FONDO-----------------------------

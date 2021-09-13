@@ -88,6 +88,8 @@ public class Equipo implements Serializable{
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public String getEstadisticas() {
+		for(int i = nombre.length();i < 25; i++) 
+				nombre += " ";
         return nombre + " | " + puntos + " | " + pJ + " | " + pG + " | " + pP + " | " + (goles - golesContra) + " | ";//+ golesContra + (goles - golesContra);
     }
 	
