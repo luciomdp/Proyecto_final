@@ -34,6 +34,7 @@ public class Zona implements Serializable{
 	final int CANT_PZ = 6;
 	final int CANT_PF = 2;
 	final int CANTE = 4;
+	final int CANT_FECHAS = 0;
 	//-------------------------CANTIDAD DE EQUIPOS QUE PASAN A CUARTOS POR ZONA---------------------
 	final int PASAN_CUARTOS = 2;
 	
@@ -98,7 +99,7 @@ public class Zona implements Serializable{
 					this.ActualizaTabla();
 					this.getValoresTabla();
 					partidoAct++;
-					if (partidoAct == fechaAct*CANT_PF) 
+					if (partidoAct != CANT_PZ  && partidoAct == fechaAct*CANT_PF) 
 						fechaAct++;
   	  		}	
 			else
@@ -113,6 +114,7 @@ public class Zona implements Serializable{
   	
 
 	public void SimulaFecha () {
+		
   			for (;partidoAct<=fechaAct*CANT_PF;) {
   				this.SimulaPartido();
   			}
