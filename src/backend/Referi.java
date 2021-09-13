@@ -46,7 +46,6 @@ public class Referi extends Persona{
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 		
 	
-	
 	public int getAños_referato() {
 		return años_referato;
 	}

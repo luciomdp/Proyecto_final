@@ -86,6 +86,30 @@ public class Main {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		ArrayList<Jugador> jugadoresEquipo = new ArrayList <Jugador>(); 
 
+		//EQUIPO
+		String _nombreE;
+		Pais _paisE;
+		int _ranking;
+		
+		//plantel
+		Jugador jugador;
+		Dt dt = null;
+		Posicion _posicion = null;
+		Byte _puntuacion = 0;
+		String _tipoDocumento = "";
+		int _nroDocumento = 0;
+		String _nombreApellido = "";
+		String _nombre = "";
+		String _apellido = "";
+		LocalDate _fecha = null;
+		Byte _titulos = 0;
+		
+		//referi
+		Referi referi;
+		Pais _pais = null;
+		int _anios;
+		////
+		
         final NodeList children = _raiz.getChildNodes(); //aca sacamos equipos y arbitros
         
         for (int i=0; i<children.getLength(); i++) { //aca iteramos dos veces
@@ -102,11 +126,11 @@ public class Main {
          
          					if (children2.getNodeName() == "equipo") { 
          						
-         						String _nombreE = children2.getChildNodes().item(1).getTextContent();
-         						Pais _paisE = Pais.valueOf(children2.getChildNodes().item(3).getTextContent());
-         						int _ranking = Byte.parseByte(children2.getChildNodes().item(5).getTextContent());
+         						_nombreE = children2.getChildNodes().item(1).getTextContent();
+         						_paisE = Pais.valueOf(children2.getChildNodes().item(3).getTextContent());
+         						_ranking = Byte.parseByte(children2.getChildNodes().item(5).getTextContent());
          						
-         						Dt dt = null;
+         						
          						jugadoresEquipo.clear(); 
          						
          						NodeList listaChildren2 = children2.getChildNodes().item(7).getChildNodes(); 
@@ -124,14 +148,7 @@ public class Main {
          										
          										Node children4 = listaChildren3.item(l); 
          										
-         										Posicion _posicion = null;
-     											Byte _puntuacion = 0;
-     											String _tipoDocumento = "";
-     											int _nroDocumento = 0;
-     											String _nombreApellido = "";
-     											String _nombre = "";
-     											String _apellido = "";
-     											LocalDate _fecha = null;
+         										
      											
          										for (int m=0; m<2; m++) {
          											
@@ -156,7 +173,7 @@ public class Main {
          											
          										}
          										//aca creamos el jugador;
-     											Jugador jugador = new Jugador(_apellido, _nombre, _fecha, _tipoDocumento, _nroDocumento, _posicion, _puntuacion);
+     											jugador = new Jugador(_apellido, _nombre, _fecha, _tipoDocumento, _nroDocumento, _posicion, _puntuacion);
  												
      											jugadoresEquipo.add(jugador);
  												jugadores.add(jugador);
@@ -167,14 +184,12 @@ public class Main {
          								NodeList listaChildren3 = children3.getChildNodes(); //entras al dt
 										NodeList children4 = listaChildren3.item(1).getChildNodes(); //entras a persona
 										
-										String _tipoDocumento = children4.item(1).getTextContent(); //tipo doc
-										int _nroDocumento = Integer.parseInt(children4.item(3).getTextContent());
-										String _nombreApellido = children4.item(5).getTextContent();
-										String _apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
-										String _nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
-										LocalDate _fecha = LocalDate.parse(children4.item(7).getTextContent(), formato);
-										
-										Pais _pais = null; Byte _titulos = 0;
+										_tipoDocumento = children4.item(1).getTextContent(); //tipo doc
+										_nroDocumento = Integer.parseInt(children4.item(3).getTextContent());
+										_nombreApellido = children4.item(5).getTextContent();
+										_apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
+										_nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
+										_fecha = LocalDate.parse(children4.item(7).getTextContent(), formato);
 										
 										for (int n=3; n<=5; n+=2) {
 											
@@ -209,17 +224,17 @@ public class Main {
          				NodeList children7 = _arbitro.item(n).getChildNodes(); //persona
          				NodeList children8 = children7.item(1).getChildNodes();
          				
-         				String _tipoDoc = children8.item(1).getTextContent();
-         				int _nroDoc = Integer.parseInt(children8.item(3).getTextContent());
-         				String _nombreApellido = children8.item(5).getTextContent();
-         				String _apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
-						String _nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
-						LocalDate _fecha = LocalDate.parse(children8.item(7).getTextContent(), formato);
+         				_tipoDocumento = children8.item(1).getTextContent();
+         				_nroDocumento = Integer.parseInt(children8.item(3).getTextContent());
+         				_nombreApellido = children8.item(5).getTextContent();
+         				_apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
+						_nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
+						_fecha = LocalDate.parse(children8.item(7).getTextContent(), formato);
 						
-						Pais _pais = Pais.valueOf(children7.item(3).getTextContent());
-						int _anios = Integer.parseInt(children7.item(5).getTextContent());
+						_pais = Pais.valueOf(children7.item(3).getTextContent());
+						_anios = Integer.parseInt(children7.item(5).getTextContent());
 						
-						Referi referi = new Referi (_apellido, _nombre, _fecha, _nroDoc, _tipoDoc, _pais, _anios);
+						referi = new Referi (_apellido, _nombre, _fecha, _nroDocumento, _tipoDocumento, _pais, _anios);
 						referis.add(referi);
          			}     			
          		}
