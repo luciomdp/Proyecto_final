@@ -56,19 +56,16 @@ public class Referi extends Persona{
 	}
 	
 	public int getPartidosDirigidos() {
-		// TODO Auto-generated method stub
 		return partidosDirigidos;
 	}
 
-	
 	public String ListaReferi () {
-		return "Nombre: "+ this.getNombre()+ "\nAnios en el referato: "+ this.getAños_referato()+ "\nPartidos Dirigidos: "+ this.getAños_referato(); 
+		return "Nombre: "+ this.getNombre()+ "\nAnios en el referato: "+ this.getAños_referato()+ "\nPartidos Dirigidos: " + this.getPartidosDirigidos() + "\n"; 
 	}
-
-
+	
+	
 	@Override
 	public String DatosIdent() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
