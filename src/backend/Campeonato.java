@@ -115,7 +115,6 @@ public class Campeonato implements Serializable {
 		return s;
 	}
 	
-
 	public String listaEquipos() { 
 		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
 		for (Equipo  e: equipos) {
@@ -138,13 +137,10 @@ public class Campeonato implements Serializable {
 				return new Integer(r2.getPartidosDirigidos()).compareTo(new Integer(r1.getPartidosDirigidos()));
 			}
 		});
-		String s = "----------------------------------------ARBITROS--------------------------------------------\n\n";
+		String s= "----------------------------------------ARBITROS--------------------------------------------\n\n";
 		for (Referi  e: referis) {
-			s+= e.getNombre()+"\nAños en el referato; ";
-			s+= e.getAños_referato()+ "\nPartidos Dirigidos: \n\n";
-			s+= e.getPartidosDirigidos();
-			prom += e.getAños_referato();
-			
+			s += e.ListaReferi() + "\n";
+			prom += e.getAños_referato();		
 		}
 		s += "El promedio de años en el referato es: "+ prom/referis.size();
 		return s;
