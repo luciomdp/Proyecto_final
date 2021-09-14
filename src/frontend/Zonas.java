@@ -42,10 +42,10 @@ public class Zonas extends General{
 		Zpanel12 = new JPanel();
 		Zpanel34 = new JPanel();
 		ZpanelC = new panelZ();
-		ZcomboBox1 = new ZComboBox(1);
-		ZcomboBox2 = new ZComboBox(2);
-		ZcomboBox3 = new ZComboBox(3);
-		ZcomboBox4 = new ZComboBox(4);
+		ZcomboBox1 = new ZComboBox(0);
+		ZcomboBox2 = new ZComboBox(1);
+		ZcomboBox3 = new ZComboBox(2);
+		ZcomboBox4 = new ZComboBox(3);
 		Zona1 = new Zona();
 		Zona2 = new Zona();
 		Zona3 = new Zona();
@@ -151,13 +151,13 @@ public class Zonas extends General{
 		Zona4.setText(texto);
 	}
 	public Zona getZona(int zona) {
-		if(zona == 1) {
+		if(zona == 0) {
 			return Zona1;
 		}else {
-			if(zona == 2) {
+			if(zona == 1) {
 				return Zona2;
 			}else {
-				if(zona == 3)
+				if(zona == 2)
 					return Zona3;
 				else 
 					return Zona4;
@@ -165,13 +165,13 @@ public class Zonas extends General{
 		}
 	}
 	public ZComboBox getCombo(int combo) {
-		if(combo == 1) {
+		if(combo == 0) {
 			return ZcomboBox1;
 		}else {
-			if(combo == 2) {
+			if(combo == 1) {
 				return ZcomboBox2;
 			}else {
-				if(combo == 3)
+				if(combo == 2)
 					return ZcomboBox3;
 				else 
 					return ZcomboBox4;
