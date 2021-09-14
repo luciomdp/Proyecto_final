@@ -48,9 +48,9 @@ public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
-	private static ArrayList <Equipo> equipos;
-	private static ArrayList <Jugador> jugadores;
-	private static ArrayList <Referi> referis;
+	private ArrayList <Equipo> equipos;
+	private ArrayList <Jugador> jugadores;
+	private ArrayList <Referi> referis;
 	private Zona zonas [] = new Zona [CANTZ];
 	private CuartosFinal cuartosDeFinal;
 	private SemiFinal semiFinal;
@@ -92,25 +92,33 @@ public class Campeonato implements Serializable {
 	
 	public String listaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
-		Iterator < Jugador > it = jugadores.iterator();
-		Jugador j = it.next();
-		while (it.hasNext() && j.getPosicion() != pos) {
-			j = it.next();
-		}
-	
-		if (pos.name() == "Arquero" ) { //COMPLETAR GOLES EN CONTRA Y PROMEDIO POR PARTIDO DE GOLES EN CONTRA
-			while (it.hasNext() && j.getPosicion() == pos) {
-				s += j.toString()+"\n";
-				j = it.next();
-			}
-		}
-		else {
-			while (it.hasNext() && j.getPosicion() == pos) {
-				s += j.toString()+"\n";
-				j = it.next();
-			}
-		}
+		/*Listado de jugadores de determinada posición seleccionada por el operador (arquero, defensor, mediocampista, delantero) 
+		 * mostrando toda la información disponible del mismo. En el caso de los arqueros, mostrar la cantidad de Goles en Contra 
+		 * que recibió su equipo y el promedio de gol recibido por partido.*/
 		
+		ArrayList <Jugador> jugadoresEquipo;
+		
+		for (Equipo e: equipos) {//equipo
+			//agarramos todos los jugadores del equipo
+			jugadoresEquipo = e.getJugadores();
+			
+			System.out.println(e.getJugadores());
+			
+			for (Jugador player: jugadoresEquipo) {
+				if (player.getPosicion() == pos) {
+					s+= player.toString();
+					if (pos == Posicion.arquero) {
+						s+= "Goles en contra: " + e.getGolesContra() + "\n";
+						if (e.getpJ() != 0) {
+							s+= "Promedio de goles recibido: " + (e.getGolesContra() / e.getpJ());
+						} else {
+							s+= "Promedio de goles recibido: 0";
+						}
+					}
+					s+= "\n\n";
+				}
+			}
+		}
 		return s;
 	}
 	

@@ -65,10 +65,9 @@ public class Main {
 			Element raiz = doc.getDocumentElement();
 			//funcion principal de lectura
 			leeArchivo(raiz);
+		
 			Campeonato torneo = new Campeonato (equipos, jugadores, referis);
-			/*for (int i=0; i<referis.size(); i++) {
-				System.out.println(referis.get(i).toString());
-			}*/
+			
 			Frame vista = new Frame ();
 			Controlador control = new Controlador (torneo, vista);
 			vista.setControlador(control);
@@ -90,6 +89,7 @@ public class Main {
 		String _nombreE;
 		Pais _paisE;
 		int _ranking;
+		Equipo e;
 		
 		//plantel
 		Jugador jugador;
@@ -120,7 +120,7 @@ public class Main {
          			
          			NodeList listaChildren = nodo.getChildNodes(); //lista de equipo's
          			
-         			for (int j=0; j<listaChildren.getLength(); j++) { 
+         			for (int j=1; j<listaChildren.getLength(); j+=2) { 
          				
          				Node children2 = listaChildren.item(j); //agarramos un equipo
          
@@ -129,7 +129,6 @@ public class Main {
          						_nombreE = children2.getChildNodes().item(1).getTextContent();
          						_paisE = Pais.valueOf(children2.getChildNodes().item(3).getTextContent());
          						_ranking = Byte.parseByte(children2.getChildNodes().item(5).getTextContent());
-         						
          						
          						jugadoresEquipo.clear(); 
          						
@@ -145,11 +144,8 @@ public class Main {
          								
          								for (int l=1; l<listaChildren3.getLength(); l+=2) {
          									
-         										
          										Node children4 = listaChildren3.item(l); 
-         										
-         										
-     											
+
          										for (int m=0; m<2; m++) {
          											
          											if (m == 0) {
@@ -209,13 +205,14 @@ public class Main {
          							}
          							
          						}
-         						//Equipo e = new Equipo(_nombreE, _paisE, _ranking, jugadoresEquipo, dt);
-             					equipos.add(new Equipo(_nombreE, _paisE, _ranking, jugadoresEquipo, dt));
+         						e = new Equipo(_nombreE, _paisE, _ranking, jugadoresEquipo, dt);
+             					//hasta aca tenemos los jugadores que corresponden
+         						
+         						equipos.add(e);
              					
          					}
          			}
-         			
-         		         		
+         			     		
          		} else if (nodo.getNodeName() == "arbitros") {
          			
          			NodeList _arbitro = nodo.getChildNodes();
