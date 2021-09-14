@@ -45,6 +45,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class Main {	
 	
+	
 	static ArrayList <Jugador> jugadores = new ArrayList <Jugador>();
 	static ArrayList <Equipo> equipos = new ArrayList <Equipo>();
 	static ArrayList <Referi> referis = new ArrayList <Referi>();
