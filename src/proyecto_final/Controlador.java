@@ -62,7 +62,7 @@ public class Controlador {
 	//-------------------------------------------------<<SIMULADORES ZONA>>-------------------------------------------------
 	
 	public void SimulaPartidoZ (int zona) { //recibe la zona de la que se simula un partido 
-		if (campeonatoActual.getZona(zona).getI() <= CANT_PZ) // SI NO SE JUGARON TODOS LOS PARTIDOS DE LA ZONA
+		if (campeonatoActual.getZona(zona).getPartidoAct() <= CANT_PZ) // SI NO SE JUGARON TODOS LOS PARTIDOS DE LA ZONA
 			campeonatoActual.getZona(zona).SimulaPartido();
 		else
 			frameActual.ZtodoSimulado(zona);

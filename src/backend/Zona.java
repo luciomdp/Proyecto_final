@@ -34,85 +34,88 @@ public class Zona implements Serializable{
 	final int CANT_PZ = 6;
 	final int CANT_PF = 2;
 	final int CANTE = 4;
+	final int CANT_FECHAS = 0;
 	//-------------------------CANTIDAD DE EQUIPOS QUE PASAN A CUARTOS POR ZONA---------------------
 	final int PASAN_CUARTOS = 2;
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
-	private int i,f;//f es fecha actual e i es partido actual
+	private int partidoAct,fechaAct;//f es fecha actual e i es partido actual
 	/*Cada partido va a tener asignado un valor "i", cada fecha son 2 partidos de i (teniendo en cuenta el valor
 	actual de i,tenes una variable fecha "f", que dice en que fecha se encuentra, y simular toda la zona, es iterar desde el i
 	actual hasta el final)*/
     private Equipo [] tabla = new Equipo [CANTE]; // TABLA DE LA ZONA 
     private Equipo ganadoresZona [] = new Equipo [PASAN_CUARTOS]; // SON LOS DOS EQUIPOS QUE GANAN LA ZONA
-    private Partido partidosZona[]; 
-    Resultados resultados [] = new Resultados [CANT_PZ];
+    private Partido partidosZona[];
+    Resultados resultados [];
    
     
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
     
     public Zona (Equipo equipos[]) {
-    	this.partidosZona = new Partido[CANT_PZ];
+    	
+    	resultados = new Resultados [CANT_PZ];
+    	this.partidosZona = new Partido [CANT_PZ];
+    	this.partidosZona = creaFechas(equipos);
         for (int i = 0; i < CANTE; i++) {
         	this.tabla[i] = equipos[i];
         }
-        this.i = 0;
-        this.f = 1;
-        this.partidosZona = creaFechas(equipos);
+        this.partidoAct = 0;
+        this.fechaAct = 1;
+        
     }
       
   //---------------------------------------------------------- SIMULA UN SOLO PARTIDO A LA VEZ ---------------------------------------------------------------
 	
   	public void SimulaPartido () { 
-  		
-  		if  (i < CANT_PZ) {
+  		try {
+  	  		if  (partidoAct < CANT_PZ) {
 
-  					this.getValoresTabla();
-  					partidosZona[i].simulacionNM(); //SIMULA PARTIDO 
-  					partidosZona[i].getEquipo1().setGoles(partidosZona[i].getGolesE1()); //ASIGNA GOLES A FAVOR DE CADA EQUIPO
-  					partidosZona[i].getEquipo2().setGoles(partidosZona[i].getGolesE2()); 
-  					partidosZona[i].getEquipo1().setGolesContra(partidosZona[i].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
-  					partidosZona[i].getEquipo2().setGolesContra(partidosZona[i].getGolesE1());
-  					partidosZona[i].getEquipo1().setpJ(1); //INCREMENTA LOS PARTIDOS JUGADOS PARA CADA EQUIPO
-  					partidosZona[i].getEquipo2().setpJ(1);
-  					
-  					if (partidosZona[i].getGolesE1() > partidosZona[i].getGolesE2()) { //DEPENDIENDO QUIEN HAYA METIDO MAS GOLES, SUMA 3 PUNTOS O 1 SI EMPATARON. TAMBIEN INCREMENTA PARTIDOS GANADOS
-  						partidosZona[i].getEquipo1().setPuntos(PV);
-  						partidosZona[i].getEquipo1().setpG(1);
-  						partidosZona[i].getEquipo1().setpP(1);
-  					}
-  					else if (partidosZona[i].getGolesE2() > partidosZona[i].getGolesE1()) {
-  						partidosZona[i].getEquipo2().setPuntos(PV);
-  						partidosZona[i].getEquipo2().setpG(1);	
-  						partidosZona[i].getEquipo1().setpP(1);
-  					}
-  					else {
-  						partidosZona[i].getEquipo1().setPuntos(PE);
-  						partidosZona[i].getEquipo2().setPuntos(PE);
-  					}
-  					
-  					Resultados result = new Resultados (partidosZona[i].getEquipo1(), partidosZona[i].getEquipo2(), partidosZona[i].getGolesE1(), partidosZona[i].getGolesE2() );
-  					this.setResultados(result);
-  					this.ActualizaTabla();
-  					this.getValoresTabla();
-  					i++;
-  					if (i == f*CANT_PF) {
-  						f++;
-  					}
+					partidosZona[partidoAct].simulacionNM(); //SIMULA PARTIDO 
+					partidosZona[partidoAct].getEquipo1().setGoles(partidosZona[partidoAct].getGolesE1()); //ASIGNA GOLES A FAVOR DE CADA EQUIPO
+					partidosZona[partidoAct].getEquipo2().setGoles(partidosZona[partidoAct].getGolesE2()); 
+					partidosZona[partidoAct].getEquipo1().setGolesContra(partidosZona[partidoAct].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
+					partidosZona[partidoAct].getEquipo2().setGolesContra(partidosZona[partidoAct].getGolesE1());
+					partidosZona[partidoAct].getEquipo1().setpJ(); //INCREMENTA LOS PARTIDOS JUGADOS PARA CADA EQUIPO
+					partidosZona[partidoAct].getEquipo2().setpJ();
+					
+					if (partidosZona[partidoAct].getGolesE1() > partidosZona[partidoAct].getGolesE2()) { //DEPENDIENDO QUIEN HAYA METIDO MAS GOLES, SUMA 3 PUNTOS O 1 SI EMPATARON. TAMBIEN INCREMENTA PARTIDOS GANADOS
+						partidosZona[partidoAct].getEquipo1().setPuntos(PV);
+						partidosZona[partidoAct].getEquipo1().setpG();
+						partidosZona[partidoAct].getEquipo2().setpP();
+					}
+					else if (partidosZona[partidoAct].getGolesE2() > partidosZona[partidoAct].getGolesE1()) {
+						partidosZona[partidoAct].getEquipo2().setPuntos(PV);
+						partidosZona[partidoAct].getEquipo2().setpG();	
+						partidosZona[partidoAct].getEquipo1().setpP();
+					}
+					else {
+						partidosZona[partidoAct].getEquipo1().setPuntos(PE);
+						partidosZona[partidoAct].getEquipo2().setPuntos(PE);
+					}
+					
+					
+					resultados [partidoAct] = new Resultados (partidosZona[partidoAct].getEquipo1(), partidosZona[partidoAct].getEquipo2(), partidosZona[partidoAct].getGolesE1(), partidosZona[partidoAct].getGolesE2() );
+					this.ActualizaTabla();
+					this.getValoresTabla();
+					partidoAct++;
+					if (partidoAct != CANT_PZ  && partidoAct == fechaAct*CANT_PF) 
+						fechaAct++;
+  	  		}	
+			else
+				throw new Exception();
   		}
-  		else{
-  			
-  			JOptionPane.showMessageDialog(null, "Ya se han jugado todos los partidos de la Zona ");
-  			
+  		catch (Exception e) {
+  			JOptionPane.showMessageDialog(null, "Ya se han jugado todos los partidos de la Zona ");	
   		}
-
   	}
   	
   //---------------------------------------------------------- SIMULA UNA FECHA SOLA  ---------------------------------------------------------------------------
   	
 
 	public void SimulaFecha () {
-  			for (;i<=f*CANT_PF;) {
+		
+  			for (;partidoAct<=fechaAct*CANT_PF;) {
   				this.SimulaPartido();
   			}
   	}
@@ -141,7 +144,7 @@ public class Zona implements Serializable{
 
         Equipo[] equiposQueRotan = Arrays.copyOfRange(equipos, 1, equipos.length); //array de equipos que van a ir rotando {1, 2, 3}
         
-        for (i = 0; i < CANT_PZ; i += 2) {
+        for (int i = 0; i < CANT_PZ; i += 2) {
         	partidos[i] = new Partido(equipos[0], equiposQueRotan[0]);
         	partidos[i+1] = new Partido(equiposQueRotan[1], equiposQueRotan[2]);
         	Collections.rotate(Arrays.asList(equiposQueRotan), equiposQueRotan.length - 1);
@@ -153,7 +156,7 @@ public class Zona implements Serializable{
     public void ActualizaTabla(){ // HAY QUE PROBARLO, PRINCIPALMENTE POR LA ULTIMA INSTANCIA
     	
     	Equipo aux;
-    	
+    	int posicion = 0;
         for (int i = 0; i < tabla.length - 1; i++) {
             for (int j = 0; j < tabla.length - i - 1; j++) {
             	
@@ -178,7 +181,7 @@ public class Zona implements Serializable{
                         }
                         else if (tabla[j + 1].getGoles() - tabla[j + 1].getGolesContra() == tabla[j].getGoles() - tabla[j].getGolesContra() ) {
                         	
-                        	int posicion = buscaResultado (tabla[j].getNombre(), tabla[j + 1].getNombre()); // 	BUSCAMOS LA POSICION DONDE ESTÁ EL PARTIDO ENTRE LOS EQUIPOS QUE ESTAN IGUALADOS EN PUNTOS, GOLES Y DIF DE GOLES
+                        	posicion = buscaResultado (tabla[j].getNombre(), tabla[j + 1].getNombre()); // 	BUSCAMOS LA POSICION DONDE ESTÁ EL PARTIDO ENTRE LOS EQUIPOS QUE ESTAN IGUALADOS EN PUNTOS, GOLES Y DIF DE GOLES
                         	if (posicion >= 0) { // SI ES >= 0 YA SE JUGÓ EL PARTIDO
                         		if (resultados [posicion].getGolesE1() > resultados [posicion].getGolesE2()) {
                         			if (resultados [posicion].getE1() == tabla [j+1].getNombre()) {
@@ -207,7 +210,7 @@ public class Zona implements Serializable{
     public int buscaResultado(String e1, String e2) {
     	int k = 0;
     	
-    	while (k <= resultados.length) {
+    	while ( k <= partidoAct && k <= resultados.length) {
     		if (resultados[k].getE1() == e1 && resultados[k].getE2() == e2) {
     			return k;
     		} 
@@ -233,7 +236,7 @@ public class Zona implements Serializable{
 
 	
     public String getValoresTabla(){
-    	String s = "ZONA 1\nEquipo                     PT  PG  PE  PP  DG \n"; //Equipo 1 | 2 | 1 | 0 | 4 \\nEquipo 2 | 1 | 2 | 0 | 2\\nEquipo 3 | 1 | 1 | 1 | 1\\nEquipo 4 | 0 | 1 | 2 | -2";
+    	String s = "ZONA 1\nEquipo                     PT  PJ  PG  PP  DG \n"; //Equipo 1 | 2 | 1 | 0 | 4 \\nEquipo 2 | 1 | 2 | 0 | 2\\nEquipo 3 | 1 | 1 | 1 | 1\\nEquipo 4 | 0 | 1 | 2 | -2";
         for (int i = 0; i < CANTE; i++ )
             s +=tabla[i].getEstadisticas()+ "\n";
         
@@ -247,17 +250,13 @@ public class Zona implements Serializable{
 		return ganadoresZona;
 	}
     
-    public void setResultados(Resultados resultado) {
-        this.resultados[i] = resultado ;
-        i++;
-    }
-    
-  	public int getI() {
-		return i;
+   
+  	public int getPartidoAct() {
+		return partidoAct;
 	}
 
-	public void setI(int i) {
-		this.i = i;
+	public void setPartidoAct(int i) {
+		this.partidoAct = i;
 	}
 	
 }
