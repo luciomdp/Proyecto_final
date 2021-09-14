@@ -32,14 +32,12 @@ public class CuartosFinal {
 		this.equipos = equipos;
 		this.partidos = new PartidoIdaVuelta [CANT_P] ;
 		int k= 0;
-		for (int i = 0; i < CANT_P; i+=2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
-			partidos[k].setEquipo1(equipos[i]);
-			partidos[k].setEquipo2(equipos[i++]);
+		for (int i = 0; i < CANT_P/2; i+=2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
+			partidos[k] = new PartidoIdaVuelta (equipos[i],equipos[i++]);
 			k++;
 		}
-		for (int i = 0; i < CANT_P; i+=2) {
-			partidos[k].setEquipo1(equipos[i++]);
-			partidos[k].setEquipo2(equipos[i]);
+		for (int i = 0; i < CANT_P/2; i+=2) {
+			partidos[k] = new PartidoIdaVuelta (equipos[i++],equipos[i]);
 			k++;
 		}
 		this.resultados = new Resultados [CANT_P];

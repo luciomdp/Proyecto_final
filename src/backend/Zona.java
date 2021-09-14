@@ -99,7 +99,7 @@ public class Zona implements Serializable{
 					this.ActualizaTabla();
 					this.getValoresTabla();
 					partidoAct++;
-					if (partidoAct != CANT_PZ  && partidoAct == fechaAct*CANT_PF) 
+					if (partidoAct < CANT_PZ  && (partidoAct+1) == fechaAct*CANT_PF) 
 						fechaAct++;
   	  		}	
 			else
@@ -114,21 +114,20 @@ public class Zona implements Serializable{
   	
 
 	public void SimulaFecha () {
-		
-  			for (;partidoAct<=fechaAct*CANT_PF;) {
-  				this.SimulaPartido();
-  			}
+		int fechaASimular = fechaAct;
+		int partidosASimular = partidoAct;
+		while (partidosASimular < fechaASimular *CANT_PF) {
+			SimulaPartido();
+			partidosASimular++;
+		}
   	}
   	
   //---------------------------------------------------------- SIMULA TODOS LOS PARTIDOS DE LA ZONA ---------------------------------------------------------------
   	
   	public void SimulaZona () {
-
-
-  		this.SimulaFecha();
-  		this.SimulaFecha();
-  		this.SimulaFecha();
-  	
+  		for (int i = 0; i < CANT_FECHAS; i++) {
+  			SimulaFecha ();
+  		}
   	}
   
 	//---------------------------------------------------------- CREA LAS FECHAS DE LA ZONA ----------------------------------------------------------------------

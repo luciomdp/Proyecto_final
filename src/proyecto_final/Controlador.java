@@ -78,7 +78,7 @@ public class Controlador {
 		frameActual.ZtodoSimulado(zona);
 	}
 	public void SimulaZonas() { //simula todas las zonas
-		for (int i = 0; i <= CANTZ; i++) {
+		for (int i = 0; i < CANTZ; i++) {
 			campeonatoActual.getZona(i).SimulaZona();
 		}
 	}
@@ -110,6 +110,30 @@ public class Controlador {
 		
 		return campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticasCuartosIda(); // NO ES LO MISMO QUE HACER ESTE RETURN ?
 	}
+	
+	public String getECuartosVuelta(int equipo) {//DEBERIA RETORNAR EL STRING DEL EQUIPO, CON LA ACTUALIZACION EN GOLES IDA, VUELTA, ETC
+		/*switch (equipo) {
+		case 1:
+			return "Equipo " + campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas();
+		case 2:
+			return "Equipo " + campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas();
+		case 3:
+			return "Equipo " + campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas();
+		case 4:
+			return "Equipo " + campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas();
+		case 5:
+			return "Equipo " + campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas();
+		case 6:
+			return "Equipo " + campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas();
+		
+		case 7:
+			return "Equipo " + campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas();
+		} 
+		return "Equipo " + campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticas(); */
+		
+		return campeonatoActual.getCuartosFinal().getEquipoCuartos(equipo).getEstadisticasCuartosVuelta(); // NO ES LO MISMO QUE HACER ESTE RETURN ?
+	}
+	
 	public int SimulaPartidoC() { //Devuelve el partido que se jugo (1,2,3 o 4)
 		//evaluar si se puede simular otro partido de ida, sino, llamar al metodo CtodoSimulado(0) del Frame
 		//evaluar si se puede simular otro partido , sino, llamar al metodo CtodoSimulado(1) del Frame

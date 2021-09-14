@@ -60,10 +60,10 @@ public class Zonas extends General{
 		Simula_todo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				  getControlador().SimulaZonas();
-				  Zona1.setText(getControlador().getZona(1));
-				  Zona2.setText(getControlador().getZona(2));
-				  Zona3.setText(getControlador().getZona(3));
-				  Zona4.setText(getControlador().getZona(4));
+				  Zona1.setText(getControlador().getZona(0));
+				  Zona2.setText(getControlador().getZona(1));
+				  Zona3.setText(getControlador().getZona(2));
+				  Zona4.setText(getControlador().getZona(3));
 			}
 		});
 		
