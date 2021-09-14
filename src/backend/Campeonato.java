@@ -155,17 +155,20 @@ public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
-	public CuartosFinal getCuartosFinal() {
-		Equipo[] aux = new Equipo[8];
+	public void setCuartosFinal() {
+		Equipo[] equiposEnCuartos = new Equipo[8];
 		Equipo[] aux2 = new Equipo [2];
 		for (int i = 0; i < CANTZ; i += 2) {
 			aux2 = this.zonas[i].getGanadoresZona();
-			aux[i] = aux2[0];
-			aux[i+1] = aux2[1];
+			equiposEnCuartos[i] = aux2[0];
+			equiposEnCuartos[i+1] = aux2[1];
 		}
-		this.cuartosDeFinal = new CuartosFinal(aux);
+		cuartosDeFinal = new CuartosFinal(equiposEnCuartos);
 		
-		return cuartosDeFinal;
+	}
+	
+	public Equipo getECuartosFinal(int equipo) {
+		return cuartosDeFinal.getEquipoCuartos(equipo);
 	}
 	
 	public SemiFinal getSemiFinal() {

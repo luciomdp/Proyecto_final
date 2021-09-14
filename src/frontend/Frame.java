@@ -67,7 +67,7 @@ public class Frame extends JFrame {
 	public void ZtodoSimulado(int nrozona) {
 		zona.ZonaSimulada(nrozona);
 		//le pongo los equipos correspondientes a cuartos, y lo añado
-		cuartos.InicializaVariables();
+		//cuartos.InicializaVariables();
 		tabbedPane.addTab("Cuartos", null, cuartos, null);
 	}
 	public void CtodoSimulado(int i) {
