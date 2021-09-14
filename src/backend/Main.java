@@ -110,6 +110,7 @@ public class Main {
 		int _anios;
 		////
 		
+		
         final NodeList children = _raiz.getChildNodes(); //aca sacamos equipos y arbitros
         
         for (int i=0; i<children.getLength(); i++) { //aca iteramos dos veces
