@@ -87,6 +87,7 @@ public class Controlador {
 			frameActual.ZtodoSimulado(i);
 		}
 		
+		
 	}
 	public String getZona (int zona) { //recibe la zona de la que quiere que se devuelva el String
 		return campeonatoActual.getZona(zona).getValoresTabla();
