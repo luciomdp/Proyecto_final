@@ -59,7 +59,7 @@ public class Referi extends Persona{
 	}
 
 	public String ListaReferi () {
-		return "Nombre: "+ this.getNombre()+ "\nAnios en el referato: "+ this.getAños_referato()+ "\nPartidos Dirigidos: " + this.getPartidosDirigidos() + "\n"; 
+		return "Nombre: "+ this.getNombre()+"\nApellido: "+ this.getApellido()+ "\nAnios en el referato: "+ this.getAños_referato()+ "\nPartidos Dirigidos: " + this.getPartidosDirigidos() + "\n"; 
 	}
 	
 	

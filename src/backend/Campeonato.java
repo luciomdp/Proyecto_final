@@ -102,11 +102,13 @@ public class Campeonato implements Serializable {
 			//agarramos todos los jugadores del equipo
 			jugadoresEquipo = e.getJugadores();
 			
-			System.out.println(e.getJugadores());
+			System.out.println(e); //el equipo esta bien, los jugadores no. revisar entrenador
+			
+			//System.out.println(jugadoresEquipo); //aca imprime todos los del ultimo equipo. 
 			
 			for (Jugador player: jugadoresEquipo) {
 				if (player.getPosicion() == pos) {
-					s+= player.toString();
+					s+= player.toString(); //en el toString de jugadores se podría sacar la posición, no?
 					if (pos == Posicion.arquero) {
 						s+= "Goles en contra: " + e.getGolesContra() + "\n";
 						if (e.getpJ() != 0) {

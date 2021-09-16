@@ -66,8 +66,14 @@ public class Main {
 			//funcion principal de lectura
 			leeArchivo(raiz);
 		
-			Campeonato torneo = new Campeonato (equipos, jugadores, referis);
+			Campeonato torneo = new Campeonato (equipos, jugadores, referis); 
 			
+			for (int p=0; p<equipos.size(); p++) {
+				System.out.println("\n"+ equipos.get(p).getNombre()+"\n" +equipos.get(p).getJugadores()); //aca los jugadores se repiten. son los del ultimo equipo 
+
+			}
+			 
+			 			
 			Frame vista = new Frame ();
 			Controlador control = new Controlador (torneo, vista);
 			vista.setControlador(control);
@@ -111,131 +117,136 @@ public class Main {
 		////
 		
 		
-        final NodeList children = _raiz.getChildNodes(); //aca sacamos equipos y arbitros
-        
-        for (int i=0; i<children.getLength(); i++) { //aca iteramos dos veces
-        	
-        	final Node nodo = children.item(i); //sacamos equipos o arbitros
-        	
-        		if (nodo.getNodeName() == "equipos") { //agarramos equipos
-         			
-         			NodeList listaChildren = nodo.getChildNodes(); //lista de equipo's
-         			
-         			for (int j=1; j<listaChildren.getLength(); j+=2) { 
-         				
-         				Node children2 = listaChildren.item(j); //agarramos un equipo
-         
-         					if (children2.getNodeName() == "equipo") { 
-         						
-         						_nombreE = children2.getChildNodes().item(1).getTextContent();
-         						_paisE = Pais.valueOf(children2.getChildNodes().item(3).getTextContent());
-         						_ranking = Byte.parseByte(children2.getChildNodes().item(5).getTextContent());
-         						
-         						jugadoresEquipo.clear(); 
-         						
-         						NodeList listaChildren2 = children2.getChildNodes().item(7).getChildNodes(); 
-         						//entramos a plantel: jugadores y dt
-         						for (int k=1; k<listaChildren2.getLength(); k+=2) {
-         							
-         							Node children3 = listaChildren2.item(k); //jugadores o dt
-         							
-         							if (children3.getNodeName() == "jugadores") {
-         								
-         								NodeList listaChildren3 = children3.getChildNodes(); //entro a jugador
-         								
-         								for (int l=1; l<listaChildren3.getLength(); l+=2) {
-         									
-         										Node children4 = listaChildren3.item(l); 
+		final NodeList children = _raiz.getChildNodes(); //aca sacamos equipos y arbitros
 
-         										for (int m=0; m<2; m++) {
-         											
-         											if (m == 0) {
-         												NamedNodeMap att = listaChildren3.item(l).getAttributes();
-             											_posicion = Posicion.valueOf(att.getNamedItem("posicion").getNodeValue()); 
-         												_puntuacion = Byte.parseByte(att.getNamedItem("puntuacion").getNodeValue());
-         												
-         											} else { //persona
-         												
-         												NodeList listaChildren5 = children4.getChildNodes();
-         												NodeList children5 = listaChildren5.item(1).getChildNodes();
-         												         										
-         												_tipoDocumento = children5.item(1).getTextContent(); 
-         												_nroDocumento = Integer.parseInt(children5.item(3).getTextContent());
-         												_nombreApellido = children5.item(5).getTextContent();
-         												_apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
-         												_nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
-         												_fecha = LocalDate.parse(children5.item(7).getTextContent(), formato);
-         												
-         											}
-         											
-         										}
-         										//aca creamos el jugador;
-     											jugador = new Jugador(_apellido, _nombre, _fecha, _tipoDocumento, _nroDocumento, _posicion, _puntuacion);
- 												
-     											jugadoresEquipo.add(jugador);
- 												jugadores.add(jugador);
-         									
-         								}
-         							} else if (children3.getNodeName() == "dt") {
-         								
-         								NodeList listaChildren3 = children3.getChildNodes(); //entras al dt
+		for (int i=0; i<children.getLength(); i++) { //aca iteramos dos veces
+
+			final Node nodo = children.item(i); //sacamos equipos o arbitros
+
+			if (nodo.getNodeName() == "equipos") { //agarramos equipos
+
+				NodeList listaChildren = nodo.getChildNodes(); //lista de equipo's
+
+				for (int j=1; j<listaChildren.getLength(); j+=2) { 
+
+					Node children2 = listaChildren.item(j); //agarramos un equipo
+
+
+					if (children2.getNodeName() == "equipo") { 
+
+						_nombreE = children2.getChildNodes().item(1).getTextContent();
+						_paisE = Pais.valueOf(children2.getChildNodes().item(3).getTextContent());
+						_ranking = Byte.parseByte(children2.getChildNodes().item(5).getTextContent());
+
+						jugadoresEquipo.clear(); //esta bien aca?
+
+								NodeList listaChildren2 = children2.getChildNodes().item(7).getChildNodes(); 
+								//entramos a plantel: jugadores y dt
+								for (int k=1; k<listaChildren2.getLength(); k+=2) {
+
+									Node children3 = listaChildren2.item(k); //jugadores o dt
+
+									if (children3.getNodeName() == "jugadores") {
+
+										NodeList listaChildren3 = children3.getChildNodes(); //entro a jugador
+
+										for (int l=1; l<listaChildren3.getLength(); l+=2) {
+
+											Node children4 = listaChildren3.item(l); 
+
+											for (int m=0; m<2; m++) {
+
+												if (m == 0) {
+													NamedNodeMap att = listaChildren3.item(l).getAttributes();
+													_posicion = Posicion.valueOf(att.getNamedItem("posicion").getNodeValue()); 
+													_puntuacion = Byte.parseByte(att.getNamedItem("puntuacion").getNodeValue());
+
+												} else { //persona
+
+													NodeList listaChildren5 = children4.getChildNodes();
+													NodeList children5 = listaChildren5.item(1).getChildNodes();
+
+													_tipoDocumento = children5.item(1).getTextContent(); 
+													_nroDocumento = Integer.parseInt(children5.item(3).getTextContent());
+													_nombreApellido = children5.item(5).getTextContent();
+													_apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
+													_nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
+													_fecha = LocalDate.parse(children5.item(7).getTextContent(), formato);
+
+												}
+
+											}
+											//aca creamos el jugador;
+											jugador = new Jugador(_apellido, _nombre, _fecha, _tipoDocumento, _nroDocumento, _posicion, _puntuacion);
+
+											jugadoresEquipo.add(jugador);
+											jugadores.add(jugador);
+
+
+										}
+									} else if (children3.getNodeName() == "dt") {
+
+										NodeList listaChildren3 = children3.getChildNodes(); //entras al dt
 										NodeList children4 = listaChildren3.item(1).getChildNodes(); //entras a persona
-										
+
 										_tipoDocumento = children4.item(1).getTextContent(); //tipo doc
 										_nroDocumento = Integer.parseInt(children4.item(3).getTextContent());
 										_nombreApellido = children4.item(5).getTextContent();
 										_apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
 										_nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
 										_fecha = LocalDate.parse(children4.item(7).getTextContent(), formato);
-										
+
 										for (int n=3; n<=5; n+=2) {
-											
+
 											NodeList children5 = listaChildren3.item(n).getChildNodes();
-											
+
 											if (n == 3) {
-											
+
 												_pais = Pais.valueOf(children5.item(0).getTextContent());
-												
+
 											} else {
-												
+
 												_titulos = Byte.parseByte(children5.item(0).getTextContent());
-												
+
 											}
 										}
 										dt = new Dt (_apellido, _nombre, _fecha, _nroDocumento, _tipoDocumento, _pais, _titulos);
-         							}
-         							
-         						}
-         						e = new Equipo(_nombreE, _paisE, _ranking, jugadoresEquipo, dt);
-             					//hasta aca tenemos los jugadores que corresponden
-         						
-         						equipos.add(e);
-             					
-         					}
-         			}
-         			     		
-         		} else if (nodo.getNodeName() == "arbitros") {
-         			
-         			NodeList _arbitro = nodo.getChildNodes();
-         			for (int n= 1; n<_arbitro.getLength(); n=n+2) { //pasamos por todos los arbitros
-         				
-         				NodeList children7 = _arbitro.item(n).getChildNodes(); //persona
-         				NodeList children8 = children7.item(1).getChildNodes();
-         				
-         				_tipoDocumento = children8.item(1).getTextContent();
-         				_nroDocumento = Integer.parseInt(children8.item(3).getTextContent());
-         				_nombreApellido = children8.item(5).getTextContent();
-         				_apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
-						_nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
-						_fecha = LocalDate.parse(children8.item(7).getTextContent(), formato);
-						
-						_pais = Pais.valueOf(children7.item(3).getTextContent());
-						_anios = Integer.parseInt(children7.item(5).getTextContent());
-						
-						referi = new Referi (_apellido, _nombre, _fecha, _nroDocumento, _tipoDocumento, _pais, _anios);
-						referis.add(referi);
-         			}     			
-         		}
-        }
+									}
+
+								}
+
+								e = new Equipo(_nombreE, _paisE, _ranking, jugadoresEquipo, dt);
+
+								equipos.add(e);
+								//hasta aca tenemos los jugadores que corresponden
+								//System.out.println(equipos.get(0).getJugadores());
+
+					}
+
+				}
+
+			} else if (nodo.getNodeName() == "arbitros") {
+
+				NodeList _arbitro = nodo.getChildNodes();
+				for (int n= 1; n<_arbitro.getLength(); n=n+2) { //pasamos por todos los arbitros
+
+					NodeList children7 = _arbitro.item(n).getChildNodes(); //persona
+					NodeList children8 = children7.item(1).getChildNodes();
+
+					_tipoDocumento = children8.item(1).getTextContent();
+					_nroDocumento = Integer.parseInt(children8.item(3).getTextContent());
+					_nombreApellido = children8.item(5).getTextContent();
+					_apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
+					_nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ")+1);
+					_fecha = LocalDate.parse(children8.item(7).getTextContent(), formato);
+
+					_pais = Pais.valueOf(children7.item(3).getTextContent());
+					_anios = Integer.parseInt(children7.item(5).getTextContent());
+
+					referi = new Referi (_apellido, _nombre, _fecha, _nroDocumento, _tipoDocumento, _pais, _anios);
+					referis.add(referi);
+				}     			
+			}
+		}
 	}
 }
