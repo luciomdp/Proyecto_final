@@ -88,8 +88,9 @@ public class Zonas extends General{
 	}
 
 	//-------------------------------------------------<<METODOS DE CLASE>>-------------------------------------------------
-	
+
 	public void ZonaSimulada(int zona) {
+		getCombo(zona).setSelectedIndex(0);
 		getCombo(zona).setEnabled(false);
 	}
 	
@@ -109,10 +110,10 @@ public class Zonas extends General{
 			setEditable(false);
 		}
 	}
-	private class ZComboBox extends JComboBox<String> {
+	private class ZComboBox extends JComboBox <String> {
 		ZComboBox(int zona) {
 			setEditable(false);
-			addItem("Zona " + zona);
+			addItem("Zona " + (zona + 1));
 			addItem("Simula un partido");
 			addItem("Simula una fecha");
 			addItem("Simula una zona");
@@ -122,11 +123,11 @@ public class Zonas extends General{
 							getControlador().SimulaPartidoZ(zona);
 							getZona(zona).setText(getControlador().getZona(zona));
 					}else {
-						if((String)ZcomboBox1.getSelectedItem() == "Simula una fecha") {
+						if((String)getSelectedItem() == "Simula una fecha") {
 							getControlador().SimulaFechaZ(zona);
 							getZona(zona).setText(getControlador().getZona(zona));
 						}else 
-							if((String)ZcomboBox1.getSelectedItem() == "Simula una zona") {
+							if((String)getSelectedItem() == "Simula una zona") {
 								getControlador().SimulaZonaZ(zona);
 								getZona(zona).setText(getControlador().getZona(zona));
 							}
@@ -177,6 +178,10 @@ public class Zonas extends General{
 					return ZcomboBox4;
 			}
 		}
+	}
+	
+	public JButton getSimula_todo() {
+		return Simula_todo;
 	}
 	
 }

@@ -65,11 +65,15 @@ public class Frame extends JFrame {
 	
 	//-------------------------------------------------<<METODOS DE SIMULACION FINALIZADA>>-------------------------------------------------
 	
-	public void ZtodoSimulado(int nrozona) {
-		zona.ZonaSimulada(nrozona);
-		//le pongo los equipos correspondientes a cuartos, y lo añado
-		//cuartos.InicializaVariables();
+	public void ZtodoSimulado() {
+		cuartos.InicializaVariables();
+		zona.getSimula_todo().setEnabled(false);
 		tabbedPane.addTab("Cuartos", null, cuartos, null);
+		tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
+		
+	}
+	public void ZonaSimulada(int nrozona) {
+		zona.ZonaSimulada(nrozona);
 	}
 	public void CtodoSimulado(int i) {
 		if(i == 0)
@@ -77,7 +81,7 @@ public class Frame extends JFrame {
 		else {
 			cuartos.CuartosSimulado(); //se simulo todo cuartos
 			//le pongo los equipos correspondientes a semis, y la añado
-			semis.InicializaVariables();
+			//semis.InicializaVariables();
 			tabbedPane.addTab("Semifinales", null, semis, null);
 		}
 			
