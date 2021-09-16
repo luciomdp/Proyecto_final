@@ -159,7 +159,7 @@ public class Zona implements Serializable{
     	Equipo aux;
     	int posicion = 0;
         for (int i = 0; i < tabla.length - 1; i++) {
-            for (int j = 0; j < tabla.length - i - 1; j++) {
+        	for (int j = 0; j < tabla.length - i - 1; j++) {
             	
                 if (tabla[j + 1].getPuntos() > tabla[j].getPuntos()) {
                     aux = tabla[j + 1];

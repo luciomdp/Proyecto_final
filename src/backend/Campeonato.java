@@ -165,21 +165,21 @@ public class Campeonato implements Serializable {
 			equiposEnCuartos[i] = aux2[0];
 			equiposEnCuartos[i+1] = aux2[1];
 		}
-		cuartosDeFinal = new CuartosFinal(equiposEnCuartos);
+		//cuartosDeFinal = new CuartosFinal(equiposEnCuartos);
 		
 	}
 	
 	public Equipo getECuartosFinal(int equipo) {
-		return cuartosDeFinal.getEquipoCuartos(equipo);
+		return cuartosDeFinal.getEquipo(equipo);
 	}
 	
 	public SemiFinal getSemiFinal() {
-		semiFinal = new SemiFinal(this.cuartosDeFinal.getPasanASemis());
+		//semiFinal = new SemiFinal(this.cuartosDeFinal.getPasanASemis());
 		return semiFinal;
 	}
 	
 	public Final getFinal() {
-		this.final_Campeonato = new Final(this.semiFinal.getPasanAFinal());
+		//this.final_Campeonato = new Final(this.semiFinal.getPasanAFinal());
 		return final_Campeonato;	
 	}
 	

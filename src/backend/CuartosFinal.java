@@ -1,5 +1,7 @@
 package backend;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 /*
@@ -10,7 +12,7 @@ tendrías que avisar al front mediante el controlador.
 102- ¿Qué es ese metodo comentado, es necesario? resolver
 */
 
-public class CuartosFinal {
+public class CuartosFinal extends SemiFinal{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
@@ -19,25 +21,23 @@ public class CuartosFinal {
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
-	private Equipo e1, e2;
 	private PartidoIdaVuelta partidos [];
-	private Equipo equipos [];
 	private Resultados resultados [];
 	private Equipo pasanASemis [];
 	private int i, k;
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public CuartosFinal(Equipo equipos []) {
-		this.equipos = equipos;
+	public CuartosFinal(ArrayList <Equipo> equipos) {
+		super (equipos);
 		this.partidos = new PartidoIdaVuelta [CANT_P] ;
 		int k= 0;
 		for (int i = 0; i < CANT_P/2; i+=2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
-			partidos[k] = new PartidoIdaVuelta (equipos[i],equipos[i++]);
+			partidos[k] = new PartidoIdaVuelta (equipos.get(i),equipos.get(i++));
 			k++;
 		}
 		for (int i = 0; i < CANT_P/2; i+=2) {
-			partidos[k] = new PartidoIdaVuelta (equipos[i++],equipos[i]);
+			partidos[k] = new PartidoIdaVuelta (equipos.get(i++),equipos.get(i));
 			k++;
 		}
 		this.resultados = new Resultados [CANT_P];
@@ -72,25 +72,25 @@ public class CuartosFinal {
 			resultados[i].setGolesE2(partidos[i].getGolesE2());
 			if (resultados[i].getGolesE1() + resultados [i-(CANT_P/2)].getGolesE2() == resultados[i].getGolesE2() + resultados [i-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL
 				if (resultados[i].getGolesE2() > resultados [i-(CANT_P/2)].getGolesE2()) { //SI LOS GOLES DEL EQUIPO 2 EN LA IDA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA VUELTA
-					this.setPasanASemis(partidos[i].getEquipo2());
+					this.setGanador(partidos[i].getEquipo2());
 				}
 				else if (resultados[i].getGolesE2() < resultados [i-(CANT_P/2)].getGolesE2()) { // SI LOS GOLES DE EQUIPO 2 EN LA VUELTA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA IDA
-					this.setPasanASemis(partidos[i-(CANT_P/2)].getEquipo2());
+					this.setGanador(partidos[i-(CANT_P/2)].getEquipo2());
 				}
 				else { // HAY PENALES
 					partidos[i].simulacionPen();
 					if (partidos[i].getGolesP1() > partidos[i].getGolesP2()) { // SI LOS GOLES DE PENAL DEL EQUIPO 1 SON MAYORES QUE LOS DEL EQUIPO 2
-						this.setPasanASemis(partidos[i].getEquipo1());
+						this.setGanador(partidos[i].getEquipo1());
 					}
 					else { // SI LOS GOLES DE PENAL DEL EQUIPO 2 SON MAYORES QUE LOS DEL EQUIPO 1
-						this.setPasanASemis(partidos[i].getEquipo2());
+						this.setGanador(partidos[i].getEquipo2());
 					}
 				}
 			}
 			else if (resultados[i].getGolesE1() + resultados [i-(CANT_P/2)].getGolesE2() > resultados[i].getGolesE2() + resultados [i-(CANT_P/2)].getGolesE1())  //SI GANA EN EL TOTAL EL EQUIPO 1
-				this.setPasanASemis(partidos[i].getEquipo1());
+				this.setGanador(partidos[i].getEquipo1());
 			else
-				this.setPasanASemis(partidos[i].getEquipo2()); //SI GANA EN EL TOTAL EL EQUIPO 2
+				this.setGanador(partidos[i].getEquipo2()); //SI GANA EN EL TOTAL EL EQUIPO 2
 			
 			i++;
 		}
@@ -101,21 +101,13 @@ public class CuartosFinal {
 	}
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
-	
-	public Equipo getEquipoCuartos (int equipo) {
-		return equipos [equipo];
-	}
+
 	 /* SE SUPONE QUE HEREDA DE SEMIFINAL
 	public String getResultado (int partido) { 
 		return resultados[partido].getE1() + " " + resultados[partido].getGolesE1()+"\n"+resultados[partido].getE2() + " " + resultados[partido].getGolesE2();
 	}*/
 	
-	public Equipo[] getPasanASemis() {
-		return pasanASemis;
-	}
 
-	public void setPasanASemis(Equipo pasaASemis) {
-		this.pasanASemis[k] = pasaASemis;
-		k++;
-	}
+
+
 }
