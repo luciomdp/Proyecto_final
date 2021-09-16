@@ -22,6 +22,7 @@ public class Frame extends JFrame {
 	private Informacion info;
 	
 	public Frame() {
+		
 		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
 		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
 		setTitle("Proyecto final en Java: Torneo de futbol");

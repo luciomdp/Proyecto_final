@@ -59,4 +59,13 @@ public class Dt extends Persona{
 	public String DatosIdent() {
 		return null;
 	}
+
+//	@Override
+//	public String toString() {
+//		return "Dt [tipoDni=" + tipoDni + ", Edad="	+ getEdad() + ", Titulos=" + getTitulos() 
+//				+ ", Nacionalidad=" + getNacionalidad()+ ", Apellido=" + getApellido() + ", Nombre=" 
+//				+ getNombre()+ ", Nacimiento=" + getNacimiento() + ", Dni=" + getDni() + "]";
+//	}
+	
+	
 }

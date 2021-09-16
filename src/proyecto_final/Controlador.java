@@ -170,7 +170,7 @@ public class Controlador {
 			} 
 			return "Equipo " + equipo; */
 			
-			return campeonatoActual.getSemiFinal().getEquipoSemis(equipo).getEstadisticas(); // DEVUELVE LAS ESTADÍSTICAS DEL EQUIPO equipo DE LAS SEMIS (adentro de smis hay un arreglo con todos los equipos que juegan)
+			return campeonatoActual.getSemiFinal().getEquipo(equipo).getEstadisticas(); // DEVUELVE LAS ESTADÍSTICAS DEL EQUIPO equipo DE LAS SEMIS (adentro de smis hay un arreglo con todos los equipos que juegan)
 		}
 		public int SimulaPartidoS() { //Devuelve el partido que se jugo (1,2,3 o 4)
 			//evaluar si se puede simular otro partido de ida, sino, llamar al metodo StodoSimulado(0) del Frame
