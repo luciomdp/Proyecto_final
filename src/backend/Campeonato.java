@@ -201,5 +201,9 @@ public class Campeonato implements Serializable {
 		}
 		cuartosDeFinal = new CuartosFinal(equiposCuartos);
 	}
+	
+	public void IniciaSemis () {
+		semiFinal = new SemiFinal (cuartosDeFinal.getGanadores());
+	}
 
 }

@@ -45,12 +45,12 @@ public class Equipo implements Serializable{
     
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
     
-    public Equipo (String n, Pais p, int r, ArrayList<Jugador> j, Dt e){ 
-		nombre = n;
-		pais = p;
-		ranking = r;
-		Jugadores = j;
-		entrenador = e;
+    public Equipo (String nombre, Pais nacionalidad, int ranking, ArrayList<Jugador> jugadores, Dt entrenador){ 
+		this.nombre = nombre;
+		pais = nacionalidad;
+		this.ranking = ranking;
+		Jugadores = jugadores;
+		this.entrenador = entrenador;
 		this.goles = 0;
         this.golesContra = 0;
         this.golesIdaCuartos = 0;
@@ -100,6 +100,18 @@ public class Equipo implements Serializable{
 	public String getEstadisticasCuartosVuelta() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
 		return nombre + golesVueltaCuartos + golesIdaCuartos;
     }
+	
+	public String getEstadisticasSemisIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
+		return nombre + golesIdaSemis;
+    }
+	
+	public String getEstadisticaSemis() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
+		return nombre + golesVueltaSemis + golesIdaSemis;
+    }
+	
+	public String getEstadisticasFinal () {
+		return nombre + golesFinal;
+	}
 	
 	public int getpP() {
 		return pP;
@@ -158,12 +170,12 @@ public class Equipo implements Serializable{
 		return ranking;
 	}
 
-	public void setRanking(int ranking) {
-		this.ranking = ranking;
-	}
-
 	public Dt getEntrenador() {
 		return entrenador;
+	}
+	
+	public void setEntrenador(Dt _dt) {
+		entrenador = _dt;
 	}
 
 	public String getNombre() {
@@ -173,18 +185,12 @@ public class Equipo implements Serializable{
 	public ArrayList<Jugador> getJugadores() {
 		return Jugadores;
 	}
-
-	public void setJugadores(ArrayList<Jugador> jugadores) {
-		Jugadores = jugadores;
+	
+	public void setJugadores(ArrayList<Jugador> jugadoresEquipo) {
+		Jugadores = jugadoresEquipo;
+		
 	}
 	
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	public void setEntrenador(Dt entrenador) {
-		this.entrenador = entrenador;
-	}
 	public int getGolesIdaCuartos() {
 		return golesIdaCuartos;
 	}
@@ -229,4 +235,5 @@ public class Equipo implements Serializable{
 				+ ", entrenador=" + entrenador.getApellido() + ", puntos=" + puntos + ", goles=" + goles + ", golesContra="
 				+ golesContra + "]";
 	}
+
 }

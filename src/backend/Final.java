@@ -14,47 +14,55 @@ public class Final {
 	private PartidoIdaVuelta partidoFinal;
 	private Resultados resultado;
 	private ArrayList <Equipo> equipos;
-	private Equipo campeon;
-	
+	private String campeon;
+	private boolean finalSimulada;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
 	public Final(ArrayList <Equipo> equipos) {
-		this.partidoFinal = new PartidoIdaVuelta (equipos.get(0), equipos.get(1));
+		partidoFinal = new PartidoIdaVuelta (equipos.get(0), equipos.get(1));
 		this.equipos = equipos;
+		finalSimulada = false;
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 	
 	public void juegaFinal () {
-		partidoFinal.simulacionNM();
-		resultado.setE1(partidoFinal.getEquipo1());
-		resultado.setGolesE1(partidoFinal.getGolesE1());
-		partidoFinal.getEquipo1().setGolesFinal(partidoFinal.getGolesE1());
-		partidoFinal.getEquipo2().setGolesFinal(partidoFinal.getGolesE2());
-		resultado.setE2(partidoFinal.getEquipo2());
-		resultado.setGolesE2(partidoFinal.getGolesE2());
-		if (resultado.getGolesE1() == resultado.getGolesE2()) {
-			partidoFinal.simulacionPen();
-			if (partidoFinal.getGolesP1() > partidoFinal.getGolesP2()) {
-				campeon = partidoFinal.getEquipo1();
+		if (!finalSimulada) {
+			partidoFinal.simulacionNM();
+			partidoFinal.getEquipo1().setGolesFinal(partidoFinal.getGolesE1());
+			partidoFinal.getEquipo2().setGolesFinal(partidoFinal.getGolesE2());
+			resultado = new Resultados (partidoFinal.getEquipo1(), partidoFinal.getEquipo2(), partidoFinal.getGolesE1(), partidoFinal.getGolesE2());
+			if (resultado.getGolesE1() == resultado.getGolesE2()) {
+				partidoFinal.simulacionPen();
+				if (partidoFinal.getGolesP1() > partidoFinal.getGolesP2()) {
+					campeon = partidoFinal.getEquipo1().getNombre();
+				}
+				else
+					campeon = partidoFinal.getEquipo2().getNombre();
 			}
-			else
-				campeon = partidoFinal.getEquipo2();
-				
-		}
-		else {
-			if (partidoFinal.getGolesE1() > partidoFinal.getGolesE2())
-				campeon = partidoFinal.getEquipo1();
-			else
-				campeon = partidoFinal.getEquipo2();
+			else {
+				if (partidoFinal.getGolesE1() > partidoFinal.getGolesE2())
+					campeon = partidoFinal.getEquipo1().getNombre();
+				else
+					campeon = partidoFinal.getEquipo2().getNombre();
+			}
+			finalSimulada = true;
 		}
 		
 	}
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	public String getCampeon () {
-		return campeon.getNombre();
+		return campeon;
+	}
+	
+	public Equipo getEquipo (int equipo) {
+		return equipos.get(equipo);
 	}
 	public String getResultadoFinal () {
 		return partidoFinal.getEquipo1().getNombre() +" "+ partidoFinal.getGolesE1()+"\n"+partidoFinal.getEquipo2().getNombre() +" "+ partidoFinal.getGolesE2();
+	}
+	
+	public boolean isFinalSimulada() {
+		return finalSimulada;
 	}
 }
