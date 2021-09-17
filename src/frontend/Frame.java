@@ -9,7 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
-
+/*
+ * Poner que informacion sea el ultimo panel siempre*/
 
 public class Frame extends JFrame {
 	private JPanel contentPane;
@@ -61,16 +62,11 @@ public class Frame extends JFrame {
 		
 		tabbedPane.addTab("Informacion", null, info, null);
 		tabbedPane.addTab("Zona", null, zona, null);
+		tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+2);
 	}
 	
 	//-------------------------------------------------<<METODOS DE SIMULACION FINALIZADA>>-------------------------------------------------
 	
-
-	public void ZtodoSimulado(int nrozona) {
-		zona.ZonaSimulada(nrozona);
-		//le pongo los equipos correspondientes a cuartos, y lo añado
-		cuartos.InicializaVariables(); //EL TEMA DE ESTA FUNCIÓN ES QUE INICIALIZA LAS VARIABLES DE TODO LOS CUARTOS, Y SE ESTA PASANDO COMO PARAMETRO UNA ZONA ESPECÍFICA
-	}
 	public void ZtodoSimulado() {
 		cuartos.InicializaVariables();
 		zona.getSimula_todo().setEnabled(false);
@@ -89,6 +85,7 @@ public class Frame extends JFrame {
 			//le pongo los equipos correspondientes a semis, y la añado
 			//semis.InicializaVariables();
 			tabbedPane.addTab("Semifinales", null, semis, null);
+			tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		}
 			
 	}
@@ -100,6 +97,7 @@ public class Frame extends JFrame {
 			//le pongo los equipos correspondientes a la final, y la añado
 			fin.InicializaVariables();
 			tabbedPane.addTab("Final", null, fin, null);
+			tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		}
 			
 	}

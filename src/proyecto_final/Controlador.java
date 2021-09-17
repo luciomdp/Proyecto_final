@@ -98,6 +98,7 @@ public class Controlador {
 			campeonatoActual.getZona(i).SimulaZona();
 			frameActual.ZonaSimulada(i);
 		}
+		ZonaSimulada();
 
 	}
 	
@@ -138,7 +139,7 @@ public class Controlador {
 	}
 	public int simulaPartidosIdaC() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
 		int partidoComienzo = campeonatoActual.getCuartosDeFinal().getPartidoActual();
-		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() < CANT_PARTIDOS_CUARTOS/2) {
+		if (partidoComienzo < CANT_PARTIDOS_CUARTOS/2) {
 			campeonatoActual.getCuartosDeFinal().SimulaIda();
 		}
 		frameActual.CtodoSimulado(0); //saca del frame la posibilidad de jugar mas partidos ida
@@ -148,7 +149,6 @@ public class Controlador {
 		if (!campeonatoActual.getCuartosDeFinal().isCuartosSimulado())
 			campeonatoActual.getCuartosDeFinal().SimulaCuartos();
 		CuartosSimulado();
-		frameActual.CtodoSimulado(1); //saca del frame la posibilidad de jugar mas partidos cuartos
 		return 0;
 	}
 	

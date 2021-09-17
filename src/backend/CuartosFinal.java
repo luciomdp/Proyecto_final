@@ -31,22 +31,21 @@ public class CuartosFinal{
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public CuartosFinal(ArrayList <Equipo> equipos) {
-		this.equipos = equipos;
-		ganadores = new ArrayList();
+		int i = 0,k = 0;
 		cuartosTodoSimulado = false;
+		this.equipos = equipos;
+		ganadores = new ArrayList <Equipo> ();
 		Collections.shuffle(this.equipos);
 		partidos = new PartidoIdaVuelta [CANT_P] ;
-		int k= 0;
-		for (int i = 0; i < CANT_P; i+=2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
-			partidos[k] = new PartidoIdaVuelta (this.equipos.get(i),this.equipos.get(i++));
+		for(;i<CANT_P/2;i++) {
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k++));
 			k++;
 		}
-		// 0 01, 1 23, 2 45, 3 67
-		for (int j = 0; j < CANT_P; j+=2) {
-			partidos[k] = new PartidoIdaVuelta (this.equipos.get(j++),this.equipos.get(j));
-			k++;
+		k= 0;
+		for(;i<CANT_P;i++) {
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k++),this.equipos.get(k--));
+			k += 2;
 		}
-		// 4 21, 5 43, 6 65, 7 87
 		this.resultados = new Resultados [CANT_P];
 		this.partidoActual = 0;
 	}
