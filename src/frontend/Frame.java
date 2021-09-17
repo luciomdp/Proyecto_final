@@ -69,7 +69,7 @@ public class Frame extends JFrame {
 	public void ZtodoSimulado(int nrozona) {
 		zona.ZonaSimulada(nrozona);
 		//le pongo los equipos correspondientes a cuartos, y lo añado
-		//cuartos.InicializaVariables(); //EL TEMA DE ESTA FUNCIÓN ES QUE INICIALIZA LAS VARIABLES DE TODO LOS CUARTOS, Y SE ESTA PASANDO COMO PARAMETRO UNA ZONA ESPECÍFICA
+		cuartos.InicializaVariables(); //EL TEMA DE ESTA FUNCIÓN ES QUE INICIALIZA LAS VARIABLES DE TODO LOS CUARTOS, Y SE ESTA PASANDO COMO PARAMETRO UNA ZONA ESPECÍFICA
 	}
 	public void ZtodoSimulado() {
 		cuartos.InicializaVariables();

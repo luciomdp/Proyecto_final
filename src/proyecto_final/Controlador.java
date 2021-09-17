@@ -136,18 +136,16 @@ public class Controlador {
 	}
 	public int simulaPartidosIdaC() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
 		int partidoComienzo = campeonatoActual.getCuartosDeFinal().getPartidoActual();
-		
+		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() < CANT_PARTIDOS_CUARTOS/2) {
+			campeonatoActual.getCuartosDeFinal().SimulaIda();
+		}
 		frameActual.CtodoSimulado(0); //saca del frame la posibilidad de jugar mas partidos ida
 		return partidoComienzo;
 	}
 	public int simulaPartidosCuartos() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
-		while (campeonatoActual.getCuartosDeFinal().getPartidoActual() < CANT_PARTIDOS_CUARTOS ) {
-			if (campeonatoActual.getCuartosDeFinal().getPartidoActual() < CANT_PARTIDOS_CUARTOS/2)
-				campeonatoActual.getCuartosDeFinal().SimulaIda();
-			else
-				//campeonatoActual.getCuartosDeFinal().SimulaVuelta();
-				return 0;
-		}
+		if (!campeonatoActual.getCuartosDeFinal().isCuartosSimulado())
+			campeonatoActual.getCuartosDeFinal().SimulaCuartos();
+		CuartosSimulado();
 		frameActual.CtodoSimulado(1); //saca del frame la posibilidad de jugar mas partidos cuartos
 		return 0;
 	}

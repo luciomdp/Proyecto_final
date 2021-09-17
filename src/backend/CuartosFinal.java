@@ -24,7 +24,7 @@ public class CuartosFinal{
 	private PartidoIdaVuelta partidos [];
 	private Resultados resultados [];
 	private Equipo pasanASemis [];
-	private int partidoActual, k;
+	private int partidoActual;
 	private ArrayList <Equipo> ganador;
 	private ArrayList <Equipo> equipos;
 	private boolean cuartosTodoSimulado;
@@ -32,18 +32,21 @@ public class CuartosFinal{
 	
 	public CuartosFinal(ArrayList <Equipo> equipos) {
 		this.equipos = equipos;
+		ganador = new ArrayList();
 		cuartosTodoSimulado = false;
 		Collections.shuffle(this.equipos);
-		this.partidos = new PartidoIdaVuelta [CANT_P] ;
+		partidos = new PartidoIdaVuelta [CANT_P] ;
 		int k= 0;
 		for (int i = 0; i < CANT_P; i+=2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
 			partidos[k] = new PartidoIdaVuelta (this.equipos.get(i),this.equipos.get(i++));
 			k++;
 		}
-		for (int i = 0; i < CANT_P; i+=2) {
-			partidos[k] = new PartidoIdaVuelta (this.equipos.get(i++),this.equipos.get(i));
+		// 0 01, 1 23, 2 45, 3 67
+		for (int j = 0; j < CANT_P; j+=2) {
+			partidos[k] = new PartidoIdaVuelta (this.equipos.get(j++),this.equipos.get(j));
 			k++;
 		}
+		// 4 21, 5 43, 6 65, 7 87
 		this.resultados = new Resultados [CANT_P];
 		this.partidoActual = 0;
 	}
@@ -55,7 +58,7 @@ public class CuartosFinal{
 				partidos[partidoActual].getEquipo1().setGolesIdaCuartos(partidos[partidoActual].getGolesE1());
 				partidos[partidoActual].getEquipo2().setGolesIdaCuartos(partidos[partidoActual].getGolesE2());
 				resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2());
-				if (partidoActual >= CANT_P/2) {
+				if (partidoActual >= CANT_P/2) { //SI YA ESTA EN LOS PARTIDOS DE VUELTA
 					if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() == resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL
 						if (resultados[partidoActual].getGolesE2() > resultados [partidoActual-(CANT_P/2)].getGolesE2()) { //SI LOS GOLES DEL EQUIPO 2 EN LA IDA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA VUELTA
 							this.setGanador(partidos[partidoActual].getEquipo2());
