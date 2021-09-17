@@ -44,6 +44,7 @@ public class Campeonato implements Serializable {
 	private final int CANTJ = 18; // CANTIDAD DE JUGADORES POR EQUIPO
 	private final int CANTR = 12; // CANTIDAD DE REFERIS
 	private final int CANTZ = 4; // CANTIDAD DE ZONAS
+	private final int CANT_EQUIPOS_CUARTOS = 8;
 	private final int EQUIPOS_ZONA = 4; 
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -51,7 +52,7 @@ public class Campeonato implements Serializable {
 	private ArrayList <Equipo> equipos;
 	private ArrayList <Jugador> jugadores;
 	private ArrayList <Referi> referis;
-	private Zona zonas [] = new Zona [CANTZ];
+	private Zona zonas[];
 	private CuartosFinal cuartosDeFinal;
 	private SemiFinal semiFinal;
 	private Final final_Campeonato;
@@ -63,6 +64,8 @@ public class Campeonato implements Serializable {
 		this.equipos = equipos;
 		this.jugadores = jugadores;
 		this.referis = referis;	
+		zonas = new Zona [CANTZ];
+		
 	}
 
 	//-------------------------------------------------<<MÉTODOS DE LA CLASE>>-------------------------------------------------
@@ -76,13 +79,20 @@ public class Campeonato implements Serializable {
         for (int z = 0; z < CANTZ; z++) {
             Equipo equiposZona[] = {equipos.get(j), equipos.get(j+1), equipos.get(j+2), equipos.get(j+3)};
             //0 1 2 3 /+4/ 4 5 6 7 /+4/ 8 9 10 11 /+4/ 12 13 14 15
-            zonas[z] = new Zona(equiposZona);
+            zonas[z] = new Zona(equiposZona, z +1);
             j += 4;
         }
 		this.cuartosDeFinal = null;
 		this.semiFinal = null;
 		this.final_Campeonato = null;
 		
+	}
+	
+	public boolean TodasZonasSimuladas() {
+		int i = 0;
+		while( i < CANTZ && zonas[i].isZonaSimulada())
+			i++;
+		return i == CANTZ;
 	}
 	
 	public String getTablaZona (int zona) { //DEVUELVE LA TABLA DE LA ZONA
@@ -157,22 +167,14 @@ public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
-	public void setCuartosFinal() {
-		Equipo[] equiposEnCuartos = new Equipo[8];
-		Equipo[] aux2 = new Equipo [2];
-		for (int i = 0; i < CANTZ; i += 2) {
-			aux2 = this.zonas[i].getGanadoresZona();
-			equiposEnCuartos[i] = aux2[0];
-			equiposEnCuartos[i+1] = aux2[1];
-		}
-		//cuartosDeFinal = new CuartosFinal(equiposEnCuartos);
-		
-	}
-	
 	public Equipo getECuartosFinal(int equipo) {
 		return cuartosDeFinal.getEquipo(equipo);
 	}
 	
+	public CuartosFinal getCuartosDeFinal() {
+		return cuartosDeFinal;
+	}
+
 	public SemiFinal getSemiFinal() {
 		//semiFinal = new SemiFinal(this.cuartosDeFinal.getPasanASemis());
 		return semiFinal;
@@ -189,6 +191,15 @@ public class Campeonato implements Serializable {
 	
 	public void setControlador(Controlador control) {
 		this.control = control;
+	}
+
+	public void IniciaCuartos() {
+		ArrayList <Equipo> equiposCuartos = new ArrayList <Equipo>();
+		for (int i = 0; i < CANTZ; i ++) {
+			equiposCuartos.add(zonas[i].getEquipo(0));
+			equiposCuartos.add(zonas[i].getEquipo(1));
+		}
+		cuartosDeFinal = new CuartosFinal(equiposCuartos);
 	}
 
 }

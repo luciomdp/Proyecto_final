@@ -96,20 +96,20 @@ public class Cuartos extends General{
 						partido_simulado = getControlador().SimulaPartidoC(); 
 						  switch(partido_simulado) {
 						  		case 1:
-						  			 CEquipo1.setText(getControlador().getECuartos(1));
-						  			 CEquipo2.setText(getControlador().getECuartos(2));
+						  			 CEquipo1.setText(getControlador().getECuartos(0));
+						  			 CEquipo2.setText(getControlador().getECuartos(1));
 						  		break;
 						  		case 2:
-						            CEquipo3.setText(getControlador().getECuartos(3));
-						  			 CEquipo4.setText(getControlador().getECuartos(4));
+						             CEquipo3.setText(getControlador().getECuartos(2));
+						  			 CEquipo4.setText(getControlador().getECuartos(3));
 						  		break;
 						  		case 3:
-						  			 CEquipo5.setText(getControlador().getECuartos(5));
-						  			 CEquipo6.setText(getControlador().getECuartos(6));
+						  			 CEquipo5.setText(getControlador().getECuartos(4));
+						  			 CEquipo6.setText(getControlador().getECuartos(5));
 						  		break;
 						  		case 4:
-						  			 CEquipo7.setText(getControlador().getECuartos(7));
-						  			 CEquipo8.setText(getControlador().getECuartos(8));
+						  			 CEquipo7.setText(getControlador().getECuartos(6));
+						  			 CEquipo8.setText(getControlador().getECuartos(7));
 						  		break;
 						  }			  
 						//se simula el partido que sea
@@ -124,17 +124,17 @@ public class Cuartos extends General{
 						//simula todo, por lo que si se simula un anterior, se simulara el posterior (siempre se simulan los partidos en orden)
 						switch(partido_simulado) {
 						  		case 1:
-						  			 CEquipo1.setText(getControlador().getECuartos(1));
-						  			 CEquipo2.setText(getControlador().getECuartos(2));
+						  			 CEquipo1.setText(getControlador().getECuartos(0));
+						  			 CEquipo2.setText(getControlador().getECuartos(1));
 						  		case 2:
-						            CEquipo3.setText(getControlador().getECuartos(3));
-						  			 CEquipo4.setText(getControlador().getECuartos(4));
+						            CEquipo3.setText(getControlador().getECuartos(2));
+						  			 CEquipo4.setText(getControlador().getECuartos(3));
 						  		case 3:
-						  			 CEquipo5.setText(getControlador().getECuartos(5));
-						  			 CEquipo6.setText(getControlador().getECuartos(6));
+						  			 CEquipo5.setText(getControlador().getECuartos(4));
+						  			 CEquipo6.setText(getControlador().getECuartos(5));
 						  		case 4:
-						  			 CEquipo7.setText(getControlador().getECuartos(7));
-						  			 CEquipo8.setText(getControlador().getECuartos(8));
+						  			 CEquipo7.setText(getControlador().getECuartos(6));
+						  			 CEquipo8.setText(getControlador().getECuartos(7));
 						  }
 						//le saco el break asi dependiendo el que sea, ejecuta tambien las sentencias del de abajo
 					}

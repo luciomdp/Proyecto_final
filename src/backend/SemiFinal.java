@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 sea para mostrar errores. Si se jugaron todos los partidos,
 tendrías que avisar al front mediante el controlador.*/
 
-public class SemiFinal extends Final {
+public class SemiFinal {
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
@@ -27,7 +27,6 @@ public class SemiFinal extends Final {
 	
 	public SemiFinal(ArrayList <Equipo> equipos) {
 		
-		super (equipos);
 		this.equipos = equipos;
 		Collections.shuffle(equipos);
 		int k= 0;

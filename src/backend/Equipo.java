@@ -94,11 +94,11 @@ public class Equipo implements Serializable{
     }
 	
 	public String getEstadisticasCuartosIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
-        return nombre + " " + golesIdaCuartos;
+		return nombre + golesIdaCuartos;
     }
 	
-	public String getEstadisticasCuartosVuelta() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA VUELTA DE LOS CUARTOS
-        return nombre + " " + golesVueltaCuartos;
+	public String getEstadisticasCuartosVuelta() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
+		return nombre + golesVueltaCuartos + golesIdaCuartos;
     }
 	
 	public int getpP() {
