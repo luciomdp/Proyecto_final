@@ -10,7 +10,7 @@ import proyecto_final.Controlador;
 public class Semifinales extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
-	private int AUMENTO_FUENTE = 1;
+	private int AUMENTO_FUENTE = 0;
 			
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 			
@@ -51,9 +51,9 @@ public class Semifinales extends General{
 		
 		SEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2 - CANCHA_TAMANO_RECT_C/2,HEIGHT/2 + CANCHA_TAMANO_RECT_G/2 - TAM_LABEL.height*2 + 25,WIDTH/2 - CANCHA_TAMANO_RECT_C + 28 + AUMENTO_FUENTE*10,TAM_LABEL.height);
 		
-		SEquipo3.setBounds(WIDTH/2 + CANCHA_TAMANO_RECT_C - 15,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 28 + AUMENTO_FUENTE*10,TAM_LABEL.height);
+		SEquipo3.setBounds(WIDTH/2 + CANCHA_TAMANO_RECT_G/2 ,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 28 + AUMENTO_FUENTE*10,TAM_LABEL.height);
 		
-		SEquipo4.setBounds(WIDTH/2 + CANCHA_TAMANO_RECT_C - 15,HEIGHT/2 + CANCHA_TAMANO_RECT_G/2 - TAM_LABEL.height*2 + 25,WIDTH/2 - CANCHA_TAMANO_RECT_C + 28 + AUMENTO_FUENTE*10,TAM_LABEL.height);
+		SEquipo4.setBounds(WIDTH/2 + CANCHA_TAMANO_RECT_G/2 ,HEIGHT/2 + CANCHA_TAMANO_RECT_G/2 - TAM_LABEL.height*2 + 25,WIDTH/2 - CANCHA_TAMANO_RECT_C + 28 + AUMENTO_FUENTE*10,TAM_LABEL.height);
 			
 		ScomboBox.setEditable(false);
 		ScomboBox.addItem("Semifinales");

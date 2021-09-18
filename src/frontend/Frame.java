@@ -12,7 +12,8 @@ import java.awt.geom.*;
 /*
  * Poner que informacion sea el ultimo panel siempre
  * Cambiar el width de general para que siempre sea aprox el mismo
- * Aplicar herencia entre cuartos, semis y final*/
+ * Aplicar herencia entre cuartos, semis y final
+ * Poner en rojo los equipos que no hayan pasado*/
 
 public class Frame extends JFrame {
 	private JPanel contentPane;
@@ -63,19 +64,18 @@ public class Frame extends JFrame {
 		
 		tabbedPane.addTab("Zona", null, zona, null);
 		tabbedPane.addTab("Informacion", null, info, null);
-		tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 	}
 	
 	//-------------------------------------------------<<METODOS DE SIMULACION FINALIZADA>>-------------------------------------------------
 	
 	public void ZtodoSimulado() {
+		
 		cuartos.InicializaVariables();
 		zona.getSimula_todo().setEnabled(false);
 		//JOptionPane.showMessageDialog(this, "Terminaron las fases de grupos");
 		tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 		tabbedPane.addTab("Cuartos", null, cuartos, null);
 		tabbedPane.addTab("Informacion", null, info, null);
-		tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		
 	}
 	public void ZonaSimulada(int nrozona) {
@@ -91,7 +91,6 @@ public class Frame extends JFrame {
 			tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 			tabbedPane.addTab("Semifinales", null, semis, null);
 			tabbedPane.addTab("Informacion", null, info, null);
-			tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		}
 			
 	}
@@ -105,7 +104,7 @@ public class Frame extends JFrame {
 			tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 			tabbedPane.addTab("Final", null, fin, null);
 			tabbedPane.addTab("Informacion", null, info, null);
-			tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
+
 		}
 			
 	}

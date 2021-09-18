@@ -33,6 +33,8 @@ un poco mas estético.
 en getters ?
 
 153- revisar que hay un error si o si, porque una variable solo puede ser nula en ese punto
+
+Los referis no dirigen partidos, implementar.
 */
 
 public class Campeonato implements Serializable {
