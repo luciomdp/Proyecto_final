@@ -1,5 +1,6 @@
 package proyecto_final;
 
+import javax.swing.*;
 import backend.Campeonato;
 import backend.Posicion;
 import frontend.Frame;
@@ -230,6 +231,8 @@ public class Controlador {
 		public void SimulaFinal() { 
 			if (!campeonatoActual.getFinal().isFinalSimulada()) {
 				campeonatoActual.getFinal().juegaFinal();
+				frameActual.FtodoSimulado();
+				JOptionPane.showMessageDialog(null,campeonatoActual.getFinal().getCampeon() + " es el nuevo campeon de la copa!");
 			}
 		}
 	

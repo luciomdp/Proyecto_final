@@ -9,6 +9,7 @@ public class Final extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private final int AUMENTO_FUENTE = 10;
+	private final Color COLOR_CAMPEON = new Color(255, 235, 0);
 		
 	//-------------------------------------------------<<VARIABLES>>------------------------------------------------
 	
@@ -81,7 +82,7 @@ public class Final extends General{
 	
 		public void FinalSimulada() {
 			SimulaFinal.setEnabled(false);
-			//Hacer algo cuando se simulo la final
+			FpanelC.setBackground(COLOR_CAMPEON);
 		}
 
 		public void InicializaVariables() {

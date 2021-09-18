@@ -53,7 +53,6 @@ public class Frame extends JFrame {
 		info = new Informacion(c);
 	}
 	public void IniciaTorneo(String Zonas[]) { //SE PASA POR PARAMETRO LO QUE SEA NECESARIO PARA DARLE STRINGS A LAS ETIQUETAS DEL VISUAL 
-		//SE USA PARA TODO (CONTINUA Y GUARDA)
 		
 		zona.setZona1(Zonas[0]);
 		zona.setZona2(Zonas[1]);
@@ -62,9 +61,9 @@ public class Frame extends JFrame {
 		
 		//-------------------------------------------------<<AGREGO LAS PESTAÑAS INFORMACION Y ZONA>>-------------------------------------------------
 		
-		tabbedPane.addTab("Informacion", null, info, null);
 		tabbedPane.addTab("Zona", null, zona, null);
-		tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+2);
+		tabbedPane.addTab("Informacion", null, info, null);
+		tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 	}
 	
 	//-------------------------------------------------<<METODOS DE SIMULACION FINALIZADA>>-------------------------------------------------
@@ -72,8 +71,10 @@ public class Frame extends JFrame {
 	public void ZtodoSimulado() {
 		cuartos.InicializaVariables();
 		zona.getSimula_todo().setEnabled(false);
-		JOptionPane.showMessageDialog(this, "Terminaron las fases de grupos");
+		//JOptionPane.showMessageDialog(this, "Terminaron las fases de grupos");
+		tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 		tabbedPane.addTab("Cuartos", null, cuartos, null);
+		tabbedPane.addTab("Informacion", null, info, null);
 		tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		
 	}
@@ -86,8 +87,10 @@ public class Frame extends JFrame {
 		else {
 			cuartos.CuartosSimulado();
 			semis.InicializaVariables();
-			JOptionPane.showMessageDialog(this, "Terminaron los cuartos de final");
+			//JOptionPane.showMessageDialog(this, "Terminaron los cuartos de final");
+			tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 			tabbedPane.addTab("Semifinales", null, semis, null);
+			tabbedPane.addTab("Informacion", null, info, null);
 			tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		}
 			
@@ -98,13 +101,15 @@ public class Frame extends JFrame {
 		else {
 			semis.SemisSimulada();
 			fin.InicializaVariables();
-			JOptionPane.showMessageDialog(this, "Terminaron las semifinales");
+			//JOptionPane.showMessageDialog(this, "Terminaron las semifinales");
+			tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 			tabbedPane.addTab("Final", null, fin, null);
+			tabbedPane.addTab("Informacion", null, info, null);
 			tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		}
 			
 	}
-	public void FtodoSimulado() { //falta implementar cuando se cree la final
+	public void FtodoSimulado() {
 		fin.FinalSimulada();
 	}
 }
