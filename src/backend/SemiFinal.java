@@ -27,19 +27,20 @@ public class SemiFinal {
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
 	public SemiFinal(ArrayList <Equipo> equipos) {
-		
-		this.equipos = equipos;
-		ganadores = new ArrayList();
+		int i = 0,k = 0;
 		semisTodaSimulada = false;
+		this.equipos = equipos;
+		partidos = new PartidoIdaVuelta [CANT_P];
+		ganadores = new ArrayList <Equipo> ();
 		Collections.shuffle(equipos);
-		int k= 0;
-		for (int i = 0; i < CANT_P; i += 2) { //El EQUIPO A DEL PARTIDO SIEMPRE ES EL LOCAL, EL B EL VISITANTE
-			this.partidos [k] = new PartidoIdaVuelta (equipos.get(i), equipos.get(i++));
+		for(;i<CANT_P/2;i++) {
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k++));
 			k++;
 		}
-		for (int i = 0; i < CANT_P; i+=2) {
-			this.partidos [k] = new PartidoIdaVuelta (equipos.get(i++), equipos.get(i));
-			k++;
+		k= 0;
+		for(;i<CANT_P;i++) {
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k++),this.equipos.get(k--));
+			k += 2;
 		}
 		this.resultados = new Resultados [CANT_P];
 		this.partidoActual = 0;
@@ -63,6 +64,8 @@ public class SemiFinal {
 					}
 					else { // HAY PENALES
 						partidos[partidoActual].simulacionPen();
+						partidos[partidoActual].getEquipo1().setGolesPenalesC(partidos[partidoActual].getGolesP1());
+						partidos[partidoActual].getEquipo2().setGolesPenalesC(partidos[partidoActual].getGolesP2());
 						if (partidos[partidoActual].getGolesP1() > partidos[partidoActual].getGolesP2()) { // SI LOS GOLES DE PENAL DEL EQUIPO 1 SON MAYORES QUE LOS DEL EQUIPO 2
 							ganadores.add(partidos[partidoActual].getEquipo1());
 						}

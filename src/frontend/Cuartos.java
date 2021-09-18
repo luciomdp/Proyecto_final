@@ -110,6 +110,7 @@ public class Cuartos extends General{
 						  		case 0:
 						  			 CEquipo1.setText(getControlador().getECuartos(0));
 						  			 CEquipo2.setText(getControlador().getECuartos(1));
+		
 						  		case 1:
 						            CEquipo3.setText(getControlador().getECuartos(2));
 						  			 CEquipo4.setText(getControlador().getECuartos(3));

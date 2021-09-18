@@ -76,13 +76,13 @@ public class Semifinales extends General{
 					if((String)ScomboBox.getSelectedItem() == "Simula partido") {
 						partido_simulado = getControlador().SimulaPartidoS(); 
 						  switch(partido_simulado) {
-						  		case 1:
-						  			 SEquipo1.setText(getControlador().getESemis(1));
-						  			 SEquipo2.setText(getControlador().getESemis(2));
+						  		case 0:
+						  			 SEquipo1.setText(getControlador().getESemis(0));
+						  			 SEquipo2.setText(getControlador().getESemis(1));
 						  		break;
-						  		case 2:
-						            SEquipo3.setText(getControlador().getESemis(3));
-						 			 SEquipo4.setText(getControlador().getESemis(4));
+						  		case 1:
+						            SEquipo3.setText(getControlador().getESemis(2));
+						 			 SEquipo4.setText(getControlador().getESemis(3));
 						  		break;
 						  }
 						 
@@ -94,14 +94,14 @@ public class Semifinales extends General{
 							if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos")
 								partido_simulado = getControlador().simulaPartidosSemis();
 						}
-						partido_simulado = getControlador().simulaPartidosSemis();
+						//partido_simulado = getControlador().simulaPartidosSemis();
 						  switch(partido_simulado) {
+						  		case 0:
+						  			 SEquipo1.setText(getControlador().getESemis(0));
+						 			 SEquipo2.setText(getControlador().getESemis(1));
 						  		case 1:
-						  			 SEquipo1.setText(getControlador().getESemis(1));
-						 			 SEquipo2.setText(getControlador().getESemis(2));
-						  		case 2:
-						             SEquipo3.setText(getControlador().getESemis(3));
-						 			 SEquipo4.setText(getControlador().getESemis(4));
+						             SEquipo3.setText(getControlador().getESemis(2));
+						 			 SEquipo4.setText(getControlador().getESemis(3));
 						  }
 					}
 				}
@@ -130,10 +130,10 @@ public class Semifinales extends General{
 	}
 	
 	public void InicializaVariables() {
-		SEquipo1.setText(getControlador().getESemis(1));
-		SEquipo2.setText(getControlador().getESemis(2));
-		SEquipo3.setText(getControlador().getESemis(3));
-		SEquipo4.setText(getControlador().getESemis(4));
+		SEquipo1.setText(getControlador().getESemis(0));
+		SEquipo2.setText(getControlador().getESemis(1));
+		SEquipo3.setText(getControlador().getESemis(2));
+		SEquipo4.setText(getControlador().getESemis(3));
 	}
 	
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------

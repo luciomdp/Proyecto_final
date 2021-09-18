@@ -97,6 +97,7 @@ public class Equipo implements Serializable{
         return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pP + "| " + (goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
     }
 	
+	
 	public String getEstadisticasCuartosIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
 		return nombre + "|" + golesIdaCuartos + "|";
     }
@@ -110,11 +111,15 @@ public class Equipo implements Serializable{
     }
 	
 	public String getEstadisticasSemisIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
-		return nombre + golesIdaSemis;
+		return nombre + "|" + golesIdaSemis + "|";
     }
 	
 	public String getEstadisticaSemis() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
-		return nombre + golesVueltaSemis + golesIdaSemis;
+		if (golesPenalesC == -1)
+			return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis);
+		else
+			return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis) + " P:" + (golesPenalesC + 1);
+			
     }
 	
 	public String getEstadisticasFinal () {

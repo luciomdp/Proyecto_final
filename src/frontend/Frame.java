@@ -83,7 +83,7 @@ public class Frame extends JFrame {
 		else {
 			cuartos.CuartosSimulado(); //se simulo todo cuartos
 			//le pongo los equipos correspondientes a semis, y la añado
-			//semis.InicializaVariables();
+			semis.InicializaVariables();
 			tabbedPane.addTab("Semifinales", null, semis, null);
 			tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		}

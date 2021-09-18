@@ -170,6 +170,9 @@ public class Campeonato implements Serializable {
 	public Equipo getECuartosFinal(int equipo) {
 		return cuartosDeFinal.getEquipo(equipo);
 	}
+	public Equipo getESemiFinal(int equipo) {
+		return semiFinal.getEquipoSemis(equipo);
+	}
 	
 	public CuartosFinal getCuartosDeFinal() {
 		return cuartosDeFinal;
@@ -204,6 +207,9 @@ public class Campeonato implements Serializable {
 	
 	public void IniciaSemis () {
 		semiFinal = new SemiFinal (cuartosDeFinal.getGanadores());
+	}
+	public void IniciaFinal () {
+		final_Campeonato = new Final (semiFinal.getGanadores());
 	}
 
 }

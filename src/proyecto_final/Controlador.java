@@ -116,7 +116,9 @@ public class Controlador {
 	//-------------------------------------------------<<SIMULADORES CUARTOS>>-------------------------------------------------
 	
 	public String getECuartos(int equipo) {//DEBERIA RETORNAR EL STRING DEL EQUIPO, CON LA ACTUALIZACION EN GOLES IDA, VUELTA, ETC
-		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() <= 4) 
+		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() == 0)
+			return campeonatoActual.getECuartosFinal(equipo).getNombre();
+		else if (campeonatoActual.getCuartosDeFinal().getPartidoActual() <= 4) 
 			return campeonatoActual.getECuartosFinal(equipo).getEstadisticasCuartosIda();
 		else if (campeonatoActual.getCuartosDeFinal().getPartidoActual() < 8)
 			return campeonatoActual.getECuartosFinal(equipo).getEstadisticasCuartosVuelta();
@@ -148,44 +150,72 @@ public class Controlador {
 		return partidoComienzo;
 	}
 	public int simulaPartidosCuartos() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
-		int partidoInicio = campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1;
+		int partidoInicio = campeonatoActual.getCuartosDeFinal().getPartidoActual();
 		if (!campeonatoActual.getCuartosDeFinal().isCuartosSimulado())
 			campeonatoActual.getCuartosDeFinal().SimulaCuartos();
 		CuartosSimulado();
-		return partidoInicio;
+		return 0;
 	}
 	
 	public void CuartosSimulado() {
 		if(campeonatoActual.getCuartosDeFinal().isCuartosSimulado()) {
-			//campeonatoActual.IniciaSemis();
+			campeonatoActual.IniciaSemis();
 			frameActual.CtodoSimulado(1);
 		}
 	}
 	//-------------------------------------------------<<SIMULADORES SEMIS>>-------------------------------------------------
 		
-		public String getESemis(int equipo) {//DEBERIA RETORNAR EL STRING DEL EQUIPO, CON LA ACTUALIZACION EN GOLES IDA, VUELTA, ETC
-			
-			if (campeonatoActual.getSemiFinal().getPartidoAct() < CANT_PARTIDOS_SEMIS)
-				return campeonatoActual.getSemiFinal().getEquipoSemis(equipo).getEstadisticasSemisIda(); // DEVUELVE LAS ESTADÍSTICAS DEL EQUIPO equipo DE LAS SEMIS (adentro de smis hay un arreglo con todos los equipos que juegan)
+	public String getESemis(int equipo) {//DEBERIA RETORNAR EL STRING DEL EQUIPO, CON LA ACTUALIZACION EN GOLES IDA, VUELTA, ETC
+		if (campeonatoActual.getSemiFinal().getPartidoAct() == 0)
+			return campeonatoActual.getESemiFinal(equipo).getNombre();
+		else if (campeonatoActual.getSemiFinal().getPartidoAct() <= 2) 
+			return campeonatoActual.getESemiFinal(equipo).getEstadisticasSemisIda();
+		else if (campeonatoActual.getSemiFinal().getPartidoAct() < 4)
+			return campeonatoActual.getESemiFinal(equipo).getEstadisticaSemis();
+		else 
+			return campeonatoActual.getESemiFinal(equipo).getEstadisticaSemis();
+	}
+	
+	
+	public int SimulaPartidoS() { //Devuelve el partido que se jugo (1,2,3 o 4)
+		//evaluar si se puede simular otro partido de ida, sino, llamar al metodo CtodoSimulado(0) del Frame
+		//evaluar si se puede simular otro partido , sino, llamar al metodo CtodoSimulado(1) del Frame
+		if (campeonatoActual.getSemiFinal().getPartidoAct() + 1  == CANT_PARTIDOS_SEMIS) {
+			campeonatoActual.getSemiFinal().SimulaPartido();
+			SemiFinalesSimuladas();
+			return campeonatoActual.getSemiFinal().getPartidoAct() - 3  ;
+		}else {
+			campeonatoActual.getSemiFinal().SimulaPartido();
+			if(campeonatoActual.getSemiFinal().getPartidoAct() - 1 < CANT_PARTIDOS_SEMIS/2)
+				return campeonatoActual.getSemiFinal().getPartidoAct() - 1;
 			else
-				return campeonatoActual.getSemiFinal().getEquipoSemis(equipo).getEstadisticaSemis();
+				return campeonatoActual.getSemiFinal().getPartidoAct() - 3 ;
 		}
-		
-		public int SimulaPartidoS() { //Devuelve el partido que se jugo (1,2,3 o 4)
-			//evaluar si se puede simular otro partido de ida, sino, llamar al metodo StodoSimulado(0) del Frame
-			//evaluar si se puede simular otro partido , sino, llamar al metodo StodoSimulado(1) del Frame
-			return 1; 
+	}
+	
+	
+	public int simulaPartidosIdaS() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
+		int partidoComienzo = campeonatoActual.getSemiFinal().getPartidoAct();
+		if (partidoComienzo < CANT_PARTIDOS_SEMIS/2) {
+			campeonatoActual.getSemiFinal().SimulaIda();
 		}
-
-		public int simulaPartidosIdaS() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
-			frameActual.StodoSimulado(0); //saca del frame la posibilidad de jugar mas partidos ida
-			return 0;
+		frameActual.StodoSimulado(0); //saca del frame la posibilidad de jugar mas partidos ida
+		return partidoComienzo;
+	}
+	
+	public int simulaPartidosSemis() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
+		int partidoInicio = campeonatoActual.getSemiFinal().getPartidoAct();
+		if (!campeonatoActual.getSemiFinal().SemiFinalSimulada())
+			campeonatoActual.getSemiFinal().SimulaSemis();
+		SemiFinalesSimuladas();
+		return 0;
+	}
+	public void SemiFinalesSimuladas() {
+		if(campeonatoActual.getSemiFinal().SemiFinalSimulada()) {
+			campeonatoActual.IniciaFinal();
+			frameActual.StodoSimulado(1);
 		}
-		
-		public int simulaPartidosSemis() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
-			frameActual.StodoSimulado(1); //saca del frame la posibilidad de jugar mas partidos semis
-			return 0;
-		}
+	}
 	
 	//-------------------------------------------------<< SIMULADORES FINAL >>--------------------------------------------------------------------
 		
