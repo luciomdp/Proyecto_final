@@ -140,8 +140,8 @@ public class Equipo implements Serializable{
 		return ganaGolVisitante;
 	}
 	
-	public void setGolVisitante () {
-		this.ganaGolVisitante = true;
+	public void setGolVisitante (boolean condicion) {
+		this.ganaGolVisitante = condicion;
 	}
 	
 	public int getGolesPenalesC() {

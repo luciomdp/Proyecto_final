@@ -55,6 +55,10 @@ public class CuartosFinal{
 			if (!cuartosTodoSimulado) {
 				if (partidoActual >= CANT_P/2) { //SI YA ESTA EN LOS PARTIDOS DE VUELTA
 					partidos[partidoActual].simulacionNM();
+					partidos[partidoActual].getEquipo1().setGolVisitante(false);
+					partidos[partidoActual].getEquipo2().setGolVisitante(false);
+					partidos[partidoActual].getEquipo1().setGolesPenalesC(-1);
+					partidos[partidoActual].getEquipo2().setGolesPenalesC(-1);
 					System.out.println(partidos[partidoActual].getEquipo1().getNombre());
 					System.out.println(partidos[partidoActual].getGolesE1());
 					System.out.println(partidos[partidoActual].getEquipo2().getNombre());
@@ -65,11 +69,11 @@ public class CuartosFinal{
 					if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() == resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL
 						if (resultados[partidoActual].getGolesE2() > resultados [partidoActual-(CANT_P/2)].getGolesE2()) { //SI LOS GOLES DEL EQUIPO 2 EN LA IDA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA VUELTA
 							ganadores.add(partidos[partidoActual].getEquipo2());
-							partidos[partidoActual].getEquipo2().setGolVisitante();
+							partidos[partidoActual].getEquipo2().setGolVisitante(true);
 						}
 						else if (resultados[partidoActual].getGolesE2() < resultados [partidoActual-(CANT_P/2)].getGolesE2()) { // SI LOS GOLES DE EQUIPO 2 EN LA VUELTA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA IDA
 							ganadores.add(partidos[partidoActual-(CANT_P/2)].getEquipo2());
-							partidos[partidoActual-(CANT_P/2)].getEquipo2().setGolVisitante();
+							partidos[partidoActual-(CANT_P/2)].getEquipo2().setGolVisitante(true);
 						}
 						else { // HAY PENALES
 							partidos[partidoActual].simulacionPen();
