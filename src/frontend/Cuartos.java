@@ -13,14 +13,14 @@ public class Cuartos extends General{
 	private JPanel CpanelN;
 	private panelC CpanelC;
 	private JComboBox<String> CcomboBox;
-	private JLabel CEquipo1;
-	private JLabel CEquipo2;
-	private JLabel CEquipo3;
-	private JLabel CEquipo4;
-	private JLabel CEquipo5;
-	private JLabel CEquipo6;
-	private JLabel CEquipo7;
-	private JLabel CEquipo8;
+	private CLabel CEquipo1;
+	private CLabel CEquipo2;
+	private CLabel CEquipo3;
+	private CLabel CEquipo4;
+	private CLabel CEquipo5;
+	private CLabel CEquipo6;
+	private CLabel CEquipo7;
+	private CLabel CEquipo8;
 	
 	public Cuartos (Controlador c){
 		
@@ -150,6 +150,7 @@ public class Cuartos extends General{
 		CcomboBox.removeItem("Simula todos los partidos de ida"); 
 	}
 	public void CuartosSimulado() {
+		CcomboBox.setSelectedIndex(0);
 		CcomboBox.setEnabled(false);
 	}
 	

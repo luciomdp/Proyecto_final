@@ -17,10 +17,10 @@ public class Semifinales extends General{
 	private JPanel SpanelN;
 	private panelS SpanelC;
 	private JComboBox<String> ScomboBox;
-	private JLabel SEquipo1;
-	private JLabel SEquipo2;
-	private JLabel SEquipo3;
-	private JLabel SEquipo4;
+	private SLabel SEquipo1;
+	private SLabel SEquipo2;
+	private SLabel SEquipo3;
+	private SLabel SEquipo4;
 		
 	public Semifinales (Controlador c){
 		
@@ -118,6 +118,7 @@ public class Semifinales extends General{
 	}
 	
 	public void SemisSimulada() {
+		ScomboBox.setSelectedIndex(0);
 		ScomboBox.setEnabled(false);
 	}
 	

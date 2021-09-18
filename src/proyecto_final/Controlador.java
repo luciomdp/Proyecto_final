@@ -154,7 +154,7 @@ public class Controlador {
 		if (!campeonatoActual.getCuartosDeFinal().isCuartosSimulado())
 			campeonatoActual.getCuartosDeFinal().SimulaCuartos();
 		CuartosSimulado();
-		return 0;
+		return partidoInicio;
 	}
 	
 	public void CuartosSimulado() {
@@ -208,7 +208,7 @@ public class Controlador {
 		if (!campeonatoActual.getSemiFinal().SemiFinalSimulada())
 			campeonatoActual.getSemiFinal().SimulaSemis();
 		SemiFinalesSimuladas();
-		return 0;
+		return partidoInicio;
 	}
 	public void SemiFinalesSimuladas() {
 		if(campeonatoActual.getSemiFinal().SemiFinalSimulada()) {
@@ -220,14 +220,17 @@ public class Controlador {
 	//-------------------------------------------------<< SIMULADORES FINAL >>--------------------------------------------------------------------
 		
 		public String getEFinal(int equipo) {//DEBERIA RETORNAR EL STRING DEL EQUIPO, CON LA ACTUALIZACION EN GOLES IDA, VUELTA, ETC
-			return campeonatoActual.getFinal().getEquipo(equipo).getEstadisticasFinal();
+			return campeonatoActual.getFinal().getEquipo(equipo).getNombre();
 		}
 		
-		public int SimulaFinal() { //Devuelve el partido que se jugo (1,2,3 o 4)
+		public int getGFinal(int equipo) {
+			return campeonatoActual.getFinal().getEquipo(equipo).getGolesFinal();
+		}
+		
+		public void SimulaFinal() { 
 			if (!campeonatoActual.getFinal().isFinalSimulada()) {
 				campeonatoActual.getFinal().juegaFinal();
 			}
-			return 1; 
 		}
 	
 }

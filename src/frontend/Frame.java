@@ -11,7 +11,8 @@ import java.awt.event.*;
 import java.awt.geom.*;
 /*
  * Poner que informacion sea el ultimo panel siempre
- * Cambiar el width de general para que siempre sea aprox el mismo*/
+ * Cambiar el width de general para que siempre sea aprox el mismo
+ * Aplicar herencia entre cuartos, semis y final*/
 
 public class Frame extends JFrame {
 	private JPanel contentPane;
