@@ -36,7 +36,7 @@ public class General extends JPanel{
 	protected final Color COLOR_LINEAS_CANCHA = Color.GRAY;
 	//-----------------------------------BOTONES-----------------------------
 	
-	private final int TAM_HOR_LABEL = 300,TAM_VER_LABEL = 60;
+	private final int TAM_HOR_LABEL = 300,TAM_VER_LABEL = 46;
 	protected final int TAM_HOR_BTTN = 350;
 	protected final int TAM_VER_BTTN = 40;
 	protected int AUM_Y_BTTN = WIDTH/16;

@@ -10,7 +10,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
 /*
- * Poner que informacion sea el ultimo panel siempre*/
+ * Poner que informacion sea el ultimo panel siempre
+ * Cambiar el width de general para que siempre sea aprox el mismo*/
 
 public class Frame extends JFrame {
 	private JPanel contentPane;
@@ -70,6 +71,7 @@ public class Frame extends JFrame {
 	public void ZtodoSimulado() {
 		cuartos.InicializaVariables();
 		zona.getSimula_todo().setEnabled(false);
+		JOptionPane.showMessageDialog(this, "Terminaron las fases de grupos");
 		tabbedPane.addTab("Cuartos", null, cuartos, null);
 		tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		
@@ -81,9 +83,9 @@ public class Frame extends JFrame {
 		if(i == 0)
 			cuartos.CuartosSimuladoIda();
 		else {
-			cuartos.CuartosSimulado(); //se simulo todo cuartos
-			//le pongo los equipos correspondientes a semis, y la añado
+			cuartos.CuartosSimulado();
 			semis.InicializaVariables();
+			JOptionPane.showMessageDialog(this, "Terminaron los cuartos de final");
 			tabbedPane.addTab("Semifinales", null, semis, null);
 			tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		}
@@ -94,8 +96,8 @@ public class Frame extends JFrame {
 			semis.SemisSimuladaIda();
 		else {
 			semis.SemisSimulada();
-			//le pongo los equipos correspondientes a la final, y la añado
 			fin.InicializaVariables();
+			JOptionPane.showMessageDialog(this, "Terminaron las semifinales");
 			tabbedPane.addTab("Final", null, fin, null);
 			tabbedPane.setSelectedIndex(tabbedPane.getSelectedIndex()+1);
 		}

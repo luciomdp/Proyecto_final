@@ -10,7 +10,7 @@ import proyecto_final.Controlador;
 public class Semifinales extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
-	private int AUMENTO_FUENTE = 10;
+	private int AUMENTO_FUENTE = 1;
 			
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 			
@@ -35,10 +35,10 @@ public class Semifinales extends General{
 		SpanelN = new JPanel();
 		SpanelC = new panelS(); 
 		ScomboBox = new JComboBox<String>();
-		SEquipo1 = new JLabel();
-		SEquipo2 = new JLabel();
-		SEquipo3 = new JLabel();
-		SEquipo4 = new JLabel();
+		SEquipo1 = new SLabel ();
+		SEquipo2 = new SLabel ();
+		SEquipo3 = new SLabel ();
+		SEquipo4 = new SLabel ();
 		
 			
 		//-------------------------------------------------<<SETEO VARIABLES>>-------------------------------------------------
@@ -47,21 +47,13 @@ public class Semifinales extends General{
 		SpanelC.setBackground(COLOR_PANEL_C);
 		SpanelC.setLayout(null);
 			
-		SEquipo1.setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
-		SEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2,TAM_LABEL.width,TAM_LABEL.height);
-		SEquipo1.setForeground(COLOR_LETRA);
+		SEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 28 + AUMENTO_FUENTE*10,TAM_LABEL.height);
 		
-		SEquipo2.setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
-		SEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G + TAM_LABEL.height + AUM_Y_BTTN, TAM_LABEL.width,TAM_LABEL.height);
-		SEquipo2.setForeground(COLOR_LETRA);
+		SEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,HEIGHT/2 + CANCHA_TAMANO_RECT_G/2 - TAM_LABEL.height*2 + 25,WIDTH/2 - CANCHA_TAMANO_RECT_C + 28 + AUMENTO_FUENTE*10,TAM_LABEL.height);
 		
-		SEquipo3.setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
-		SEquipo3.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_LABEL.width/2+75,CANCHA_TAMANO_RECT_G/2,TAM_LABEL.width,TAM_LABEL.height);
-		SEquipo3.setForeground(COLOR_LETRA);
+		SEquipo3.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 28 + AUMENTO_FUENTE*10,TAM_LABEL.height);
 		
-		SEquipo4.setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
-		SEquipo4.setBounds(WIDTH-CANCHA_TAMANO_RECT_G/2-TAM_LABEL.width/2+75,CANCHA_TAMANO_RECT_G + TAM_LABEL.height + AUM_Y_BTTN,TAM_LABEL.width,TAM_LABEL.height);
-		SEquipo4.setForeground(COLOR_LETRA);
+		SEquipo4.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,HEIGHT/2 + CANCHA_TAMANO_RECT_G/2 - TAM_LABEL.height*2 + 25,WIDTH/2 - CANCHA_TAMANO_RECT_C + 28 + AUMENTO_FUENTE*10,TAM_LABEL.height);
 			
 		ScomboBox.setEditable(false);
 		ScomboBox.addItem("Semifinales");
@@ -137,6 +129,15 @@ public class Semifinales extends General{
 	}
 	
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
+	
+	private class SLabel extends JLabel{
+		SLabel () {
+			setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
+			setOpaque(true);
+			setBackground(COLOR_PANEL_N);
+			setForeground(COLOR_LETRA);
+		}
+	}
 	
 	private class panelS extends General {
 		panelS () {
