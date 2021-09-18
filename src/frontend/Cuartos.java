@@ -35,52 +35,36 @@ public class Cuartos extends General{
 		CpanelN = new JPanel();
 		CpanelC = new panelC(); 
 		CcomboBox = new JComboBox<String>();
-		CEquipo1 = new JLabel();
-		CEquipo2 = new JLabel();
-		CEquipo3 = new JLabel();
-		CEquipo4 = new JLabel();
-		CEquipo5 = new JLabel();
-		CEquipo6 = new JLabel();
-		CEquipo7 = new JLabel();
-		CEquipo8 = new JLabel();
+		CEquipo1 = new CLabel();
+		CEquipo2 = new CLabel();
+		CEquipo3 = new CLabel();
+		CEquipo4 = new CLabel();
+		CEquipo5 = new CLabel();
+		CEquipo6 = new CLabel();
+		CEquipo7 = new CLabel();
+		CEquipo8 = new CLabel();
 		
 		//-------------------------------------------------<<SETEO VARIABLES>>-------------------------------------------------
 		
 		CpanelN.setBackground(COLOR_PANEL_N);
 		CpanelC.setLayout(null);
 		CpanelC.setBackground(COLOR_PANEL_C);
+
+		CEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
 		
-		CEquipo1.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-		CEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2,TAM_LABEL.width,TAM_LABEL.height/2);
-		CEquipo1.setForeground(COLOR_LETRA);
+		CEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
 		
-		CEquipo2.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-		CEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,TAM_LABEL.width,TAM_LABEL.height/2);
-		CEquipo2.setForeground(COLOR_LETRA);
+		CEquipo3.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
 		
-		CEquipo3.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-		CEquipo3.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,TAM_LABEL.width,TAM_LABEL.height/2);
-		CEquipo3.setForeground(COLOR_LETRA);
+		CEquipo4.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
 		
-		CEquipo4.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-		CEquipo4.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,TAM_LABEL.width,TAM_LABEL.height/2);
-		CEquipo4.setForeground(COLOR_LETRA);
+		CEquipo5.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,CANCHA_TAMANO_RECT_G/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
+
+		CEquipo6.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
+	
+		CEquipo7.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
 		
-		CEquipo5.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-		CEquipo5.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,CANCHA_TAMANO_RECT_G/2,TAM_LABEL.width,TAM_LABEL.height/2);
-		CEquipo5.setForeground(COLOR_LETRA);
-		
-		CEquipo6.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-		CEquipo6.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,TAM_LABEL.width,TAM_LABEL.height/2);
-		CEquipo6.setForeground(COLOR_LETRA);
-		
-		CEquipo7.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-		CEquipo7.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,TAM_LABEL.width,TAM_LABEL.height/2);
-		CEquipo7.setForeground(COLOR_LETRA);
-		
-		CEquipo8.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-		CEquipo8.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,TAM_LABEL.width,TAM_LABEL.height/2);
-		CEquipo8.setForeground(COLOR_LETRA);
+		CEquipo8.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
 		
 		CcomboBox.setEditable(false);
 		CcomboBox.addItem("Cuartos");
@@ -181,6 +165,14 @@ public class Cuartos extends General{
 
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
+	private class CLabel extends JLabel{
+		CLabel () {
+			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
+			setOpaque(true);
+			setBackground(COLOR_PANEL_N);
+			setForeground(COLOR_LETRA);
+		}
+	}
 	private class panelC extends General {
 		panelC () {
 			super.paint(getGraphics());

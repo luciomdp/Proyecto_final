@@ -80,6 +80,7 @@ public class Zonas extends General{
 		Zpanel34.add(Zona3,BorderLayout.WEST);
 		Zpanel34.add(Box.createHorizontalStrut(CANCHA_TAMANO_CIRCULO_C));
 		Zpanel34.add(Zona4,BorderLayout.EAST);
+		ZpanelC.add(Box.createVerticalStrut(CANCHA_TAMANO_RECT_G));
 		ZpanelC.add(Zpanel12);
 		ZpanelC.add(Zpanel34);
 		add(ZpanelN, BorderLayout.NORTH);

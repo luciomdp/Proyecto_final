@@ -94,18 +94,18 @@ public class Equipo implements Serializable{
 	public String getEstadisticas() {
 		for(int i = nombre.length();i < 25; i++) 
 				nombre += " ";
-        return nombre + " | " + puntos + " | " + pJ + " | " + pG + " | " + pP + " | " + (goles - golesContra) + " | ";//+ golesContra + (goles - golesContra);
+        return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pP + "| " + (goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
     }
 	
 	public String getEstadisticasCuartosIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
-		return nombre + " | " + golesIdaCuartos + " | ";
+		return nombre + "|" + golesIdaCuartos + "|";
     }
 	
 	public String getEstadisticasCuartosVuelta() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
 		if (golesPenalesC == -1)
-			return nombre + " | " + golesIdaCuartos + " | "  + golesVueltaCuartos + " | " + (golesIdaCuartos + golesVueltaCuartos);
+			return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos);
 		else
-			return nombre + " | " + golesIdaCuartos + " | "  + golesVueltaCuartos + " | " + (golesIdaCuartos + golesVueltaCuartos) + " | P" + (golesPenalesC + 1);
+			return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos) + " P:" + (golesPenalesC + 1);
 			
     }
 	
