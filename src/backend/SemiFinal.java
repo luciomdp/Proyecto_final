@@ -34,12 +34,12 @@ public class SemiFinal {
 		ganadores = new ArrayList <Equipo> ();
 		Collections.shuffle(equipos);
 		for(;i<CANT_P/2;i++) {
-			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k++));
-			k++;
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1));
+			k+=2;
 		}
 		k= 0;
 		for(;i<CANT_P;i++) {
-			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k++),this.equipos.get(k--));
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k));
 			k += 2;
 		}
 		this.resultados = new Resultados [CANT_P];
@@ -58,9 +58,11 @@ public class SemiFinal {
 				if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() == resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL
 					if (resultados[partidoActual].getGolesE2() > resultados [partidoActual-(CANT_P/2)].getGolesE2()) { //SI LOS GOLES DEL EQUIPO 2 EN LA IDA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA VUELTA
 						ganadores.add(partidos[partidoActual].getEquipo2());
+						//partidos[partidoActual].getEquipo2().setGolVisitante();
 					}
 					else if (resultados[partidoActual].getGolesE2() < resultados [partidoActual-(CANT_P/2)].getGolesE2()) { // SI LOS GOLES DE EQUIPO 2 EN LA VUELTA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA IDA
 						ganadores.add(partidos[partidoActual-(CANT_P/2)].getEquipo2());
+						//partidos[partidoActual-(CANT_P/2)].getEquipo2().setGolVisitante();
 					}
 					else { // HAY PENALES
 						partidos[partidoActual].simulacionPen();

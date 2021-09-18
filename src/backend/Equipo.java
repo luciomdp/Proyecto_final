@@ -40,7 +40,8 @@ public class Equipo implements Serializable{
     private int golesIdaSemis;
     private int golesVueltaSemis;
     private int golesFinal;
-    private int golesPenalesC; 
+    private int golesPenalesC;
+    private boolean ganaGolVisitante;
     private int pJ;
     private int pG;
     private int pP;
@@ -60,6 +61,7 @@ public class Equipo implements Serializable{
         this.golesVueltaCuartos = 0;
         this.golesIdaSemis = 0;
         this.golesVueltaSemis = 0;
+        this.ganaGolVisitante = false;
         this.puntos = 0;
         this.pG = 0;
         this.pJ = 0;
@@ -103,8 +105,12 @@ public class Equipo implements Serializable{
     }
 	
 	public String getEstadisticasCuartosVuelta() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
-		if (golesPenalesC == -1)
-			return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos);
+		if (golesPenalesC == -1) {
+			if (ganaGolVisitante)
+				return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos)+ "(Gv)";
+			else
+				return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos);
+		}
 		else
 			return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos) + " P:" + (golesPenalesC + 1);
 			
@@ -115,8 +121,12 @@ public class Equipo implements Serializable{
     }
 	
 	public String getEstadisticaSemis() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
-		if (golesPenalesC == -1)
-			return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis);
+		if (golesPenalesC == -1) {
+			if (ganaGolVisitante)	
+				return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis)+ "(Gv)";
+			else
+				return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos);
+		}
 		else
 			return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis) + " P:" + (golesPenalesC + 1);
 			
@@ -124,6 +134,14 @@ public class Equipo implements Serializable{
 	
 	public String getEstadisticasFinal () {
 		return nombre + golesFinal;
+	}
+	
+	public boolean isGolDeVisitante () {
+		return ganaGolVisitante;
+	}
+	
+	public void setGolVisitante () {
+		this.ganaGolVisitante = true;
 	}
 	
 	public int getGolesPenalesC() {

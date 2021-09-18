@@ -47,6 +47,7 @@ public class Campeonato implements Serializable {
 	private final int CANTR = 12; // CANTIDAD DE REFERIS
 	private final int CANTZ = 4; // CANTIDAD DE ZONAS
 	private final int CANT_EQUIPOS_CUARTOS = 8;
+	private final int CANT_EQUIPOS_SEMIS = 4;
 	private final int EQUIPOS_ZONA = 4; 
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -208,6 +209,10 @@ public class Campeonato implements Serializable {
 	}
 	
 	public void IniciaSemis () {
+		/*for (int i = 0; i< CANT_EQUIPOS_SEMIS; i++) {
+			cuartosDeFinal.getGanadores().get(i).setGolesPenalesC(-1);
+			cuartosDeFinal.getGanadores().get(i).setGolVisitante();
+		}*/
 		semiFinal = new SemiFinal (cuartosDeFinal.getGanadores());
 	}
 	public void IniciaFinal () {

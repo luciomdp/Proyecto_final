@@ -148,14 +148,14 @@ public class Controlador {
 			campeonatoActual.getCuartosDeFinal().SimulaIda();
 		}
 		frameActual.CtodoSimulado(0); //saca del frame la posibilidad de jugar mas partidos ida
-		return partidoComienzo;
+		return 0;
 	}
 	public int simulaPartidosCuartos() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
-		int partidoInicio = campeonatoActual.getCuartosDeFinal().getPartidoActual();
+		//int partidoInicio = campeonatoActual.getCuartosDeFinal().getPartidoActual();
 		if (!campeonatoActual.getCuartosDeFinal().isCuartosSimulado())
 			campeonatoActual.getCuartosDeFinal().SimulaCuartos();
 		CuartosSimulado();
-		return partidoInicio;
+		return 0;
 	}
 	
 	public void CuartosSimulado() {
@@ -201,15 +201,15 @@ public class Controlador {
 			campeonatoActual.getSemiFinal().SimulaIda();
 		}
 		frameActual.StodoSimulado(0); //saca del frame la posibilidad de jugar mas partidos ida
-		return partidoComienzo;
+		return 0;
 	}
 	
 	public int simulaPartidosSemis() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
-		int partidoInicio = campeonatoActual.getSemiFinal().getPartidoAct();
+		//int partidoInicio = campeonatoActual.getSemiFinal().getPartidoAct();
 		if (!campeonatoActual.getSemiFinal().SemiFinalSimulada())
 			campeonatoActual.getSemiFinal().SimulaSemis();
 		SemiFinalesSimuladas();
-		return partidoInicio;
+		return 0;
 	}
 	public void SemiFinalesSimuladas() {
 		if(campeonatoActual.getSemiFinal().SemiFinalSimulada()) {

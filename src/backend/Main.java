@@ -186,10 +186,10 @@ public class Main {
 					
 					equipos.add(e);
 					for (Jugador o: jugadoresEquipo) {
-						System.out.println(o.getApellido());
+		//				System.out.println(o.getApellido());
 					}
 					for (int z = 0; z < equipos.size(); z++) {
-						System.out.println(equipos.get(z).getJugadores().get(0).getApellido());
+		//				System.out.println(equipos.get(z).getJugadores().get(0).getApellido());
 					}
 					
 				} //for de equipos
