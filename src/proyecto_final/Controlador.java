@@ -116,25 +116,27 @@ public class Controlador {
 	//-------------------------------------------------<<SIMULADORES CUARTOS>>-------------------------------------------------
 	
 	public String getECuartos(int equipo) {//DEBERIA RETORNAR EL STRING DEL EQUIPO, CON LA ACTUALIZACION EN GOLES IDA, VUELTA, ETC
-		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() < 4) 
+		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() <= 4) 
 			return campeonatoActual.getECuartosFinal(equipo).getEstadisticasCuartosIda();
-		else
+		else if (campeonatoActual.getCuartosDeFinal().getPartidoActual() < 8)
+			return campeonatoActual.getECuartosFinal(equipo).getEstadisticasCuartosVuelta();
+		else 
 			return campeonatoActual.getECuartosFinal(equipo).getEstadisticasCuartosVuelta();
 	}
 	
 	public int SimulaPartidoC() { //Devuelve el partido que se jugo (1,2,3 o 4)
 		//evaluar si se puede simular otro partido de ida, sino, llamar al metodo CtodoSimulado(0) del Frame
 		//evaluar si se puede simular otro partido , sino, llamar al metodo CtodoSimulado(1) del Frame
-		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1 == CANT_PARTIDOS_CUARTOS) {
+		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1  == CANT_PARTIDOS_CUARTOS) {
 			campeonatoActual.getCuartosDeFinal().SimulaPartido();
 			CuartosSimulado();
-			return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 1 ;
+			return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 5  ;
 		}else {
 			campeonatoActual.getCuartosDeFinal().SimulaPartido();
-			if(campeonatoActual.getCuartosDeFinal().getPartidoActual() <= CANT_PARTIDOS_CUARTOS/2)
-				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 1 ;
+			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < CANT_PARTIDOS_CUARTOS/2)
+				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 1;
 			else
-				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 5;
+				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 5 ;
 		}
 	}
 	public int simulaPartidosIdaC() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
@@ -146,10 +148,11 @@ public class Controlador {
 		return partidoComienzo;
 	}
 	public int simulaPartidosCuartos() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
+		int partidoInicio = campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1;
 		if (!campeonatoActual.getCuartosDeFinal().isCuartosSimulado())
 			campeonatoActual.getCuartosDeFinal().SimulaCuartos();
 		CuartosSimulado();
-		return 0;
+		return partidoInicio;
 	}
 	
 	public void CuartosSimulado() {

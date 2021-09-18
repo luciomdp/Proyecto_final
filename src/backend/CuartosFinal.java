@@ -67,6 +67,8 @@ public class CuartosFinal{
 						}
 						else { // HAY PENALES
 							partidos[partidoActual].simulacionPen();
+							partidos[partidoActual].getEquipo1().setGolesPenalesC(partidos[partidoActual].getGolesP1());
+							partidos[partidoActual].getEquipo2().setGolesPenalesC(partidos[partidoActual].getGolesP2());
 							if (partidos[partidoActual].getGolesP1() > partidos[partidoActual].getGolesP2()) { // SI LOS GOLES DE PENAL DEL EQUIPO 1 SON MAYORES QUE LOS DEL EQUIPO 2
 								ganadores.add(partidos[partidoActual].getEquipo1());
 							}

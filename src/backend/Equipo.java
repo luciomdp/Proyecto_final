@@ -19,6 +19,7 @@ Sino cambiarlo
 * Estan absolutamente todos los getters y setters, son una bocha y medio al pedo
 si no los vamos a usar todos, diría de centralizar en los que realmente podríamos 
 necesitar por afuera de la clase.
+* utilizar unicamente tres variables de goles para ida vuelta y penales. Cada vez que hay una instancia nueva, se setea en 0 cada una de ellas. 
  */
 public class Equipo implements Serializable{
 	
@@ -39,6 +40,7 @@ public class Equipo implements Serializable{
     private int golesIdaSemis;
     private int golesVueltaSemis;
     private int golesFinal;
+    private int golesPenalesC; 
     private int pJ;
     private int pG;
     private int pP;
@@ -52,6 +54,7 @@ public class Equipo implements Serializable{
 		Jugadores = jugadores;
 		this.entrenador = entrenador;
 		this.goles = 0;
+		this.golesPenalesC = -1;
         this.golesContra = 0;
         this.golesIdaCuartos = 0;
         this.golesVueltaCuartos = 0;
@@ -64,6 +67,7 @@ public class Equipo implements Serializable{
 	}
     
   //-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
+
 
 	public double edadMediaJugadores() { 
     	
@@ -98,7 +102,11 @@ public class Equipo implements Serializable{
     }
 	
 	public String getEstadisticasCuartosVuelta() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
-		return nombre + (golesVueltaCuartos + golesIdaCuartos);
+		if (golesPenalesC == -1)
+			return nombre + " | " + golesIdaCuartos + " | "  + golesVueltaCuartos + " | " + (golesIdaCuartos + golesVueltaCuartos);
+		else
+			return nombre + " | " + golesIdaCuartos + " | "  + golesVueltaCuartos + " | " + (golesIdaCuartos + golesVueltaCuartos) + " | P" + (golesPenalesC + 1);
+			
     }
 	
 	public String getEstadisticasSemisIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
@@ -113,6 +121,13 @@ public class Equipo implements Serializable{
 		return nombre + golesFinal;
 	}
 	
+	public int getGolesPenalesC() {
+		return golesPenalesC;
+	}
+
+	public void setGolesPenalesC(int golesPenalesC) {
+		this.golesPenalesC = golesPenalesC;
+	}
 	public int getpP() {
 		return pP;
 	}

@@ -95,19 +95,19 @@ public class Cuartos extends General{
 					if((String)CcomboBox.getSelectedItem() == "Simula partido") {
 						partido_simulado = getControlador().SimulaPartidoC(); 
 						  switch(partido_simulado) {
-						  		case 1:
+						  		case 0:
 						  			 CEquipo1.setText(getControlador().getECuartos(0));
 						  			 CEquipo2.setText(getControlador().getECuartos(1));
 						  		break;
-						  		case 2:
+						  		case 1:
 						             CEquipo3.setText(getControlador().getECuartos(2));
 						  			 CEquipo4.setText(getControlador().getECuartos(3));
 						  		break;
-						  		case 3:
+						  		case 2:
 						  			 CEquipo5.setText(getControlador().getECuartos(4));
 						  			 CEquipo6.setText(getControlador().getECuartos(5));
 						  		break;
-						  		case 4:
+						  		case 3:
 						  			 CEquipo7.setText(getControlador().getECuartos(6));
 						  			 CEquipo8.setText(getControlador().getECuartos(7));
 						  		break;
@@ -123,16 +123,16 @@ public class Cuartos extends General{
 						//cambio el string de los partidos de cuartos a partir del partido "partido_simulado", ya que el resto de opciones
 						//simula todo, por lo que si se simula un anterior, se simulara el posterior (siempre se simulan los partidos en orden)
 						switch(partido_simulado) {
-						  		case 1:
+						  		case 0:
 						  			 CEquipo1.setText(getControlador().getECuartos(0));
 						  			 CEquipo2.setText(getControlador().getECuartos(1));
-						  		case 2:
+						  		case 1:
 						            CEquipo3.setText(getControlador().getECuartos(2));
 						  			 CEquipo4.setText(getControlador().getECuartos(3));
-						  		case 3:
+						  		case 2:
 						  			 CEquipo5.setText(getControlador().getECuartos(4));
 						  			 CEquipo6.setText(getControlador().getECuartos(5));
-						  		case 4:
+						  		case 3:
 						  			 CEquipo7.setText(getControlador().getECuartos(6));
 						  			 CEquipo8.setText(getControlador().getECuartos(7));
 						  }
