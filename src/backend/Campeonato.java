@@ -1,6 +1,7 @@
 package backend;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -82,7 +83,7 @@ public class Campeonato implements Serializable {
         for (int z = 0; z < CANTZ; z++) {
             Equipo equiposZona[] = {equipos.get(j), equipos.get(j+1), equipos.get(j+2), equipos.get(j+3)};
             //0 1 2 3 /+4/ 4 5 6 7 /+4/ 8 9 10 11 /+4/ 12 13 14 15
-            zonas[z] = new Zona(equiposZona, z +1);
+            zonas[z] = new Zona(equiposZona, z +1, referis);
             j += 4;
         }
 		this.cuartosDeFinal = null;
@@ -124,7 +125,7 @@ public class Campeonato implements Serializable {
 					s+= player.toString(); //en el toString de jugadores se podría sacar la posición, no?
 					if (pos == Posicion.arquero) {
 						s+= "Goles en contra: " + e.getGolesContra() + "\n";
-						if (e.getpJ() != 0) {
+						if (e.getpJ() > 0) {
 							s+= "Promedio de goles recibido: " + (e.getGolesContra() / e.getpJ());
 						} else {
 							s+= "Promedio de goles recibido: 0";
@@ -139,13 +140,17 @@ public class Campeonato implements Serializable {
 	
 	public String listaEquipos() { 
 		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
+		float promedio;
+		DecimalFormat formato = new DecimalFormat ("#.00");
 		for (Equipo  e: equipos) {
 			s+= e.getNombre() + "\nEdad media jugadores: ";
 			s+= e.edadMediaJugadores() + "\nEdad DT:";
-			s+= e.getEntrenador().getEdad() + ", Nacionalidad DT: ";
-			s+= e.getEntrenador().getNacionalidad() + "\nEfectividad en el torneo" ;
-			if(e.getpJ() != 0)
-				s+= (e.getpG()/e.getpJ())*100+ "\n\n";
+			s+= e.getEntrenador().getEdad() + ", \nNacionalidad DT: ";
+			s+= e.getEntrenador().getNacionalidad() + "\nEfectividad en el torneo: " ;
+			if(e.getpJ() > 0 && e.getpG() > 0) {
+				promedio = ((float)e.getpG()/(float)e.getpJ())*100;
+				s+= formato.format(promedio)+ "\n\n";
+			}
 			else
 				s+= 0 + "\n\n";
 		}

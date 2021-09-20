@@ -50,6 +50,10 @@ public class Referi extends Persona{
 		return años_referato;
 	}
 	
+	public Pais getNacionalidad () {
+		return nacionalidad;
+	}
+	
 	public void dirigePartido () {
 		this.partidosDirigidos ++;
 	}

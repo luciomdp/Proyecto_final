@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 
 import javax.swing.JOptionPane;
 
@@ -41,11 +42,11 @@ public class Zona implements Serializable{
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	private int partidoAct,fechaAct;//f es fecha actual e i es partido actual
+	static ArrayList <Referi> referis = new ArrayList <Referi>();
 	/*Cada partido va a tener asignado un valor "i", cada fecha son 2 partidos de i (teniendo en cuenta el valor
 	actual de i,tenes una variable fecha "f", que dice en que fecha se encuentra, y simular toda la zona, es iterar desde el i
 	actual hasta el final)*/
     private Equipo [] tabla = new Equipo [CANTE]; // TABLA DE LA ZONA 
-    private Equipo ganadoresZona [] = new Equipo [PASAN_CUARTOS]; // SON LOS DOS EQUIPOS QUE GANAN LA ZONA
     private Partido partidosZona[];
     private Resultados resultados [];
     private int nroZona; 
@@ -53,9 +54,10 @@ public class Zona implements Serializable{
     
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
-	public Zona (Equipo equipos[], int nroZona) {
+	public Zona (Equipo equipos[], int nroZona, ArrayList <Referi> referis) {
     	
     	ZonaSimulada = false;
+    	this.referis = referis;
     	this.nroZona = nroZona;
     	resultados = new Resultados [CANT_PZ];
     	this.partidosZona = new Partido [CANT_PZ];
@@ -94,6 +96,8 @@ public class Zona implements Serializable{
 				else {
 					partidosZona[partidoAct].getEquipo1().setPuntos(PE);
 					partidosZona[partidoAct].getEquipo2().setPuntos(PE);
+					partidosZona[partidoAct].getEquipo2().setpE();	
+					partidosZona[partidoAct].getEquipo1().setpE();
 				}
 					
 				resultados [partidoAct] = new Resultados (partidosZona[partidoAct].getEquipo1(), partidosZona[partidoAct].getEquipo2(), partidosZona[partidoAct].getGolesE1(), partidosZona[partidoAct].getGolesE2() );
@@ -140,8 +144,15 @@ public class Zona implements Serializable{
 		Partido[] partidos = new Partido[CANT_PZ]; //cada dos partidos, una fecha
 
         Equipo[] equiposQueRotan = Arrays.copyOfRange(equipos, 1, equipos.length); //array de equipos que van a ir rotando {1, 2, 3}
-        
+        Random aleratorio = new Random ();
+        Referi referi1 = referis.get(aleratorio.nextInt(referis.size())), referi2 =  referis.get(aleratorio.nextInt(referis.size()));
         for (int i = 0; i < CANT_PZ; i += 2) {
+        	while (referi1.getNacionalidad() != equipos[0].getPais() && referi1.getNacionalidad() != equiposQueRotan[0].getPais()) {
+        		referi1 = referis.get(aleratorio.nextInt(referis.size()));
+        	}
+        	while (referi2.getNacionalidad() != equiposQueRotan[1].getPais() && referi2.getNacionalidad() != equiposQueRotan[2].getPais()) {
+        		referi2 = referis.get(aleratorio.nextInt(referis.size()));
+        	}
         	partidos[i] = new Partido(equipos[0], equiposQueRotan[0]);
         	partidos[i+1] = new Partido(equiposQueRotan[1], equiposQueRotan[2]);
         	Collections.rotate(Arrays.asList(equiposQueRotan), equiposQueRotan.length - 1);

@@ -25,7 +25,7 @@ public class Partido implements Serializable{
 	private Date fecha_juego;
 	private Referi arbitro;//no puede tener misma nacionalidad que equipos, a menos que los dos sean de la misma (IMPLEMENTAR)
 	private int golesE1,golesE2;
-	
+	private Referi referi;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public Partido(Equipo a, Equipo b) {
@@ -37,6 +37,7 @@ public class Partido implements Serializable{
 			Media_totE1 += Math.random()*20;
 		else
 			Media_totE2 += Math.random()*20;
+		this.referi = referi;
 		golesE1 = 0;
 		golesE2 = 0;
 	}

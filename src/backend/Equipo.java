@@ -45,7 +45,7 @@ public class Equipo implements Serializable{
     private int pJ;
     private int pG;
     private int pP;
-    
+    private int pE;
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
     
     public Equipo (String nombre, Pais nacionalidad, int ranking, ArrayList<Jugador> jugadores, Dt entrenador){ 
@@ -66,6 +66,7 @@ public class Equipo implements Serializable{
         this.pG = 0;
         this.pJ = 0;
         this.pP = 0;
+        this.pE = 0;
 	}
     
   //-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
@@ -156,15 +157,15 @@ public class Equipo implements Serializable{
 	}
 
 	public void setpP() {
-		this.pP++;
+		this.pP += 1;
 	}
 	
 	public int getpJ() {
-		return pJ;
+		return this.pJ;
 	}
 
 	public int getpG() {
-		return pG;
+		return this.pG;
 	}
 
     public int getGoles () {
@@ -175,14 +176,19 @@ public class Equipo implements Serializable{
     }
     
     public void setpG() {
-		this.pG ++;
+		this.pG += 1;
 	}
 	
 	public void setpJ() {
-		this.pJ ++;;
+		this.pJ += 1 ;
 	}
 	
-
+    public void setpE() {
+		this.pE += 1;
+	}
+    public int getpE() {
+		return this.pE;
+	}
 
     public void setPuntos(int puntos) {
         this.puntos  += puntos;
