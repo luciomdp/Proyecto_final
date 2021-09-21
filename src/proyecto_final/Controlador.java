@@ -1,11 +1,18 @@
 package proyecto_final;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.Serializable;
+
 import javax.swing.*;
 import backend.Campeonato;
 import backend.Posicion;
 import frontend.Frame;
+import backend.Serializacion;
 
-public class Controlador {
+public class Controlador implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	final int CANT_PZ = 6;
 	final int CANTZ = 4;
@@ -14,8 +21,8 @@ public class Controlador {
 	final int CANT_PARTIDOS_SEMIS = 4;
 	final int CANT_PARTIDOS_FINAL = 1;
 	private Campeonato campeonatoActual;
-	private Frame frameActual;
-	
+	private transient Frame frameActual; //transient= el objeto no se serializa
+	Serializacion progreso = new Serializacion();
 	
 	/* Constructor de controlador de campeonato*/
 	public Controlador (Campeonato c, Frame f) {
@@ -37,11 +44,32 @@ public class Controlador {
 	/*Reanuda torneo*/
 	public void ContinuaTorneo() {
 		//inicia torneo con todos datos serializados (se pasan por parametro de IniciaTorneo())
+		try {
+			
+			this.setCampeonato(progreso.leeProgreso());
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/*Guarda torneo*/
 	public void SerializaProgreso() {
 		//acá hay que guardar el torneo actual
+		try {
+
+			progreso.guardaProgreso(campeonatoActual);
+	
+		} catch (FileNotFoundException e){
+			e.printStackTrace();
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/* Listado de jugadores de determinada posición seleccionada por el operador (arquero,
@@ -62,6 +90,10 @@ public class Controlador {
 		uno la cantidad de años en el referato, y al final del listado el promedio de los mismos.*/
 	public String getListadoArbitros() {
 		return campeonatoActual.listaArbitros();
+	}
+	
+	public void setCampeonato (Campeonato _campeonato) {
+		this.campeonatoActual = _campeonato;
 	}
 	
 	//-------------------------------------------------<<SIMULADORES ZONA>>-------------------------------------------------

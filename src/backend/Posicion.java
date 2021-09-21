@@ -1,5 +1,7 @@
 package backend;
-//¿No deberia implementar serializable?
-public enum Posicion {
+
+import java.io.Serializable;
+
+public enum Posicion implements Serializable{
 	delantero, mediocampista, defensor, arquero;
 }

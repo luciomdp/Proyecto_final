@@ -22,8 +22,6 @@ import proyecto_final.Controlador;
  * Cambiar nombre a las clases compartidas entre el back y front (como final,semifinal,cuartos,zona) para diferenciarlas
  * (sugerencia, las que son del back llamarlas BackFinal,BackSemifinal ... y las del Front, FrontFinal,FrontSemifinal ...)
  * 
- * La clase SemiFinal debería ser Semifinal
- * 
  * No debería haber una clase abstracta partido?, de la que hereden los 3 tipos de partidos que existen. (sino lo dejamos como está
  * donde Partido actúa como una clase abstracta pero implementa la funcionalidad de ser un partido normal)
  * 

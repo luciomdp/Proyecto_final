@@ -42,7 +42,11 @@ public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
-	private static final long serialVersionUID = 9176305150524899919L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private final int CANTE = 16; //CANTIDAD DE EQUIPOS
 	private final int CANTJ = 18; // CANTIDAD DE JUGADORES POR EQUIPO
 	private final int CANTR = 12; // CANTIDAD DE REFERIS

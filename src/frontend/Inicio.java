@@ -10,6 +10,8 @@ public class Inicio extends General{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
+	private static final long serialVersionUID = 1L;
+
 	private final Color COLOR_INICIO = new Color(38, 190, 35);
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------

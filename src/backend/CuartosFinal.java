@@ -1,5 +1,6 @@
 package backend;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -13,10 +14,11 @@ tendrías que avisar al front mediante el controlador.
 102- ¿Qué es ese metodo comentado, es necesario? resolver
 */
 
-public class CuartosFinal{
+public class CuartosFinal implements Serializable{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
+	private static final long serialVersionUID = 1L;
 	private final int CANT_P = 8;
 	private final int CANTE = 8;
 	

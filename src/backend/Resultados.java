@@ -1,8 +1,12 @@
 package backend;
 
+import java.io.Serializable;
+
 /*¿Que pija es esta clase? jajajajajaj*/
- public class Resultados {
+ public class Resultados implements Serializable{
 	 
+	private static final long serialVersionUID = 1L;
+	
 	private Equipo e1;
     private Equipo e2;
     private int golesE1;

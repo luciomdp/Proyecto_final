@@ -1,5 +1,6 @@
 package backend;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -9,10 +10,12 @@ import javax.swing.JOptionPane;
 sea para mostrar errores. Si se jugaron todos los partidos,
 tendrías que avisar al front mediante el controlador.*/
 
-public class SemiFinal {
+public class SemiFinal implements Serializable{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
+	private static final long serialVersionUID = 1L;
+
 	private final int CANT_P = 4;
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------

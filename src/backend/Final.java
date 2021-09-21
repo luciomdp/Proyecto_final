@@ -1,5 +1,6 @@
 package backend;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*59- ¿Qué pasa si todavía no se jugó la final cuando se invoca el metodo?
@@ -7,10 +8,11 @@ import java.util.ArrayList;
 ¿Qué sucede cuando se termina de jugar la final? hay que avisar al controlador
 */
 
-public class Final {
+public class Final implements Serializable{
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
+	private static final long serialVersionUID = 1L;
 	private PartidoIdaVuelta partidoFinal;
 	private Resultados resultado;
 	private ArrayList <Equipo> equipos;
