@@ -1,8 +1,0 @@
-Karasiov,Serguéi,12/07/1979,Pasaporte extranjero,22243458,Rusia,11,,
-Ricci,Sandro,19/11/1974,Pasaporte extranjero,22243001,Brasil,10,,
-Pitana,Néstor,17/06/1975,DNI,22242544,Argentina,11,,
-Ramos,Arturo César,15/12/1983,Pasaporte extranjero,22242087,Mexico,7,,
-Brych,Felix,03/08/1975,Pasaporte extranjero,22241630,Alemania,14,,
-Kuipers,Björn,28/03/1973,Pasaporte extranjero,22241173,Holanda,15,,
-Geiger,Mark,25/08/1974,Pasaporte extranjero,22240716,Mexico,13,,
-Aguilar,Joel,02/07/1975,Pasaporte extranjero,22240259,Alemania,20,,

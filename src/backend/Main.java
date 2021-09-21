@@ -90,7 +90,7 @@ public class Main {
 		
 		String _nombreEquipo;
 		Pais _pais, _paisEquipo;
-		int _ranking;
+		int _ranking, _aniosRef;
 		byte _puntuacion;
 		Posicion _posicion;
 		String _tipoDocumento = "";
@@ -153,8 +153,18 @@ public class Main {
 
 		for (int i = 0; i < listaArbitros.getLength(); i++) {
 			
-		}
-			//falta hacer
+			_tipoDocumento = listaArbitros.item(i).getChildNodes().item(1).getChildNodes().item(1).getTextContent();
+			_nroDocumento = Integer.parseInt(listaArbitros.item(i).getChildNodes().item(1).getChildNodes().item(3).getTextContent());
+			_nombreApellido = listaArbitros.item(i).getChildNodes().item(1).getChildNodes().item(5).getTextContent();
+			_apellido = _nombreApellido.substring(0, _nombreApellido.indexOf(" "));
+			_nombre = _nombreApellido.substring(_nombreApellido.indexOf(" ") +1);
+			_fecha = LocalDate.parse(listaArbitros.item(i).getChildNodes().item(1).getChildNodes().item(7).getTextContent(), formato);
+			_pais = Pais.valueOf(listaArbitros.item(i).getChildNodes().item(3).getTextContent());
+			_aniosRef = Integer.parseInt(listaArbitros.item(i).getChildNodes().item(5).getTextContent());
 			
+			_referi = new Referi(_apellido, _nombre, _fecha, _nroDocumento, _tipoDocumento, _pais, _aniosRef);
+			referis.add(_referi);
+		}
+		
 	}
 }//clase
