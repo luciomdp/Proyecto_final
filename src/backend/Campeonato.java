@@ -54,7 +54,6 @@ public class Campeonato implements Serializable {
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	private ArrayList <Equipo> equipos;
-	private ArrayList <Jugador> jugadores;
 	private ArrayList <Referi> referis;
 	private Zona zonas[];
 	private CuartosFinal cuartosDeFinal;
@@ -64,9 +63,8 @@ public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public Campeonato (ArrayList <Equipo> equipos, ArrayList <Jugador> jugadores, ArrayList <Referi> referis) {
+	public Campeonato (ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
 		this.equipos = equipos;
-		this.jugadores = jugadores;
 		this.referis = referis;	
 		zonas = new Zona [CANTZ];
 		
