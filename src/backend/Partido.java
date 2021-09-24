@@ -23,14 +23,14 @@ public class Partido implements Serializable{
 	private Equipo equipo1,equipo2;
 	private double Media_totE1,Media_totE2;
 	private Date fecha_juego;
-	private Referi arbitro;//no puede tener misma nacionalidad que equipos, a menos que los dos sean de la misma (IMPLEMENTAR)
 	private int golesE1,golesE2;
 	private Referi referi;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public Partido(Equipo a, Equipo b) {
+	public Partido(Equipo a, Equipo b, Referi referi) {
 		equipo1 = a;
 		equipo2 = b;
+		this.referi = referi;
 		Media_totE1 = (equipo1.MediaJugadores())*0.25 + (equipo1.getRanking()*6.25)*0.4 + (equipo1.getEntrenador().getTitulos()*10)*0.15;
 		Media_totE2 = (equipo2.MediaJugadores())*0.25 + (equipo2.getRanking()*6.25)*0.4 + (equipo2.getEntrenador().getTitulos()*10)*0.15;
 		if(Math.random()*100<50) //moral del equipo el dia del partido, que puede hacerlos mejor o peor equipo
@@ -44,6 +44,7 @@ public class Partido implements Serializable{
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 	
+
 	public void simulacionNM() { 
 		int OportunidadesGolA = (int) Math.round(Math.random()*10);//Cada equipo tiene como maximo 10 oportunidades de gol
 		int OportunidadesGolB = (int) Math.round(Math.random()*10);
@@ -95,6 +96,10 @@ public class Partido implements Serializable{
 	
 	public void setMedia_totE2(double media_totE2) {
 		Media_totE2 = media_totE2;
+	}
+	
+	public Referi getArbitro() {
+		return referi;
 	}
 	
 	public Equipo getEquipo1() {

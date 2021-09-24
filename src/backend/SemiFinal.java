@@ -3,6 +3,7 @@ package backend;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 import javax.swing.JOptionPane;
 
@@ -24,25 +25,35 @@ public class SemiFinal implements Serializable{
 	private ArrayList <Equipo> equipos;
 	private Resultados resultados [];
 	private ArrayList <Equipo> ganadores;
+	static ArrayList <Referi> referis = new ArrayList <Referi>();
 	private int partidoActual;
 	private boolean semisTodaSimulada;
 
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
-	public SemiFinal(ArrayList <Equipo> equipos) {
+	public SemiFinal(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
 		int i = 0,k = 0;
 		semisTodaSimulada = false;
 		this.equipos = equipos;
+		this.referis = referis;
 		partidos = new PartidoIdaVuelta [CANT_P];
 		ganadores = new ArrayList <Equipo> ();
+		Random aleratorio = new Random ();
+	    Referi referi = referis.get(aleratorio.nextInt(referis.size()));
 		Collections.shuffle(equipos);
 		for(;i<CANT_P/2;i++) {
-			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1));
+        	while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
+        		referi = referis.get(aleratorio.nextInt(referis.size()));
+        	}
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi);
 			k+=2;
 		}
 		k= 0;
 		for(;i<CANT_P;i++) {
-			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k));
+        	while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
+        		referi = referis.get(aleratorio.nextInt(referis.size()));
+        	}
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi);
 			k += 2;
 		}
 		this.resultados = new Resultados [CANT_P];
@@ -59,6 +70,7 @@ public class SemiFinal implements Serializable{
 				partidos[partidoActual].getEquipo1().setGolVisitante(false);
 				partidos[partidoActual].getEquipo1().setGolesVueltaSemis(partidos[partidoActual].getGolesE1());
 				partidos[partidoActual].getEquipo2().setGolesVueltaSemis(partidos[partidoActual].getGolesE2());
+				partidos[partidoActual].getArbitro().dirigePartido();
 				resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2());
 				if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() == resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL
 					if (resultados[partidoActual].getGolesE2() > resultados [partidoActual-(CANT_P/2)].getGolesE2()) { //SI LOS GOLES DEL EQUIPO 2 EN LA IDA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA VUELTA
@@ -90,6 +102,7 @@ public class SemiFinal implements Serializable{
 				partidos[partidoActual].simulacionNM();
 				partidos[partidoActual].getEquipo1().setGolesIdaSemis(partidos[partidoActual].getGolesE1());
 				partidos[partidoActual].getEquipo2().setGolesIdaSemis(partidos[partidoActual].getGolesE2());
+				partidos[partidoActual].getArbitro().dirigePartido();
 				resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2());
 			}
 			partidoActual++;

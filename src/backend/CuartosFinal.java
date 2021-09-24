@@ -3,6 +3,7 @@ package backend;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 import javax.swing.JOptionPane;
 
@@ -29,23 +30,33 @@ public class CuartosFinal implements Serializable{
 	private int partidoActual;
 	private ArrayList <Equipo> ganadores;
 	private ArrayList <Equipo> equipos;
+	static ArrayList <Referi> referis = new ArrayList <Referi>();
 	private boolean cuartosTodoSimulado;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public CuartosFinal(ArrayList <Equipo> equipos) {
+	public CuartosFinal(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
 		int i = 0,k = 0;
 		cuartosTodoSimulado = false;
 		this.equipos = equipos;
+		this.referis = referis;
 		ganadores = new ArrayList <Equipo> ();
 		Collections.shuffle(this.equipos);
 		partidos = new PartidoIdaVuelta [CANT_P] ;
+		Random aleratorio = new Random ();
+	    Referi referi1 = referis.get(aleratorio.nextInt(referis.size()));
 		for(;i<CANT_P/2;i++) {
-			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1));
+        	while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
+        		referi1 = referis.get(aleratorio.nextInt(referis.size()));
+        	}
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi1);
 			k+=2;
 		}
 		k= 0;
 		for(;i<CANT_P;i++) {
-			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k));
+			while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
+        		referi1 = referis.get(aleratorio.nextInt(referis.size()));
+        	}
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi1);
 			k += 2;
 		}
 		this.resultados = new Resultados [CANT_P];
@@ -61,16 +72,13 @@ public class CuartosFinal implements Serializable{
 					partidos[partidoActual].getEquipo2().setGolVisitante(false);
 					partidos[partidoActual].getEquipo1().setGolesPenalesC(-1);
 					partidos[partidoActual].getEquipo2().setGolesPenalesC(-1);
-					System.out.println(partidos[partidoActual].getEquipo1().getNombre());
-					System.out.println(partidos[partidoActual].getGolesE1());
-					System.out.println(partidos[partidoActual].getEquipo2().getNombre());
-					System.out.println(partidos[partidoActual].getGolesE2());
 					partidos[partidoActual].getEquipo1().setGolesVueltaCuartos(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getEquipo2().setGolesVueltaCuartos(partidos[partidoActual].getGolesE2());
 					partidos[partidoActual].getEquipo1().setGolesContra(partidos[partidoActual].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
 					partidos[partidoActual].getEquipo2().setGolesContra(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getEquipo1().setpJ(); //INCREMENTA LOS PARTIDOS JUGADOS PARA CADA EQUIPO
 					partidos[partidoActual].getEquipo2().setpJ();
+					partidos[partidoActual].getArbitro().dirigePartido();
 					resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2());
 					if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() == resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL
 						if (resultados[partidoActual].getGolesE2() > resultados [partidoActual-(CANT_P/2)].getGolesE2()) { //SI LOS GOLES DEL EQUIPO 2 EN LA IDA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA VUELTA
@@ -100,12 +108,9 @@ public class CuartosFinal implements Serializable{
 				}
 				else {
 					partidos[partidoActual].simulacionNM();
-					System.out.println(partidos[partidoActual].getEquipo1().getNombre());
-					System.out.println(partidos[partidoActual].getGolesE1());
-					System.out.println(partidos[partidoActual].getEquipo2().getNombre());
-					System.out.println(partidos[partidoActual].getGolesE2());
 					partidos[partidoActual].getEquipo1().setGolesIdaCuartos(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getEquipo2().setGolesIdaCuartos(partidos[partidoActual].getGolesE2());
+					partidos[partidoActual].getArbitro().dirigePartido();
 					resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2());
 				}
 				partidoActual++;

@@ -212,7 +212,7 @@ public class Campeonato implements Serializable {
 			equiposCuartos.add(zonas[i].getEquipo(0));
 			equiposCuartos.add(zonas[i].getEquipo(1));
 		}
-		cuartosDeFinal = new CuartosFinal(equiposCuartos);
+		cuartosDeFinal = new CuartosFinal(equiposCuartos, referis);
 	}
 	
 	public void IniciaSemis () {
@@ -220,10 +220,10 @@ public class Campeonato implements Serializable {
 			cuartosDeFinal.getGanadores().get(i).setGolesPenalesC(-1);
 			cuartosDeFinal.getGanadores().get(i).setGolVisitante();
 		}*/
-		semiFinal = new SemiFinal (cuartosDeFinal.getGanadores());
+		semiFinal = new SemiFinal (cuartosDeFinal.getGanadores(), referis);
 	}
 	public void IniciaFinal () {
-		final_Campeonato = new Final (semiFinal.getGanadores());
+		final_Campeonato = new Final (semiFinal.getGanadores(), referis);
 	}
 
 }

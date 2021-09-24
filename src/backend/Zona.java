@@ -82,6 +82,7 @@ public class Zona implements Serializable{
 				partidosZona[partidoAct].getEquipo2().setGolesContra(partidosZona[partidoAct].getGolesE1());
 				partidosZona[partidoAct].getEquipo1().setpJ(); //INCREMENTA LOS PARTIDOS JUGADOS PARA CADA EQUIPO
 				partidosZona[partidoAct].getEquipo2().setpJ();
+				partidosZona[partidoAct].getArbitro().dirigePartido();
 					
 				if (partidosZona[partidoAct].getGolesE1() > partidosZona[partidoAct].getGolesE2()) { //DEPENDIENDO QUIEN HAYA METIDO MAS GOLES, SUMA 3 PUNTOS O 1 SI EMPATARON. TAMBIEN INCREMENTA PARTIDOS GANADOS
 					partidosZona[partidoAct].getEquipo1().setPuntos(PV);
@@ -153,8 +154,8 @@ public class Zona implements Serializable{
         	while (referi2.getNacionalidad() != equiposQueRotan[1].getPais() && referi2.getNacionalidad() != equiposQueRotan[2].getPais()) {
         		referi2 = referis.get(aleratorio.nextInt(referis.size()));
         	}
-        	partidos[i] = new Partido(equipos[0], equiposQueRotan[0]);
-        	partidos[i+1] = new Partido(equiposQueRotan[1], equiposQueRotan[2]);
+        	partidos[i] = new Partido(equipos[0], equiposQueRotan[0], referi1);
+        	partidos[i+1] = new Partido(equiposQueRotan[1], equiposQueRotan[2], referi2);
         	Collections.rotate(Arrays.asList(equiposQueRotan), equiposQueRotan.length - 1);
         }
         
