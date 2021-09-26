@@ -76,7 +76,7 @@ public class Main {
 	}
 	
 	//función de prueba de lectura hecha por @Mati
-	public static void leeArchivo(Document _doc) {
+	public static void leeArchivo(Document _doc) {//pasar x parametros equipos y referis
 		
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		ArrayList<Jugador> jugadores;
