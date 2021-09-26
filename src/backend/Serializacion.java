@@ -33,6 +33,6 @@ public class Serializacion implements Serializable{
 		os.close();
 		return _campeonato;
 			
-	}
+	}//serializar específicamente el "progreso"
 	
 }

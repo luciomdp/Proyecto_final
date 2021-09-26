@@ -38,11 +38,11 @@ import proyecto_final.Controlador;
  */
 public class Main {	
 	
-	static ArrayList <Equipo> equipos = new ArrayList <Equipo>();
-	static ArrayList <Referi> referis = new ArrayList <Referi>();
-	
 	public static void main (String[] args) throws NumberFormatException, ParseException {
-				
+		
+		ArrayList <Equipo> equipos = new ArrayList <Equipo>();
+		ArrayList <Referi> referis = new ArrayList <Referi>();
+		
 		try {
 			//abrimos el archivo
 			File archivo = new File ("torneo.xml");

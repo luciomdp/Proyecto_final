@@ -15,11 +15,6 @@ import proyecto_final.Controlador;
 14- Hacia falta diferenciar entre variables y constantes, si esto sucede en otras
 Clases tambien, hacerlo.
 
-24-private static ArrayList <Equipo> equipos;
-private static ArrayList <Jugador> jugadores;
-private static ArrayList <Referi> referis;
-¿Variables estaticas por algo en particular?
-
 31- ¿No se utiliza el controlador para mandar información del back al front?
 
 43- Terminar metodo IniciaTorneo() 
