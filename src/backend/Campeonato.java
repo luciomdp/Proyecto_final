@@ -123,7 +123,7 @@ public class Campeonato implements Serializable {
 					if (pos == Posicion.arquero) {
 						s+= "Goles en contra: " + e.getGolesContra() + "\n";
 						if (e.getpJ() > 0) {
-							s+= "Promedio de goles recibido: " + (e.getGolesContra() / e.getpJ());
+							s+= "Promedio de goles recibido: " + (e.getGolesContra() / e.getpJ() + "\n");
 						} else {
 							s+= "Promedio de goles recibido: 0";
 						}

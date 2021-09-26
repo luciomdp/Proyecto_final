@@ -50,7 +50,7 @@ public class Jugador extends Persona{
 	public String toString() {
 		return "Jugador: " +super.getApellido()+ " " +super.getNombre()+ "\nFecha Nacimiento: "+ 
 				super.getNacimiento()+"\nDNI: " +super.getDni()+ "\nPosicion: " + posicion+ "\nPuntaje: " +
-				puntaje + "\nTipoDni: " + tipoDni;
+				puntaje + "\nTipoDni: " + tipoDni + "\n";
 	}
 
 	public String DatosIdent() { 
