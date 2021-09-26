@@ -11,8 +11,8 @@ public class PartidoFinal extends Partido{
 	
 	//-------------------------------------------------<<COSNTRUCTOR>>-------------------------------------------------
 	
-	public PartidoFinal(Equipo a, Equipo b) {
-		super(a, b);	
+	public PartidoFinal(Equipo a, Equipo b, Referi referi) {
+		super(a, b, referi);	
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------

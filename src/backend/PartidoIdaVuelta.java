@@ -11,8 +11,8 @@ public class PartidoIdaVuelta extends Partido{
 	
 	//-------------------------------------------------<<COSNTRUCTOR>>-------------------------------------------------
 	
-	public PartidoIdaVuelta(Equipo a, Equipo b) {
-		super(a, b);
+	public PartidoIdaVuelta(Equipo a, Equipo b, Referi referi) {
+		super(a, b, referi);
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------

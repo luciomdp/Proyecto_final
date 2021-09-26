@@ -30,7 +30,6 @@ public class CuartosFinal implements Serializable{
 	private int partidoActual;
 	private ArrayList <Equipo> ganadores;
 	private ArrayList <Equipo> equipos;
-	static ArrayList <Referi> referis = new ArrayList <Referi>();
 	private boolean cuartosTodoSimulado;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
@@ -38,7 +37,6 @@ public class CuartosFinal implements Serializable{
 		int i = 0,k = 0;
 		cuartosTodoSimulado = false;
 		this.equipos = equipos;
-		this.referis = referis;
 		ganadores = new ArrayList <Equipo> ();
 		Collections.shuffle(this.equipos);
 		partidos = new PartidoIdaVuelta [CANT_P] ;

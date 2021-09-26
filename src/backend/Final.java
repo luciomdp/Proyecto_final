@@ -17,13 +17,11 @@ public class Final implements Serializable{
 	private PartidoIdaVuelta partidoFinal;
 	private Resultados resultado;
 	private ArrayList <Equipo> equipos;
-	static ArrayList <Referi> referis = new ArrayList <Referi>();
 	private String campeon;
 	private boolean finalSimulada;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
 	public Final(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
-		this.referis = referis;
 		this.equipos = equipos;
 		Random aleratorio = new Random ();
 	    Referi referi = referis.get(aleratorio.nextInt(referis.size()));

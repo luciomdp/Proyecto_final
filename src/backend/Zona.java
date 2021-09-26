@@ -42,7 +42,6 @@ public class Zona implements Serializable{
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	private int partidoAct,fechaAct;//f es fecha actual e i es partido actual
-	static ArrayList <Referi> referis = new ArrayList <Referi>();
 	/*Cada partido va a tener asignado un valor "i", cada fecha son 2 partidos de i (teniendo en cuenta el valor
 	actual de i,tenes una variable fecha "f", que dice en que fecha se encuentra, y simular toda la zona, es iterar desde el i
 	actual hasta el final)*/
@@ -57,11 +56,10 @@ public class Zona implements Serializable{
 	public Zona (Equipo equipos[], int nroZona, ArrayList <Referi> referis) {
     	
     	ZonaSimulada = false;
-    	this.referis = referis;
     	this.nroZona = nroZona;
     	resultados = new Resultados [CANT_PZ];
     	this.partidosZona = new Partido [CANT_PZ];
-    	this.partidosZona = creaFechas(equipos);
+    	this.partidosZona = creaFechas(equipos, referis);
         for (int i = 0; i < CANTE; i++) {
         	this.tabla[i] = equipos[i];
         }
@@ -135,7 +133,7 @@ public class Zona implements Serializable{
   
 	//---------------------------------------------------------- CREA LAS FECHAS DE LA ZONA ----------------------------------------------------------------------
 	
-	public Partido[] creaFechas (Equipo[] equipos) {
+	public Partido[] creaFechas (Equipo[] equipos, ArrayList <Referi> referis) {
 
 
         /*  

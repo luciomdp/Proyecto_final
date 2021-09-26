@@ -25,7 +25,6 @@ public class SemiFinal implements Serializable{
 	private ArrayList <Equipo> equipos;
 	private Resultados resultados [];
 	private ArrayList <Equipo> ganadores;
-	static ArrayList <Referi> referis = new ArrayList <Referi>();
 	private int partidoActual;
 	private boolean semisTodaSimulada;
 
@@ -35,7 +34,6 @@ public class SemiFinal implements Serializable{
 		int i = 0,k = 0;
 		semisTodaSimulada = false;
 		this.equipos = equipos;
-		this.referis = referis;
 		partidos = new PartidoIdaVuelta [CANT_P];
 		ganadores = new ArrayList <Equipo> ();
 		Random aleratorio = new Random ();
