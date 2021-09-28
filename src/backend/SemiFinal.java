@@ -105,6 +105,8 @@ public class SemiFinal implements Serializable{
 					partidos[partidoActual].simulacionNM();
 					partidos[partidoActual].getEquipo1().setGolesIdaSemis(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getEquipo2().setGolesIdaSemis(partidos[partidoActual].getGolesE2());
+					partidos[partidoActual].getEquipo1().setGolesContra(partidos[partidoActual].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
+					partidos[partidoActual].getEquipo2().setGolesContra(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getArbitro().dirigePartido();
 					resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2());
 				}

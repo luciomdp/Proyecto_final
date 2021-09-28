@@ -49,6 +49,7 @@ public class Equipo implements Serializable{
         this.golesVueltaCuartos = 0;
         this.golesIdaSemis = 0;
         this.golesVueltaSemis = 0;
+        this.golesFinal = 0;
         this.ganaGolVisitante = false;
         this.puntos = 0;
         this.pG = 0;
@@ -114,7 +115,7 @@ public class Equipo implements Serializable{
 			if (ganaGolVisitante)	
 				return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis)+ "(Gv)";
 			else
-				return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos);
+				return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis);
 		}
 		else
 			return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis) + " P:" + (golesPenalesC + 1);
@@ -223,36 +224,38 @@ public class Equipo implements Serializable{
 		
 	}
 	
-	public int getGolesIdaCuartos() {
-		return golesIdaCuartos;
-	}
-
 	public void setGolesIdaCuartos(int golesIda) {
 		this.golesIdaCuartos = golesIda;
 	}
-
-	public int getGolesVueltaCuartos() {
-		return golesVueltaCuartos;
+	
+	public int getGolesIdaCuartos() {
+		return golesIdaCuartos;
 	}
 
 	public void setGolesVueltaCuartos(int golesVuelta) {
 		this.golesVueltaCuartos = golesVuelta;
 	}
-	public int getGolesIdaSemis() {
-		return golesIdaSemis;
+	
+	public int getGolesVueltaCuartos() {
+		return golesVueltaCuartos;
 	}
 
 	public void setGolesIdaSemis(int golesIda) {
 		this.golesIdaSemis = golesIda;
 	}
-
-	public int getGolesVueltaSemis() {
-		return golesVueltaSemis;
+	
+	public int getGolesIdaSemis() {
+		return golesIdaSemis;
 	}
 
 	public void setGolesVueltaSemis(int golesVuelta) {
 		this.golesVueltaSemis = golesVuelta;
 	}
+	
+	public int getGolesVueltaSemis() {
+		return golesVueltaSemis;
+	}
+
 	public void setGolesFinal(int golesFinal) {
 		this.golesFinal = golesFinal;
 	}
