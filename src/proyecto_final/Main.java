@@ -84,15 +84,15 @@ public class Main {
 		} catch (ParserConfigurationException e) {
 			
 			//aca falla el parser -> el null del dialogo debe ser algun componente de la vista, para que el dialogo herede el icono
-			JOptionPane.showMessageDialog(null, "Se produjo un error. Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		
 		} catch (SAXException e) {
 			//esto si falla algo del XML
-			JOptionPane.showMessageDialog(null, "Se produjo un error. Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		
 		} catch (IOException e) {
 			//esto si pasa algo con el archivo (no deja abrirlo/no existe)
-			JOptionPane.showMessageDialog(null, "Se produjo un error. Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
