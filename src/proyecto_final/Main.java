@@ -1,24 +1,30 @@
-package backend;
-//modificar esto (importar solo lo necesario)
+package proyecto_final;
+
 import java.io.File;
-import java.text.ParseException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-//////////
+import javax.swing.JOptionPane;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import backend.Campeonato;
+import backend.Dt;
+import backend.Equipo;
+import backend.Jugador;
+import backend.Pais;
+import backend.Posicion;
+import backend.Referi;
 import frontend.Frame;
-import proyecto_final.Controlador;  
-/* public static void leeArchivo(Element _raiz) Agregarle los throw correspondientes de la funcion
- * 
- * catch (Exception e) Diversificar las excepciones para tratar cada una en particular, y mostrarlas con showmessagedialog
- * 
+/* 
  * Cambiar nombre a las clases compartidas entre el back y front (como final,semifinal,cuartos,zona) para diferenciarlas
  * (sugerencia, las que son del back llamarlas BackFinal,BackSemifinal ... y las del Front, FrontFinal,FrontSemifinal ...)
  * 
@@ -28,8 +34,6 @@ import proyecto_final.Controlador;
  * Estaría bueno separar dentro del backend, en paquetes, Las clases relacionadas con partidos, las relacionadas con Personas, 
  * las relacionadas con etapas del torneo (cuartos,semis...) y los enums
  * 
- * El main no debería estar en proyecto_final?
- * 
  * Verificar que todas las clases del back, tengan atributos private
  * 
  * Cual es la diferencia entre PartidoIdaVuelta y PartidoFinal ??
@@ -37,8 +41,12 @@ import proyecto_final.Controlador;
  * Resolver tareas en cada clase del back
  */
 public class Main {	
-	
-	public static void main (String[] args) throws NumberFormatException, ParseException {
+	/*saco el throw => no tiene sentido tirar la excepción si también la vamos a catchear (además, si falla el main, qué le queda al resto?*/
+	/**
+	 * Entry point
+	 * @param args Argument's array
+	 */
+	public static void main (String[] args) {
 		
 		ArrayList <Equipo> equipos = new ArrayList <Equipo>();
 		ArrayList <Referi> referis = new ArrayList <Referi>();
@@ -68,14 +76,32 @@ public class Main {
 			vista.setControlador(control);
 			torneo.setControlador(control);
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-			//e.getMessage(); interesante por si quieren ver el tipo de mensaje que lanzaría por consola
-			//JOptionPane.showMessageDialog(null, "Se produjo un error en la lectura de archivos, por lo que es imposible iniciar el programa correctamente.","Error de lectura",JOptionPane.ERROR_MESSAGE);
+		} catch (NumberFormatException e) {
+			
+			//esto si falla alguna string ->
+			JOptionPane.showMessageDialog(null, "Se produjo un error en la lectura de archivos, por lo que es imposible iniciar el programa correctamente.","Error de lectura",JOptionPane.ERROR_MESSAGE);
+		
+		} catch (ParserConfigurationException e) {
+			
+			//aca falla el parser -> el null del dialogo debe ser algun componente de la vista, para que el dialogo herede el icono
+			JOptionPane.showMessageDialog(null, "Se produjo un error. Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		
+		} catch (SAXException e) {
+			//esto si falla algo del XML
+			JOptionPane.showMessageDialog(null, "Se produjo un error. Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		
+		} catch (IOException e) {
+			//esto si pasa algo con el archivo (no deja abrirlo/no existe)
+			JOptionPane.showMessageDialog(null, "Se produjo un error. Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
-	//función de prueba de lectura hecha por @MatiCrack
+	/**
+	 * Lee el documento pasado
+	 * @param _doc Documento a leer
+	 * @param equipos Lista de equipos (a rellenar)
+	 * @param referis Lista de referis (a rellenar)
+	 */
 	public static void leeArchivo(Document _doc, ArrayList<Equipo> equipos, ArrayList<Referi> referis) {//pasar x parametros equipos y referis
 		
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
