@@ -266,6 +266,7 @@ public class Controlador implements Serializable {
 				frameActual.FtodoSimulado();
 				JOptionPane.showMessageDialog(null,campeonatoActual.getFinal().getCampeon() + " es el nuevo campeon de la copa!");
 			}
+			//NOSE SI HAY QUE DEFINIR ALGO ACA CUANDO SE JUEGA LA FINAL (BLOQUEAR EL BOTÓN POR EJ)
 		}
 	
 }

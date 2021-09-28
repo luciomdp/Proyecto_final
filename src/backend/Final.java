@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /*59- ¿Qué pasa si todavía no se jugó la final cuando se invoca el metodo?
-
-¿Qué sucede cuando se termina de jugar la final? hay que avisar al controlador
+		Si la final no esta jugada se va a jugar y se va a poner como true el boolean que indica si se jugo o no el partido.
+		Si ya está jugada, debería bloquearse el botón de jugar partido, pero desde el controlador.
+	  ¿Qué sucede cuando se termina de jugar la final? hay que avisar al controlador
+		El controlador sabe si se puede jugar o no, porque accede al valor del boolean. Si esta en true nunca va a jugarse el partido.
 */
 
 public class Final implements Serializable{

@@ -2,16 +2,10 @@ package backend;
 import java.io.Serializable;
 import java.util.Date;
 
-/*11-public static long getSerialversionuid() {
-		return serialVersionUID;
-	} 
-?? Lo borré, si es necesario (que creo que no lo es), ponerlo devuelta
+/*
 
 19- Revisar algoritmo de resolución de partidos (si hay tiempo) y hacerlo un poco mas piola
 
-55- Hacen falta tantos getters y setters ? borrar los que no tengan sentido
-
-El referi no puede tener misma nacionalidad que equipos, a menos que los dos sean de la misma (IMPLEMENTAR)
 */
 
 public class Partido implements Serializable{
@@ -70,32 +64,16 @@ public class Partido implements Serializable{
 		return golesE1;
 	}
 
-	public void setGolesE1(int golesE1) {
-		this.golesE1 = golesE1;
-	}
-
 	public int getGolesE2() {
 		return golesE2;
-	}
-
-	public void setGolesE2(int golesE2) {
-		this.golesE2 = golesE2;
 	}
 
 	public double getMedia_totE1() {
 		return Media_totE1;
 	}
 	
-	public void setMedia_totE1(double media_totE1) {
-		Media_totE1 = media_totE1;
-	}
-	
 	public double getMedia_totE2() {
 		return Media_totE2;
-	}
-	
-	public void setMedia_totE2(double media_totE2) {
-		Media_totE2 = media_totE2;
 	}
 	
 	public Referi getArbitro() {
@@ -106,15 +84,8 @@ public class Partido implements Serializable{
 		return equipo1;
 	}
 
-	public void setEquipo1(Equipo equipo1) {
-		this.equipo1 = equipo1;
-	}
-
 	public Equipo getEquipo2() {
 		return equipo2;
 	}
 
-	public void setEquipo2(Equipo equipo2) {
-		this.equipo2 = equipo2;
-	}
 }

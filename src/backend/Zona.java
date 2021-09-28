@@ -8,37 +8,28 @@ import java.util.Random;
 
 import javax.swing.JOptionPane;
 
-/*17- Las constantes no deberían ser privadas?
-
-36- resultados no deberia ser privado?
+/*
 
 53-Como funciona SimulaPartido() ? Onda que hace
-
-90- En el back no se usa el showMessageDialog, salvo que
-sea para mostrar errores. Si se jugaron todos los partidos,
-tendrías que avisar al front mediante el controlador.
-
-Ver todos los otros metodos que puedan inferir en el front, para conectar
-con el controlador*/
+	1- simula el partido correspondiente
+	2- le suma a cada equipo los goles a favor y en contra, el partido jugado, si ganaron o perdieron y el puntaje que deben recibir
+	3- se registra el resultado en un arreglo de resultados (por si en algun momento debemos acudir a alguno de ellos)
+	4- actualiza la tabla de la zona dependiendo del resultado
+	
+*/
 
 public class Zona implements Serializable{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private static final long serialVersionUID = 2934756314623471362L;
-	//Implementar tabla de posiciones
 	//-------------------------VALORES DE PUNTOS--------------------------
-	final int PV = 3;
-	final int PE = 1;
-	final int PD = 0;
+	final private int PV = 3;
+	final private int PE = 1;
 	//-------------------------CANTIDAD DE PARTIDOS--------------------------
-	final int CANT_PZ = 6;
-	final int CANT_PF = 2;
-	final int CANTE = 4;
-	final int CANT_FECHAS = 0;
-	//-------------------------CANTIDAD DE EQUIPOS QUE PASAN A CUARTOS POR ZONA---------------------
-	final int PASAN_CUARTOS = 2;
-	
+	final private int CANT_PZ = 6;
+	final private int CANT_PF = 2;
+	final private int CANTE = 4;
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	private int partidoAct,fechaAct;//f es fecha actual e i es partido actual

@@ -4,18 +4,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 /*Equipo
-* 57-Period edad = Period.between(e.getNacimiento(), fechaAct.now()); 
-¿Por que haces fechaAct.now()? si now() es un metodo estatico
-Debería ser LocalDate.now();
-Borre tu variable de tipo LocalDate y utilice el metodo como deberia ser (de forma estatica)
-LO CAMBIÉ, SI NO ESTA BIEN EL CAMBIO DECIME
-* 209- ¿Está bien el toString asi?
-public String toString() {
-	return "Equipo [nombre=" + nombre + ", pais=" + pais + ", ranking=" + ranking + ", Jugadores=" + Jugadores
-			+ ", entrenador=" + entrenador + ", puntos=" + puntos + ", goles=" + goles + ", golesContra="
-			+ golesContra + "]";
-}
-Sino cambiarlo
 * Estan absolutamente todos los getters y setters, son una bocha y medio al pedo
 si no los vamos a usar todos, diría de centralizar en los que realmente podríamos 
 necesitar por afuera de la clase.

@@ -2,7 +2,6 @@ package backend;
 
 import java.io.Serializable;
 
-/*¿Que pija es esta clase? jajajajajaj*/
  public class Resultados implements Serializable{
 	 
 	private static final long serialVersionUID = 1L;

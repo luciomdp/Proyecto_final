@@ -12,25 +12,14 @@ import proyecto_final.Controlador;
 
 /*Campeonato
 
-14- Hacia falta diferenciar entre variables y constantes, si esto sucede en otras
-Clases tambien, hacerlo.
-
 31- ¿No se utiliza el controlador para mandar información del back al front?
+		??? utiliza un monton de metodos del back que son utilizados en el front llamando al controlador. 
 
-43- Terminar metodo IniciaTorneo() 
+ armar un formato mas estético de los lista()
 
-67- Arreglar metodo listaJugadores()
-92- Arreglar metodo listaEquipos()
+122- ¿Qué son esos getters de cuartos semis y final? 
+		TE DEVUELVEN LA INSTANCIA EN LOS MOMENTOS QUE EL CONTROLADOR NECESITA OBTENER DATOS DE LOS EQUIPOS PERTENECIENTES A ESAS INSTANCIAS
 
-En los 3, terminar de verificar que no tengan errores, y armar un formato
-un poco mas estético.
-
-122- ¿Qué son esos getters de cuartos semis y final? por qué se crean esas instancias
-en getters ?
-
-153- revisar que hay un error si o si, porque una variable solo puede ser nula en ese punto
-
-Los referis no dirigen partidos, implementar.
 */
 
 public class Campeonato implements Serializable {
@@ -108,7 +97,7 @@ public class Campeonato implements Serializable {
 		 * que recibió su equipo y el promedio de gol recibido por partido.*/
 		
 		ArrayList <Jugador> jugadoresEquipo;
-		
+		float promedio;
 		for (Equipo e: equipos) {//equipo
 			//agarramos todos los jugadores del equipo
 			jugadoresEquipo = e.getJugadores();
@@ -121,7 +110,8 @@ public class Campeonato implements Serializable {
 					if (pos == Posicion.arquero) {
 						s+= "Goles en contra: " + e.getGolesContra() + "\n";
 						if (e.getpJ() > 0) {
-							s+= "Promedio de goles recibido: " + (e.getGolesContra() / e.getpJ() + "\n");
+							promedio = (float)e.getGolesContra() / (float)e.getpJ();
+							s+= "Promedio de goles recibido: " + promedio + "\n";
 						} else {
 							s+= "Promedio de goles recibido: 0";
 						}
@@ -170,6 +160,11 @@ public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
+	public void setControlador(Controlador control) {
+		this.control = control;
+	}
+	
+	// DEVUELVEN LOS EQUIPOS DE CADA INSTANCIA
 	public Equipo getECuartosFinal(int equipo) {
 		return cuartosDeFinal.getEquipo(equipo);
 	}
@@ -177,28 +172,24 @@ public class Campeonato implements Serializable {
 		return semiFinal.getEquipoSemis(equipo);
 	}
 	
+	//DEVUELVEN LAS INSTANCIAS DE ZONAS CUARTOS SEMIS Y FINAL
+	public Zona getZona(int zona) {
+		return zonas[zona];
+	}
+	
 	public CuartosFinal getCuartosDeFinal() {
 		return cuartosDeFinal;
 	}
 
 	public SemiFinal getSemiFinal() {
-		//semiFinal = new SemiFinal(this.cuartosDeFinal.getPasanASemis());
 		return semiFinal;
 	}
 	
 	public Final getFinal() {
-		//this.final_Campeonato = new Final(this.semiFinal.getPasanAFinal());
 		return final_Campeonato;	
 	}
-	
-	public Zona getZona(int zona) {
-		return zonas[zona];
-	}
-	
-	public void setControlador(Controlador control) {
-		this.control = control;
-	}
 
+	// INICIA LAS INSTANCIAS DE CUARTOS SEMIS Y FINAL CON SUS RESPECTIVOS EQUIPOS (GANADORES DE CADA INSTANCIA)
 	public void IniciaCuartos() {
 		ArrayList <Equipo> equiposCuartos = new ArrayList <Equipo>();
 		for (int i = 0; i < CANTZ; i ++) {
@@ -209,10 +200,6 @@ public class Campeonato implements Serializable {
 	}
 	
 	public void IniciaSemis () {
-		/*for (int i = 0; i< CANT_EQUIPOS_SEMIS; i++) {
-			cuartosDeFinal.getGanadores().get(i).setGolesPenalesC(-1);
-			cuartosDeFinal.getGanadores().get(i).setGolVisitante();
-		}*/
 		semiFinal = new SemiFinal (cuartosDeFinal.getGanadores(), referis);
 	}
 	public void IniciaFinal () {

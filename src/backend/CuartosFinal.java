@@ -8,11 +8,7 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 /*
-55 y 92- En el back no se usa el showMessageDialog, salvo que
-sea para mostrar errores. Si se jugaron todos los partidos,
-tendrías que avisar al front mediante el controlador.
 
-102- ¿Qué es ese metodo comentado, es necesario? resolver
 */
 
 public class CuartosFinal implements Serializable{
@@ -142,13 +138,5 @@ public class CuartosFinal implements Serializable{
 	public ArrayList<Equipo> getGanadores() {
 		return ganadores;
 	}
-	 /* SE SUPONE QUE HEREDA DE SEMIFINAL
-	public String getResultado (int partido) { 
-		return resultados[partido].getE1() + " " + resultados[partido].getGolesE1()+"\n"+resultados[partido].getE2() + " " + resultados[partido].getGolesE2();
-	}*/
-
-	
-
-
 
 }
