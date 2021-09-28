@@ -61,11 +61,11 @@ public class CuartosFinal implements Serializable{
 	public void SimulaPartido () {
 			if (!cuartosTodoSimulado) {
 				if (partidoActual >= CANT_P/2) { //SI YA ESTA EN LOS PARTIDOS DE VUELTA
-					partidos[partidoActual].simulacionNM();
 					partidos[partidoActual].getEquipo1().setGolVisitante(false);
 					partidos[partidoActual].getEquipo2().setGolVisitante(false);
 					partidos[partidoActual].getEquipo1().setGolesPenalesC(-1);
 					partidos[partidoActual].getEquipo2().setGolesPenalesC(-1);
+					partidos[partidoActual].simulacionNM();
 					partidos[partidoActual].getEquipo1().setGolesVueltaCuartos(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getEquipo2().setGolesVueltaCuartos(partidos[partidoActual].getGolesE2());
 					partidos[partidoActual].getEquipo1().setGolesContra(partidos[partidoActual].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO

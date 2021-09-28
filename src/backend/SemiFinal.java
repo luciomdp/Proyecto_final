@@ -61,9 +61,11 @@ public class SemiFinal implements Serializable{
 	public void SimulaPartido () {
 		if (!semisTodaSimulada) {
 			if (partidoActual >= CANT_P/2) { //SI YA ESTA EN LOS PARTIDOS DE VUELTA
+				partidos[partidoActual].getEquipo1().setGolVisitante(false);
+				partidos[partidoActual].getEquipo1().setGolVisitante(false);
+				partidos[partidoActual].getEquipo1().setGolesPenalesC(-1);
+				partidos[partidoActual].getEquipo2().setGolesPenalesC(-1);
 				partidos[partidoActual].simulacionNM();
-				partidos[partidoActual].getEquipo1().setGolVisitante(false);
-				partidos[partidoActual].getEquipo1().setGolVisitante(false);
 				partidos[partidoActual].getEquipo1().setGolesVueltaSemis(partidos[partidoActual].getGolesE1());
 				partidos[partidoActual].getEquipo2().setGolesVueltaSemis(partidos[partidoActual].getGolesE2());
 				partidos[partidoActual].getArbitro().dirigePartido();

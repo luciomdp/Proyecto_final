@@ -38,6 +38,8 @@ public class Final implements Serializable{
 	
 	public void juegaFinal () {
 		if (!finalSimulada) {
+			partidoFinal.getEquipo1().setGolesPenalesC(-1);
+			partidoFinal.getEquipo2().setGolesPenalesC(-1);
 			partidoFinal.simulacionNM();
 			partidoFinal.getEquipo1().setGolesFinal(partidoFinal.getGolesE1());
 			partidoFinal.getEquipo2().setGolesFinal(partidoFinal.getGolesE2());
@@ -45,6 +47,8 @@ public class Final implements Serializable{
 			resultado = new Resultados (partidoFinal.getEquipo1(), partidoFinal.getEquipo2(), partidoFinal.getGolesE1(), partidoFinal.getGolesE2());
 			if (resultado.getGolesE1() == resultado.getGolesE2()) {
 				partidoFinal.simulacionPen();
+				partidoFinal.getEquipo1().setGolesPenalesC(partidoFinal.getGolesP1());
+				partidoFinal.getEquipo2().setGolesPenalesC(partidoFinal.getGolesP2());
 				if (partidoFinal.getGolesP1() > partidoFinal.getGolesP2()) {
 					campeon = partidoFinal.getEquipo1().getNombre();
 				}
