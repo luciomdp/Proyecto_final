@@ -77,12 +77,10 @@ public class Main {
 			torneo.setControlador(control);
 			
 		} catch (NumberFormatException e) {
-			
 			//esto si falla alguna string ->
-			JOptionPane.showMessageDialog(null, "Se produjo un error en la lectura de archivos, por lo que es imposible iniciar el programa correctamente.","Error de lectura",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		
 		} catch (ParserConfigurationException e) {
-			
 			//aca falla el parser -> el null del dialogo debe ser algun componente de la vista, para que el dialogo herede el icono
 			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		
