@@ -40,11 +40,11 @@ public class CuartosFinal implements Serializable{
 		ganadores = new ArrayList <Equipo> ();
 		Collections.shuffle(this.equipos);
 		partidos = new PartidoIdaVuelta [CANT_P] ;
-		Random aleratorio = new Random ();
-	    Referi referi1 = referis.get(aleratorio.nextInt(referis.size()));
+		Random aleatorio = new Random ();
+	    Referi referi1 = referis.get(aleatorio.nextInt(referis.size()));
 		for(;i<CANT_P/2;i++) {
         	while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
-        		referi1 = referis.get(aleratorio.nextInt(referis.size()));
+        		referi1 = referis.get(aleatorio.nextInt(referis.size()));
         	}
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi1);
 			k+=2;
@@ -52,7 +52,7 @@ public class CuartosFinal implements Serializable{
 		k= 0;
 		for(;i<CANT_P;i++) {
 			while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
-        		referi1 = referis.get(aleratorio.nextInt(referis.size()));
+        		referi1 = referis.get(aleatorio.nextInt(referis.size()));
         	}
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi1);
 			k += 2;
