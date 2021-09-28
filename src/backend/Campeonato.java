@@ -3,10 +3,8 @@ package backend;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 
 import proyecto_final.Controlador;
 
@@ -22,35 +20,51 @@ import proyecto_final.Controlador;
 
 */
 
+/**
+ * Clase encargada de crear el campeonato que se jugará
+ */
 public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
-	/**
-	 * 
-	 */
+	/** Serial*/
 	private static final long serialVersionUID = 1L;
+	/** Cantidad de zonas*/
+	private final int CANTZ = 4;
 	
+	/** Acá dejo super prolijo, bien comentado todo lo que no se usa
+	private final int CANT_EQUIPOS_CUARTOS = 8;
+	private final int CANT_EQUIPOS_SEMIS = 4;
+	private final int EQUIPOS_ZONA = 4;  
 	private final int CANTE = 16; //CANTIDAD DE EQUIPOS
 	private final int CANTJ = 18; // CANTIDAD DE JUGADORES POR EQUIPO
 	private final int CANTR = 12; // CANTIDAD DE REFERIS
-	private final int CANTZ = 4; // CANTIDAD DE ZONAS
-	private final int CANT_EQUIPOS_CUARTOS = 8;
-	private final int CANT_EQUIPOS_SEMIS = 4;
-	private final int EQUIPOS_ZONA = 4; 
+	*/
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
+	/** Lista de equipos*/
 	private ArrayList <Equipo> equipos;
+	/** Lista de referis*/
 	private ArrayList <Referi> referis;
+	/** Lista de zonas*/
 	private Zona zonas[];
+	/** Instancia de Cuartos de final*/
 	private CuartosFinal cuartosDeFinal;
+	/** Instancia de Semifinal*/
 	private SemiFinal semiFinal;
+	/** Instancia de Final*/
 	private Final final_Campeonato;
+	/** Instancia de Controlador .-TODO- Sin usar*/
 	private Controlador control;
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
+	/**
+	 * Constructor de la clase
+	 * @param equipos Lista de equipos con sus respectivo jugadores y DT
+	 * @param referis Lista de referis
+	 */
 	public Campeonato (ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
 		this.equipos = equipos;
 		this.referis = referis;	
@@ -60,6 +74,9 @@ public class Campeonato implements Serializable {
 
 	//-------------------------------------------------<<MÉTODOS DE LA CLASE>>-------------------------------------------------
 	
+	/**
+	 * Inicia el torneo, mezclando los equipos para que cada vez que se inicie un nuevo torneo, las zonas sean distintas
+	 */
 	public void IniciaTorneo() {//pasar parametros para iniciar UN SOLO INICIATORNEO ??????
 		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
 		 * en caso de iniciar torneo de 0, todos los parametros serian null, en caso contrario, se pasarian los
@@ -78,6 +95,10 @@ public class Campeonato implements Serializable {
 		
 	}
 	
+	/**
+	 * Se fija si todas las zonas fueron simuladas
+	 * @return true si todas simuladas, false si faltan simular
+	 */
 	public boolean TodasZonasSimuladas() {
 		int i = 0;
 		while( i < CANTZ && zonas[i].isZonaSimulada())
@@ -85,11 +106,20 @@ public class Campeonato implements Serializable {
 		return i == CANTZ;
 	}
 	
-	public String getTablaZona (int zona) { //DEVUELVE LA TABLA DE LA ZONA
-		
+	/**
+	 * Devuelve la tabla de la zona
+	 * @param zona Numero de zona
+	 * @return La tabla
+	 */
+	public String getTablaZona (int zona) {
 		return zonas[zona].getValoresTabla();
 	}
 	
+	/**
+	 * Lista jugadores segun posicion
+	 * @param pos La posicion a listar
+	 * @return String con la lista
+	 */
 	public String listaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
 		/*Listado de jugadores de determinada posición seleccionada por el operador (arquero, defensor, mediocampista, delantero) 
@@ -102,11 +132,11 @@ public class Campeonato implements Serializable {
 			//agarramos todos los jugadores del equipo
 			jugadoresEquipo = e.getJugadores();
 			
-			System.out.println(e); //revisar entrenador 
+			System.out.println(e); //revisar entrenador TODO-> Esto es nuevo o es viejo????
 			
 			for (Jugador player: jugadoresEquipo) {
 				if (player.getPosicion() == pos) {
-					s+= player.toString(); //en el toString de jugadores se podría sacar la posición, no?
+					s+= player.toString();
 					if (pos == Posicion.arquero) {
 						s+= "Goles en contra: " + e.getGolesContra() + "\n";
 						if (e.getpJ() > 0) {
@@ -123,6 +153,10 @@ public class Campeonato implements Serializable {
 		return s;
 	}
 	
+	/**
+	 * Lista equipos 
+	 * @return String con la lista
+	 */
 	public String listaEquipos() { 
 		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
 		float promedio;
@@ -142,10 +176,15 @@ public class Campeonato implements Serializable {
 		return s;
 	}
 	
+	/**
+	 * Lista los árbitros del torneo
+	 * @return String con la lista
+	 */
 	public String listaArbitros() { 
 		int prom = 0; 
 		Collections.sort(referis, new Comparator<Referi>() { //
 			public int compare(Referi r1, Referi r2) {
+				///TODO: acá abajo, que se hace? los métodos están deprecados => Claudio nos mata
 				return new Integer(r2.getPartidosDirigidos()).compareTo(new Integer(r1.getPartidosDirigidos()));
 			}
 		});
@@ -160,36 +199,68 @@ public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
+	/**
+	 * Setea el controlador
+	 * @param control El controlador
+	 */
 	public void setControlador(Controlador control) {
 		this.control = control;
 	}
 	
-	// DEVUELVEN LOS EQUIPOS DE CADA INSTANCIA
+	/**
+	 * Devuelve un equipo de cuartos de final
+	 * @param equipo Integer representando el equipo
+	 * @return El equipo
+	 */
 	public Equipo getECuartosFinal(int equipo) {
 		return cuartosDeFinal.getEquipo(equipo);
 	}
+	
+	/**
+	 * Devuelve un equipo de semifinal
+	 * @param equipo Integer representando el equipo
+	 * @return El equipo
+	 */
 	public Equipo getESemiFinal(int equipo) {
 		return semiFinal.getEquipoSemis(equipo);
 	}
 	
-	//DEVUELVEN LAS INSTANCIAS DE ZONAS CUARTOS SEMIS Y FINAL
+	/**
+	 * Devuelve una instancia de Zona
+	 * @param zona Integer representando la zona
+	 * @return La zona
+	 */
 	public Zona getZona(int zona) {
 		return zonas[zona];
 	}
 	
+	/**
+	 * Devuelve una instancia de CuartosFinal
+	 * @return Los cuartos de final
+	 */
 	public CuartosFinal getCuartosDeFinal() {
 		return cuartosDeFinal;
 	}
 
+	/**
+	 * Devuelve una instancia de SemiFinal
+	 * @return Una semifinal
+	 */
 	public SemiFinal getSemiFinal() {
 		return semiFinal;
 	}
 	
+	/**
+	 * Devuelve una instancia de Final
+	 * @return Una final
+	 */
 	public Final getFinal() {
 		return final_Campeonato;	
 	}
 
-	// INICIA LAS INSTANCIAS DE CUARTOS SEMIS Y FINAL CON SUS RESPECTIVOS EQUIPOS (GANADORES DE CADA INSTANCIA)
+	/**
+	 * Inicia los cuartos de final
+	 */
 	public void IniciaCuartos() {
 		ArrayList <Equipo> equiposCuartos = new ArrayList <Equipo>();
 		for (int i = 0; i < CANTZ; i ++) {
@@ -199,9 +270,16 @@ public class Campeonato implements Serializable {
 		cuartosDeFinal = new CuartosFinal(equiposCuartos, referis);
 	}
 	
+	/**
+	 * Inicia las semifinales
+	 */
 	public void IniciaSemis () {
 		semiFinal = new SemiFinal (cuartosDeFinal.getGanadores(), referis);
 	}
+	
+	/**
+	 * Inicia la final
+	 */
 	public void IniciaFinal () {
 		final_Campeonato = new Final (semiFinal.getGanadores(), referis);
 	}

@@ -8,10 +8,20 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+/**
+ * Clase encargada de serializar progreso
+ */
 public class Serializacion implements Serializable{
 
+	/** Serial*/
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Guarda el progreso del campeonato
+	 * @param _campeonato El campeonato a serializar
+	 * @throws FileNotFoundException Si no puede crear el archivo
+	 * @throws IOException Si no puede escribir en el archivo
+	 */
 	public void guardaProgreso(Campeonato _campeonato) throws FileNotFoundException, IOException {
 		
 		FileOutputStream fs = new FileOutputStream ("Progreso");
@@ -23,6 +33,13 @@ public class Serializacion implements Serializable{
 			
 	}
 	
+	/**
+	 * Lee el progreso desde un archivo
+	 * @return Una instancia de Campeonato
+	 * @throws FileNotFoundException Si el archivo no existe
+	 * @throws IOException Si no puede leer el archivo
+	 * @throws ClassNotFoundException Si no se encuentra la clase Campeonato
+	 */
 	public Campeonato leeProgreso() throws FileNotFoundException, IOException, ClassNotFoundException{
 		
 		FileInputStream fs = new FileInputStream("Progreso");
@@ -33,6 +50,6 @@ public class Serializacion implements Serializable{
 		os.close();
 		return _campeonato;
 			
-	}//serializar específicamente el "progreso"
+	}
 	
 }

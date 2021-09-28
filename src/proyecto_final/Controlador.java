@@ -258,8 +258,8 @@ public class Controlador implements Serializable {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Simula los partidos de ida de los cuartos de final
+	 * @return Integer representando el partido que se jugo
 	 */
 	public int simulaPartidosIdaC() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
 		int partidoComienzo = campeonatoActual.getCuartosDeFinal().getPartidoActual();
@@ -271,8 +271,8 @@ public class Controlador implements Serializable {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Simula algo de los cuartos -> TODO (el TODO para que marque la línea)
+	 * @return Integer representando el partido que se jugo
 	 */
 	public int simulaPartidosCuartos() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
 		//int partidoInicio = campeonatoActual.getCuartosDeFinal().getPartidoActual();
@@ -283,7 +283,7 @@ public class Controlador implements Serializable {
 	}
 	
 	/**
-	 * 
+	 * Setea todos los cuartos de final simulados
 	 */
 	public void CuartosSimulado() {
 		if(campeonatoActual.getCuartosDeFinal().isCuartosSimulado()) {
@@ -294,9 +294,9 @@ public class Controlador implements Serializable {
 	//-------------------------------------------------<<SIMULADORES SEMIS>>-------------------------------------------------
 	
 	/**
-	 * 
-	 * @param equipo
-	 * @return
+	 * Devuelve los resultados del equipos
+	 * @param equipo Integer representando el equipo
+	 * @return String con los resultados
 	 */
 	public String getESemis(int equipo) {//DEBERIA RETORNAR EL STRING DEL EQUIPO, CON LA ACTUALIZACION EN GOLES IDA, VUELTA, ETC
 		if (campeonatoActual.getSemiFinal().getPartidoAct() == 0)
@@ -310,8 +310,8 @@ public class Controlador implements Serializable {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Simula partido de semifinal
+	 * @return Integer representando el partido que se jugo
 	 */
 	public int SimulaPartidoS() { //Devuelve el partido que se jugo (1,2,3 o 4)
 		//evaluar si se puede simular otro partido de ida, sino, llamar al metodo CtodoSimulado(0) del Frame
@@ -330,8 +330,8 @@ public class Controlador implements Serializable {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Simula los partidos de ida de la semifinal
+	 * @return Integer representando el partido que se jugo
 	 */
 	public int simulaPartidosIdaS() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
 		int partidoComienzo = campeonatoActual.getSemiFinal().getPartidoAct();
@@ -343,8 +343,8 @@ public class Controlador implements Serializable {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Simula los partidos de la semifinal
+	 * @return Integer representando el partido que se jugo
 	 */
 	public int simulaPartidosSemis() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
 		//int partidoInicio = campeonatoActual.getSemiFinal().getPartidoAct();
@@ -355,7 +355,7 @@ public class Controlador implements Serializable {
 	}
 	
 	/**
-	 * 
+	 * Setea la semifinal simulada
 	 */
 	public void SemiFinalesSimuladas() {
 		if(campeonatoActual.getSemiFinal().SemiFinalSimulada()) {
@@ -367,25 +367,25 @@ public class Controlador implements Serializable {
 	//-------------------------------------------------<< SIMULADORES FINAL >>--------------------------------------------------------------------
 	
 	/**
-	 * 
-	 * @param equipo
-	 * @return
+	 * Devuelve resultados del equipo
+	 * @param equipo Integer representando el equipo
+	 * @return String con los resultados del equipo
 	 */
 	public String getEFinal(int equipo) {//DEBERIA RETORNAR EL STRING DEL EQUIPO, CON LA ACTUALIZACION EN GOLES IDA, VUELTA, ETC
 		return campeonatoActual.getFinal().getEquipo(equipo).getNombre();
 	}
 	
 	/**
-	 * 
-	 * @param equipo
-	 * @return
+	 * Devuelve los goles de la final de un equipo
+	 * @param equipo Integer representando el equipo
+	 * @return Integer representando la cantidad de goles TODO -> imagino que a favor
 	 */
 	public int getGFinal(int equipo) {
 		return campeonatoActual.getFinal().getEquipo(equipo).getGolesFinal();
 	}
 
 	/**
-	 * 
+	 * Simula la final del campeonato
 	 */
 	public void SimulaFinal() { 
 		if (!campeonatoActual.getFinal().isFinalSimulada()) {

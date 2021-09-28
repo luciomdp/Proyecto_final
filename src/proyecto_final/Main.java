@@ -40,10 +40,13 @@ import frontend.Frame;
  * 
  * Resolver tareas en cada clase del back
  */
+/**
+ * Clase principal
+ */
 public class Main {	
 	/*saco el throw => no tiene sentido tirar la excepción si también la vamos a catchear (además, si falla el main, qué le queda al resto?*/
 	/**
-	 * Entry point
+	 * Entry point del programa
 	 * @param args Argument's array
 	 */
 	public static void main (String[] args) {
