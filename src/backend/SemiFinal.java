@@ -41,6 +41,10 @@ public class SemiFinal implements Serializable{
         	while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
         		referi = referis.get(aleratorio.nextInt(referis.size()));
         	}
+			this.equipos.get(k).setGolesPenalesC(-1);
+			this.equipos.get(k+1).setGolesPenalesC(-1);
+			this.equipos.get(k).setGolVisitante(false);
+			this.equipos.get(k+1).setGolVisitante(false);
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi);
 			k+=2;
 		}
@@ -61,13 +65,11 @@ public class SemiFinal implements Serializable{
 	public void SimulaPartido () {
 		if (!semisTodaSimulada) {
 			if (partidoActual >= CANT_P/2) { //SI YA ESTA EN LOS PARTIDOS DE VUELTA
-				partidos[partidoActual].getEquipo1().setGolVisitante(false);
-				partidos[partidoActual].getEquipo1().setGolVisitante(false);
-				partidos[partidoActual].getEquipo1().setGolesPenalesC(-1);
-				partidos[partidoActual].getEquipo2().setGolesPenalesC(-1);
 				partidos[partidoActual].simulacionNM();
 				partidos[partidoActual].getEquipo1().setGolesVueltaSemis(partidos[partidoActual].getGolesE1());
 				partidos[partidoActual].getEquipo2().setGolesVueltaSemis(partidos[partidoActual].getGolesE2());
+				partidos[partidoActual].getEquipo1().setGolesContra(partidos[partidoActual].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
+				partidos[partidoActual].getEquipo2().setGolesContra(partidos[partidoActual].getGolesE1());
 				partidos[partidoActual].getArbitro().dirigePartido();
 				resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2());
 				if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() == resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL

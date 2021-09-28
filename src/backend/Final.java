@@ -26,6 +26,8 @@ public class Final implements Serializable{
 	public Final(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
 		this.equipos = equipos;
 		Random aleratorio = new Random ();
+		equipos.get(0).setGolVisitante(false);
+		equipos.get(1).setGolVisitante(false);
 	    Referi referi = referis.get(aleratorio.nextInt(referis.size()));
     	while (referi.getNacionalidad() != this.equipos.get(0).getPais() && referi.getNacionalidad() != this.equipos.get(1).getPais()) {
     		referi = referis.get(aleratorio.nextInt(referis.size()));
@@ -38,11 +40,11 @@ public class Final implements Serializable{
 	
 	public void juegaFinal () {
 		if (!finalSimulada) {
-			partidoFinal.getEquipo1().setGolesPenalesC(-1);
-			partidoFinal.getEquipo2().setGolesPenalesC(-1);
 			partidoFinal.simulacionNM();
 			partidoFinal.getEquipo1().setGolesFinal(partidoFinal.getGolesE1());
 			partidoFinal.getEquipo2().setGolesFinal(partidoFinal.getGolesE2());
+			partidoFinal.getEquipo1().setGolesContra(partidoFinal.getGolesE2());
+			partidoFinal.getEquipo2().setGolesContra(partidoFinal.getGolesE1());
 			partidoFinal.getArbitro().dirigePartido();
 			resultado = new Resultados (partidoFinal.getEquipo1(), partidoFinal.getEquipo2(), partidoFinal.getGolesE1(), partidoFinal.getGolesE2());
 			if (resultado.getGolesE1() == resultado.getGolesE2()) {
