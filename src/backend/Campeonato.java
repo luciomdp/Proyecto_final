@@ -78,7 +78,7 @@ public class Campeonato implements Serializable {
 		int j = 0;
         Collections.shuffle(equipos); //MEZCLA EL ARRAYLIST PARA QUE CADA VEZ QUE SE QUIERA CREAR UN CAMPEONATO, LAS ZONAS SEAN DISTINTAS
         for (int z = 0; z < CANTZ; z++) {
-            Equipo equiposZona[] = {equipos.get(j), equipos.get(j+1), equipos.get(j+2), equipos.get(j+3)};
+            Equipo equiposZona[] = {equipos.get(j), equipos.get(j+1), equipos.get(j+2), equipos.get(j+3)}; 
             //0 1 2 3 /+4/ 4 5 6 7 /+4/ 8 9 10 11 /+4/ 12 13 14 15
             zonas[z] = new Zona(equiposZona, z +1, referis);
             j += 4;
@@ -113,9 +113,7 @@ public class Campeonato implements Serializable {
 			//agarramos todos los jugadores del equipo
 			jugadoresEquipo = e.getJugadores();
 			
-			System.out.println(e); //el equipo esta bien, los jugadores no. revisar entrenador
-			
-			//System.out.println(jugadoresEquipo); //aca imprime todos los del ultimo equipo. 
+			System.out.println(e); //revisar entrenador 
 			
 			for (Jugador player: jugadoresEquipo) {
 				if (player.getPosicion() == pos) {
