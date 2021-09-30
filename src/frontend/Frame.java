@@ -13,18 +13,22 @@ import java.awt.geom.*;
  * Poner que informacion sea el ultimo panel siempre
  * Cambiar el width de general para que siempre sea aprox el mismo
  * Aplicar herencia entre cuartos, semis y final
- * Poner en rojo los equipos que no hayan pasado*/
+ * Poner en rojo los equipos que no hayan pasado
+ * doble click inicia torneo*/
 
 public class Frame extends JFrame {
 	private JPanel contentPane;
 	private JTabbedPane tabbedPane;
 	private Inicio inicio;
-	private Zonas zona;
-	private Cuartos cuartos;
-	private Semifinales semis;
-	private Final fin;
+	private FrontZonas zona;
+	private FrontCuartos cuartos;
+	private FrontSemis semis;
+	private FrontFinal fin;
 	private Informacion info;
 	
+	/**
+	 * Crea e inicializa el frame
+	 */
 	public Frame() {
 		
 		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
@@ -45,12 +49,16 @@ public class Frame extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);
 	}
+	/**
+	 * pasa el controlador a todos los paneles del frame
+	 * @param c es el controlador
+	 */
 	public void setControlador (Controlador c) {
 		inicio.AccionaBotones(c);
-		zona = new Zonas(c);
-		cuartos = new Cuartos(c);
-		semis = new Semifinales(c);
-		fin = new Final(c);
+		zona = new FrontZonas(c);
+		cuartos = new FrontCuartos(c);
+		semis = new FrontSemis(c);
+		fin = new FrontFinal(c);
 		info = new Informacion(c);
 	}
 	public void IniciaTorneo(String Zonas[]) { //SE PASA POR PARAMETRO LO QUE SEA NECESARIO PARA DARLE STRINGS A LAS ETIQUETAS DEL VISUAL 

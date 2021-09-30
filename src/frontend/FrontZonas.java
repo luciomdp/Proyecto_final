@@ -5,7 +5,7 @@ import javax.swing.*;
 
 import proyecto_final.Controlador;
 
-public class Zonas extends General{
+public class FrontZonas extends General{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
@@ -28,7 +28,7 @@ public class Zonas extends General{
 	private Zona Zona3;
 	private Zona Zona4;
 	
-	public Zonas(Controlador c){
+	public FrontZonas(Controlador c){
 				
 		//-------------------------------------------------<<SETEO CONTROLADOR Y LAYOUT>>-------------------------------------------------
 		

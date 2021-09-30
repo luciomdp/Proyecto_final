@@ -54,18 +54,23 @@ public class Inicio extends General{
 		Inicia_torneo.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 				getControlador().IniciaTorneo();
+				Inicia_torneo.setEnabled(false);
+				Continua.setEnabled(false);
 			}	
 		});
+		
 		Continua.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 				getControlador().ContinuaTorneo();
 			}	
 		});
+		
 		Guarda_progreso.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 				getControlador().SerializaProgreso();
 			}	
 		});
+		
 	}
 	
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------

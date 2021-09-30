@@ -33,7 +33,7 @@ public class Controlador implements Serializable {
 	/** Objeto del campeonato actual*/
 	private Campeonato campeonatoActual;
 	/** Front-end*/
-	private transient Frame frameActual;
+	private Frame frameActual;
 	
 	/**
 	 * Mi duda con esto: la clase la creamos para hacer los dos métodos,
@@ -51,6 +51,14 @@ public class Controlador implements Serializable {
 		campeonatoActual = c;
 		frameActual = f;
 	}
+	
+	/**
+	 * Setea el front
+	 */
+	public void setFrame(Frame _frame) {
+		this.frameActual = _frame;
+	}
+	
 	
 	/**
 	 * Inicia un torneo desde cero
@@ -73,7 +81,9 @@ public class Controlador implements Serializable {
 		//inicia torneo con todos datos serializados (se pasan por parametro de IniciaTorneo())
 		try {
 			
-			this.setCampeonato(progreso.leeProgreso());
+			Object[] _objetos = progreso.leeProgreso();
+			this.setCampeonato((Campeonato) _objetos[0]);
+			this.setFrame((Frame) _objetos[1]);
 			
 		} catch (FileNotFoundException e) {
 			//si no se encuentra el archivo a leer
@@ -98,7 +108,7 @@ public class Controlador implements Serializable {
 		//acá hay que guardar el torneo actual
 		try {
 
-			progreso.guardaProgreso(campeonatoActual);
+			progreso.guardaProgreso(campeonatoActual, frameActual);
 	
 		} catch (FileNotFoundException e) {
 			//si no se encuentra el archivo a leer
@@ -380,8 +390,8 @@ public class Controlador implements Serializable {
 	 * @param equipo Integer representando el equipo
 	 * @return Integer representando la cantidad de goles TODO -> imagino que a favor
 	 */
-	public int getGFinal(int equipo) {
-		return campeonatoActual.getFinal().getEquipo(equipo).getGolesFinal();
+	public String getGFinal(int equipo) {
+		return campeonatoActual.getFinal().getEquipo(equipo).getEstadisticasFinal();
 	}
 
 	/**

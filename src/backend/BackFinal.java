@@ -11,7 +11,7 @@ import java.util.Random;
 		El controlador sabe si se puede jugar o no, porque accede al valor del boolean. Si esta en true nunca va a jugarse el partido.
 */
 
-public class Final implements Serializable{
+public class BackFinal implements Serializable{
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
@@ -23,7 +23,7 @@ public class Final implements Serializable{
 	private boolean finalSimulada;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
-	public Final(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
+	public BackFinal(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
 		this.equipos = equipos;
 		Random aleratorio = new Random ();
 	    Referi referi = referis.get(aleratorio.nextInt(referis.size()));

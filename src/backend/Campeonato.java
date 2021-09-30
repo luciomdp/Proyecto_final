@@ -48,15 +48,15 @@ public class Campeonato implements Serializable {
 	/** Lista de referis*/
 	private ArrayList <Referi> referis;
 	/** Lista de zonas*/
-	private Zona zonas[];
+	private BackZonas zonas[];
 	/** Instancia de Cuartos de final*/
-	private CuartosFinal cuartosDeFinal;
+	private BackCuartos cuartosDeFinal;
 	/** Instancia de Semifinal*/
-	private SemiFinal semiFinal;
+	private BackSemis semiFinal;
 	/** Instancia de Final*/
-	private Final final_Campeonato;
+	private BackFinal final_Campeonato;
 	/** Instancia de Controlador .-TODO- Sin usar*/
-	private Controlador control;
+	
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
@@ -68,7 +68,7 @@ public class Campeonato implements Serializable {
 	public Campeonato (ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
 		this.equipos = equipos;
 		this.referis = referis;	
-		zonas = new Zona [CANTZ];
+		zonas = new BackZonas [CANTZ];
 		
 	}
 
@@ -86,7 +86,7 @@ public class Campeonato implements Serializable {
         for (int z = 0; z < CANTZ; z++) {
             Equipo equiposZona[] = {equipos.get(j), equipos.get(j+1), equipos.get(j+2), equipos.get(j+3)}; 
             //0 1 2 3 /+4/ 4 5 6 7 /+4/ 8 9 10 11 /+4/ 12 13 14 15
-            zonas[z] = new Zona(equiposZona, z +1, referis);
+            zonas[z] = new BackZonas(equiposZona, z +1, referis);
             j += 4;
         }
 		this.cuartosDeFinal = null;
@@ -203,9 +203,6 @@ public class Campeonato implements Serializable {
 	 * Setea el controlador
 	 * @param control El controlador
 	 */
-	public void setControlador(Controlador control) {
-		this.control = control;
-	}
 	
 	/**
 	 * Devuelve un equipo de cuartos de final
@@ -230,7 +227,7 @@ public class Campeonato implements Serializable {
 	 * @param zona Integer representando la zona
 	 * @return La zona
 	 */
-	public Zona getZona(int zona) {
+	public BackZonas getZona(int zona) {
 		return zonas[zona];
 	}
 	
@@ -238,7 +235,7 @@ public class Campeonato implements Serializable {
 	 * Devuelve una instancia de CuartosFinal
 	 * @return Los cuartos de final
 	 */
-	public CuartosFinal getCuartosDeFinal() {
+	public BackCuartos getCuartosDeFinal() {
 		return cuartosDeFinal;
 	}
 
@@ -246,7 +243,7 @@ public class Campeonato implements Serializable {
 	 * Devuelve una instancia de SemiFinal
 	 * @return Una semifinal
 	 */
-	public SemiFinal getSemiFinal() {
+	public BackSemis getSemiFinal() {
 		return semiFinal;
 	}
 	
@@ -254,7 +251,7 @@ public class Campeonato implements Serializable {
 	 * Devuelve una instancia de Final
 	 * @return Una final
 	 */
-	public Final getFinal() {
+	public BackFinal getFinal() {
 		return final_Campeonato;	
 	}
 
@@ -267,21 +264,21 @@ public class Campeonato implements Serializable {
 			equiposCuartos.add(zonas[i].getEquipo(0));
 			equiposCuartos.add(zonas[i].getEquipo(1));
 		}
-		cuartosDeFinal = new CuartosFinal(equiposCuartos, referis);
+		cuartosDeFinal = new BackCuartos(equiposCuartos, referis);
 	}
 	
 	/**
 	 * Inicia las semifinales
 	 */
 	public void IniciaSemis () {
-		semiFinal = new SemiFinal (cuartosDeFinal.getGanadores(), referis);
+		semiFinal = new BackSemis (cuartosDeFinal.getGanadores(), referis);
 	}
 	
 	/**
 	 * Inicia la final
 	 */
 	public void IniciaFinal () {
-		final_Campeonato = new Final (semiFinal.getGanadores(), referis);
+		final_Campeonato = new BackFinal (semiFinal.getGanadores(), referis);
 	}
 
 }

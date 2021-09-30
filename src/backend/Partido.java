@@ -40,8 +40,8 @@ public class Partido implements Serializable{
 	
 
 	public void simulacionNM() { 
-		int OportunidadesGolA = (int) Math.round(Math.random()*10);//Cada equipo tiene como maximo 10 oportunidades de gol
-		int OportunidadesGolB = (int) Math.round(Math.random()*10);
+		int OportunidadesGolA = (int) Math.round(Math.random()*1);//Cada equipo tiene como maximo 10 oportunidades de gol
+		int OportunidadesGolB = (int) Math.round(Math.random()*1);
 		int i;
 		if(Media_totE1 > Media_totE2) 
 			OportunidadesGolA ++;

@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 	
 */
 
-public class Zona implements Serializable{
+public class BackZonas implements Serializable{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
@@ -44,7 +44,7 @@ public class Zona implements Serializable{
     
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
-	public Zona (Equipo equipos[], int nroZona, ArrayList <Referi> referis) {
+	public BackZonas (Equipo equipos[], int nroZona, ArrayList <Referi> referis) {
     	
     	ZonaSimulada = false;
     	this.nroZona = nroZona;

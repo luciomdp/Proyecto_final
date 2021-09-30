@@ -7,7 +7,7 @@ import javax.swing.*;
 
 import proyecto_final.Controlador;
 
-public class Semifinales extends General{
+public class FrontSemis extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private int AUMENTO_FUENTE = 0;
@@ -22,7 +22,7 @@ public class Semifinales extends General{
 	private SLabel SEquipo3;
 	private SLabel SEquipo4;
 		
-	public Semifinales (Controlador c){
+	public FrontSemis (Controlador c){
 		
 		setControl(c);
 		

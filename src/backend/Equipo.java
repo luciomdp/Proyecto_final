@@ -123,7 +123,11 @@ public class Equipo implements Serializable{
     }
 	
 	public String getEstadisticasFinal () {
-		return nombre + golesFinal;
+		if (golesPenalesC == -1) 
+			return ""+golesFinal;
+		else
+			return golesFinal + " ("+ (golesPenalesC + 1) + ")";
+			
 	}
 	
 	public boolean isGolDeVisitante () {

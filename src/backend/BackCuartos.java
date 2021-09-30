@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 */
 
-public class CuartosFinal implements Serializable{
+public class BackCuartos implements Serializable{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
@@ -29,7 +29,7 @@ public class CuartosFinal implements Serializable{
 	private boolean cuartosTodoSimulado;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public CuartosFinal(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
+	public BackCuartos(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
 		int i = 0,k = 0;
 		cuartosTodoSimulado = false;
 		this.equipos = equipos;

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /*.*/
 
-public class SemiFinal implements Serializable{
+public class BackSemis implements Serializable{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
@@ -28,7 +28,7 @@ public class SemiFinal implements Serializable{
 
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
-	public SemiFinal(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
+	public BackSemis(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
 		int i = 0,k = 0;
 		semisTodaSimulada = false;
 		this.equipos = equipos;

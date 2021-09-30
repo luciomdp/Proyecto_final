@@ -6,7 +6,7 @@ import javax.swing.*;
 import proyecto_final.Controlador;
 
 
-public class Cuartos extends General{
+public class FrontCuartos extends General{
 		
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 		
@@ -22,7 +22,7 @@ public class Cuartos extends General{
 	private CLabel CEquipo7;
 	private CLabel CEquipo8;
 	
-	public Cuartos (Controlador c){
+	public FrontCuartos (Controlador c){
 		
 		setControl(c);
 		

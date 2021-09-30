@@ -5,11 +5,12 @@ import java.awt.event.*;
 import javax.swing.*;
 import proyecto_final.Controlador;
 
-public class Final extends General{
+public class FrontFinal extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private final int AUMENTO_FUENTE = 10;
-	private final Color COLOR_CAMPEON = new Color(255, 235, 0);
+	private final Color COLOR_CAMPEON_CLARO = new Color(239, 220, 0);
+	private final Color COLOR_CAMPEON_OSCURO = new Color(190,140,20);
 		
 	//-------------------------------------------------<<VARIABLES>>------------------------------------------------
 	
@@ -22,7 +23,7 @@ public class Final extends General{
 	private Box VertBox;
 	private Box HorBox;
 	
-	public Final (Controlador c){
+	public FrontFinal (Controlador c){
 		
 		setControl(c);
 				
@@ -82,7 +83,11 @@ public class Final extends General{
 	
 		public void FinalSimulada() {
 			SimulaFinal.setEnabled(false);
-			FpanelC.setBackground(COLOR_CAMPEON);
+			FpanelC.setBackground(COLOR_CAMPEON_CLARO);
+			FpanelN.setBackground(COLOR_CAMPEON_OSCURO);
+			FEquipo1.setBackground(COLOR_CAMPEON_OSCURO);
+			FEquipo2.setBackground(COLOR_CAMPEON_OSCURO);
+			marcador.setBackground(COLOR_CAMPEON_OSCURO);
 		}
 
 		public void InicializaVariables() {
@@ -102,7 +107,7 @@ public class Final extends General{
 				setForeground(COLOR_LETRA);
 			}
 			
-			public void ActualizaMarcador(int G1, int G2) {
+			public void ActualizaMarcador(String G1, String G2) {
 				setText( " " + G1 + " | " + G2 + " ");
 			}
 		

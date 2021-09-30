@@ -25,7 +25,8 @@ import backend.Posicion;
 import backend.Referi;
 import frontend.Frame;
 /* 
- * Cambiar nombre a las clases compartidas entre el back y front (como final,semifinal,cuartos,zona) para diferenciarlas
+ * Cambiar nombre a las clases compartidas entre el back y front (como final,semifinal,cuartos,zona) para diferenciarlas+
+ * 
  * (sugerencia, las que son del back llamarlas BackFinal,BackSemifinal ... y las del Front, FrontFinal,FrontSemifinal ...)
  * 
  * No debería haber una clase abstracta partido?, de la que hereden los 3 tipos de partidos que existen. (sino lo dejamos como está
@@ -77,7 +78,6 @@ public class Main {
 			//creamos el controlador y le pasamos el back y el front
 			Controlador control = new Controlador (torneo, vista);
 			vista.setControlador(control);
-			torneo.setControlador(control);
 			
 		} catch (NumberFormatException e) {
 			//esto si falla alguna string ->
