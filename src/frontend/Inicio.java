@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import proyecto_final.Controlador;
 
-public class Inicio extends General{
+public class Inicio extends General {
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
