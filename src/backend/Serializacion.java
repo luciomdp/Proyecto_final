@@ -13,7 +13,7 @@ import frontend.Frame;
 /**
  * Clase encargada de serializar progreso
  */
-public class Serializacion implements Serializable{
+public abstract class Serializacion implements Serializable{
 
 	/** Serial*/
 	private static final long serialVersionUID = 1L;
@@ -25,7 +25,7 @@ public class Serializacion implements Serializable{
 	 * @throws FileNotFoundException Si no puede crear el archivo
 	 * @throws IOException Si no puede escribir en el archivo
 	 */
-	public void guardaProgreso(Campeonato _campeonato, Frame _frame) throws FileNotFoundException, IOException {
+	public static void guardaProgreso(Campeonato _campeonato, Frame _frame) throws FileNotFoundException, IOException {
 		
 		FileOutputStream fs = new FileOutputStream ("Progreso");
 		ObjectOutputStream os = new ObjectOutputStream (fs);
@@ -44,7 +44,7 @@ public class Serializacion implements Serializable{
 	 * @throws IOException Si no puede leer el archivo
 	 * @throws ClassNotFoundException Si no se encuentra la clase Campeonato
 	 */
-	public Object[] leeProgreso() throws FileNotFoundException, IOException, ClassNotFoundException{
+	public static Object[] leeProgreso() throws FileNotFoundException, IOException, ClassNotFoundException{
 		
 		Object[] ob = new Object[2];
 		FileInputStream fs = new FileInputStream("Progreso");

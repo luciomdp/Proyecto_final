@@ -35,12 +35,6 @@ public class Controlador implements Serializable {
 	/** Front-end*/
 	private Frame frameActual;
 	
-	/**
-	 * Mi duda con esto: la clase la creamos para hacer los dos métodos,
-	 * 					 pero, les parece que hagamos un objeto o que llamemos
-	 * 					 a Serializacion.leerProgreso()/guardarProgreso() ? */
-	Serializacion progreso = new Serializacion();
-	
 	
 	/**
 	 * Constructor del controlador
@@ -81,7 +75,7 @@ public class Controlador implements Serializable {
 		//inicia torneo con todos datos serializados (se pasan por parametro de IniciaTorneo())
 		try {
 			
-			Object[] _objetos = progreso.leeProgreso();
+			Object[] _objetos = Serializacion.leeProgreso();
 			this.setCampeonato((Campeonato) _objetos[0]);
 			this.setFrame((Frame) _objetos[1]);
 			
@@ -108,7 +102,7 @@ public class Controlador implements Serializable {
 		//acá hay que guardar el torneo actual
 		try {
 
-			progreso.guardaProgreso(campeonatoActual, frameActual);
+			Serializacion.guardaProgreso(campeonatoActual, frameActual);
 	
 		} catch (FileNotFoundException e) {
 			//si no se encuentra el archivo a leer
