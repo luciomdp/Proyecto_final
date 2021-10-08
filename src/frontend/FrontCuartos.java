@@ -13,14 +13,13 @@ public class FrontCuartos extends General{
 	private JPanel CpanelN;
 	private panelC CpanelC;
 	private JComboBox<String> CcomboBox;
-	private CLabel CEquipo1;
-	private CLabel CEquipo2;
-	private CLabel CEquipo3;
-	private CLabel CEquipo4;
-	private CLabel CEquipo5;
-	private CLabel CEquipo6;
-	private CLabel CEquipo7;
-	private CLabel CEquipo8;
+	private FrontPartido Partido1;
+	private FrontPartido Partido2;
+	private FrontPartido Partido3;
+	private FrontPartido Partido4;
+	private Box VBox;
+	private Box HBox1;
+	private Box HBox2;
 	
 	public FrontCuartos (Controlador c){
 		
@@ -35,36 +34,18 @@ public class FrontCuartos extends General{
 		CpanelN = new JPanel();
 		CpanelC = new panelC(); 
 		CcomboBox = new JComboBox<String>();
-		CEquipo1 = new CLabel();
-		CEquipo2 = new CLabel();
-		CEquipo3 = new CLabel();
-		CEquipo4 = new CLabel();
-		CEquipo5 = new CLabel();
-		CEquipo6 = new CLabel();
-		CEquipo7 = new CLabel();
-		CEquipo8 = new CLabel();
+		Partido1 = new FrontPartido(c);
+		Partido2 = new FrontPartido(c);
+		Partido3 = new FrontPartido(c);
+		Partido4 = new FrontPartido(c);
+		VBox = Box.createVerticalBox();
+		HBox1 = Box.createHorizontalBox();
+		HBox2 = Box.createHorizontalBox();
 		
 		//-------------------------------------------------<<SETEO VARIABLES>>-------------------------------------------------
 		
 		CpanelN.setBackground(COLOR_PANEL_N);
-		CpanelC.setLayout(null);
 		CpanelC.setBackground(COLOR_PANEL_C);
-
-		CEquipo1.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
-		
-		CEquipo2.setBounds(CANCHA_TAMANO_RECT_G/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
-		
-		CEquipo3.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
-		
-		CEquipo4.setBounds(CANCHA_TAMANO_RECT_G/2,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
-		
-		CEquipo5.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,CANCHA_TAMANO_RECT_G/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
-
-		CEquipo6.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,CANCHA_TAMANO_RECT_G/2 + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
-	
-		CEquipo7.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,(CANCHA_TAMANO_RECT_G/2)*2+AUM_Y_BTTN/2+2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
-		
-		CEquipo8.setBounds(WIDTH-CANCHA_TAMANO_RECT_G-TAM_LABEL.width/2,(CANCHA_TAMANO_RECT_G/2)*2+ AUM_Y_BTTN +2*(TAM_LABEL.height/2) + AUM_Y_BTTN/2,WIDTH/2 - CANCHA_TAMANO_RECT_C + 20,TAM_LABEL.height/2);
 		
 		CcomboBox.setEditable(false);
 		CcomboBox.addItem("Cuartos");
@@ -80,20 +61,16 @@ public class FrontCuartos extends General{
 						partido_simulado = getControlador().SimulaPartidoC(); 
 						  switch(partido_simulado) {
 						  		case 0:
-						  			 CEquipo1.setText(getControlador().getECuartos(0));
-						  			 CEquipo2.setText(getControlador().getECuartos(1));
+						  			Partido1.setText(getControlador().getECuartos(0),getControlador().getECuartos(1));
 						  		break;
 						  		case 1:
-						             CEquipo3.setText(getControlador().getECuartos(2));
-						  			 CEquipo4.setText(getControlador().getECuartos(3));
+						  			Partido2.setText(getControlador().getECuartos(2),getControlador().getECuartos(3));
 						  		break;
 						  		case 2:
-						  			 CEquipo5.setText(getControlador().getECuartos(4));
-						  			 CEquipo6.setText(getControlador().getECuartos(5));
+						  			Partido3.setText(getControlador().getECuartos(4),getControlador().getECuartos(5));
 						  		break;
 						  		case 3:
-						  			 CEquipo7.setText(getControlador().getECuartos(6));
-						  			 CEquipo8.setText(getControlador().getECuartos(7));
+						  			Partido4.setText(getControlador().getECuartos(6),getControlador().getECuartos(7));
 						  		break;
 						  }			  
 						//se simula el partido que sea
@@ -108,18 +85,13 @@ public class FrontCuartos extends General{
 						//simula todo, por lo que si se simula un anterior, se simulara el posterior (siempre se simulan los partidos en orden)
 						switch(partido_simulado) {
 						  		case 0:
-						  			 CEquipo1.setText(getControlador().getECuartos(0));
-						  			 CEquipo2.setText(getControlador().getECuartos(1));
-		
+						  			Partido1.setText(getControlador().getECuartos(0),getControlador().getECuartos(1));
 						  		case 1:
-						            CEquipo3.setText(getControlador().getECuartos(2));
-						  			 CEquipo4.setText(getControlador().getECuartos(3));
+						  			Partido2.setText(getControlador().getECuartos(2),getControlador().getECuartos(3));
 						  		case 2:
-						  			 CEquipo5.setText(getControlador().getECuartos(4));
-						  			 CEquipo6.setText(getControlador().getECuartos(5));
+						  			Partido3.setText(getControlador().getECuartos(4),getControlador().getECuartos(5));
 						  		case 3:
-						  			 CEquipo7.setText(getControlador().getECuartos(6));
-						  			 CEquipo8.setText(getControlador().getECuartos(7));
+						  			Partido4.setText(getControlador().getECuartos(6),getControlador().getECuartos(7));
 						  }
 						//le saco el break asi dependiendo el que sea, ejecuta tambien las sentencias del de abajo
 					}
@@ -130,14 +102,17 @@ public class FrontCuartos extends General{
 		//-------------------------------------------------<<AÑADO TODO A LOS CUARTOS>>-------------------------------------------------
 		
 		CpanelN.add(CcomboBox);
-		CpanelC.add(CEquipo1);
-		CpanelC.add(CEquipo2);
-		CpanelC.add(CEquipo3);
-		CpanelC.add(CEquipo4);
-		CpanelC.add(CEquipo5);
-		CpanelC.add(CEquipo6);
-		CpanelC.add(CEquipo7);
-		CpanelC.add(CEquipo8);
+		HBox1.add(Partido1);
+		HBox1.add(Box.createHorizontalStrut(WIDTH/4));
+		HBox1.add(Partido2);
+		HBox2.add(Partido3);
+		HBox2.add(Box.createHorizontalStrut(WIDTH/4));
+		HBox2.add(Partido4);
+		VBox.add(Box.createVerticalStrut(HEIGHT/8));
+		VBox.add(HBox1);
+		VBox.add(Box.createVerticalStrut(HEIGHT/3));
+		VBox.add(HBox2);
+		CpanelC.add(VBox);
 		
 		add(CpanelN,BorderLayout.NORTH);
 		add(CpanelC,BorderLayout.CENTER);
@@ -155,64 +130,19 @@ public class FrontCuartos extends General{
 	}
 	
 	public void InicializaVariables() {
-		CEquipo1.setText(getControlador().getECuartos(0));
-		CEquipo2.setText(getControlador().getECuartos(1));
-		CEquipo3.setText(getControlador().getECuartos(2));
-		CEquipo4.setText(getControlador().getECuartos(3));
-		CEquipo5.setText(getControlador().getECuartos(4));
-		CEquipo6.setText(getControlador().getECuartos(5));
-		CEquipo7.setText(getControlador().getECuartos(6));
-		CEquipo8.setText(getControlador().getECuartos(7));
+		Partido1.setText(getControlador().getECuartos(0),getControlador().getECuartos(1));
+		Partido2.setText(getControlador().getECuartos(2),getControlador().getECuartos(3));
+		Partido3.setText(getControlador().getECuartos(4),getControlador().getECuartos(5));
+		Partido4.setText(getControlador().getECuartos(6),getControlador().getECuartos(7));
 	}
 
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
-	private class CLabel extends JLabel{
-		CLabel () {
-			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-			setOpaque(true);
-			setBackground(COLOR_PANEL_N);
-			setForeground(COLOR_LETRA);
-		}
-	}
+	
 	private class panelC extends General {
 		panelC () {
 			super.paint(getGraphics());
 		}
-	}
-	
-	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
-	
-	public void setCEquipo1(String cEquipo1) {
-		CEquipo1.setText(cEquipo1);
-	}
-
-	public void setCEquipo2(String cEquipo2) {
-		CEquipo2.setText(cEquipo2);
-	}
-
-	public void setCEquipo3(String cEquipo3) {
-		CEquipo3.setText(cEquipo3);
-	}
-
-	public void setCEquipo4(String cEquipo4) {
-		CEquipo4.setText(cEquipo4);
-	}
-
-	public void setCEquipo5(String cEquipo5) {
-		CEquipo5.setText(cEquipo5);
-	}
-
-	public void setCEquipo6(String cEquipo6) {
-		CEquipo6.setText(cEquipo6);
-	}
-
-	public void setCEquipo7(String cEquipo7) {
-		CEquipo7.setText(cEquipo7);
-	}
-
-	public void setCEquipo8(String cEquipo8) {
-		CEquipo8.setText(cEquipo8);
-	}
+	}	
 
 }

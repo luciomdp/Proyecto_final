@@ -1,6 +1,7 @@
 package frontend;
 
 import java.awt.*;
+
 import java.awt.event.*;
 import javax.swing.*;
 import proyecto_final.Controlador;
@@ -16,12 +17,9 @@ public class FrontFinal extends General{
 	
 	private JPanel FpanelN;
 	private panelF FpanelC;
-	private FLabel FEquipo1;
-	private FLabel FEquipo2;
-	private Marcador marcador;
 	private JButton SimulaFinal;
-	private Box VertBox;
-	private Box HorBox;
+	private PartidoFinal Partido;
+	
 	
 	public FrontFinal (Controlador c){
 		
@@ -36,23 +34,19 @@ public class FrontFinal extends General{
 		
 		FpanelN = new JPanel();
 		FpanelC = new panelF(); 
-		FEquipo1 = new FLabel ();
-		FEquipo2 = new FLabel ();
-		marcador = new Marcador();
 		SimulaFinal = new JButton("Simula la final");
-		VertBox = Box.createVerticalBox();
-		HorBox = Box.createHorizontalBox();
+		Partido = new PartidoFinal(c);
 		
 		//-------------------------------------------------<<SETEO VARIABLES>>-------------------------------------------------
 		
+		FpanelC.setLayout(new GridBagLayout());
 		FpanelN.setBackground(COLOR_PANEL_N);
 		FpanelC.setBackground(COLOR_PANEL_C);
-		FpanelC.setLayout(new FlowLayout(FlowLayout.CENTER));
 		SimulaFinal.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
 				getControlador().SimulaFinal();
-				marcador.ActualizaMarcador(getControlador().getGFinal(0), getControlador().getGFinal(1));
+				Partido.m.ActualizaMarcador(getControlador().getGFinal(0), getControlador().getGFinal(1));
 			}
 			
 		});
@@ -60,19 +54,7 @@ public class FrontFinal extends General{
 		//-------------------------------------------------<<AÑADO TODO A LA ZONA>>------------------------------------------------- 
 		
 		FpanelN.add(SimulaFinal);
-		
-		HorBox.add(FEquipo1);
-		HorBox.add(Box.createHorizontalStrut(100));
-		HorBox.add(FEquipo2);
-		
-		VertBox.add(Box.createVerticalStrut(HEIGHT/10));
-		VertBox.add(Box.createVerticalStrut(HEIGHT/4));
-		VertBox.add(HorBox);
-		//FpanelC.add(FEquipo1,BorderLayout.EAST);
-		//FpanelC.add(FEquipo2,BorderLayout.WEST);
-		//FpanelC.add(marcador,BorderLayout.NORTH);
-		FpanelC.add(marcador);
-		FpanelC.add(VertBox);
+		FpanelC.add(Partido);
 
 		add(FpanelN,BorderLayout.NORTH);
 		add(FpanelC,BorderLayout.CENTER);
@@ -85,21 +67,65 @@ public class FrontFinal extends General{
 			SimulaFinal.setEnabled(false);
 			FpanelC.setBackground(COLOR_CAMPEON_CLARO);
 			FpanelN.setBackground(COLOR_CAMPEON_OSCURO);
-			FEquipo1.setBackground(COLOR_CAMPEON_OSCURO);
-			FEquipo2.setBackground(COLOR_CAMPEON_OSCURO);
-			marcador.setBackground(COLOR_CAMPEON_OSCURO);
+			Partido.FEquipo1.setBackground(COLOR_CAMPEON_OSCURO);
+			Partido.FEquipo2.setBackground(COLOR_CAMPEON_OSCURO);
+			Partido.Credenciales.setBackground(new Color(175,120,20));
+			Partido.m.setBackground(COLOR_CAMPEON_OSCURO);
 		}
 
 		public void InicializaVariables() {
-			FEquipo1.setText(getControlador().getEFinal(0));
-			FEquipo2.setText(getControlador().getEFinal(1));
+			Partido.FEquipo1.setText(getControlador().getEFinal(0));
+			Partido.FEquipo2.setText(getControlador().getEFinal(1));
 		}
 		
 		//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 		
+		private class PartidoFinal extends JPanel{
+			Marcador m;
+			FLabel FEquipo1;
+			FLabel FEquipo2;
+			JButton Credenciales;
+			JPanel PanelC;
+			JPanel PanelN;
+			
+			PartidoFinal(Controlador c) {
+				setLayout(new BorderLayout());
+				FEquipo1 = new FLabel();
+				FEquipo2 = new FLabel();
+				Credenciales = new JButton("Emitir credenciales");
+				PanelC = new JPanel();
+				PanelN = new JPanel();
+				m = new Marcador();
+				
+				Credenciales.setBackground(General.COLOR_PANEL_N);
+				Credenciales.setForeground(General.COLOR_LETRA);
+				PanelN.setLayout(new BorderLayout());
+				
+				FEquipo1.setHorizontalAlignment(SwingConstants.LEFT);
+				FEquipo2.setHorizontalAlignment(SwingConstants.RIGHT);
+				
+				Credenciales.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+					}	
+				});
+				
+				//-------------------------------------------------<<AÑADO VARIABLES>>-------------------------------------------------
+				PanelN.add(m,BorderLayout.CENTER);
+				PanelC.add(FEquipo1);
+				PanelC.add(FEquipo2);
+				add(m,BorderLayout.NORTH);
+				add(PanelC,BorderLayout.CENTER);
+				add(Credenciales,BorderLayout.SOUTH);
+				
+			}	
+			
+		}
+		
 		private class Marcador extends JLabel {
 			
 			public Marcador () {
+				setHorizontalAlignment(SwingConstants.CENTER);
 				setFont(new Font("Consolas",Font.PLAIN,60));
 				setText(" 0 | 0 ");
 				setOpaque(true);
@@ -121,6 +147,7 @@ public class FrontFinal extends General{
 				setForeground(COLOR_LETRA);
 				setSize(TAM_LABEL.width*5,TAM_LABEL.height);
 			}
+		
 		}
 		
 		private class panelF extends General {
@@ -128,6 +155,6 @@ public class FrontFinal extends General{
 				super.paint(getGraphics());
 				setBackground(COLOR_BOTONES_2);
 			}
-		}
+		}	
 		
 }

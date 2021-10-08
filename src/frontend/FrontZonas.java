@@ -119,7 +119,7 @@ public class FrontZonas extends General{
 			Partidos.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
-					
+					FramePartidos a = new FramePartidos(NroZona,c);
 				}	
 			});
 			add(Panel_texto,BorderLayout.CENTER);
@@ -157,6 +157,53 @@ public class FrontZonas extends General{
 					}
 				}
 			});
+		}
+	}
+	
+	private class FramePartidos extends JFrame {
+		
+		final int ESPACIO_VERTICAL = 30;
+		
+		JScrollPane PanelScroll;
+		JPanel Panel;
+		FrontPartido Partidos [];
+		String E1[],E2[];
+		int PJ;
+		Box VBox;
+		FramePartidos(int Zona,Controlador c) {
+			Toolkit MiPantalla = Toolkit.getDefaultToolkit();
+			Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
+			PJ = c.CantPJZona(Zona);
+			E1 = c.getE1Zona(Zona);
+			E2 = c.getE2Zona(Zona);
+			Panel = new JPanel();
+			PanelScroll = new JScrollPane();
+			Partidos = new FrontPartido [PJ];
+			VBox = Box.createVerticalBox();
+			
+			setTitle("Partidos de la zona " + (Zona+1));
+			setIconImage(imagen);
+			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			setSize(400,600);
+			setResizable(false);
+			setLocationRelativeTo(null);
+			Panel.setBackground(COLOR_PANEL_C);
+			
+			//Panel.setLayout(new FlowLayout(FlowLayout.LEFT)); ACTIVAR SI SE PREFIERE A LA IZQUIERDA LOS PARTIDOS
+			
+			PanelScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			for(int i = 0; i < PJ; i++) {
+				Partidos[i] = new FrontPartido(c);
+				Partidos[i].setText(E1[i], E2[i]);
+				Partidos[i].SetFontSizeIncr(12);
+				VBox.add(Box.createVerticalStrut(ESPACIO_VERTICAL));
+				VBox.add(Partidos[i]);
+			}
+			Panel.add(VBox);
+			PanelScroll.setViewportView(Panel);
+			add(PanelScroll);
+			
+			setVisible(true);
 		}
 	}
 	

@@ -399,5 +399,32 @@ public class Controlador implements Serializable {
 		}
 		//NOSE SI HAY QUE DEFINIR ALGO ACA CUANDO SE JUEGA LA FINAL (BLOQUEAR EL BOTÓN POR EJ)
 	}
+
+	public int CantPJZona(int zona) {
+		// TODO Auto-generated method stub
+		return 5;
+	}
+
+	public String[] getE1Zona(int zona) {
+		// TODO Auto-generated method stub
+		String a[] = new String[6];
+		int j = 1;
+		for (int i = 0;i<5;i++) {
+			a[i] = "Equipo " + j;
+			j+=2;
+		}
+		return a;
+	}
+	
+	public String[] getE2Zona(int zona) {
+		// TODO Auto-generated method stub
+		String a[] = new String[6];
+		int j = 2;
+		for (int i = 0;i<5;i++) {
+			a[i] = "Equipo " + j;
+			j+=2;
+		}
+		return a;
+	}
 	
 }
