@@ -18,46 +18,50 @@ public class General extends JPanel{
 	
 	//-----------------------------------ALTO Y LARGO FRAME-----------------------------
 	
-	protected final int WIDTH = 900;
-	protected final int HEIGHT = 500;
+	public static final int WIDTH = 900;
+	public static final int HEIGHT = 500;
 
 	//-----------------------------------INFO_BACKEND-----------------------------
 	
-	protected final int CANT_EQUIPOS = 16;
-	protected final int CANT_ZONAS = 4;
-	protected final int CANT_BTN = 3;
+	public static final int CANT_EQUIPOS = 16;
+	public static final int CANT_ZONAS = 4;
+	public static final int CANT_BTN = 3;
 	
 	//-----------------------------------CANCHA-----------------------------
 	
-	protected final int CANCHA_TAMANO_CIRCULO_C = 10;
-	protected final int CANCHA_TAMANO_CIRCULO_G = 100;
-	protected final int CANCHA_TAMANO_RECT_C = 100;
-	protected final int CANCHA_TAMANO_RECT_G = 200;
-	protected final Color COLOR_LINEAS_CANCHA = Color.GRAY;
+	public static final int CANCHA_TAMANO_CIRCULO_C = 10;
+	public static final int CANCHA_TAMANO_CIRCULO_G = 100;
+	public static final int CANCHA_TAMANO_RECT_C = 100;
+	public static final int CANCHA_TAMANO_RECT_G = 200;
+	public static final Color COLOR_LINEAS_CANCHA = Color.GRAY;
 	//-----------------------------------BOTONES-----------------------------
 	
-	private final int TAM_HOR_LABEL = 300,TAM_VER_LABEL = 46;
-	protected final int TAM_HOR_BTTN = 350;
-	protected final int TAM_VER_BTTN = 40;
-	protected int AUM_Y_BTTN = WIDTH/16;
-	protected final Color COLOR_BOTONES = Color.DARK_GRAY;
-	protected final Color COLOR_BOTONES_2 =new Color (168, 168, 168);
-	protected final Color COLOR_LETRA = Color.WHITE;
-	protected final Dimension TAM_BTTN = new Dimension(TAM_HOR_BTTN,TAM_VER_BTTN);
-	protected final Dimension TAM_LABEL = new Dimension(TAM_HOR_LABEL,TAM_VER_LABEL);
+	public static final int TAM_HOR_LABEL = 300,TAM_VER_LABEL = 46;
+	public static final int TAM_HOR_BTTN = 350;
+	public static final int TAM_VER_BTTN = 40;
+	public static int AUM_Y_BTTN = WIDTH/16;
+	public static final Color COLOR_BOTONES = Color.DARK_GRAY;
+	public static final Color COLOR_BOTONES_2 =new Color (168, 168, 168);
+	public static final Color COLOR_LETRA = Color.WHITE;
+	public static final Dimension TAM_BTTN = new Dimension(TAM_HOR_BTTN,TAM_VER_BTTN);
+	public static final Dimension TAM_LABEL = new Dimension(TAM_HOR_LABEL,TAM_VER_LABEL);
 	
 	//-----------------------------------TAMAÑO Y COLOR LETRA-----------------------------
 	
-	protected final int FONT_SIZE = 17;
-	protected final String FONT_TYPE = "Consolas";
+	public static final int FONT_SIZE = 17;
+	public static final String FONT_TYPE = "Consolas";
 	
 	//-----------------------------------COLORES FONDO-----------------------------
-	protected final Color COLOR_PANEL_N = new Color(0, 135, 5);//Color.DARK_GRAY;//new Color(38, 190, 35);
-	protected final Color COLOR_PANEL_C = new Color(38, 190, 35);//Color.GREEN;
-	protected final Color COLOR_FINAL = new Color(38, 190, 35);
-	protected final Color COLOR_INFORMACION = Color.GRAY;
-	//-----------------------------------PANEL-----------------------------
+	public static final Color COLOR_PANEL_N = new Color(0, 135, 5);//Color.DARK_GRAY;//new Color(38, 190, 35);
+	public static final Color COLOR_PANEL_C = new Color(38, 190, 35);//Color.GREEN;
+	public static final Color COLOR_FINAL = new Color(38, 190, 35);
+	public static final Color COLOR_INFORMACION = Color.GRAY;
+	
+	//-----------------------------------CONTROLADOR-----------------------------
+	
 	private Controlador control;
+	
+	//-----------------------------------PANEL-----------------------------
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

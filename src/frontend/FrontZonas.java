@@ -46,10 +46,10 @@ public class FrontZonas extends General{
 		ZcomboBox2 = new ZComboBox(1);
 		ZcomboBox3 = new ZComboBox(2);
 		ZcomboBox4 = new ZComboBox(3);
-		Zona1 = new Zona();
-		Zona2 = new Zona();
-		Zona3 = new Zona();
-		Zona4 = new Zona();
+		Zona1 = new Zona(0,getControlador());
+		Zona2 = new Zona(1,getControlador());
+		Zona3 = new Zona(2,getControlador());
+		Zona4 = new Zona(3,getControlador());
 				
 		//-------------------------------------------------<<SETEO VARIABLES>>-------------------------------------------------
 		
@@ -60,10 +60,10 @@ public class FrontZonas extends General{
 		Simula_todo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				  getControlador().SimulaZonas();
-				  Zona1.setText(getControlador().getZona(0));
-				  Zona2.setText(getControlador().getZona(1));
-				  Zona3.setText(getControlador().getZona(2));
-				  Zona4.setText(getControlador().getZona(3));
+				  Zona1.getPanel_texto().setText(getControlador().getZona(0));
+				  Zona2.getPanel_texto().setText(getControlador().getZona(1));
+				  Zona3.getPanel_texto().setText(getControlador().getZona(2));
+				  Zona4.getPanel_texto().setText(getControlador().getZona(3));
 			}
 		});
 		
@@ -103,12 +103,34 @@ public class FrontZonas extends General{
 			setBackground(COLOR_FONDO_ZONA);
 		}
 	}
-	private class Zona extends JTextPane{
-		Zona() {
-			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
-			setForeground(COLOR_LETRA);
-			setBackground(COLOR_ZONA);
-			setEditable(false);
+	private class Zona extends JPanel{
+		private JButton Partidos;
+		private JTextPane Panel_texto;
+		Zona(int NroZona,Controlador c) {
+			setLayout(new BorderLayout());
+			Panel_texto = new JTextPane();
+			Panel_texto.setFont(new Font(FONT_TYPE,0,FONT_SIZE));
+			Panel_texto.setForeground(COLOR_LETRA);
+			Panel_texto.setBackground(COLOR_ZONA);
+			Panel_texto.setEditable(false);
+			Partidos = new JButton ("Ver partidos");
+			Partidos.setBackground(COLOR_ZONA);
+			Partidos.setForeground(COLOR_LETRA);
+			Partidos.addActionListener(new ActionListener() {
+
+				public void actionPerformed(ActionEvent e) {
+					
+				}	
+			});
+			add(Panel_texto,BorderLayout.CENTER);
+			add(Partidos,BorderLayout.SOUTH);
+		}
+		
+		public JButton getPartidos() {
+			return Partidos;
+		}
+		public JTextPane getPanel_texto() {
+			return Panel_texto;
 		}
 	}
 	private class ZComboBox extends JComboBox <String> {
@@ -122,15 +144,15 @@ public class FrontZonas extends General{
 				public void actionPerformed(ActionEvent e) {
 					if((String)getSelectedItem() == "Simula un partido") {
 							getControlador().SimulaPartidoZ(zona);
-							getZona(zona).setText(getControlador().getZona(zona));
+							getZona(zona).getPanel_texto().setText(getControlador().getZona(zona));
 					}else {
 						if((String)getSelectedItem() == "Simula una fecha") {
 							getControlador().SimulaFechaZ(zona);
-							getZona(zona).setText(getControlador().getZona(zona));
+							getZona(zona).getPanel_texto().setText(getControlador().getZona(zona));
 						}else 
 							if((String)getSelectedItem() == "Simula una zona") {
 								getControlador().SimulaZonaZ(zona);
-								getZona(zona).setText(getControlador().getZona(zona));
+								getZona(zona).getPanel_texto().setText(getControlador().getZona(zona));
 							}
 					}
 				}
@@ -141,16 +163,16 @@ public class FrontZonas extends General{
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public void setZona1(String texto) {
-		Zona1.setText(texto);
+		Zona1.getPanel_texto().setText(texto);
 	}
 	public void setZona2(String texto) {
-		Zona2.setText(texto);
+		Zona2.getPanel_texto().setText(texto);
 	}
 	public void setZona3(String texto) {
-		Zona3.setText(texto);
+		Zona3.getPanel_texto().setText(texto);
 	}
 	public void setZona4(String texto) {
-		Zona4.setText(texto);
+		Zona4.getPanel_texto().setText(texto);
 	}
 	public Zona getZona(int zona) {
 		if(zona == 0) {
