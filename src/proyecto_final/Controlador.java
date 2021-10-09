@@ -254,10 +254,12 @@ public class Controlador implements Serializable {
 			return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 5  ;
 		}else {
 			campeonatoActual.getCuartosDeFinal().SimulaPartido();
-			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < CANT_PARTIDOS_CUARTOS/2)
+			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < CANT_PARTIDOS_CUARTOS/2) 
 				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 1;
-			else
+			else {
+				frameActual.CtodoSimulado(0);
 				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 5 ;
+			}	
 		}
 	}
 	
@@ -326,10 +328,12 @@ public class Controlador implements Serializable {
 			return campeonatoActual.getSemiFinal().getPartidoAct() - 3  ;
 		}else {
 			campeonatoActual.getSemiFinal().SimulaPartido();
-			if(campeonatoActual.getSemiFinal().getPartidoAct() - 1 < CANT_PARTIDOS_SEMIS/2)
+			if(campeonatoActual.getSemiFinal().getPartidoAct() - 1 < CANT_PARTIDOS_SEMIS/2) 
 				return campeonatoActual.getSemiFinal().getPartidoAct() - 1;
-			else
+			else {
+				frameActual.StodoSimulado(0);
 				return campeonatoActual.getSemiFinal().getPartidoAct() - 3 ;
+			}
 		}
 	}
 	
