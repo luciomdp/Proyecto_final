@@ -57,7 +57,12 @@ public class BackSemis implements Serializable{
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
-	
+	/**
+	 * Simula un partido. Incrementa los partidos jugados de cada equipo, asigna los goles en contra. Asigna los goles de cada equipo, dependiendo de los resultados 
+	 * obtenidos simula también los penales. Agrega al arraylist de ganadores el equipo que corresponda. Incrementa la cantidad de partidos simulados para determinar
+	 * cuando se simula toda la semifinal. 
+	 * 
+	 */
 	public void SimulaPartido () {
 		if (!semisTodaSimulada) {
 			if (!semisTodaSimulada) {

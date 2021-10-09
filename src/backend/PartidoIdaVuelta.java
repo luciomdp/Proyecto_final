@@ -16,7 +16,10 @@ public class PartidoIdaVuelta extends Partido{
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
-	
+	/**
+	 * Simula la definicion por penales.
+	 * 
+	 */
 	public void simulacionPen() {
 		
 		int probab1, probab2, i;

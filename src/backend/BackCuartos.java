@@ -57,7 +57,9 @@ public class BackCuartos implements Serializable{
 		this.partidoActual = 0;
 	}
 	//-------------------------------------------------<<MÉTODOS DE LA CLASE>>-------------------------------------------------
-	
+	/**
+	 * Simula un partido de cuartos de final, 
+	 */
 	public void SimulaPartido () {
 			if (!cuartosTodoSimulado) {
 				if (partidoActual >= CANT_P/2) { //SI YA ESTA EN LOS PARTIDOS DE VUELTA

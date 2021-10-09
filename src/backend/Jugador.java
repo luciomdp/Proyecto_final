@@ -1,8 +1,6 @@
 package backend;
 
 import java.time.LocalDate;
-/*
-
 
 /*Listado de jugadores de determinada posición seleccionada por el operador (arquero, 
 defensor, mediocampista, delantero) mostrando toda la información disponible del mismo.

@@ -25,10 +25,6 @@ import backend.Posicion;
 import backend.Referi;
 import frontend.Frame;
 /* 
- * Cambiar nombre a las clases compartidas entre el back y front (como final,semifinal,cuartos,zona) para diferenciarlas+
- * 
- * (sugerencia, las que son del back llamarlas BackFinal,BackSemifinal ... y las del Front, FrontFinal,FrontSemifinal ...)
- * 
  * No debería haber una clase abstracta partido?, de la que hereden los 3 tipos de partidos que existen. (sino lo dejamos como está
  * donde Partido actúa como una clase abstracta pero implementa la funcionalidad de ser un partido normal)
  * 
@@ -103,7 +99,7 @@ public class Main {
 	 * @param equipos Lista de equipos (a rellenar)
 	 * @param referis Lista de referis (a rellenar)
 	 */
-	public static void leeArchivo(Document _doc, ArrayList<Equipo> equipos, ArrayList<Referi> referis) {//pasar x parametros equipos y referis
+	public static void leeArchivo(Document _doc, ArrayList<Equipo> equipos, ArrayList<Referi> referis) {
 		
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		ArrayList<Jugador> jugadores;

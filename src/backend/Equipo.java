@@ -1,4 +1,6 @@
 package backend;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
@@ -60,7 +62,9 @@ public class Equipo implements Serializable{
     
   //-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 
-
+    /**
+	 * @return Edad promedio de los jugadores de un equipo.
+	 */
 	public double edadMediaJugadores() { 
     	
     	int edadMedia = 0;
@@ -70,7 +74,9 @@ public class Equipo implements Serializable{
 		}
 		return edadMedia/18;
     }
-	
+	/**
+	 * @return Promedio de las valoraciones de los jugadores de un equipo.
+	 */
 	public double MediaJugadores() {
 		int media = 0;
 		for (Jugador j: Jugadores) {
@@ -82,19 +88,26 @@ public class Equipo implements Serializable{
 
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
-	
+	/**
+	 * @return String con nombre del equipo, puntos, partidos jugados, ganados, 
+	 * empatados y perdidos, goles a favor y en contra, diferencia de gol.
+	 */
 	public String getEstadisticas() {
 		for(int i = nombre.length();i < 25; i++) 
 				nombre += " ";
         return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pP + "| " + (goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
     }
 	
-	
-	public String getEstadisticasCuartosIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
+	/**
+	 * @return String con nombre del equipo y goles en la ida de los cuartos de final.
+	 */
+	public String getEstadisticasCuartosIda() { //
 		return nombre + "|" + golesIdaCuartos + "|";
     }
-	
-	public String getEstadisticasCuartosVuelta() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
+	/**
+	 * @return String con nombre del equipo y goles en la ida y vuelta de los cuartos de final.
+	 */
+	public String getEstadisticasCuartosVuelta() {
 		if (golesPenalesC == -1) {
 			if (ganaGolVisitante)
 				return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos)+ "(Gv)";
@@ -105,12 +118,16 @@ public class Equipo implements Serializable{
 			return nombre + "|" + golesIdaCuartos + "|"  + golesVueltaCuartos + "| R:" + (golesIdaCuartos + golesVueltaCuartos) + " P:" + (golesPenalesC + 1);
 			
     }
-	
-	public String getEstadisticasSemisIda() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
+	/**
+	 * @return String con nombre del equipo y goles en la ida de las semifinales.
+	 */
+	public String getEstadisticasSemisIda() {
 		return nombre + "|" + golesIdaSemis + "|";
     }
-	
-	public String getEstadisticaSemis() { //DEVUELVE NOMBRE DEL EQUIPO Y GOLES EN LA IDA DE LOS CUARTOS
+	/**
+	 * @return String con nombre del equipo y goles en la ida y vuelta de las semifinales.
+	 */
+	public String getEstadisticaSemis() {
 		if (golesPenalesC == -1) {
 			if (ganaGolVisitante)	
 				return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis)+ "(Gv)";
@@ -121,7 +138,9 @@ public class Equipo implements Serializable{
 			return nombre + "|" + golesIdaSemis + "|"  + golesVueltaSemis + "| R:" + (golesIdaSemis + golesVueltaSemis) + " P:" + (golesPenalesC + 1);
 			
     }
-	
+	/**
+	 * @return String con goles de la final y penales, en caso de que hubieran.
+	 */
 	public String getEstadisticasFinal () {
 		if (golesPenalesC == -1) 
 			return ""+golesFinal;
