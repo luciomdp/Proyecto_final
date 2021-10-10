@@ -169,7 +169,6 @@ public class Campeonato implements Serializable {
 			s += final_Campeonato.getPartidoFinal().getArbitro().getCredencial();
 			break;
 		}
-		
 		return s;
 	
 	}
