@@ -1,6 +1,9 @@
 package backend;
 
-/*Mejorar un poco si hay tiempo la simulacion de penales*/
+/*Mejorar un poco si hay tiempo la simulacion de penales
+ * falta implementar: Si la final finaliza en empate en los 90 minutos, también se define con tiros penales.
+ * 
+*/
 
 public class PartidoFinal extends Partido{
 	
@@ -16,7 +19,12 @@ public class PartidoFinal extends Partido{
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
-	
+	/**
+	 * Simula los tiros penales de la final. 
+	 * @param a equipo
+	 * @param b equipo
+	 * 
+	 */
 	public void simulacionPen(Equipo a,Equipo b) {
 		int probab1,probab2;
 		golesP1 = 0;

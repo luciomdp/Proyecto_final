@@ -9,12 +9,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
+import java.io.Serializable;
 /*
  * Aplicar herencia entre cuartos, semis y final
  * Poner en rojo los equipos que no hayan pasado
- * doble click inicia torneo*/
+ * doble click inicia torneo
+ * tiene que implementar serializable?*/
 
-public class Frame extends JFrame {
+public class Frame extends JFrame{
 	private JPanel contentPane;
 	private JTabbedPane tabbedPane;
 	private Inicio inicio;
@@ -25,7 +27,7 @@ public class Frame extends JFrame {
 	private Informacion info;
 	
 	/**
-	 * Crea e inicializa el frame
+	 * Crea e inicializa el frame.
 	 */
 	public Frame() {
 		
@@ -48,8 +50,8 @@ public class Frame extends JFrame {
 		setVisible(true);
 	}
 	/**
-	 * pasa el controlador a todos los paneles del frame
-	 * @param c es el controlador
+	 * Pasa el controlador a todos los paneles del frame.
+	 * @param c, el controlador.
 	 */
 	public void setControlador (Controlador c) {
 		inicio.AccionaBotones(c);

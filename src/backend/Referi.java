@@ -39,7 +39,9 @@ public class Referi extends Persona{
 	public Pais getNacionalidad () {
 		return nacionalidad;
 	}
-	
+	/**
+	 * Aumenta en uno (1) la cantidad de partidos dirigidos.
+	 */
 	public void dirigePartido () {
 		this.partidosDirigidos ++;
 	}

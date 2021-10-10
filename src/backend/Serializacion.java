@@ -11,7 +11,7 @@ import java.io.Serializable;
 import frontend.Frame;
 
 /**
- * Clase encargada de serializar progreso
+ * Clase encargada de serializar progreso.
  */
 public abstract class Serializacion implements Serializable{
 
@@ -19,7 +19,7 @@ public abstract class Serializacion implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Guarda el progreso del campeonato
+	 * Guarda el progreso del campeonato.
 	 * @param _campeonato El campeonato a serializar
 	 * @param _frame El frame a serializar
 	 * @throws FileNotFoundException Si no puede crear el archivo
@@ -38,7 +38,7 @@ public abstract class Serializacion implements Serializable{
 	}
 	
 	/**
-	 * Lee el progreso desde un archivo
+	 * Lee el progreso desde un archivo.
 	 * @return Una instancia de Campeonato
 	 * @throws FileNotFoundException Si el archivo no existe
 	 * @throws IOException Si no puede leer el archivo

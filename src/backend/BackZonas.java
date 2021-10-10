@@ -60,7 +60,11 @@ public class BackZonas implements Serializable{
     }
       
   //---------------------------------------------------------- SIMULA UN SOLO PARTIDO A LA VEZ ---------------------------------------------------------------
-	
+	/**
+	 * Simula un partido. Asigna goles a favor y en contra de cada equipo. Incrementa los partidos jugados para cada equipo. Asigna los puntos, el 
+		ganador obtiene 3 puntos, el perdedor 0, y en caso de empate ambos equipos obtienen 1 punto. Actualiza los valores de la tabla de posiciones y de resultados.
+	 * 
+	 */
   	public void SimulaPartido () { 
   	  	if  (!ZonaSimulada) {
 
@@ -103,7 +107,9 @@ public class BackZonas implements Serializable{
   	
   //---------------------------------------------------------- SIMULA UNA FECHA SOLA  ---------------------------------------------------------------------------
   	
-
+  	/**
+  	 * Simula todos los partidos disponibles para simular, de una fecha.
+  	 */
 	public void SimulaFecha () {
 		int fechaASimular = fechaAct;
 		int partidosASimular = partidoAct;
@@ -114,7 +120,9 @@ public class BackZonas implements Serializable{
   	}
   	
   //---------------------------------------------------------- SIMULA TODOS LOS PARTIDOS DE LA ZONA ---------------------------------------------------------------
-  	
+  	/**
+  	 * Simula todos los partidos de la zona que estén disponibles para simular. 
+  	 */
   	public void SimulaZona () {
 		while (!ZonaSimulada) {
 			SimulaPartido();
@@ -123,7 +131,12 @@ public class BackZonas implements Serializable{
   	}
   
 	//---------------------------------------------------------- CREA LAS FECHAS DE LA ZONA ----------------------------------------------------------------------
-	
+	/**
+	 * 
+	 * @param equipos
+	 * @param referis
+	 * @return partidos, un array que guarda los oponentes por cada partido de la zona. 
+	 */
 	public Partido[] creaFechas (Equipo[] equipos, ArrayList <Referi> referis) {
 
 
@@ -150,7 +163,9 @@ public class BackZonas implements Serializable{
         
         return partidos;
     }
-
+	/**
+	 * Actualiza los valores de la tabla de la zona.
+	 */
     public void ActualizaTabla(){ // HAY QUE PROBARLO, PRINCIPALMENTE POR LA ULTIMA INSTANCIA
     	
     	Equipo aux;
@@ -204,7 +219,12 @@ public class BackZonas implements Serializable{
             }
         }
     }
-    
+    /**
+     * 
+     * @param e1
+     * @param e2
+     * @return int k, la posición de los equipos en el array de resultados. Devuelve -1 si no se encontraron.
+     */
     public int buscaResultado(String e1, String e2) {
     	int k = 0;
     	

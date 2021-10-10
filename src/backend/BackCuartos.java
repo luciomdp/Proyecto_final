@@ -57,7 +57,12 @@ public class BackCuartos implements Serializable{
 		this.partidoActual = 0;
 	}
 	//-------------------------------------------------<<MÉTODOS DE LA CLASE>>-------------------------------------------------
-	
+	/**
+	 * Simula un partido de cuartos de final. El ganador de los partidos de ida y vuelta es el equipo que haya obtenido mayor puntaje contando 
+		ambos partidos. En caso de empate en puntos, se resuelve por mejor diferencia de gol, teniendo en 
+		cuenta que los goles de visitante valen doble. Si se mantiene la igualdad, el ganador se define por la ejecución de tiros penales.
+
+	 */
 	public void SimulaPartido () {
 			if (!cuartosTodoSimulado) {
 				if (partidoActual >= CANT_P/2) { //SI YA ESTA EN LOS PARTIDOS DE VUELTA

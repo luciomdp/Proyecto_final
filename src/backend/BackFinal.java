@@ -35,7 +35,10 @@ public class BackFinal implements Serializable{
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
-	
+	/**
+	 * Simula la final.<p>
+	 *  Setea los goles a favor y en contra de cada equipo, asigna los resultados, en caso de empate simula los penales. Asigna el equipo campeon.
+	 */
 	public void juegaFinal () {
 		if (!finalSimulada) {
 			partidoFinal.simulacionNM();

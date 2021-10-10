@@ -38,7 +38,13 @@ public class Partido implements Serializable{
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 	
-
+	/**
+	 * <B>Simula un partido.</b><p>
+	 * Simulación que tiene en cuenta las posiciones en el ranking de ambos equipos, el promedio de las valoraciones de los jugadores, 
+	 * y los títulos conseguidos por los DT (Media_totE). Además utiliza un componente aleatorio para definir
+	 * el resultado (OportunidadesGol).
+	 * Asigna valores a golesE1 y golesE2.
+	 */
 	public void simulacionNM() { 
 		int OportunidadesGolA = (int) Math.round(Math.random()*1);//Cada equipo tiene como maximo 10 oportunidades de gol
 		int OportunidadesGolB = (int) Math.round(Math.random()*1);

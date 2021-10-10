@@ -57,7 +57,16 @@ public class BackSemis implements Serializable{
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
-	
+	/**
+	 * Simula un partido. Incrementa los partidos jugados de cada equipo, asigna los goles en contra. Asigna los goles de cada equipo, dependiendo de los resultados 
+	 * obtenidos simula también los penales. Agrega al arraylist de ganadores el equipo que corresponda. Incrementa la cantidad de partidos simulados para determinar
+	 * cuando se simula toda la semifinal.
+	 * <p>
+	 *  El ganador de los partidos de ida y vuelta es el equipo que haya obtenido mayor puntaje contando ambos partidos. 
+	 *  En caso de empate en puntos, se resuelve por mejor diferencia de gol, teniendo en cuenta que los goles de visitante valen doble. 
+	 *  Si se mantiene la igualdad, el ganador se define por la ejecución de tiros penales.
+	 * 
+	 */
 	public void SimulaPartido () {
 		if (!semisTodaSimulada) {
 			if (!semisTodaSimulada) {
@@ -138,7 +147,11 @@ public class BackSemis implements Serializable{
 	public String getResultado (int partido) {
 		return resultados[partido].getE1() + " " + resultados[partido].getGolesE1()+"\n"+resultados[partido].getE2() + " " + resultados[partido].getGolesE2();
 	}
-	public ArrayList <Equipo> getGanadores() { //DEVUELVE EL ARREGLO COMPLETO CON LOS DOS EQUIPOS FINALISTAS
+	/**
+	 * 
+	 * @return {@code ganadores}, un arrayList con los dos equipos finalistas.
+	 */
+	public ArrayList <Equipo> getGanadores() { 
 		return ganadores;
 	}
 	

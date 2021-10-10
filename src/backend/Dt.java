@@ -32,6 +32,10 @@ public class Dt extends Persona{
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
+	/**
+	 * 
+	 * @return Edad actual del DT. 
+	 */
 	public int getEdad() { 
 	
 		Period edad = Period.between(getNacimiento(), LocalDate.now()); 
