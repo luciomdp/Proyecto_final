@@ -29,7 +29,7 @@ public class Frame extends JFrame{
 	private Informacion info;
 	
 	/**
-	 * Crea e inicializa el frame
+	 * Crea e inicializa el frame.
 	 */
 	public Frame() {
 		
@@ -52,8 +52,8 @@ public class Frame extends JFrame{
 		setVisible(true);
 	}
 	/**
-	 * pasa el controlador a todos los paneles del frame
-	 * @param c es el controlador
+	 * Pasa el controlador a todos los paneles del frame.
+	 * @param c, el controlador.
 	 */
 	public void setControlador (Controlador c) {
 		inicio.AccionaBotones(c);

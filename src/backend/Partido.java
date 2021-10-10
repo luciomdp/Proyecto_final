@@ -39,6 +39,7 @@ public class Partido implements Serializable{
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
 	
 	/**
+	 * <B>Simula un partido.</b><p>
 	 * Simulación que tiene en cuenta las posiciones en el ranking de ambos equipos, el promedio de las valoraciones de los jugadores, 
 	 * y los títulos conseguidos por los DT (Media_totE). Además utiliza un componente aleatorio para definir
 	 * el resultado (OportunidadesGol).

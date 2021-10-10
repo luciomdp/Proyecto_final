@@ -38,7 +38,7 @@ public abstract class Serializacion implements Serializable{
 	}
 	
 	/**
-	 * Lee el progreso desde un archivo
+	 * Lee el progreso desde un archivo.
 	 * @return Una instancia de Campeonato
 	 * @throws FileNotFoundException Si el archivo no existe
 	 * @throws IOException Si no puede leer el archivo

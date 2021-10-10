@@ -107,7 +107,9 @@ public class BackZonas implements Serializable{
   	
   //---------------------------------------------------------- SIMULA UNA FECHA SOLA  ---------------------------------------------------------------------------
   	
-
+  	/**
+  	 * Simula todos los partidos disponibles para simular, de una fecha.
+  	 */
 	public void SimulaFecha () {
 		int fechaASimular = fechaAct;
 		int partidosASimular = partidoAct;
@@ -118,7 +120,9 @@ public class BackZonas implements Serializable{
   	}
   	
   //---------------------------------------------------------- SIMULA TODOS LOS PARTIDOS DE LA ZONA ---------------------------------------------------------------
-  	
+  	/**
+  	 * Simula todos los partidos de la zona que estén disponibles para simular. 
+  	 */
   	public void SimulaZona () {
 		while (!ZonaSimulada) {
 			SimulaPartido();
