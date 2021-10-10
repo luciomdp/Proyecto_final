@@ -74,6 +74,11 @@ public class BackFinal implements Serializable{
 	}
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	public String getCampeon () {
+		String s = ""; 
+		for (int i = 0; i < campeon.length(); i++) {
+			if (campeon.charAt(i) != ' ')
+				s += campeon.charAt(i);
+		}
 		return campeon;
 	}
 	

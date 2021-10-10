@@ -39,6 +39,14 @@ public class Referi extends Persona{
 	public Pais getNacionalidad () {
 		return nacionalidad;
 	}
+	
+	public String getCredencial() {
+		// TODO Auto-generated method stub
+		String s = "----------------------------------------------------REFERI---------------------------------------------------- \n ";
+		s +=  toString();
+		return s;
+	}
+
 	/**
 	 * Aumenta en uno (1) la cantidad de partidos dirigidos.
 	 */
@@ -55,10 +63,18 @@ public class Referi extends Persona{
 	}
 	
 	
+	public String toString() {
+		return "Referi: " +super.getApellido()+ " " +super.getNombre()+ "\nFecha Nacimiento: "+ 
+				super.getNacimiento()+"\nTipoDni: " + tipoDni +"\nDNI: " +super.getDni()+ "\nAños referato: " + años_referato + "\nPartidos dirigidos: " +
+				partidosDirigidos + "\nNacionalidad: " + nacionalidad ;
+	}
+
 	@Override
 	public String DatosIdent() {
+		// TODO Auto-generated method stub
 		return null;
 	}
+
 }
 
 

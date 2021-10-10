@@ -286,6 +286,13 @@ public class Equipo implements Serializable{
 		return golesFinal;
 	}
 
+	public String getCredenciales() {
+		// TODO Auto-generated method stub
+		String s = "----------------------------------------------------JUGADORES---------------------------------------------------- \n";
+		for (Jugador e: Jugadores) 
+			s += e.toString() + "\n" ;
+		return s;
+	}
 	
 	@Override
 	public String toString() {
@@ -293,5 +300,6 @@ public class Equipo implements Serializable{
 				+ ", entrenador=" + entrenador.getApellido() + ", puntos=" + puntos + ", goles=" + goles + ", golesContra="
 				+ golesContra + "]";
 	}
+
 
 }

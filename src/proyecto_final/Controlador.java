@@ -148,25 +148,8 @@ public class Controlador implements Serializable {
 		this.campeonatoActual = _campeonato;
 	}
 	
-	public void EmitirCredenciales(String equipo1, String equipo2, int etapa) {
-		switch(etapa){//Se piden las credenciales de los equipos 1 y 2 que jugaron...
-			case 0://zona 1
-				break;
-			case 1://zona 2
-				break;
-			case 2://zona 3
-				break;
-			case 3://zona 4
-				break;
-			case 4://cuartos
-				break;
-			case 5://semis
-				break;
-			case 6://final
-				break;
-			
-		}
-		
+	public String EmitirCredenciales(String equipo1, String equipo2, int etapa) {
+		return campeonatoActual.GeneraCredenciales(equipo1, equipo2, etapa);
 	}
 	
 	
@@ -415,7 +398,6 @@ public class Controlador implements Serializable {
 			frameActual.StodoSimulado(1);
 		}
 	}
-	
 	//-------------------------------------------------<< SIMULADORES FINAL >>--------------------------------------------------------------------
 	
 	/**

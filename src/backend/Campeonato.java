@@ -115,6 +115,34 @@ public class Campeonato implements Serializable {
 		return zonas[zona].getValoresTabla();
 	}
 	
+	public String GeneraCredenciales (String equipo1, String equipo2, int etapa) {
+		int i = 0;
+		String s = "";
+		switch(etapa){//Se piden las credenciales de los equipos 1 y 2 que jugaron...
+		case 0://zona 1
+			while ((zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) || (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
+				i++;
+			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
+		case 1://zona 2
+			;
+		case 2://zona 3
+			;
+		case 3://zona 4
+			;
+		case 4://cuartos
+			break;
+		case 5://semis
+			break;
+		case 6://final
+			break;
+		}
+		
+		return s;
+	
+	}
+	
 	/**
 	 * Lista jugadores segun posicion
 	 * @param pos La posicion a listar
