@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 import javax.swing.*;
 import backend.Campeonato;
+import backend.Equipo;
 import backend.Posicion;
 import frontend.Frame;
 import backend.Serializacion;
@@ -287,7 +288,7 @@ public class Controlador implements Serializable {
 			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < CANT_PARTIDOS_CUARTOS/2) 
 				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 1;
 			else {
-				frameActual.CtodoSimulado(0);
+				frameActual.CtodoSimulado(0, 0, 0, 0, 0);
 				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 5 ;
 			}	
 		}
@@ -302,7 +303,7 @@ public class Controlador implements Serializable {
 		if (partidoComienzo < CANT_PARTIDOS_CUARTOS/2) {
 			campeonatoActual.getCuartosDeFinal().SimulaIda();
 		}
-		frameActual.CtodoSimulado(0); //saca del frame la posibilidad de jugar mas partidos ida
+		frameActual.CtodoSimulado(0, 0, 0, 0, 0);  //saca del frame la posibilidad de jugar mas partidos ida
 		return 0;
 	}
 	
@@ -322,9 +323,14 @@ public class Controlador implements Serializable {
 	 * Setea todos los cuartos de final simulados
 	 */
 	public void CuartosSimulado() {
+		int g1, g2, g3, g4;
 		if(campeonatoActual.getCuartosDeFinal().isCuartosSimulado()) {
 			campeonatoActual.IniciaSemis();
-			frameActual.CtodoSimulado(1);
+			g1 = campeonatoActual.getCuartosDeFinal().getGanadoresNum().get(0);
+			g2 = campeonatoActual.getCuartosDeFinal().getGanadoresNum().get(1);
+			g3 = campeonatoActual.getCuartosDeFinal().getGanadoresNum().get(2);
+			g4 = campeonatoActual.getCuartosDeFinal().getGanadoresNum().get(3);
+			frameActual.CtodoSimulado(1, g1, g2, g3, g4);
 		}
 	}
 	//-------------------------------------------------<<SIMULADORES SEMIS>>-------------------------------------------------
@@ -361,7 +367,7 @@ public class Controlador implements Serializable {
 			if(campeonatoActual.getSemiFinal().getPartidoAct() - 1 < CANT_PARTIDOS_SEMIS/2) 
 				return campeonatoActual.getSemiFinal().getPartidoAct() - 1;
 			else {
-				frameActual.StodoSimulado(0);
+				frameActual.StodoSimulado(0, 0, 0);
 				return campeonatoActual.getSemiFinal().getPartidoAct() - 3 ;
 			}
 		}
@@ -376,7 +382,7 @@ public class Controlador implements Serializable {
 		if (partidoComienzo < CANT_PARTIDOS_SEMIS/2) {
 			campeonatoActual.getSemiFinal().SimulaIda();
 		}
-		frameActual.StodoSimulado(0); //saca del frame la posibilidad de jugar mas partidos ida
+		frameActual.StodoSimulado(0, 0, 0); //saca del frame la posibilidad de jugar mas partidos ida
 		return 0;
 	}
 	
@@ -396,9 +402,12 @@ public class Controlador implements Serializable {
 	 * Setea la semifinal simulada
 	 */
 	public void SemiFinalesSimuladas() {
+		int g1, g2;
 		if(campeonatoActual.getSemiFinal().SemiFinalSimulada()) {
 			campeonatoActual.IniciaFinal();
-			frameActual.StodoSimulado(1);
+			g1 = campeonatoActual.getSemiFinal().getGanadoresNum().get(0);
+			g2 = campeonatoActual.getSemiFinal().getGanadoresNum().get(1);
+			frameActual.StodoSimulado(1, g1, g2);
 		}
 	}
 	//-------------------------------------------------<< SIMULADORES FINAL >>--------------------------------------------------------------------
@@ -427,7 +436,7 @@ public class Controlador implements Serializable {
 	public void SimulaFinal() { 
 		if (!campeonatoActual.getFinal().isFinalSimulada()) {
 			campeonatoActual.getFinal().juegaFinal();
-			frameActual.FtodoSimulado();
+			frameActual.FtodoSimulado(campeonatoActual.getFinal().getCampeonNum());
 			JOptionPane.showMessageDialog(null,campeonatoActual.getFinal().getCampeon() + " es el nuevo campeon de la copa!");
 		}
 		//NOSE SI HAY QUE DEFINIR ALGO ACA CUANDO SE JUEGA LA FINAL (BLOQUEAR EL BOTÓN POR EJ)

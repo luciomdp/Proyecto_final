@@ -67,8 +67,8 @@ public class FrontFinal extends General{
 	
 		public void FinalSimulada(int G) {
 			if(G == 1) {
-				Partido.FEquipo1.setBackground(COLOR_GANADOR);
-				Partido.FEquipo2.setBackground(COLOR_PERDEDOR);
+				Partido.FEquipo2.setBackground(COLOR_GANADOR);
+				Partido.FEquipo1.setBackground(COLOR_PERDEDOR);
 			}else {
 				Partido.FEquipo1.setBackground(COLOR_CAMPEON_OSCURO);
 				Partido.FEquipo2.setBackground(COLOR_CAMPEON_OSCURO);

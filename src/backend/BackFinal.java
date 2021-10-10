@@ -20,6 +20,7 @@ public class BackFinal implements Serializable{
 	private Resultados resultado;
 	private ArrayList <Equipo> equipos;
 	private String campeon;
+	private int campeonNum;
 	private boolean finalSimulada;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
@@ -58,15 +59,22 @@ public class BackFinal implements Serializable{
 				partidoFinal.getEquipo2().setGolesPenalesC(partidoFinal.getGolesP2());
 				if (partidoFinal.getGolesP1() > partidoFinal.getGolesP2()) {
 					campeon = partidoFinal.getEquipo1().getNombre();
+					campeonNum = 0;
 				}
-				else
+				else {
 					campeon = partidoFinal.getEquipo2().getNombre();
+					campeonNum = 1;
+				}
 			}
 			else {
-				if (partidoFinal.getGolesE1() > partidoFinal.getGolesE2())
+				if (partidoFinal.getGolesE1() > partidoFinal.getGolesE2()) {
 					campeon = partidoFinal.getEquipo1().getNombre();
-				else
+					campeonNum = 0;
+				}
+				else {
 					campeon = partidoFinal.getEquipo2().getNombre();
+					campeonNum = 1;
+				}
 			}
 			finalSimulada = true;
 		}
@@ -80,6 +88,10 @@ public class BackFinal implements Serializable{
 				s += campeon.charAt(i);
 		}
 		return campeon;
+	}
+	
+	public int getCampeonNum () {
+		return campeonNum;
 	}
 	
 	public PartidoIdaVuelta getPartidoFinal () {

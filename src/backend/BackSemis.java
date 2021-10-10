@@ -23,6 +23,7 @@ public class BackSemis implements Serializable{
 	private ArrayList <Equipo> equipos;
 	private Resultados resultados [];
 	private ArrayList <Equipo> ganadores;
+	private ArrayList <Integer> ganadoresNum;
 	private int partidoActual;
 	private boolean semisTodaSimulada;
 
@@ -34,6 +35,7 @@ public class BackSemis implements Serializable{
 		this.equipos = equipos;
 		partidos = new PartidoIdaVuelta [CANT_P];
 		ganadores = new ArrayList <Equipo> ();
+		ganadoresNum = new ArrayList <Integer>();
 		Random aleratorio = new Random ();
 	    Referi referi = referis.get(aleratorio.nextInt(referis.size()));
 		Collections.shuffle(equipos);
@@ -87,10 +89,12 @@ public class BackSemis implements Serializable{
 					if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() == resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL
 						if (resultados[partidoActual].getGolesE2() > resultados [partidoActual-(CANT_P/2)].getGolesE2()) { //SI LOS GOLES DEL EQUIPO 2 EN LA IDA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA VUELTA
 							ganadores.add(partidos[partidoActual].getEquipo2());
+							ganadoresNum.add(0);
 							partidos[partidoActual].getEquipo2().setGolVisitante(true);
 						}
 						else if (resultados[partidoActual].getGolesE2() < resultados [partidoActual-(CANT_P/2)].getGolesE2()) { // SI LOS GOLES DE EQUIPO 2 EN LA VUELTA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA IDA
 							ganadores.add(partidos[partidoActual-(CANT_P/2)].getEquipo2());
+							ganadoresNum.add(1);
 							partidos[partidoActual-(CANT_P/2)].getEquipo2().setGolVisitante(true);
 						}
 						else { // HAY PENALES
@@ -99,16 +103,22 @@ public class BackSemis implements Serializable{
 							partidos[partidoActual].getEquipo2().setGolesPenalesC(partidos[partidoActual].getGolesP2());
 							if (partidos[partidoActual].getGolesP1() > partidos[partidoActual].getGolesP2()) { // SI LOS GOLES DE PENAL DEL EQUIPO 1 SON MAYORES QUE LOS DEL EQUIPO 2
 								ganadores.add(partidos[partidoActual].getEquipo1());
+								ganadoresNum.add(1);
 							}
 							else { // SI LOS GOLES DE PENAL DEL EQUIPO 2 SON MAYORES QUE LOS DEL EQUIPO 1
 								ganadores.add(partidos[partidoActual].getEquipo2());
+								ganadoresNum.add(0);
 							}
 						}
 					}
-					else if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() > resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1())  //SI GANA EN EL TOTAL EL EQUIPO 1
+					else if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() > resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1()) {  //SI GANA EN EL TOTAL EL EQUIPO 1
 						ganadores.add(partidos[partidoActual].getEquipo1());
-					else
+						ganadoresNum.add(1);
+					}
+					else {
 						ganadores.add(partidos[partidoActual].getEquipo2()); //SI GANA EN EL TOTAL EL EQUIPO 2
+						ganadoresNum.add(0);
+					}
 				}
 				else {
 					partidos[partidoActual].simulacionNM();
@@ -156,6 +166,11 @@ public class BackSemis implements Serializable{
 	 */
 	public ArrayList <Equipo> getGanadores() { 
 		return ganadores;
+		
+	}
+	
+	public ArrayList<Integer> getGanadoresNum() {
+		return ganadoresNum;
 	}
 	
 	public boolean SemiFinalSimulada() {

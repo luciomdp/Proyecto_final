@@ -124,6 +124,7 @@ public class FrontCuartos extends General{
 	public void CuartosSimuladoIda() {
 		CcomboBox.removeItem("Simula todos los partidos de ida"); 
 	}
+	
 	public void CuartosSimulado(int G1,int G2,int G3,int G4) {
 		Partido1.SetGanador(G1);
 		Partido2.SetGanador(G2);
