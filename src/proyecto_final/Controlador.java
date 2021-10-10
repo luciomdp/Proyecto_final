@@ -405,8 +405,7 @@ public class Controlador implements Serializable {
 	}
 
 	public int CantPJZona(int zona) {
-		// TODO Auto-generated method stub
-		return 5;
+		return campeonatoActual.getZona(zona).getPartidoAct();
 	}
 
 	public String[] getE1Zona(int zona) {
