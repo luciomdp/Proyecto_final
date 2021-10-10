@@ -82,6 +82,10 @@ public class BackFinal implements Serializable{
 		return campeon;
 	}
 	
+	public PartidoIdaVuelta getPartidoFinal () {
+		return partidoFinal;
+	}
+	
 	public Equipo getEquipo (int equipo) {
 		return equipos.get(equipo);
 	}

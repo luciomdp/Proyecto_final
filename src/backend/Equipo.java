@@ -39,6 +39,10 @@ public class Equipo implements Serializable{
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
     
     public Equipo (String nombre, Pais nacionalidad, int ranking, ArrayList<Jugador> jugadores, Dt entrenador){ 
+		for(int i = nombre.length(); i < 25; i++) {
+			nombre += " ";
+		}
+		System.out.println(nombre);
 		this.nombre = nombre;
 		pais = nacionalidad;
 		this.ranking = ranking;
@@ -93,9 +97,7 @@ public class Equipo implements Serializable{
 	 * empatados y perdidos, goles a favor y en contra, diferencia de gol.
 	 */
 	public String getEstadisticas() {
-		for(int i = nombre.length();i < 25; i++) 
-				nombre += " ";
-        return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pP + "| " + (goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
+        return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pP + "| " + (pJ-pG-pP) + "| " +(goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
     }
 	
 	/**
@@ -288,7 +290,8 @@ public class Equipo implements Serializable{
 
 	public String getCredenciales() {
 		// TODO Auto-generated method stub
-		String s = "----------------------------------------------------JUGADORES---------------------------------------------------- \n";
+		String s = nombre;
+		s = "----------------------------------------------------JUGADORES---------------------------------------------------- \n";
 		for (Jugador e: Jugadores) 
 			s += e.toString() + "\n" ;
 		s += "----------------------------------------------------ENTRENADOR---------------------------------------------------- \n";

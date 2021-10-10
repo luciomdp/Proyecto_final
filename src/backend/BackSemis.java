@@ -147,7 +147,7 @@ public class BackSemis implements Serializable{
 	public String getResultado (int partido) {
 		return resultados[partido].getE1() + " " + resultados[partido].getGolesE1()+"\n"+resultados[partido].getE2() + " " + resultados[partido].getGolesE2();
 	}
-	public PartidoIdaVuelta [] getPartidoCuartos () {
+	public PartidoIdaVuelta [] getPartidoSemis () {
 		return partidos;
 	}
 	/**

@@ -116,8 +116,10 @@ public class Campeonato implements Serializable {
 	}
 	
 	public String GeneraCredenciales (String equipo1, String equipo2, int etapa) {
-		int i = 0, j = 0;
-		String s = "", e1 = "", E2 = "";
+		int i = 0;
+		String s = "";
+		equipo1 = equipo1.substring(0, 25);
+		equipo2 = equipo2.substring(0, 25);
 		switch(etapa){//Se piden las credenciales de los equipos 1 y 2 que jugaron...
 		case 0://zona 1
 			while ((zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) && (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
@@ -125,28 +127,46 @@ public class Campeonato implements Serializable {
 			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
 			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
 			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
-			break;
+		break;
 		case 1://zona 2
-			;
+			while ((zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) && (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
+				i++;
+			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
+		break;
 		case 2://zona 3
-			;
+			while ((zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) && (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
+				i++;
+			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
+		break;
 		case 3://zona 4
-			;
+			while ((zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) && (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
+				i++;
+			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
+		break;
 		case 4://cuartos
-			while ((cuartosDeFinal.getPartidoCuartos()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) || (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
+			while ((cuartosDeFinal.getPartidoCuartos()[i].getEquipo1().getNombre() != equipo1 && cuartosDeFinal.getPartidoCuartos()[i].getEquipo2().getNombre() != equipo2) && (cuartosDeFinal.getPartidoCuartos()[i].getEquipo2().getNombre() != equipo1 && cuartosDeFinal.getPartidoCuartos()[i].getEquipo1().getNombre() != equipo2)) 
 				i++;
 			s += cuartosDeFinal.getPartidoCuartos()[i].getEquipo1().getCredenciales();
 			s += cuartosDeFinal.getPartidoCuartos()[i].getEquipo2().getCredenciales();
 			s += cuartosDeFinal.getPartidoCuartos()[i].getArbitro().getCredencial();
 			break;
 		case 5://semis
-			while ((semiFinal.getPartidoCuartos()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) || (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
+			while ((semiFinal.getPartidoSemis()[i].getEquipo1().getNombre() != equipo1 && semiFinal.getPartidoSemis()[i].getEquipo2().getNombre() != equipo2) && (semiFinal.getPartidoSemis()[i].getEquipo2().getNombre() != equipo1 && semiFinal.getPartidoSemis()[i].getEquipo1().getNombre() != equipo2)) 
 				i++;
-			s += semiFinal.getPartidoCuartos()[i].getEquipo1().getCredenciales();
-			s += semiFinal.getPartidoCuartos()[i].getEquipo2().getCredenciales();
-			s += semiFinal.getPartidoCuartos()[i].getArbitro().getCredencial();
+			s += semiFinal.getPartidoSemis()[i].getEquipo1().getCredenciales();
+			s += semiFinal.getPartidoSemis()[i].getEquipo2().getCredenciales();
+			s += semiFinal.getPartidoSemis()[i].getArbitro().getCredencial();
 			break;
 		case 6://final
+			s += final_Campeonato.getPartidoFinal().getEquipo1().getCredenciales();
+			s += final_Campeonato.getPartidoFinal().getEquipo2().getCredenciales();
+			s += final_Campeonato.getPartidoFinal().getArbitro().getCredencial();
 			break;
 		}
 		
