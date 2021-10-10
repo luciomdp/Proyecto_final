@@ -1,8 +1,11 @@
 package frontend;
 
 import java.awt.*;
+
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.text.*;
+
 import proyecto_final.Controlador;
 
 public class FrontPartido extends JPanel{
@@ -37,7 +40,7 @@ public class FrontPartido extends JPanel{
 		PanelN.setBorder(BorderFactory.createLineBorder(COLOR_BORDE));
 		Credenciales.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(c.EmitirCredenciales(Equipo1.getText(),Equipo2.getText(),Etapa));
+				Credencial C = new Credencial(c.EmitirCredenciales(Equipo1.getText(),Equipo2.getText(),Etapa));
 			}	
 		});
 		
@@ -51,7 +54,6 @@ public class FrontPartido extends JPanel{
 		
 	}
 	
-
 	private class Label extends JLabel{
 		Label() {
 			setFont(new Font(General.FONT_TYPE,0,General.FONT_SIZE));

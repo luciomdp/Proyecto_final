@@ -42,7 +42,7 @@ public class Referi extends Persona{
 	
 	public String getCredencial() {
 		// TODO Auto-generated method stub
-		String s = "----------------------------------------------------REFERI---------------------------------------------------- \n ";
+		String s = "\n----------------------------------------------------<<REFERI>>---------------------------------------------------- \n";
 		s +=  toString();
 		return s;
 	}
