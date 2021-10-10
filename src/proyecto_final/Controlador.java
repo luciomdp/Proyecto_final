@@ -234,9 +234,10 @@ public class Controlador implements Serializable {
 
 	public String[] getE1Zona(int zona) {
 		// TODO Auto-generated method stub
+		//SOLAMENTE ESTAN COMENTADOS PARA QUE CORRA LO DE LAS CREDENCIALES. 
 		String E1[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
 		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
-			E1[i] =  campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo1().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE1() + " ";
+			E1[i] =  campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo1().getNombre(); //+ " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE1() + " ";
 		}
 		return E1;
 	}
@@ -245,7 +246,7 @@ public class Controlador implements Serializable {
 		// TODO Auto-generated method stub
 		String E2[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
 		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
-			E2[i] = campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo2().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE2() + " ";
+			E2[i] = campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo2().getNombre(); //+ " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE2() + " ";
 		}
 		return E2;
 	}

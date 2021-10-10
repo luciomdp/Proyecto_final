@@ -116,15 +116,16 @@ public class Campeonato implements Serializable {
 	}
 	
 	public String GeneraCredenciales (String equipo1, String equipo2, int etapa) {
-		int i = 0;
-		String s = "";
+		int i = 0, j = 0;
+		String s = "", e1 = "", E2 = "";
 		switch(etapa){//Se piden las credenciales de los equipos 1 y 2 que jugaron...
 		case 0://zona 1
-			while ((zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) || (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
+			while ((zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) && (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
 				i++;
 			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
 			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
 			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
+			break;
 		case 1://zona 2
 			;
 		case 2://zona 3
@@ -132,8 +133,18 @@ public class Campeonato implements Serializable {
 		case 3://zona 4
 			;
 		case 4://cuartos
+			while ((cuartosDeFinal.getPartidoCuartos()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) || (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
+				i++;
+			s += cuartosDeFinal.getPartidoCuartos()[i].getEquipo1().getCredenciales();
+			s += cuartosDeFinal.getPartidoCuartos()[i].getEquipo2().getCredenciales();
+			s += cuartosDeFinal.getPartidoCuartos()[i].getArbitro().getCredencial();
 			break;
 		case 5://semis
+			while ((semiFinal.getPartidoCuartos()[i].getEquipo1().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo2) || (zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre() != equipo1 && zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre() != equipo2)) 
+				i++;
+			s += semiFinal.getPartidoCuartos()[i].getEquipo1().getCredenciales();
+			s += semiFinal.getPartidoCuartos()[i].getEquipo2().getCredenciales();
+			s += semiFinal.getPartidoCuartos()[i].getArbitro().getCredencial();
 			break;
 		case 6://final
 			break;

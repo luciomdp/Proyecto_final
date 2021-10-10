@@ -291,6 +291,8 @@ public class Equipo implements Serializable{
 		String s = "----------------------------------------------------JUGADORES---------------------------------------------------- \n";
 		for (Jugador e: Jugadores) 
 			s += e.toString() + "\n" ;
+		s += "----------------------------------------------------ENTRENADOR---------------------------------------------------- \n";
+		s += entrenador.toString() + "\n";
 		return s;
 	}
 	

@@ -64,12 +64,11 @@ public class Dt extends Persona{
 		return null;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Dt [tipoDni=" + tipoDni + ", Edad="	+ getEdad() + ", Titulos=" + getTitulos() 
-//				+ ", Nacionalidad=" + getNacionalidad()+ ", Apellido=" + getApellido() + ", Nombre=" 
-//				+ getNombre()+ ", Nacimiento=" + getNacimiento() + ", Dni=" + getDni() + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Entrenador: " +super.getApellido()+ " " +super.getNombre()+ "\nFecha Nacimiento: "+ 
+				super.getNacimiento() + "\nTipoDni: " + tipoDni +"\nDNI: " +super.getDni()+ "\n";
+	}
 	
 	
 }

@@ -138,6 +138,10 @@ public class BackCuartos implements Serializable{
 		return partidoActual;
 	}
 	
+	public PartidoIdaVuelta [] getPartidoCuartos () {
+		return partidos;
+	}
+	
 	public ArrayList<Equipo> getGanadores() {
 		return ganadores;
 	}
