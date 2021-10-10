@@ -106,7 +106,7 @@ public class FrontFinal extends General{
 				
 				Credenciales.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						c.EmitirCredenciales(FEquipo1.getText(),FEquipo2.getText(),6);
+						System.out.println(c.EmitirCredenciales(FEquipo1.getText(),FEquipo2.getText(),6));
 					}	
 				});
 				
