@@ -10,11 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
 import java.io.Serializable;
-/*
- * Aplicar herencia entre cuartos, semis y final
- * Poner en rojo los equipos que no hayan pasado
- * doble click inicia torneo
- * tiene que implementar serializable?*/
+/* Poner en rojo los equipos que no hayan pasado*/
 
 public class Frame extends JFrame{
 	private JPanel contentPane;
@@ -89,11 +85,11 @@ public class Frame extends JFrame{
 	public void ZonaSimulada(int nrozona) {
 		zona.ZonaSimulada(nrozona);
 	}
-	public void CtodoSimulado(int i) {
+	public void CtodoSimulado(int i,int G1,int G2,int G3,int G4) {
 		if(i == 0)
 			cuartos.CuartosSimuladoIda();
 		else {
-			cuartos.CuartosSimulado();
+			cuartos.CuartosSimulado(G1,G2,G3,G4);
 			semis.InicializaVariables();
 			//JOptionPane.showMessageDialog(this, "Terminaron los cuartos de final");
 			tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
@@ -102,11 +98,11 @@ public class Frame extends JFrame{
 		}
 			
 	}
-	public void StodoSimulado(int i) {
+	public void StodoSimulado(int i,int G1,int G2) {
 		if(i == 0)
 			semis.SemisSimuladaIda();
 		else {
-			semis.SemisSimulada();
+			semis.SemisSimulada(G1,G2);
 			fin.InicializaVariables();
 			//JOptionPane.showMessageDialog(this, "Terminaron las semifinales");
 			tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
@@ -116,7 +112,7 @@ public class Frame extends JFrame{
 		}
 			
 	}
-	public void FtodoSimulado() {
-		fin.FinalSimulada();
+	public void FtodoSimulado(int G) {
+		fin.FinalSimulada(G);
 	}
 }

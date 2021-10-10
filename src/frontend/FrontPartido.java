@@ -13,6 +13,8 @@ public class FrontPartido extends JPanel{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private final Color COLOR_BORDE = Color.GRAY;
+	private final Color COLOR_GANADOR = Color.green;
+	private final Color COLOR_PERDEDOR = Color.red;
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
@@ -71,5 +73,14 @@ public class FrontPartido extends JPanel{
 	public void SetFontSizeIncr(int x) {
 		Equipo1.setFont(new Font(General.FONT_TYPE,0,General.FONT_SIZE + x));
 		Equipo2.setFont(new Font(General.FONT_TYPE,0,General.FONT_SIZE + x));
+	}
+	public void SetGanador(int ganador) {
+		if(ganador == 1) {
+			Equipo1.setBackground(COLOR_GANADOR);
+			Equipo2.setBackground(COLOR_PERDEDOR);
+		}else {
+			Equipo2.setBackground(COLOR_GANADOR);
+			Equipo1.setBackground(COLOR_PERDEDOR);
+		}
 	}
 }

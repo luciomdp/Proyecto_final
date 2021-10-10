@@ -105,7 +105,9 @@ public class FrontSemis extends General{
 		ScomboBox.removeItem("Simula todos los partidos de ida");
 	}
 	
-	public void SemisSimulada() {
+	public void SemisSimulada(int G1,int G2) {
+		Partido1.SetGanador(G1);
+		Partido2.SetGanador(G1);
 		ScomboBox.setSelectedIndex(0);
 		ScomboBox.setEnabled(false);
 	}

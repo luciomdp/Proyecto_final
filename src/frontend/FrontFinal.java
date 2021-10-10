@@ -10,6 +10,8 @@ public class FrontFinal extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private final int AUMENTO_FUENTE = 10;
+	private final Color COLOR_GANADOR = Color.GREEN;
+	private final Color COLOR_PERDEDOR = Color.RED;
 	private final Color COLOR_CAMPEON_CLARO = new Color(239, 220, 0);
 	private final Color COLOR_CAMPEON_OSCURO = new Color(190,140,20);
 		
@@ -63,12 +65,17 @@ public class FrontFinal extends General{
 	
 	//-------------------------------------------------<<METODOS DE CLASE>>-------------------------------------------------
 	
-		public void FinalSimulada() {
+		public void FinalSimulada(int G) {
+			if(G == 1) {
+				Partido.FEquipo1.setBackground(COLOR_GANADOR);
+				Partido.FEquipo2.setBackground(COLOR_PERDEDOR);
+			}else {
+				Partido.FEquipo1.setBackground(COLOR_CAMPEON_OSCURO);
+				Partido.FEquipo2.setBackground(COLOR_CAMPEON_OSCURO);
+			}
 			SimulaFinal.setEnabled(false);
 			FpanelC.setBackground(COLOR_CAMPEON_CLARO);
 			FpanelN.setBackground(COLOR_CAMPEON_OSCURO);
-			Partido.FEquipo1.setBackground(COLOR_CAMPEON_OSCURO);
-			Partido.FEquipo2.setBackground(COLOR_CAMPEON_OSCURO);
 			Partido.Credenciales.setBackground(new Color(175,120,20));
 			Partido.m.setBackground(COLOR_CAMPEON_OSCURO);
 		}
