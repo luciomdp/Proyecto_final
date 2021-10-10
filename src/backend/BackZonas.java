@@ -59,7 +59,7 @@ public class BackZonas implements Serializable{
         
     }
       
-  //---------------------------------------------------------- SIMULA UN SOLO PARTIDO A LA VEZ ---------------------------------------------------------------
+	//---------------------------------------------------------- SIMULA UN SOLO PARTIDO A LA VEZ ---------------------------------------------------------------
 	/**
 	 * Simula un partido. Asigna goles a favor y en contra de cada equipo. Incrementa los partidos jugados para cada equipo. Asigna los puntos, el 
 		ganador obtiene 3 puntos, el perdedor 0, y en caso de empate ambos equipos obtienen 1 punto. Actualiza los valores de la tabla de posiciones y de resultados.
@@ -282,6 +282,9 @@ public class BackZonas implements Serializable{
 	
 	public boolean isZonaSimulada() {
 		return ZonaSimulada;
+	}
+	public Partido[] getPartidosZona() {
+			return partidosZona;
 	}
 }
 	

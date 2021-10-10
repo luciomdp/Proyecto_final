@@ -410,24 +410,20 @@ public class Controlador implements Serializable {
 
 	public String[] getE1Zona(int zona) {
 		// TODO Auto-generated method stub
-		String a[] = new String[6];
-		int j = 1;
-		for (int i = 0;i<5;i++) {
-			a[i] = "Equipo " + j;
-			j+=2;
+		String E1[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
+		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
+			E1[i] =  campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo1().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE1();
 		}
-		return a;
+		return E1;
 	}
 	
 	public String[] getE2Zona(int zona) {
 		// TODO Auto-generated method stub
-		String a[] = new String[6];
-		int j = 2;
-		for (int i = 0;i<5;i++) {
-			a[i] = "Equipo " + j;
-			j+=2;
+		String E2[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
+		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
+			E2[i] = campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo2().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE2();
 		}
-		return a;
+		return E2;
 	}
 	
 }
