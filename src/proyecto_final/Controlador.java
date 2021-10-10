@@ -148,6 +148,28 @@ public class Controlador implements Serializable {
 		this.campeonatoActual = _campeonato;
 	}
 	
+	public void EmitirCredenciales(String equipo1, String equipo2, int etapa) {
+		switch(etapa){//Se piden las credenciales de los equipos 1 y 2 que jugaron...
+			case 0://zona 1
+				break;
+			case 1://zona 2
+				break;
+			case 2://zona 3
+				break;
+			case 3://zona 4
+				break;
+			case 4://cuartos
+				break;
+			case 5://semis
+				break;
+			case 6://final
+				break;
+			
+		}
+		
+	}
+	
+	
 	//-------------------------------------------------<<SIMULADORES ZONA>>-------------------------------------------------
 	
 	/**
@@ -221,6 +243,28 @@ public class Controlador implements Serializable {
 	 */
 	public String getZona (int zona) { //recibe la zona de la que quiere que se devuelva el String
 		return campeonatoActual.getZona(zona).getValoresTabla();
+	}
+	
+	public int CantPJZona(int zona) {
+		return campeonatoActual.getZona(zona).getPartidoAct();
+	}
+
+	public String[] getE1Zona(int zona) {
+		// TODO Auto-generated method stub
+		String E1[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
+		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
+			E1[i] =  campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo1().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE1() + " ";
+		}
+		return E1;
+	}
+	
+	public String[] getE2Zona(int zona) {
+		// TODO Auto-generated method stub
+		String E2[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
+		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
+			E2[i] = campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo2().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE2() + " ";
+		}
+		return E2;
 	}
 	
 	//-------------------------------------------------<<SIMULADORES CUARTOS>>-------------------------------------------------
@@ -402,28 +446,6 @@ public class Controlador implements Serializable {
 			JOptionPane.showMessageDialog(null,campeonatoActual.getFinal().getCampeon() + " es el nuevo campeon de la copa!");
 		}
 		//NOSE SI HAY QUE DEFINIR ALGO ACA CUANDO SE JUEGA LA FINAL (BLOQUEAR EL BOTÓN POR EJ)
-	}
-
-	public int CantPJZona(int zona) {
-		return campeonatoActual.getZona(zona).getPartidoAct();
-	}
-
-	public String[] getE1Zona(int zona) {
-		// TODO Auto-generated method stub
-		String E1[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
-		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
-			E1[i] =  campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo1().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE1();
-		}
-		return E1;
-	}
-	
-	public String[] getE2Zona(int zona) {
-		// TODO Auto-generated method stub
-		String E2[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
-		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
-			E2[i] = campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo2().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE2();
-		}
-		return E2;
 	}
 	
 }

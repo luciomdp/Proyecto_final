@@ -18,7 +18,7 @@ public class FrontPartido extends JPanel{
 	private Label Equipo2;
 	private JButton Credenciales;
 	
-	public FrontPartido(Controlador c) {
+	public FrontPartido(Controlador c,int Etapa) {
 		
 		setLayout(new BorderLayout());
 		
@@ -37,7 +37,7 @@ public class FrontPartido extends JPanel{
 		PanelN.setBorder(BorderFactory.createLineBorder(COLOR_BORDE));
 		Credenciales.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				c.EmitirCredenciales(Equipo1.getText(),Equipo2.getText(),Etapa);
 			}	
 		});
 		

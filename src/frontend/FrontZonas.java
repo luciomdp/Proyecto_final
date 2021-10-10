@@ -170,21 +170,21 @@ public class FrontZonas extends General{
 		String E1[],E2[];
 		int PJ;
 		Box VBox;
-		FramePartidos(int Zona,Controlador c) {
+		FramePartidos(int zona,Controlador c) {
 			Toolkit MiPantalla = Toolkit.getDefaultToolkit();
 			Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
-			PJ = c.CantPJZona(Zona);
-			E1 = c.getE1Zona(Zona);
-			E2 = c.getE2Zona(Zona);
+			PJ = c.CantPJZona(zona);
+			E1 = c.getE1Zona(zona);
+			E2 = c.getE2Zona(zona);
 			Panel = new JPanel();
 			PanelScroll = new JScrollPane();
 			Partidos = new FrontPartido [PJ];
 			VBox = Box.createVerticalBox();
 			
-			setTitle("Partidos de la zona " + (Zona+1));
+			setTitle("Partidos de la zona " + (zona+1));
 			setIconImage(imagen);
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setSize(400,600);
+			setSize(450,600);
 			setResizable(false);
 			setLocationRelativeTo(null);
 			Panel.setBackground(COLOR_PANEL_C);
@@ -193,9 +193,9 @@ public class FrontZonas extends General{
 			
 			PanelScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			for(int i = 0; i < PJ; i++) {
-				Partidos[i] = new FrontPartido(c);
+				Partidos[i] = new FrontPartido(c,zona);
 				Partidos[i].setText(E1[i], E2[i]);
-				Partidos[i].SetFontSizeIncr(12);
+				Partidos[i].SetFontSizeIncr(8);
 				VBox.add(Box.createVerticalStrut(ESPACIO_VERTICAL));
 				VBox.add(Partidos[i]);
 			}
