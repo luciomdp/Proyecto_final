@@ -10,10 +10,11 @@ public class FrontFinal extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private final int AUMENTO_FUENTE = 10;
-	private final Color COLOR_GANADOR = Color.GREEN;
-	private final Color COLOR_PERDEDOR = Color.RED;
+	private final Color COLOR_GANADOR = new Color(38, 190, 35);
+	private final Color COLOR_PERDEDOR = new Color(255, 75, 75);
 	private final Color COLOR_CAMPEON_CLARO = new Color(239, 220, 0);
 	private final Color COLOR_CAMPEON_OSCURO = new Color(190,140,20);
+	private final Color COLOR_CREDENCIAL_F = new Color(175,120,20);
 		
 	//-------------------------------------------------<<VARIABLES>>------------------------------------------------
 	
@@ -74,10 +75,13 @@ public class FrontFinal extends General{
 				Partido.FEquipo2.setBackground(COLOR_CAMPEON_OSCURO);
 			}
 			SimulaFinal.setEnabled(false);
+			Partido.FEquipo1.setForeground(COLOR_CAMPEON_CLARO);
+			Partido.FEquipo2.setForeground(COLOR_CAMPEON_CLARO);
 			FpanelC.setBackground(COLOR_CAMPEON_CLARO);
 			FpanelN.setBackground(COLOR_CAMPEON_OSCURO);
-			Partido.Credenciales.setBackground(new Color(175,120,20));
+			Partido.Credenciales.setBackground(COLOR_CREDENCIAL_F);
 			Partido.m.setBackground(COLOR_CAMPEON_OSCURO);
+			
 		}
 
 		public void InicializaVariables() {
@@ -104,8 +108,8 @@ public class FrontFinal extends General{
 				PanelN = new JPanel();
 				m = new Marcador();
 				
-				Credenciales.setBackground(General.COLOR_PANEL_N);
-				Credenciales.setForeground(General.COLOR_LETRA);
+				Credenciales.setBackground(COLOR_PANEL_N);
+				Credenciales.setForeground(COLOR_LETRA);
 				PanelN.setLayout(new BorderLayout());
 				
 				FEquipo1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -134,14 +138,14 @@ public class FrontFinal extends General{
 			public Marcador () {
 				setHorizontalAlignment(SwingConstants.CENTER);
 				setFont(new Font("Consolas",Font.PLAIN,60));
-				setText(" 0 | 0 ");
+				setText("| 0 | 0 |");
 				setOpaque(true);
 				setBackground(COLOR_PANEL_N);
 				setForeground(COLOR_LETRA);
 			}
 			
 			public void ActualizaMarcador(String G1, String G2) {
-				setText( " " + G1 + " | " + G2 + " ");
+				setText( " | " + G1 + " | " + G2 + " | ");
 			}
 		
 		}

@@ -13,10 +13,12 @@ public class Credencial extends JFrame {
 		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
 		AreaTexto = new JTextPane();
 		PanelScroll = new JScrollPane(AreaTexto);
+		
 		StyledDocument doc = AreaTexto.getStyledDocument();
 		SimpleAttributeSet center = new SimpleAttributeSet();
 		StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
 		doc.setParagraphAttributes(0, doc.getLength(), center, false);
+		PanelScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		AreaTexto.setText(c);
 		AreaTexto.setBackground(Color.GRAY);
 		AreaTexto.setForeground(Color.WHITE);

@@ -26,6 +26,7 @@ import backend.Referi;
 import frontend.Frame;
 /* 
  * No debería haber una clase abstracta partido?, de la que hereden los 3 tipos de partidos que existen. (sino lo dejamos como está
+
  * donde Partido actúa como una clase abstracta pero implementa la funcionalidad de ser un partido normal)
  * 
  * Estaría bueno separar dentro del backend, en paquetes, Las clases relacionadas con partidos, las relacionadas con Personas, 

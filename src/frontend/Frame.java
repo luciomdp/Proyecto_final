@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
 import java.io.Serializable;
-/* Poner en rojo los equipos que no hayan pasado*/
+
 
 public class Frame extends JFrame{
 	private JPanel contentPane;
@@ -76,7 +76,6 @@ public class Frame extends JFrame{
 		
 		cuartos.InicializaVariables();
 		zona.getSimula_todo().setEnabled(false);
-		//JOptionPane.showMessageDialog(this, "Terminaron las fases de grupos");
 		tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 		tabbedPane.addTab("Cuartos", null, cuartos, null);
 		tabbedPane.addTab("Informacion", null, info, null);
@@ -91,7 +90,6 @@ public class Frame extends JFrame{
 		else {
 			cuartos.CuartosSimulado(G1,G2,G3,G4);
 			semis.InicializaVariables();
-			//JOptionPane.showMessageDialog(this, "Terminaron los cuartos de final");
 			tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 			tabbedPane.addTab("Semifinales", null, semis, null);
 			tabbedPane.addTab("Informacion", null, info, null);
@@ -104,7 +102,6 @@ public class Frame extends JFrame{
 		else {
 			semis.SemisSimulada(G1,G2);
 			fin.InicializaVariables();
-			//JOptionPane.showMessageDialog(this, "Terminaron las semifinales");
 			tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 			tabbedPane.addTab("Final", null, fin, null);
 			tabbedPane.addTab("Informacion", null, info, null);

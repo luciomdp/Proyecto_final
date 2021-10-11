@@ -119,7 +119,7 @@ public class Campeonato implements Serializable {
 		int i;
 		String s = "", E1 = equipo1.substring(0, 25), E2 = equipo2.substring(0, 25);
 		i = 0;
-		s += "<<===========================================================================>>\n";
+		s += "<<=========================================================================>>\n";
 		switch(etapa){//Se piden las credenciales de los equipos 1 y 2 que jugaron...
 		case 0://zona 1
 			while ((!zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E2)) && (!zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E2))) 
@@ -190,7 +190,7 @@ public class Campeonato implements Serializable {
 			s += final_Campeonato.getPartidoFinal().getArbitro().getCredencial();
 			break;
 		}
-		s += "\n\n<<===========================================================================>>\n";
+		s += "\n\n<<=========================================================================>>\n";
 		return s;
 	
 	}

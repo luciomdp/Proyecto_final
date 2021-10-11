@@ -13,8 +13,8 @@ public class FrontPartido extends JPanel{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
 	private final Color COLOR_BORDE = Color.GRAY;
-	private final Color COLOR_GANADOR = Color.green;
-	private final Color COLOR_PERDEDOR = Color.red;
+	private final Color COLOR_GANADOR = new Color(38, 190, 35);
+	private final Color COLOR_PERDEDOR = new Color(255, 75, 75);
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
