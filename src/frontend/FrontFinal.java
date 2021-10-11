@@ -71,8 +71,8 @@ public class FrontFinal extends General{
 				Partido.FEquipo2.setBackground(COLOR_GANADOR);
 				Partido.FEquipo1.setBackground(COLOR_PERDEDOR);
 			}else {
-				Partido.FEquipo1.setBackground(COLOR_CAMPEON_OSCURO);
-				Partido.FEquipo2.setBackground(COLOR_CAMPEON_OSCURO);
+				Partido.FEquipo1.setBackground(COLOR_GANADOR);
+				Partido.FEquipo2.setBackground(COLOR_PERDEDOR);
 			}
 			SimulaFinal.setEnabled(false);
 			Partido.FEquipo1.setForeground(COLOR_CAMPEON_CLARO);
