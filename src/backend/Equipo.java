@@ -288,12 +288,11 @@ public class Equipo implements Serializable{
 	}
 
 	public String getCredenciales() {
-		// TODO Auto-generated method stub
 		String s = nombre;
-		s = "----------------------------------------------------<<JUGADORES>>---------------------------------------------------- \n";
+		s = "__________________________<<JUGADORES>>__________________________ \n\n";
 		for (Jugador e: Jugadores) 
 			s += e.toString() + "\n" ;
-		s += "---------------------------------------------------<<ENTRENADOR>>--------------------------------------------------- \n";
+		s += "__________________________<<ENTRENADOR>>__________________________ \n\n";
 		s += entrenador.toString() + "\n";
 		return s;
 	}

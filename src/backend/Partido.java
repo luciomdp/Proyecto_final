@@ -62,6 +62,9 @@ public class Partido implements Serializable{
 				golesE2++;
 		}
 		
+		System.out.println("\nmedia e 1:  "+ Media_totE1 + " media e 2:  " + Media_totE2);
+		
+		
 	}
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
