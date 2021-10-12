@@ -62,7 +62,6 @@ public class BackPartido implements Serializable{
 				golesE2++;
 		}
 		
-		System.out.println(Campeonato.getTitulos());
 	}
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
