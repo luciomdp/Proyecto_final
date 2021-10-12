@@ -36,6 +36,7 @@ public class Equipo implements Serializable{
     private int pG;
     private int pP;
     private int pE;
+    private double mediaEquipo;
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
     
     public Equipo (String nombre, Pais nacionalidad, int ranking, ArrayList<Jugador> jugadores, Dt entrenador){ 
@@ -61,6 +62,13 @@ public class Equipo implements Serializable{
         this.pJ = 0;
         this.pP = 0;
         this.pE = 0;
+        double suma = 0;
+		for (Jugador e: jugadores) {
+			suma += e.getPuntaje();
+		}
+		suma = suma/18;
+		this.mediaEquipo = (suma* 0.6 * 10) + ((101 - ranking)*0.25 ) + ((entrenador.getTitulos() *100 / 30)* 0.15);
+        
 	}
     
   //-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
@@ -85,7 +93,7 @@ public class Equipo implements Serializable{
 		for (Jugador j: Jugadores) {
 			media += j.getPuntaje();
 		}
-		return media/18;
+		return media/18 *10;
 	}
 	
 
@@ -165,6 +173,24 @@ public class Equipo implements Serializable{
 	public void setGolesPenalesC(int golesPenalesC) {
 		this.golesPenalesC = golesPenalesC;
 	}
+	
+	public double getMediaEquipo () {
+		return mediaEquipo;
+	}
+	
+	public float getMediaPos(Posicion pos) {
+		float suma = 0;
+		int cantJ = 0;
+		for (Jugador e: Jugadores) {
+			if (e.getPosicion() == pos) {
+				suma += e.getPuntaje();
+				cantJ ++;
+			}
+		}
+		suma = suma/cantJ;
+		return suma;
+	}
+	
 	public int getpP() {
 		return pP;
 	}
