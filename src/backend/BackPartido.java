@@ -61,6 +61,7 @@ public class BackPartido implements Serializable{
 			if(Math.random()*100 < probabilidadesGolB)
 				golesE2++;
 		}
+		Campeonato.getTitulos();
 	}
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
