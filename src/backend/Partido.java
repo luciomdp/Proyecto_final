@@ -62,6 +62,7 @@ public class Partido implements Serializable{
 				golesE2++;
 		}
 		
+		
 			
 	}
 	
