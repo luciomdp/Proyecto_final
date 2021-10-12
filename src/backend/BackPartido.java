@@ -8,7 +8,7 @@ import java.util.Date;
 
 */
 
-public class Partido implements Serializable{
+public class BackPartido implements Serializable{
 	
 	private static final long serialVersionUID = -1658384256163433401L;
 	
@@ -21,7 +21,7 @@ public class Partido implements Serializable{
 	private Referi referi;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public Partido(Equipo a, Equipo b, Referi referi) {
+	public BackPartido(Equipo a, Equipo b, Referi referi) {
 		equipo1 = a;
 		equipo2 = b;
 		this.referi = referi;
