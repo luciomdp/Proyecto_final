@@ -8,7 +8,7 @@ import java.util.Date;
 
 */
 
-public class Partido implements Serializable{
+public class BackPartido implements Serializable{
 	
 	private static final long serialVersionUID = -1658384256163433401L;
 	
@@ -21,10 +21,16 @@ public class Partido implements Serializable{
 	private Referi referi;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public Partido(Equipo a, Equipo b, Referi referi) {
+	public BackPartido(Equipo a, Equipo b, Referi referi) {
 		equipo1 = a;
 		equipo2 = b;
 		this.referi = referi;
+		Media_totE1 = (equipo1.MediaJugadores())*0.25 + (equipo1.getRanking()*6.25)*0.4 + (equipo1.getEntrenador().getTitulos()*10)*0.15;
+		Media_totE2 = (equipo2.MediaJugadores())*0.25 + (equipo2.getRanking()*6.25)*0.4 + (equipo2.getEntrenador().getTitulos()*10)*0.15;
+		if(Math.random()*100<50) //moral del equipo el dia del partido, que puede hacerlos mejor o peor equipo
+			Media_totE1 += Math.random()*20;
+		else
+			Media_totE2 += Math.random()*20;
 		this.referi = referi;
 		golesE1 = 0;
 		golesE2 = 0;
@@ -40,29 +46,25 @@ public class Partido implements Serializable{
 	 * Asigna valores a golesE1 y golesE2.
 	 */
 	public void simulacionNM() { 
-		int OportunidadesGolA = (int) (equipo1.getMediaEquipo()/10); //Cada equipo tiene como maximo 10 oportunidades de gol. Si hay pocas oportunidades, hacer mas chico el denominador
-		int OportunidadesGolB = (int) (equipo2.getMediaEquipo()/10);
-		double probabilidadesGolA = 0; // el 50% es random, el otro 50% depende de las características de los jugadores
-		double probabilidadesGolB = 0;
+		int OportunidadesGolA = (int) Math.round(Math.random()*1);//Cada equipo tiene como maximo 10 oportunidades de gol
+		int OportunidadesGolB = (int) Math.round(Math.random()*1);
 		int i;
-	
-		probabilidadesGolA = (Math.random()*100 *0.2) + ((equipo1.getMediaPos (Posicion.delantero) * 0.75 + equipo1.getMediaPos (Posicion.mediocampista) * 0.25)*0.6 *10) - ((equipo2.getMediaPos (Posicion.defensor) * 0.6 + equipo2.getMediaPos (Posicion.arquero) * 0.4)*0.4 *10);
-		if (probabilidadesGolA < 10)
-			probabilidadesGolA = 5; // minimamente por partido el equipo tiene 5% probabilidades de que lo metan
-		probabilidadesGolA = (Math.random()*100 *0.2) + ((equipo2.getMediaPos (Posicion.delantero) * 0.75 + equipo2.getMediaPos (Posicion.mediocampista) * 0.25)*0.6 *10) - ((equipo1.getMediaPos (Posicion.defensor) * 0.6 + equipo1.getMediaPos (Posicion.arquero) * 0.4)*0.4 *10);
-		if (probabilidadesGolB < 10)
-			probabilidadesGolB = 5;
-		
+		if(Media_totE1 > Media_totE2) 
+			OportunidadesGolA ++;
+		else
+			OportunidadesGolB ++;
 		for(i = 0;i<OportunidadesGolA; i++) {
-			if(Math.random()*100 < probabilidadesGolA)
-				golesE1++; 
+			if(Math.random()*100<Media_totE1)//aumentar el *100 si se hacen muchos goles
+				golesE1++; // NO DEBERÍA SER 
 		}
 		for(i = 0;i<=OportunidadesGolB; i++) {
-			if(Math.random()*100 < probabilidadesGolB)
+			if(Math.random()*100<Media_totE2)
 				golesE2++;
 		}
 		
-			
+		System.out.println("\nmedia e 1:  "+ Media_totE1 + " media e 2:  " + Media_totE2);
+		
+		
 	}
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------

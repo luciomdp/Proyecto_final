@@ -5,7 +5,7 @@ package backend;
  * 
 */
 
-public class PartidoFinal extends Partido{
+public class PartidoFinal extends BackPartido{
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
