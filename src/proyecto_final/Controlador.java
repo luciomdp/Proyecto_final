@@ -434,10 +434,16 @@ public class Controlador implements Serializable {
 	 * Simula la final del campeonato
 	 */
 	public void SimulaFinal() { 
+		String campeonNomb = "";
+		int i = 0;
 		if (!campeonatoActual.getFinal().isFinalSimulada()) {
 			campeonatoActual.getFinal().juegaFinal();
 			frameActual.FtodoSimulado(campeonatoActual.getFinal().getCampeonNum());
-			JOptionPane.showMessageDialog(null,campeonatoActual.getFinal().getCampeon() + " es el nuevo campeon de la copa!");
+			while ( i < 25 && campeonatoActual.getFinal().getCampeon().charAt(i) != ' ' && campeonatoActual.getFinal().getCampeon().charAt(i+1) != ' ') {
+				campeonNomb += campeonatoActual.getFinal().getCampeon().charAt(i);
+				i++;
+			}
+			JOptionPane.showMessageDialog(null,campeonNomb + " es el nuevo campeon de la copa!");
 		}
 		//NOSE SI HAY QUE DEFINIR ALGO ACA CUANDO SE JUEGA LA FINAL (BLOQUEAR EL BOTÓN POR EJ)
 	}
