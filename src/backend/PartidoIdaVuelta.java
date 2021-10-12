@@ -22,20 +22,15 @@ public class PartidoIdaVuelta extends BackPartido{
 	 */
 	public void simulacionPen() {
 		
-		int probab1, probab2, i;
+		double probab1, probab2, i;
 		golesP1 = 0;
 		golesP2 = 0;
 		
-		if (getMedia_totE1()>getMedia_totE2()) {
-			probab1 = 75;
-			probab2 = 65;
-		} else {
-			probab1 = 65;
-			probab2 = 75;
-		}
-				
+		probab1 = ((getEquipo1().getMediaPos(Posicion.delantero) + getEquipo1().getMediaPos(Posicion.mediocampista) + getEquipo1().getMediaPos(Posicion.defensor))/3*10) - getEquipo2().getMediaPos(Posicion.arquero)*10* 0.5;
+		probab2= ((getEquipo2().getMediaPos(Posicion.delantero) + getEquipo2().getMediaPos(Posicion.mediocampista) + getEquipo2().getMediaPos(Posicion.defensor))/3*10) - getEquipo1().getMediaPos(Posicion.arquero)*10* 0.5;
+		
 		for(i = 0;i<5;i++) {
-			
+
 			if(Math.random()*100<probab1)
 				golesP1++;
 			
