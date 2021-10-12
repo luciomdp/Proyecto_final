@@ -40,8 +40,8 @@ public class BackPartido implements Serializable{
 	 * Asigna valores a golesE1 y golesE2.
 	 */
 	public void simulacionNM() {
-		int OportunidadesGolA = (int) (equipo1.getMediaEquipo()/10); //Cada equipo tiene como maximo 10 oportunidades de gol. Si hay pocas oportunidades, hacer mas chico el denominador
-		int OportunidadesGolB = (int) (equipo2.getMediaEquipo()/10);
+		int OportunidadesGolA = (int) (equipo1.getMediaEquipo()/5); //Cada equipo tiene como maximo 10 oportunidades de gol. Si hay pocas oportunidades, hacer mas chico el denominador
+		int OportunidadesGolB = (int) (equipo2.getMediaEquipo()/5);
 		double probabilidadesGolA = 0; // el 50% es random, el otro 50% depende de las características de los jugadores
 		double probabilidadesGolB = 0;
 		int i;
