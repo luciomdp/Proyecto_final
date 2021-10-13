@@ -18,6 +18,9 @@ public class General extends JPanel{
 	
 	//-----------------------------------ALTO Y LARGO FRAME-----------------------------
 	
+	/**
+	 * 
+	 */
 	public static final int WIDTH = 900;
 	public static final int HEIGHT = 500;
 
