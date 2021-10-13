@@ -7,8 +7,6 @@ import java.util.Random;
 
 import javax.swing.JOptionPane;
 
-/*.*/
-
 public class BackSemis implements Serializable{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
@@ -161,12 +159,10 @@ public class BackSemis implements Serializable{
 		return partidos;
 	}
 	/**
-	 * 
 	 * @return {@code ganadores}, un arrayList con los dos equipos finalistas.
 	 */
 	public ArrayList <Equipo> getGanadores() { 
 		return ganadores;
-		
 	}
 	
 	public ArrayList<Integer> getGanadoresNum() {

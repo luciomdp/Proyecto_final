@@ -8,16 +8,6 @@ import java.util.Random;
 
 import javax.swing.JOptionPane;
 
-/*
-
-53-Como funciona SimulaPartido() ? Onda que hace
-	1- simula el partido correspondiente
-	2- le suma a cada equipo los goles a favor y en contra, el partido jugado, si ganaron o perdieron y el puntaje que deben recibir
-	3- se registra el resultado en un arreglo de resultados (por si en algun momento debemos acudir a alguno de ellos)
-	4- actualiza la tabla de la zona dependiendo del resultado
-	
-*/
-
 public class BackZonas implements Serializable{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
@@ -32,10 +22,11 @@ public class BackZonas implements Serializable{
 	final private int CANTE = 4;
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
-	private int partidoAct,fechaAct;//f es fecha actual e i es partido actual
-	/*Cada partido va a tener asignado un valor "i", cada fecha son 2 partidos de i (teniendo en cuenta el valor
-	actual de i,tenes una variable fecha "f", que dice en que fecha se encuentra, y simular toda la zona, es iterar desde el i
-	actual hasta el final)*/
+	private int partidoAct,fechaAct;
+	/*TODO este comentario creo que lo pusieron mientras estaban haciendo lo de simulacion, si ya no es necesario, lo borro?
+	 * Cada partido va a tener asignado un valor "partidoAct", cada fecha son 2 partidos de partidoAct (teniendo en cuenta el valor
+	 * actual de partidoAct, tenes una variable "fechaAct", que dice en que fecha se encuentra, y simular toda la zona, es iterar desde el partidoAct
+	 * actual hasta el final)*/
     private Equipo [] tabla = new Equipo [CANTE]; // TABLA DE LA ZONA 
     private BackPartido partidosZona[];
     private Resultados resultados [];
@@ -62,8 +53,7 @@ public class BackZonas implements Serializable{
 	//---------------------------------------------------------- SIMULA UN SOLO PARTIDO A LA VEZ ---------------------------------------------------------------
 	/**
 	 * Simula un partido. Asigna goles a favor y en contra de cada equipo. Incrementa los partidos jugados para cada equipo. Asigna los puntos, el 
-		ganador obtiene 3 puntos, el perdedor 0, y en caso de empate ambos equipos obtienen 1 punto. Actualiza los valores de la tabla de posiciones y de resultados.
-	 * 
+	 * ganador obtiene 3 puntos, el perdedor 0, y en caso de empate ambos equipos obtienen 1 punto. Actualiza los valores de la tabla de posiciones y de resultados.
 	 */
   	public void SimulaPartido () { 
   	  	if  (!ZonaSimulada) {
@@ -166,7 +156,7 @@ public class BackZonas implements Serializable{
 	/**
 	 * Actualiza los valores de la tabla de la zona.
 	 */
-    public void ActualizaTabla(){ // HAY QUE PROBARLO, PRINCIPALMENTE POR LA ULTIMA INSTANCIA
+    public void ActualizaTabla(){ // TODO HAY QUE PROBARLO, PRINCIPALMENTE POR LA ULTIMA INSTANCIA
     	
     	Equipo aux;
     	int posicion = 0;
@@ -276,7 +266,6 @@ public class BackZonas implements Serializable{
 	}
 
 	public int getFechaAct() {
-		// TODO Auto-generated method stub
 		return fechaAct;
 	}
 	
@@ -286,6 +275,7 @@ public class BackZonas implements Serializable{
 	public BackPartido[] getPartidosZona() {
 			return partidosZona;
 	}
+	
 }
 	
 

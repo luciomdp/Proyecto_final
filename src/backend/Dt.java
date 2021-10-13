@@ -3,16 +3,6 @@ package backend;
 import java.time.LocalDate;
 import java.time.Period;
 
-/*
-
-28-Period edad = Period.between(e.getNacimiento(), fechaAct.now()); 
-¿Por que haces fechaAct.now()? si now() es un metodo estatico
-Debería ser LocalDate.now();
-Borre tu variable de tipo LocalDate y utilice el metodo como deberia ser (de forma estatica)
-LO CAMBIÉ, SI NO ESTA BIEN EL CAMBIO DECIME
-
-*/
-
 public class Dt extends Persona{
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
@@ -69,6 +59,5 @@ public class Dt extends Persona{
 		return "Entrenador: " +super.getApellido()+ " " +super.getNombre()+ "\nFecha Nacimiento: "+ 
 				super.getNacimiento() + "\nTipoDni: " + tipoDni +"\nDNI: " +super.getDni()+ "\n";
 	}
-	
 	
 }

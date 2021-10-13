@@ -8,18 +8,6 @@ import java.util.Comparator;
 
 import proyecto_final.Controlador;
 
-/*Campeonato
-
-31- ¿No se utiliza el controlador para mandar información del back al front?
-		??? utiliza un monton de metodos del back que son utilizados en el front llamando al controlador. 
-
- armar un formato mas estético de los lista()
-
-122- ¿Qué son esos getters de cuartos semis y final? 
-		TE DEVUELVEN LA INSTANCIA EN LOS MOMENTOS QUE EL CONTROLADOR NECESITA OBTENER DATOS DE LOS EQUIPOS PERTENECIENTES A ESAS INSTANCIAS
-
-*/
-
 /**
  * Clase encargada de crear el campeonato que se jugará
  */
@@ -77,7 +65,7 @@ public class Campeonato implements Serializable {
 	/**
 	 * Inicia el torneo, mezclando los equipos para que cada vez que se inicie un nuevo torneo, las zonas sean distintas
 	 */
-	public void IniciaTorneo() {//pasar parametros para iniciar UN SOLO INICIATORNEO ??????
+	public void IniciaTorneo() {//TODO pasar parametros para iniciar UN SOLO INICIATORNEO ??????
 		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
 		 * en caso de iniciar torneo de 0, todos los parametros serian null, en caso contrario, se pasarian los
 		 * parametros que se hayan modificado (osea que se haya jugado) y el resto que no, podrian ser null tambien*/
@@ -213,8 +201,6 @@ public class Campeonato implements Serializable {
 			//agarramos todos los jugadores del equipo
 			jugadoresEquipo = e.getJugadores();
 			
-			System.out.println(e); //revisar entrenador TODO-> Esto es nuevo o es viejo????
-			
 			for (Jugador player: jugadoresEquipo) {
 				if (player.getPosicion() == pos) {
 					s+= player.toString();
@@ -284,6 +270,7 @@ public class Campeonato implements Serializable {
 	 * Setea el controlador
 	 * @param control El controlador
 	 */
+	//TODO aca sacaron, supongo un setControlador... por algo en especial dejaron el coment?
 	
 	/**
 	 * Devuelve un equipo de cuartos de final
