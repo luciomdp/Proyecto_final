@@ -158,6 +158,13 @@ public class Controlador implements Serializable {
 		this.campeonatoActual = _campeonato;
 	}
 	
+	/**
+	 * Emite las credenciales de los equipos 
+	 * @param equipo1
+	 * @param equipo2
+	 * @param etapa
+	 * @return
+	 */
 	public String EmitirCredenciales(String equipo1, String equipo2, int etapa) {
 		return campeonatoActual.GeneraCredenciales(equipo1, equipo2, etapa);
 	}

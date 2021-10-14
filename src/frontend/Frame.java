@@ -90,11 +90,16 @@ public class Frame extends JFrame{
 		switch (flag) {
 			case 1:
 				
+				break;
 			case 2:
 				
+				break;
 			case 3:
 				
+				break;
 			case 4:
+				
+				break;
 		}
 		
 		/** agrego info al final*/
