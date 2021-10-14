@@ -19,15 +19,6 @@ public class Campeonato implements Serializable {
 	/** Cantidad de zonas*/
 	private final int CANTZ = 4;
 	
-	/** Acá dejo super prolijo, bien comentado todo lo que no se usa
-	private final int CANT_EQUIPOS_CUARTOS = 8;
-	private final int CANT_EQUIPOS_SEMIS = 4;
-	private final int EQUIPOS_ZONA = 4;  
-	private final int CANTE = 16; //CANTIDAD DE EQUIPOS
-	private final int CANTJ = 18; // CANTIDAD DE JUGADORES POR EQUIPO
-	private final int CANTR = 12; // CANTIDAD DE REFERIS
-	*/
-	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	/** Lista de equipos*/
@@ -42,8 +33,6 @@ public class Campeonato implements Serializable {
 	private BackSemis semiFinal;
 	/** Instancia de Final*/
 	private BackFinal final_Campeonato;
-	/** Instancia de Controlador .-TODO- Sin usar*/
-	
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
@@ -64,11 +53,8 @@ public class Campeonato implements Serializable {
 	/**
 	 * Inicia el torneo, mezclando los equipos para que cada vez que se inicie un nuevo torneo, las zonas sean distintas
 	 */
-	public void IniciaTorneo() {//TODO pasar parametros para iniciar UN SOLO INICIATORNEO ??????
+	public void IniciaTorneo() {
 		
-		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
-		 * en caso de iniciar torneo de 0, todos los parametros serian null, en caso contrario, se pasarian los
-		 * parametros que se hayan modificado (osea que se haya jugado) y el resto que no, podrian ser null tambien*/
 		int j = 0;
         Collections.shuffle(equipos); //MEZCLA EL ARRAYLIST PARA QUE CADA VEZ QUE SE QUIERA CREAR UN CAMPEONATO, LAS ZONAS SEAN DISTINTAS
         for (int z = 0; z < CANTZ; z++) {
