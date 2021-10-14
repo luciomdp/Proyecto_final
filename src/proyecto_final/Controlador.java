@@ -438,7 +438,7 @@ public class Controlador implements Serializable {
 	/**
 	 * Devuelve los goles de la final de un equipo
 	 * @param equipo Integer representando el equipo
-	 * @return Integer representando la cantidad de goles TODO -> imagino que a favor
+	 * @return Integer representando la cantidad de goles a favor
 	 */
 	public String getGFinal(int equipo) {
 		return campeonatoActual.getFinal().getEquipo(equipo).getEstadisticasFinal();
