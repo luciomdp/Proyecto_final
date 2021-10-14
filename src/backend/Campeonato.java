@@ -42,7 +42,7 @@ public class Campeonato implements Serializable {
 	 * @param referis Lista de referis
 	 */
 	public Campeonato (ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
-		this.equipos = equipos;
+		Campeonato.equipos = equipos; //accedo de forma estática porque ´equipos´ es static
 		this.referis = referis;	
 		zonas = new BackZonas [CANTZ];
 		
