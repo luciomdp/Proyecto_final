@@ -8,8 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import frontend.Frame;
-
 /**
  * Clase encargada de serializar progreso.
  */
@@ -25,13 +23,12 @@ public abstract class Serializacion implements Serializable{
 	 * @throws FileNotFoundException Si no puede crear el archivo
 	 * @throws IOException Si no puede escribir en el archivo
 	 */
-	public static void guardaProgreso(Campeonato _campeonato, Frame _frame) throws FileNotFoundException, IOException {
+	public static void guardaProgreso(Campeonato _campeonato) throws FileNotFoundException, IOException {
 		
 		FileOutputStream fs = new FileOutputStream ("Progreso");
 		ObjectOutputStream os = new ObjectOutputStream (fs);
 			
 		os.writeObject(_campeonato);
-		os.writeObject(_frame);
 		
 		os.close();
 			
@@ -44,20 +41,15 @@ public abstract class Serializacion implements Serializable{
 	 * @throws IOException Si no puede leer el archivo
 	 * @throws ClassNotFoundException Si no se encuentra la clase Campeonato
 	 */
-	public static Object[] leeProgreso() throws FileNotFoundException, IOException, ClassNotFoundException{
+	public static Campeonato leeProgreso() throws FileNotFoundException, IOException, ClassNotFoundException{
 		
-		Object[] ob = new Object[2];
 		FileInputStream fs = new FileInputStream("Progreso");
 		ObjectInputStream os = new ObjectInputStream(fs);
 			
-		Campeonato _campeonato = (Campeonato)os.readObject();
-		Frame _frame = (Frame) os.readObject();
-		
-		ob[0] = _campeonato;
-		ob[1] = _frame;
-		
+		Campeonato _campeonato = (Campeonato) os.readObject();
+
 		os.close();
-		return ob;
+		return _campeonato;
 			
 	}
 	  

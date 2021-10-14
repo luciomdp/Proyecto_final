@@ -4,11 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
+
 import backend.Campeonato;
 import backend.Posicion;
-import frontend.Frame;
 import backend.Serializacion;
+import frontend.Frame;
 
 /**
  * Clase que conecta back y front
@@ -59,9 +60,9 @@ public class Controlador implements Serializable {
 	 */
 	public void IniciaTorneo() {
 		//inicia torneo con todos datos neutros (no paso nada)
-		String Zonas[] = new String[4];
+		String Zonas[] = new String[CANTZ];
 		campeonatoActual.IniciaTorneo();
-		for(int i = 0; i<4; i++) 
+		for(int i = 0; i<CANTZ; i++) 
 			Zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
 		//pasarle por parametro al inicia torneo del frame, los strings de las 4 zonas.
 		frameActual.IniciaTorneo(Zonas);
@@ -75,9 +76,18 @@ public class Controlador implements Serializable {
 		//inicia torneo con todos datos serializados (se pasan por parametro de IniciaTorneo())
 		try {
 			
-			Object[] _objetos = Serializacion.leeProgreso();
-			this.setCampeonato((Campeonato) _objetos[0]);
-			this.setFrame((Frame) _objetos[1]);
+			this.setCampeonato((Campeonato) Serializacion.leeProgreso());
+			
+			if (!campeonatoActual.TodasZonasSimuladas()) {
+				
+				String[] zonas = new String[CANTZ];
+				
+				for (int i = 0; i < CANTZ; i++) {
+					zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
+				}
+				
+				
+			}
 			
 		} catch (FileNotFoundException e) {
 			//si no se encuentra el archivo a leer
@@ -102,7 +112,7 @@ public class Controlador implements Serializable {
 		//acá hay que guardar el torneo actual
 		try {
 
-			Serializacion.guardaProgreso(campeonatoActual, frameActual);
+			Serializacion.guardaProgreso(campeonatoActual);
 	
 		} catch (FileNotFoundException e) {
 			//si no se encuentra el archivo a leer
