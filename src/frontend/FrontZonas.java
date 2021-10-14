@@ -119,7 +119,7 @@ public class FrontZonas extends General{
 			Partidos.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
-					FramePartidos a = new FramePartidos(NroZona,c);
+					new FramePartidos(NroZona,c);
 				}	
 			});
 			add(Panel_texto,BorderLayout.CENTER);

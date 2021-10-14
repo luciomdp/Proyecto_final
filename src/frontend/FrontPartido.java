@@ -39,7 +39,7 @@ public class FrontPartido extends JPanel{
 		PanelN.setBorder(BorderFactory.createLineBorder(COLOR_BORDE));
 		Credenciales.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Credencial C = new Credencial(c.EmitirCredenciales(Equipo1.getText(),Equipo2.getText(),Etapa));
+				new Credencial(c.EmitirCredenciales(Equipo1.getText(),Equipo2.getText(),Etapa));
 			}	
 		});
 		

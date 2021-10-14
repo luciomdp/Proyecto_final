@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import proyecto_final.Controlador;
-
 /**
  * Clase encargada de crear el campeonato que se jugará
  */
