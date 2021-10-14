@@ -91,15 +91,15 @@ public class Controlador implements Serializable {
 			
 		} catch (FileNotFoundException e) {
 			//si no se encuentra el archivo a leer
-			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(frameActual, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		
 		} catch (IOException e) {
 			//si existe el archivo pero no se puede leer
-			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(frameActual, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		
 		} catch (ClassNotFoundException e) {
 			//si la clase a reconstruir no existe
-			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(frameActual, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 
 		}
 	}
@@ -116,11 +116,11 @@ public class Controlador implements Serializable {
 	
 		} catch (FileNotFoundException e) {
 			//si no se encuentra el archivo a leer
-			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(frameActual, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		
 		} catch (IOException e) {
 			//si existe el archivo pero no se puede leer
-			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(frameActual, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		
 		}
 	}
@@ -447,7 +447,7 @@ public class Controlador implements Serializable {
 			frameActual.FtodoSimulado(campeonatoActual.getFinal().getCampeonNum());
 			campeonNomb += campeonatoActual.getFinal().getCampeon().trim();
 			
-			JOptionPane.showMessageDialog(null, campeonNomb + " es el nuevo campeon de la copa!");
+			JOptionPane.showMessageDialog(frameActual, campeonNomb + " es el nuevo campeon de la copa!");
 		}
 	}
 	
