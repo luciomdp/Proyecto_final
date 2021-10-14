@@ -268,12 +268,6 @@ public class Campeonato implements Serializable {
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	/**
-	 * Setea el controlador
-	 * @param control El controlador
-	 */
-	//TODO aca sacaron, supongo un setControlador... por algo en especial dejaron el coment?
-	
-	/**
 	 * Devuelve un equipo de cuartos de final
 	 * @param equipo Integer representando el equipo
 	 * @return El equipo
