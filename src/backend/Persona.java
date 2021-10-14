@@ -2,9 +2,7 @@ package backend;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-/*16-public abstract String DatosIdent(); //estos procedimientos están vacíos... qué debería ir acá? (ver referi o jugador por ejemplo)
-Resolver esa cuestión
-*/
+
 public abstract class Persona implements Serializable {
 
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -15,7 +13,6 @@ public abstract class Persona implements Serializable {
 	private LocalDate nacimiento;
 	private int dni;
 	String tipoDni;
-	public abstract String DatosIdent(); //estos procedimientos están vacíos... qué debería ir acá? (ver referi o jugador por ejemplo)
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
@@ -27,40 +24,22 @@ public abstract class Persona implements Serializable {
 		this.tipoDni = tipo;
 	}
 	
-	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
-	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	
 	public String getApellido() {
 		return apellido;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
 	public String getNombre() {
 		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public LocalDate getNacimiento() {
 		return nacimiento;
 	}
 
-	public void setNacimiento(LocalDate nacimiento) {
-		this.nacimiento = nacimiento;
-	}
-
 	public int getDni() {
 		return dni;
 	}
 
-	public void setDni(int dni) {
-		this.dni = dni;
-	}
 }	
-

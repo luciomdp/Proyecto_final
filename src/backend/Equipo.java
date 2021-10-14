@@ -1,16 +1,9 @@
 package backend;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
-/*Equipo
-* Estan absolutamente todos los getters y setters, son una bocha y medio al pedo
-si no los vamos a usar todos, diría de centralizar en los que realmente podríamos 
-necesitar por afuera de la clase.
-* utilizar unicamente tres variables de goles para ida vuelta y penales. Cada vez que hay una instancia nueva, se setea en 0 cada una de ellas. 
- */
+
 public class Equipo implements Serializable{
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -37,6 +30,7 @@ public class Equipo implements Serializable{
     private int pP;
     private int pE;
     private double mediaEquipo;
+    
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
     
     public Equipo (String nombre, Pais nacionalidad, int ranking, ArrayList<Jugador> jugadores, Dt entrenador){ 
@@ -96,7 +90,6 @@ public class Equipo implements Serializable{
 		return media/18 *10;
 	}
 	
-
 	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 	/**
@@ -158,18 +151,10 @@ public class Equipo implements Serializable{
 			
 	}
 	
-	public boolean isGolDeVisitante () {
-		return ganaGolVisitante;
-	}
-	
 	public void setGolVisitante (boolean condicion) {
 		this.ganaGolVisitante = condicion;
 	}
 	
-	public int getGolesPenalesC() {
-		return golesPenalesC;
-	}
-
 	public void setGolesPenalesC(int golesPenalesC) {
 		this.golesPenalesC = golesPenalesC;
 	}
@@ -190,10 +175,6 @@ public class Equipo implements Serializable{
 		suma = suma/cantJ;
 		return suma;
 	}
-	
-	public int getpP() {
-		return pP;
-	}
 
 	public void setpP() {
 		this.pP += 1;
@@ -210,6 +191,7 @@ public class Equipo implements Serializable{
     public int getGoles () {
         return goles;
     }
+    
     public int getGolesContra() {
         return golesContra;
     }
@@ -225,10 +207,7 @@ public class Equipo implements Serializable{
     public void setpE() {
 		this.pE += 1;
 	}
-    public int getpE() {
-		return this.pE;
-	}
-
+    
     public void setPuntos(int puntos) {
         this.puntos  += puntos;
     }
@@ -249,16 +228,8 @@ public class Equipo implements Serializable{
 		return pais ;
 	}
 
-	public int getRanking() {
-		return ranking;
-	}
-
 	public Dt getEntrenador() {
 		return entrenador;
-	}
-	
-	public void setEntrenador(Dt _dt) {
-		entrenador = _dt;
 	}
 
 	public String getNombre() {
@@ -269,48 +240,24 @@ public class Equipo implements Serializable{
 		return Jugadores;
 	}
 	
-	public void setJugadores(ArrayList<Jugador> jugadoresEquipo) {
-		Jugadores = jugadoresEquipo;
-		
-	}
-	
 	public void setGolesIdaCuartos(int golesIda) {
 		this.golesIdaCuartos = golesIda;
-	}
-	
-	public int getGolesIdaCuartos() {
-		return golesIdaCuartos;
 	}
 
 	public void setGolesVueltaCuartos(int golesVuelta) {
 		this.golesVueltaCuartos = golesVuelta;
 	}
-	
-	public int getGolesVueltaCuartos() {
-		return golesVueltaCuartos;
-	}
 
 	public void setGolesIdaSemis(int golesIda) {
 		this.golesIdaSemis = golesIda;
-	}
-	
-	public int getGolesIdaSemis() {
-		return golesIdaSemis;
 	}
 
 	public void setGolesVueltaSemis(int golesVuelta) {
 		this.golesVueltaSemis = golesVuelta;
 	}
-	
-	public int getGolesVueltaSemis() {
-		return golesVueltaSemis;
-	}
 
 	public void setGolesFinal(int golesFinal) {
 		this.golesFinal = golesFinal;
-	}
-	public int getGolesFinal () {
-		return golesFinal;
 	}
 
 	public String getCredenciales() {

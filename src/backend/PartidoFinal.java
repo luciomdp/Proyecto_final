@@ -1,10 +1,5 @@
 package backend;
 
-/*Mejorar un poco si hay tiempo la simulacion de penales
- * falta implementar: Si la final finaliza en empate en los 90 minutos, también se define con tiros penales.
- * 
-*/
-
 public class PartidoFinal extends BackPartido{
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------

@@ -1,16 +1,6 @@
 package backend;
 
 import java.time.LocalDate;
-/*
-58-
-public String DatosIdent() {
-	// TODO Auto-generated method stub
-	return null;
-}
-¿Función de esto? ¿Hace falta implementarlo el metodo o es 
-un metodo innecesario?
-
-/* */
 
 public class Referi extends Persona{
 
@@ -41,7 +31,6 @@ public class Referi extends Persona{
 	}
 	
 	public String getCredencial() {
-		// TODO Auto-generated method stub
 		String s = "\n----------------------------------------------------<<REFERI>>---------------------------------------------------- \n\n";
 		s +=  toString();
 		return s;
@@ -62,19 +51,10 @@ public class Referi extends Persona{
 		return "Nombre: "+ this.getNombre()+"\nApellido: "+ this.getApellido()+ "\nAnios en el referato: "+ this.getAños_referato()+ "\nPartidos Dirigidos: " + this.getPartidosDirigidos() + "\n"; 
 	}
 	
-	
 	public String toString() {
 		return "Referi: " +super.getApellido()+ " " +super.getNombre()+ "\nFecha Nacimiento: "+ 
 				super.getNacimiento()+"\nTipoDni: " + tipoDni +"\nDNI: " +super.getDni()+ "\nAños referato: " + años_referato + "\nPartidos dirigidos: " +
 				partidosDirigidos + "\nNacionalidad: " + nacionalidad ;
 	}
 
-	@Override
-	public String DatosIdent() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
-
-

@@ -1,6 +1,5 @@
 package backend;
 
-/*Mejorar un poco si hay tiempo la simulacion de penales*/
 
 public class PartidoIdaVuelta extends BackPartido{
 
@@ -33,14 +32,12 @@ public class PartidoIdaVuelta extends BackPartido{
 
 			if(Math.random()*100<probab1)
 				golesP1++;
-			
 		}
 		
 		for(i = 0;i<5;i++) {
 			
 			if(Math.random()*100<probab2)
 				golesP2++;
-			
 		}
 		
 		while (golesP1 == golesP2) {
@@ -49,7 +46,6 @@ public class PartidoIdaVuelta extends BackPartido{
 				golesP1++;
 			if(Math.random()*100<probab2)
 				golesP2++;
-			
 		}	
 	}
 	
@@ -59,15 +55,8 @@ public class PartidoIdaVuelta extends BackPartido{
 		return golesP1;
 	}
 	
-	public void setGolesP1(int golesP1) {
-		this.golesP1 = golesP1;
-	}
-	
 	public int getGolesP2() {
 		return golesP2;
 	}
-	
-	public void setGolesP2(int golesP2) {
-		this.golesP2 = golesP2;
-	}
+
 }

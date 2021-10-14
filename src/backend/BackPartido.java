@@ -2,12 +2,6 @@ package backend;
 import java.io.Serializable;
 import java.util.Date;
 
-/*
-
-19- Revisar algoritmo de resolución de partidos (si hay tiempo) y hacerlo un poco mas piola
-
-*/
-
 public class BackPartido implements Serializable{
 	
 	private static final long serialVersionUID = -1658384256163433401L;

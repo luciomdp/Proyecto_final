@@ -2,11 +2,6 @@ package backend;
 
 import java.time.LocalDate;
 
-/*Listado de jugadores de determinada posición seleccionada por el operador (arquero, 
-defensor, mediocampista, delantero) mostrando toda la información disponible del mismo.
-En el caso de los arqueros, mostrar la cantidad de Goles en Contra que recibió su equipo y 
-el promedio de gol recibido por partido.*/
-
 public class Jugador extends Persona{
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -23,26 +18,15 @@ public class Jugador extends Persona{
 		this.puntaje = puntaje;
 	}
 	
-	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
-	
-	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
 
 	public byte getPuntaje() {
 		return puntaje;
 	}
 
-	public void setPuntaje(byte puntaje) {
-		this.puntaje = puntaje;
-	}
-
 	public Posicion getPosicion() {
 		return posicion;
 	}
-
-	public void setPosicion(Posicion posicion) {
-		this.posicion = posicion;
-	}	
 	
 	@Override
 	public String toString() {
@@ -51,7 +35,4 @@ public class Jugador extends Persona{
 				puntaje + "\nTipoDni: " + tipoDni + "\n";
 	}
 
-	public String DatosIdent() { 
-		return null;
-	}
 }

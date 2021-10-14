@@ -11,6 +11,7 @@ import proyecto_final.Controlador;
 /**
  * Clase encargada de crear el campeonato que se jugará
  */
+
 public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
@@ -66,6 +67,7 @@ public class Campeonato implements Serializable {
 	 * Inicia el torneo, mezclando los equipos para que cada vez que se inicie un nuevo torneo, las zonas sean distintas
 	 */
 	public void IniciaTorneo() {//TODO pasar parametros para iniciar UN SOLO INICIATORNEO ??????
+		
 		/*Se podrian poner como parametros, las distintas etapas del torneo, ya sea zona, cuartos, semis y final
 		 * en caso de iniciar torneo de 0, todos los parametros serian null, en caso contrario, se pasarian los
 		 * parametros que se hayan modificado (osea que se haya jugado) y el resto que no, podrian ser null tambien*/
@@ -185,15 +187,16 @@ public class Campeonato implements Serializable {
 	}
 	
 	/**
-	 * Lista jugadores segun posicion
+	 * Listado de jugadores de determinada posición seleccionada por el operador (arquero, defensor, mediocampista, delantero) 
+	mostrando toda la información disponible del mismo. En el caso de los arqueros, muestra la cantidad de Goles en Contra 
+	que recibió su equipo y el promedio de gol recibido por partido.
 	 * @param pos La posicion a listar
 	 * @return String con la lista
 	 */
 	public String listaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
-		/*Listado de jugadores de determinada posición seleccionada por el operador (arquero, defensor, mediocampista, delantero) 
-		 * mostrando toda la información disponible del mismo. En el caso de los arqueros, mostrar la cantidad de Goles en Contra 
-		 * que recibió su equipo y el promedio de gol recibido por partido.*/
+		
+	
 		
 		ArrayList <Jugador> jugadoresEquipo;
 		float promedio;

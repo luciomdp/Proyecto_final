@@ -48,11 +48,6 @@ public class Dt extends Persona{
 	public void setNacionalidad(Pais nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-	
-	
-	public String DatosIdent() {
-		return null;
-	}
 
 	@Override
 	public String toString() {
