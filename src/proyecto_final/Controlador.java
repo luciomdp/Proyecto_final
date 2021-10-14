@@ -86,10 +86,8 @@ public class Controlador implements Serializable {
 			
 			if (!campeonatoActual.TodasZonasSimuladas()) {
 				frameActual.continuaTorneo(zonas);
-				
-			} else if () { //ya se jugaron todas las zonas! -> veo si ya se jugaron los cuartos
-				frameActual.continuaTorneo(zonas, 1);
-			}
+			} 
+			
 			
 		} catch (FileNotFoundException e) {
 			//si no se encuentra el archivo a leer
@@ -451,7 +449,6 @@ public class Controlador implements Serializable {
 			
 			JOptionPane.showMessageDialog(null, campeonNomb + " es el nuevo campeon de la copa!");
 		}
-		//TODO NOSE SI HAY QUE DEFINIR ALGO ACA CUANDO SE JUEGA LA FINAL (BLOQUEAR EL BOTÓN POR EJ)
 	}
 	
 }

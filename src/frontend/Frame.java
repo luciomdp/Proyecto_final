@@ -86,9 +86,18 @@ public class Frame extends JFrame{
 		/** agrego la pestaña zona*/
 		tabbedPane.addTab("Zona", null, zona, null);
 		
-		/** */
+		/** 1: en cuartos | 2: en semis | 3: en final | 4: todo jugado*/
+		switch (flag) {
+			case 1:
+				
+			case 2:
+				
+			case 3:
+				
+			case 4:
+		}
 		
-		
+		/** agrego info al final*/
 		tabbedPane.addTab("Informacion", null, info, null);
 	}
 	//-------------------------------------------------<<METODOS DE SIMULACION FINALIZADA>>-------------------------------------------------
