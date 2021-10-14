@@ -1,12 +1,17 @@
 package frontend;
 
-import javax.swing.border.*;
+import java.awt.BorderLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.border.EmptyBorder;
+
 import proyecto_final.Controlador;
 
-import javax.swing.*;
-import java.awt.*;
-
-
+@SuppressWarnings("serial") //-> no lo serializamos
 public class Frame extends JFrame{
 	private JPanel contentPane;
 	private JTabbedPane tabbedPane;
