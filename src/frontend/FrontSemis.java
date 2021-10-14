@@ -87,7 +87,7 @@ public class FrontSemis extends General{
 				}
 			}	
 		});
-		//-------------------------------------------------<<AÑADO TODO A LAS SEMIS>>-------------------------------------------------
+		//-------------------------------------------------<<AÑADO A LAS SEMIS>>-------------------------------------------------
 			
 		HBox.add(Partido1);
 		HBox.add(Box.createHorizontalStrut(WIDTH/10));

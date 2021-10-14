@@ -99,7 +99,7 @@ public class FrontCuartos extends General{
 			}	
 		});
 		
-		//-------------------------------------------------<<AÑADO TODO A LOS CUARTOS>>-------------------------------------------------
+		//-------------------------------------------------<<AÑADO A LOS CUARTOS>>-------------------------------------------------
 		
 		CpanelN.add(CcomboBox);
 		HBox1.add(Partido1);

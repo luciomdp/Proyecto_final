@@ -70,7 +70,7 @@ public class Informacion extends General{
 			
 		});
 		
-		//-------------------------------------------------<<AÑADO TODO A LA INFORMACION>>-------------------------------------------------
+		//-------------------------------------------------<<AÑADO A LA INFORMACION>>-------------------------------------------------
 		
 		IFbox.add(Listado_equipos);
 		IFbox.add(Box.createVerticalStrut(TAM_BTTN.height/4));

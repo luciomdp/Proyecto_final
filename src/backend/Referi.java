@@ -10,6 +10,7 @@ public class Referi extends Persona{
 	private Pais nacionalidad;
 	private int años_referato;
 	private int partidosDirigidos;
+	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public Referi(String apellido, String nombre, LocalDate nacimiento, int dni, String tipo, Pais nacionalidad, int añosReferato) {
@@ -29,6 +30,7 @@ public class Referi extends Persona{
 	public Pais getNacionalidad () {
 		return nacionalidad;
 	}
+
 	
 	public String getCredencial() {
 		String s = "\n----------------------------------------------------<<REFERI>>---------------------------------------------------- \n\n";
@@ -53,8 +55,9 @@ public class Referi extends Persona{
 	
 	public String toString() {
 		return "Referi: " +super.getApellido()+ " " +super.getNombre()+ "\nFecha Nacimiento: "+ 
-				super.getNacimiento()+"\nTipoDni: " + tipoDni +"\nDNI: " +super.getDni()+ "\nAños referato: " + años_referato + "\nPartidos dirigidos: " +
+				super.getNacimiento()+"\nTipoDni: " + getTipoDni() +"\nDNI: " +super.getDni()+ "\nAños referato: " + años_referato + "\nPartidos dirigidos: " +
 				partidosDirigidos + "\nNacionalidad: " + nacionalidad ;
 	}
+
 
 }

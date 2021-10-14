@@ -85,6 +85,5 @@ public class Inicio extends General {
 			setFont(new Font(FONT_TYPE,0,FONT_SIZE));
 		}
 	}
-	
 
 }

@@ -1,15 +1,10 @@
 package frontend;
 
 import javax.swing.border.*;
-import javax.swing.table.*;
-
 import proyecto_final.Controlador;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.geom.*;
-import java.io.Serializable;
 
 
 public class Frame extends JFrame{
@@ -112,4 +107,5 @@ public class Frame extends JFrame{
 	public void FtodoSimulado(int G) {
 		fin.FinalSimulada(G);
 	}
+	
 }

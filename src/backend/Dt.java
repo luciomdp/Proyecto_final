@@ -52,7 +52,7 @@ public class Dt extends Persona{
 	@Override
 	public String toString() {
 		return "Entrenador: " +super.getApellido()+ " " +super.getNombre()+ "\nFecha Nacimiento: "+ 
-				super.getNacimiento() + "\nTipoDni: " + tipoDni +"\nDNI: " +super.getDni()+ "\n";
+				super.getNacimiento() + "\nTipoDni: " + getTipoDni() +"\nDNI: " +super.getDni()+ "\n";
 	}
 	
 }

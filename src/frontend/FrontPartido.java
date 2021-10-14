@@ -1,11 +1,8 @@
 package frontend;
 
 import java.awt.*;
-
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.text.*;
-
 import proyecto_final.Controlador;
 
 public class FrontPartido extends JPanel{

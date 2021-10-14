@@ -12,7 +12,7 @@ public abstract class Persona implements Serializable {
 	private String apellido, nombre;
 	private LocalDate nacimiento;
 	private int dni;
-	String tipoDni;
+	private String tipoDni;
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
@@ -40,6 +40,10 @@ public abstract class Persona implements Serializable {
 
 	public int getDni() {
 		return dni;
+	}
+
+	public String getTipoDni() {
+		return tipoDni;
 	}
 
 }	

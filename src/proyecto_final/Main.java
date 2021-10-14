@@ -24,25 +24,11 @@ import backend.Pais;
 import backend.Posicion;
 import backend.Referi;
 import frontend.Frame;
-/* 
- * No debería haber una clase abstracta partido?, de la que hereden los 3 tipos de partidos que existen. (sino lo dejamos como está
 
- * donde Partido actúa como una clase abstracta pero implementa la funcionalidad de ser un partido normal)
- * 
- * Estaría bueno separar dentro del backend, en paquetes, Las clases relacionadas con partidos, las relacionadas con Personas, 
- * las relacionadas con etapas del torneo (cuartos,semis...) y los enums
- * 
- * Verificar que todas las clases del back, tengan atributos private
- * 
- * Cual es la diferencia entre PartidoIdaVuelta y PartidoFinal ??
- * 
- * Resolver tareas en cada clase del back
- */
 /**
  * Clase principal
  */
 public class Main {	
-	/*saco el throw => no tiene sentido tirar la excepción si también la vamos a catchear (además, si falla el main, qué le queda al resto?*/
 	/**
 	 * Entry point del programa
 	 * @param args Argument's array

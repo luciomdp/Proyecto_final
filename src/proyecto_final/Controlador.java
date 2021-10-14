@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 import javax.swing.*;
 import backend.Campeonato;
-import backend.Equipo;
 import backend.Posicion;
 import frontend.Frame;
 import backend.Serializacion;
@@ -235,7 +234,6 @@ public class Controlador implements Serializable {
 	}
 
 	public String[] getE1Zona(int zona) {
-		// TODO Auto-generated method stub
 		String E1[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
 		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
 			E1[i] =  campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo1().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE1() + " ";
@@ -245,7 +243,6 @@ public class Controlador implements Serializable {
 	
 	
 	public String[] getE2Zona(int zona) {
-		// TODO Auto-generated method stub
 		String E2[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
 		for (int i = 0; i < campeonatoActual.getZona(zona).getPartidoAct(); i++) {
 			E2[i] = campeonatoActual.getZona(zona).getPartidosZona()[i].getEquipo2().getNombre() + " " + campeonatoActual.getZona(zona).getPartidosZona()[i].getGolesE2() + " ";
@@ -308,10 +305,10 @@ public class Controlador implements Serializable {
 	}
 	
 	/**
-	 * Simula algo de los cuartos -> TODO (el TODO para que marque la línea)
+     * Simula los partidos de cuartos de final.
 	 * @return Integer representando el partido que se jugo
 	 */
-	public int simulaPartidosCuartos() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
+	public int simulaPartidosCuartos() {
 		//int partidoInicio = campeonatoActual.getCuartosDeFinal().getPartidoActual();
 		if (!campeonatoActual.getCuartosDeFinal().isCuartosSimulado())
 			campeonatoActual.getCuartosDeFinal().SimulaCuartos();
@@ -442,7 +439,7 @@ public class Controlador implements Serializable {
 			
 			JOptionPane.showMessageDialog(null, campeonNomb + " es el nuevo campeon de la copa!");
 		}
-		//NOSE SI HAY QUE DEFINIR ALGO ACA CUANDO SE JUEGA LA FINAL (BLOQUEAR EL BOTÓN POR EJ)
+		//TODO NOSE SI HAY QUE DEFINIR ALGO ACA CUANDO SE JUEGA LA FINAL (BLOQUEAR EL BOTÓN POR EJ)
 	}
 	
 }
