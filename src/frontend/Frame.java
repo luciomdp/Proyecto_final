@@ -65,6 +65,32 @@ public class Frame extends JFrame{
 		tabbedPane.addTab("Informacion", null, info, null);
 	}
 	
+	public void continuaTorneo(String zonas[]) {
+		zona.setZona1(zonas[0]);
+		zona.setZona2(zonas[1]);
+		zona.setZona3(zonas[2]);
+		zona.setZona4(zonas[3]);
+		
+		tabbedPane.addTab("Zona", null, zona, null);
+		tabbedPane.addTab("Informacion", null, info, null);
+	}
+	
+	public void continuaTorneo(String zonas[], int flag) {
+		
+		/** si se llamó a este método es porque las zonas están todas simuladas entonces muestro los resultados*/
+		zona.setZona1(zonas[0]);
+		zona.setZona2(zonas[1]);
+		zona.setZona3(zonas[2]);
+		zona.setZona4(zonas[3]);
+		
+		/** agrego la pestaña zona*/
+		tabbedPane.addTab("Zona", null, zona, null);
+		
+		/** */
+		
+		
+		tabbedPane.addTab("Informacion", null, info, null);
+	}
 	//-------------------------------------------------<<METODOS DE SIMULACION FINALIZADA>>-------------------------------------------------
 	
 	public void ZtodoSimulado() {
@@ -76,9 +102,11 @@ public class Frame extends JFrame{
 		tabbedPane.addTab("Informacion", null, info, null);
 		
 	}
+	
 	public void ZonaSimulada(int nrozona) {
 		zona.ZonaSimulada(nrozona);
 	}
+	
 	public void CtodoSimulado(int i,int G1,int G2,int G3,int G4) {
 		if(i == 0)
 			cuartos.CuartosSimuladoIda();
@@ -91,6 +119,7 @@ public class Frame extends JFrame{
 		}
 			
 	}
+	
 	public void StodoSimulado(int i,int G1,int G2) {
 		if(i == 0)
 			semis.SemisSimuladaIda();
@@ -104,6 +133,7 @@ public class Frame extends JFrame{
 		}
 			
 	}
+	
 	public void FtodoSimulado(int G) {
 		fin.FinalSimulada(G);
 	}

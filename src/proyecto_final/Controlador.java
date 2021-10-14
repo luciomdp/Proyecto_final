@@ -73,20 +73,22 @@ public class Controlador implements Serializable {
 	 * @see Serializacion
 	 */
 	public void ContinuaTorneo() {
-		//inicia torneo con todos datos serializados (se pasan por parametro de IniciaTorneo())
+		/** @nota: continuar el torneo NO es lo mismo que iniciar el torneo nuevamente, 
+		 *         NO puedo usar los mismos métodos del controlador, eso me cambiaría la info del back!*/
 		try {
-			
 			this.setCampeonato((Campeonato) Serializacion.leeProgreso());
 			
+			String[] zonas = new String[CANTZ];
+			
+			for (int i = 0; i < zonas.length; i++) {
+				zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
+			}
+			
 			if (!campeonatoActual.TodasZonasSimuladas()) {
+				frameActual.continuaTorneo(zonas);
 				
-				String[] zonas = new String[CANTZ];
-				
-				for (int i = 0; i < CANTZ; i++) {
-					zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
-				}
-				
-				
+			} else if () { //ya se jugaron todas las zonas! -> veo si ya se jugaron los cuartos
+				frameActual.continuaTorneo(zonas, 1);
 			}
 			
 		} catch (FileNotFoundException e) {
@@ -384,7 +386,7 @@ public class Controlador implements Serializable {
 	 * Simula los partidos de ida de la semifinal
 	 * @return Integer representando el partido que se jugo
 	 */
-	public int simulaPartidosIdaS() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
+	public int simulaPartidosIdaS() {//Devuelve a partir de que partido se simulo (1,2,3 o 4)
 		int partidoComienzo = campeonatoActual.getSemiFinal().getPartidoAct();
 		if (partidoComienzo < CANT_PARTIDOS_SEMIS/2) {
 			campeonatoActual.getSemiFinal().SimulaIda();
