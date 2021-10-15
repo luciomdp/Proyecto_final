@@ -146,12 +146,12 @@ public class Campeonato implements Serializable {
 			s += cuartosDeFinal.getPartidoCuartos()[i].getEquipo2().getCredenciales();
 			if (cuartosDeFinal.getPartidoActual() > cuartosDeFinal.getCANT_P()/2) { //si está en los partidos de vuelta
 				s += "\n----------------------------------------------<<REFERI partido IDA>>---------------------------------------------- \n\n";
-				s += cuartosDeFinal.getPartidoCuartos()[i-1].getArbitro().getCredencial(); //árbitro del partido de ida
+				s += cuartosDeFinal.getPartidoCuartos()[i-1].getArbitro().toString(); //árbitro del partido de ida
 				s += "\n\n---------------------------------------------<<REFERI partido VUELTA>>---------------------------------------------- \n\n";
 				} 
 			else
 				s += "\n----------------------------------------------------<<REFERI>>---------------------------------------------------- \n\n";
-			s += cuartosDeFinal.getPartidoCuartos()[i].getArbitro().getCredencial(); //árbitro del partido de vuelta (o de ida si no entra al if)
+			s += cuartosDeFinal.getPartidoCuartos()[i].getArbitro().toString(); //árbitro del partido de vuelta (o de ida si no entra al if)
 			break;
 		case 5://semis
 			while ((!semiFinal.getPartidoSemis()[i].getEquipo1().getNombre().equals(E1) && !semiFinal.getPartidoSemis()[i].getEquipo2().getNombre().equals(E2)) && (!semiFinal.getPartidoSemis()[i].getEquipo2().getNombre().equals(E1) && !semiFinal.getPartidoSemis()[i].getEquipo1().getNombre().equals(E2))) 
