@@ -1,7 +1,12 @@
 package frontend;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
 
 import proyecto_final.Controlador;
 
@@ -10,6 +15,10 @@ public class FrontCuartos extends General{
 		
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 281164370800793092L;
 	private JPanel CpanelN;
 	private panelC CpanelC;
 	private JComboBox<String> CcomboBox;
@@ -143,8 +152,12 @@ public class FrontCuartos extends General{
 
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
-	
 	private class panelC extends General {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 6588611565118806668L;
+
 		panelC () {
 			super.paint(getGraphics());
 		}

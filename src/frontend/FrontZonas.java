@@ -9,6 +9,10 @@ public class FrontZonas extends General{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1277101971357591260L;
 	private final Color COLOR_FONDO_ZONA = new Color(38, 190, 35);
 	private final Color COLOR_ZONA = COLOR_PANEL_N;
 		
@@ -98,12 +102,21 @@ public class FrontZonas extends General{
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
 	private class panelZ extends General {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 3101786738856095552L;
+
 		panelZ () {
 			super.paint(getGraphics());
 			setBackground(COLOR_FONDO_ZONA);
 		}
 	}
 	private class Zona extends JPanel{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -6460830316052059802L;
 		private JButton Partidos;
 		private JTextPane Panel_texto;
 		Zona(int NroZona,Controlador c) {
@@ -134,6 +147,11 @@ public class FrontZonas extends General{
 		}
 	}
 	private class ZComboBox extends JComboBox <String> {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -8965372467311546848L;
+
 		ZComboBox(int zona) {
 			setEditable(false);
 			addItem("Zona " + (zona + 1));
@@ -162,6 +180,11 @@ public class FrontZonas extends General{
 	
 	private class FramePartidos extends JFrame {
 		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 4574604574971619567L;
+
 		final int ESPACIO_VERTICAL = 30;
 		
 		JScrollPane PanelScroll;

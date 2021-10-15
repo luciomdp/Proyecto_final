@@ -60,20 +60,10 @@ public class Frame extends JFrame{
 	
 	public void IniciaTorneo(String Zonas[]) { //SE PASA POR PARAMETRO LO QUE SEA NECESARIO PARA DARLE STRINGS A LAS ETIQUETAS DEL VISUAL 
 		
-		if (tabbedPane.getTabCount() > 2) {
-			tabbedPane.removeAll();
-		}
-		
-		tabbedPane.addTab("Inicio", null, inicio, null);
-		
 		zona.setZona1(Zonas[0]);
 		zona.setZona2(Zonas[1]);
 		zona.setZona3(Zonas[2]);
 		zona.setZona4(Zonas[3]);
-		
-		/** Esto cuando se crea un campeonato nuevo, no afecta en nada porque se supone que siempre es true*/
-		zona.getSimula_todo().setEnabled(true);
-		
 		
 		//-------------------------------------------------<<AGREGO LAS PESTAÑAS INFORMACION Y ZONA>>-------------------------------------------------
 		
@@ -93,6 +83,9 @@ public class Frame extends JFrame{
 		tabbedPane.addTab("Zona", null, zona, null);
 		tabbedPane.addTab("Informacion", null, info, null);
 		
+		int ganadoresCuartos[];
+		int ganadoresSemis[];
+		int ganadorFinal;
 		/** 1: en cuartos | 2: en semis | 3: en final | 4: todo jugado*/
 		switch (flag) {
 			case 0: 
@@ -104,15 +97,15 @@ public class Frame extends JFrame{
 				
 			case 2:
 				ZtodoSimulado();
-				int ganadores[] = inicio.getControlador().getGanadoresCuartos();
+				ganadoresCuartos = inicio.getControlador().getGanadoresCuartos();
 				
-				CtodoSimulado(1, ganadores[0], ganadores[1], ganadores[2], ganadores[3]);
+				CtodoSimulado(1, ganadoresCuartos[0], ganadoresCuartos[1], ganadoresCuartos[2], ganadoresCuartos[3]);
 				break;
 				
 			case 3:
 				ZtodoSimulado();
-				int ganadoresCuartos[] = inicio.getControlador().getGanadoresCuartos();
-				int ganadoresSemis[] = inicio.getControlador().getGanadoresSemis();
+				ganadoresCuartos = inicio.getControlador().getGanadoresCuartos();
+				ganadoresSemis = inicio.getControlador().getGanadoresSemis();
 				
 				CtodoSimulado(1, ganadoresCuartos[0], ganadoresCuartos[1], ganadoresCuartos[2], ganadoresCuartos[3]);
 				StodoSimulado(1, ganadoresSemis[0], ganadoresSemis[1]);
@@ -121,15 +114,16 @@ public class Frame extends JFrame{
 				
 			case 4:
 				ZtodoSimulado();
-				int ganadoresC[] = inicio.getControlador().getGanadoresCuartos();
-				int ganadoresS[] = inicio.getControlador().getGanadoresSemis();
-				int ganadorF = inicio.getControlador().getGanador();
+				ganadoresCuartos = inicio.getControlador().getGanadoresCuartos();
+				ganadoresSemis = inicio.getControlador().getGanadoresSemis();
+				ganadorFinal = inicio.getControlador().getGanador();
 				
-				CtodoSimulado(1, ganadoresC[0], ganadoresC[1], ganadoresC[2], ganadoresC[3]);
-				StodoSimulado(1, ganadoresS[0], ganadoresS[1]);
+				CtodoSimulado(1, ganadoresCuartos[0], ganadoresCuartos[1], ganadoresCuartos[2], ganadoresCuartos[3]);
+				StodoSimulado(1, ganadoresSemis[0], ganadoresSemis[1]);
+				
 				fin.InicializaVariables();
-				FtodoSimulado(ganadorF);
-				
+				FtodoSimulado(ganadorFinal);
+				fin.getPartidoFinal().m.ActualizaMarcador(fin.getControlador().getGFinal(0), fin.getControlador().getGFinal(1));
 				
 				break;
 		}

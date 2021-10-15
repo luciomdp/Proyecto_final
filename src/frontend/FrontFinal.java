@@ -17,6 +17,10 @@ import proyecto_final.Controlador;
 public class FrontFinal extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1207148632919606529L;
 	private final int AUMENTO_FUENTE = 10;
 	private final Color COLOR_GANADOR = new Color(38, 190, 35);
 	private final Color COLOR_PERDEDOR = new Color(255, 75, 75);
@@ -29,7 +33,7 @@ public class FrontFinal extends General{
 	private JPanel FpanelN;
 	private panelF FpanelC;
 	private JButton SimulaFinal;
-	private PartidoFinal Partido;
+	PartidoFinal Partido;
 	
 	
 	public FrontFinal (Controlador c){
@@ -99,7 +103,11 @@ public class FrontFinal extends General{
 		
 		//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 		
-		private class PartidoFinal extends JPanel{
+		class PartidoFinal extends JPanel{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 2392754966439531397L;
 			Marcador m;
 			FLabel FEquipo1;
 			FLabel FEquipo2;
@@ -141,8 +149,13 @@ public class FrontFinal extends General{
 			
 		}
 		
-		private class Marcador extends JLabel {
+		class Marcador extends JLabel {
 			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 7681809742300806532L;
+
 			public Marcador () {
 				setHorizontalAlignment(SwingConstants.CENTER);
 				setFont(new Font("Consolas",Font.PLAIN,60));
@@ -159,6 +172,11 @@ public class FrontFinal extends General{
 		}
 		
 		private class FLabel extends JLabel{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = -8014708990749718900L;
+
 			FLabel () {
 				setFont(new Font(FONT_TYPE,0,FONT_SIZE+AUMENTO_FUENTE));
 				setOpaque(true);
@@ -170,10 +188,22 @@ public class FrontFinal extends General{
 		}
 		
 		private class panelF extends General {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 4123790587424676242L;
+
 			panelF () {
 				super.paint(getGraphics());
 				setBackground(COLOR_BOTONES_2);
 			}
+		}
+
+		/**
+		 * @return the partido
+		 */
+		public PartidoFinal getPartidoFinal() {
+			return Partido;
 		}	
 		
 }

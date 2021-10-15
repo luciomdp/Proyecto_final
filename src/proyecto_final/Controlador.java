@@ -65,6 +65,8 @@ public class Controlador implements Serializable {
 		for(int i = 0; i<CANTZ; i++) 
 			Zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
 		//pasarle por parametro al inicia torneo del frame, los strings de las 4 zonas.
+		frameActual = new Frame();
+		frameActual.setControlador(this);
 		frameActual.IniciaTorneo(Zonas);
 	}
 	
