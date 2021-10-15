@@ -60,6 +60,12 @@ public class Frame extends JFrame{
 	
 	public void IniciaTorneo(String Zonas[]) { //SE PASA POR PARAMETRO LO QUE SEA NECESARIO PARA DARLE STRINGS A LAS ETIQUETAS DEL VISUAL 
 		
+		if (tabbedPane.getTabCount() > 2) {
+			tabbedPane.removeAll();
+		}
+		
+		tabbedPane.addTab("Inicio", null, inicio, null);
+		
 		zona.setZona1(Zonas[0]);
 		zona.setZona2(Zonas[1]);
 		zona.setZona3(Zonas[2]);
