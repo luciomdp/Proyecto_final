@@ -84,10 +84,27 @@ public class Controlador implements Serializable {
 				zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
 			}
 			
+			/** Si las zonas no están simuladas, arranco desde las zonas*/
 			if (!campeonatoActual.TodasZonasSimuladas()) {
-				frameActual.continuaTorneo(zonas);
-			} 
-			
+				frameActual.continuaTorneo(zonas, 0);
+				
+				/** Si hay cuartos y no hay semis, se reanudan los cuartos*/	
+			} else if ((campeonatoActual.getECuartosFinal(0) != null) && (campeonatoActual.getSemiFinal() == null)) {
+				frameActual.continuaTorneo(zonas, 1);
+				
+				/** Si hay semi, y no esta la final simulada, entonces, se reanuda la semi*/
+			} else if ((campeonatoActual.getESemiFinal(0) != null) && (campeonatoActual.getFinal() == null)) {
+				frameActual.continuaTorneo(zonas, 2);
+				
+				/** Si no hay final simulada pero se jugo la semi, sigo con la final*/
+			} else if (!campeonatoActual.getFinal().isFinalSimulada()) {
+				frameActual.continuaTorneo(zonas, 3);
+				
+				/** Todo simulado*/
+			} else {
+				frameActual.continuaTorneo(zonas, 4);
+				
+			}
 			
 		} catch (FileNotFoundException e) {
 			//si no se encuentra el archivo a leer
@@ -156,6 +173,14 @@ public class Controlador implements Serializable {
 	 */
 	public void setCampeonato (Campeonato _campeonato) {
 		this.campeonatoActual = _campeonato;
+	}
+	
+	/**
+	 * Getter para el campeonato del controlador
+	 * @return campeonato El Campeonato
+	 */
+	public Campeonato getCampeonato () {
+		return campeonatoActual;
 	}
 	
 	/**
@@ -236,7 +261,6 @@ public class Controlador implements Serializable {
 		}
 	}
 	
-	
 	/**
 	 * Devuelve los resultados de una zona especifica
 	 * @param zona Integer representando la zona
@@ -257,7 +281,6 @@ public class Controlador implements Serializable {
 		}
 		return E1;
 	}
-	
 	
 	public String[] getE2Zona(int zona) {
 		String E2[] = new String[campeonatoActual.getZona(zona).getPartidoAct()];
@@ -347,6 +370,16 @@ public class Controlador implements Serializable {
 			frameActual.CtodoSimulado(1, g1, g2, g3, g4);
 		}
 	}
+	
+	public int[] getGanadoresCuartos() {
+		int[] ganadores = new int[4];
+		for (int i = 0; i < 4; i++) {
+			ganadores[i] = campeonatoActual.getCuartosDeFinal().getGanadoresNum().get(i);
+		}
+		
+		return ganadores;
+	}
+	
 	//-------------------------------------------------<<SIMULADORES SEMIS>>-------------------------------------------------
 	
 	/**
@@ -424,6 +457,16 @@ public class Controlador implements Serializable {
 			frameActual.StodoSimulado(1, g1, g2);
 		}
 	}
+	
+	public int[] getGanadoresSemis() {
+		
+		int[] ganadores = new int[2];
+		for (int i = 0; i < ganadores.length; i++) {
+			ganadores[i] = campeonatoActual.getCuartosDeFinal().getGanadoresNum().get(i);
+		}
+		
+		return ganadores;
+	}
 	//-------------------------------------------------<< SIMULADORES FINAL >>--------------------------------------------------------------------
 	
 	/**
@@ -458,4 +501,7 @@ public class Controlador implements Serializable {
 		}
 	}
 	
+	public int getGanador() {
+		return campeonatoActual.getFinal().getCampeonNum();
+	}
 }
