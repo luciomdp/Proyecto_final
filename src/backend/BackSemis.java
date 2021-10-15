@@ -163,6 +163,11 @@ public class BackSemis implements Serializable{
 		return ganadores;
 	}
 	
+	public int getCANT_P() {
+		return CANT_P;
+	}
+	
+	
 	public ArrayList<Integer> getGanadoresNum() {
 		return ganadoresNum;
 	}
