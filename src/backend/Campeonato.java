@@ -236,10 +236,9 @@ public class Campeonato implements Serializable {
 	 */
 	public String listaArbitros() { 
 		int prom = 0; 
-		Collections.sort(referis, new Comparator<Referi>() { //
+		Collections.sort(referis, new Comparator<Referi>() {
 			public int compare(Referi r1, Referi r2) {
-				///TODO: acá abajo, que se hace? los métodos están deprecados => Claudio nos mata
-				return new Integer(r2.getPartidosDirigidos()).compareTo(new Integer(r1.getPartidosDirigidos()));
+				return Integer.compare(r2.getPartidosDirigidos(), r1.getPartidosDirigidos());
 			}
 		});
 		String s= "----------------------------------------ARBITROS--------------------------------------------\n\n";
