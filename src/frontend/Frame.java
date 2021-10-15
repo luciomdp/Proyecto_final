@@ -57,6 +57,7 @@ public class Frame extends JFrame{
 		fin = new FrontFinal(c);
 		info = new Informacion(c);
 	}
+	
 	public void IniciaTorneo(String Zonas[]) { //SE PASA POR PARAMETRO LO QUE SEA NECESARIO PARA DARLE STRINGS A LAS ETIQUETAS DEL VISUAL 
 		
 		if (tabbedPane.getTabCount() > 2) {
@@ -69,6 +70,10 @@ public class Frame extends JFrame{
 		zona.setZona2(Zonas[1]);
 		zona.setZona3(Zonas[2]);
 		zona.setZona4(Zonas[3]);
+		
+		/** Esto cuando se crea un campeonato nuevo, no afecta en nada porque se supone que siempre es true*/
+		zona.getSimula_todo().setEnabled(true);
+		
 		
 		//-------------------------------------------------<<AGREGO LAS PESTAÑAS INFORMACION Y ZONA>>-------------------------------------------------
 		
