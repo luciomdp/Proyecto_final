@@ -153,7 +153,7 @@ public class Campeonato implements Serializable {
 				s += "\n----------------------------------------------------<<REFERI>>---------------------------------------------------- \n\n";
 			s += cuartosDeFinal.getPartidoCuartos()[i].getArbitro().toString(); //árbitro del partido de vuelta (o de ida si no entra al if)
 			break;
-		case 5://semis
+		case 5://semis TODO aca matii help
 			while ((!semiFinal.getPartidoSemis()[i].getEquipo1().getNombre().equals(E1) && !semiFinal.getPartidoSemis()[i].getEquipo2().getNombre().equals(E2)) && (!semiFinal.getPartidoSemis()[i].getEquipo2().getNombre().equals(E1) && !semiFinal.getPartidoSemis()[i].getEquipo1().getNombre().equals(E2))) 
 				i++;
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
@@ -161,7 +161,17 @@ public class Campeonato implements Serializable {
 			s += "\n_______________________________________________________________________________\n";
 			s +="\n<<===============================EQUIPO 2===============================>>\n\n" + E2.trim() + "\n\n";
 			s += semiFinal.getPartidoSemis()[i].getEquipo2().getCredenciales();
-			s += semiFinal.getPartidoSemis()[i].getArbitro().getCredencial();
+
+			System.out.println(i+ " " + semiFinal.getPartidoAct() + " " + semiFinal.getCANT_P()/2);
+			if (semiFinal.getPartidoAct() >= semiFinal.getCANT_P()/2) {
+				s += "\n----------------------------------------------<<REFERI partido IDA>>---------------------------------------------- \n\n";
+				s += semiFinal.getPartidoSemis()[i-1].getArbitro().toString(); //i es 0)?
+				System.out.println(i+ " " + semiFinal.getPartidoAct() + " " + semiFinal.getCANT_P()/2);
+				s += "\n\n---------------------------------------------<<REFERI partido VUELTA>>---------------------------------------------- \n\n";
+				} 
+			else
+				s += "\n----------------------------------------------------<<REFERI>>---------------------------------------------------- \n\n";
+			s += semiFinal.getPartidoSemis()[i].getArbitro().toString();
 			break;
 		case 6://final
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
