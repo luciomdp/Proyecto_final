@@ -126,8 +126,8 @@ public class BackCuartos implements Serializable{
 			SimulaPartido();
 	}
 	
-	
 	//-------------------------------------------------<<GETTERS Y SETTERS>>-------------------------------------------------
+	
 	public boolean isCuartosSimulado () {
 		return cuartosTodoSimulado;
 	}
@@ -149,6 +149,9 @@ public class BackCuartos implements Serializable{
 	}
 	public ArrayList<Integer> getGanadoresNum() {
 		return ganadoresNum;
+	}
+	public int getCANT_P() {
+		return CANT_P;
 	}
 
 }

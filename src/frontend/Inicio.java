@@ -81,9 +81,7 @@ public class Inicio extends General {
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
 	private class JButtonI extends JButton {
-		/**
-		 * 
-		 */
+
 		private static final long serialVersionUID = 5424346091343025846L;
 
 		JButtonI (String s){
