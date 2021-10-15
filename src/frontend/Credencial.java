@@ -1,14 +1,24 @@
 package frontend;
-import java.awt.*;
-import javax.swing.*;
-import javax.swing.text.*;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 
 public class Credencial extends JFrame {
+
+	private static final long serialVersionUID = -4876789525460049473L;
 	private JScrollPane PanelScroll;
 	private JTextPane AreaTexto;
 	
-	Credencial (String c){
+	Credencial (String c) {
 		Toolkit MiPantalla = Toolkit.getDefaultToolkit();
 		Image imagen = MiPantalla.getImage("Src/frontend/icono.png");
 		AreaTexto = new JTextPane();
