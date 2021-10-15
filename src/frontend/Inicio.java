@@ -67,6 +67,8 @@ public class Inicio extends General {
 		Continua.addActionListener(new ActionListener () {
 			public void actionPerformed(ActionEvent e) {
 				getControlador().ContinuaTorneo();
+				Inicia_torneo.setEnabled(false);
+				Continua.setEnabled(false);
 			}	
 		});
 		
