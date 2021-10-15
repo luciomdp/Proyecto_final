@@ -92,6 +92,7 @@ public class Frame extends JFrame{
 		int ganadoresCuartos[];
 		int ganadoresSemis[];
 		int ganadorFinal;
+		
 		/** 1: en cuartos | 2: en semis | 3: en final | 4: todo jugado*/
 		switch (flag) {
 			case 0: 

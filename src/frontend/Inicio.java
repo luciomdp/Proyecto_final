@@ -1,8 +1,13 @@
 package frontend;
-import java.awt.*;
-import java.awt.event.*;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.JButton;
 
 import proyecto_final.Controlador;
 
@@ -76,6 +81,11 @@ public class Inicio extends General {
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
 	private class JButtonI extends JButton {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 5424346091343025846L;
+
 		JButtonI (String s){
 			super(s);
 			setForeground(COLOR_LETRA);

@@ -11,12 +11,10 @@ public class BackCuartos implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private final int CANT_P = 8;
-	private final int CANTE = 8;
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	private PartidoIdaVuelta partidos [];
 	private Resultados resultados [];
-	private Equipo pasanASemis [];
 	private int partidoActual;
 	private ArrayList <Equipo> ganadores;
 	private ArrayList <Integer> ganadoresNum;

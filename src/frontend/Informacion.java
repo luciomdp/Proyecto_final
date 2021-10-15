@@ -1,8 +1,22 @@
 package frontend;
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.geom.*;
-import javax.swing.*;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.Line2D;
+
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import backend.Posicion;
 import proyecto_final.Controlador;
@@ -11,6 +25,11 @@ import proyecto_final.Controlador;
 public class Informacion extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6356111798631872608L;
+
 	private final Dimension DIMENSION_PANELES_INFO = new Dimension(15,75);
 		
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -99,6 +118,10 @@ public class Informacion extends General{
 	}
 	
 	private abstract class IFpanel extends JPanel { 
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 617394864401496983L;
 		private JTextArea area;
 		private JScrollPane panel_area;
 		private JButton boton_muestra;
@@ -200,6 +223,11 @@ public class Informacion extends General{
 	}
 	private class JButtonIF extends JButton {
 		
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -6246862914562272788L;
+
 		JButtonIF(String s,ActionListener L) {
 			super(s);
 			setMinimumSize(TAM_BTTN);

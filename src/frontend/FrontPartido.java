@@ -1,14 +1,26 @@
 package frontend;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 import proyecto_final.Controlador;
 
 public class FrontPartido extends JPanel{
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 881802484160830537L;
 	private final Color COLOR_BORDE = Color.GRAY;
 	private final Color COLOR_GANADOR = new Color(38, 190, 35);
 	private final Color COLOR_PERDEDOR = new Color(255, 75, 75);
@@ -54,6 +66,11 @@ public class FrontPartido extends JPanel{
 	}
 	
 	private class Label extends JLabel{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 4909513990394389791L;
+
 		Label() {
 			setFont(new Font(General.FONT_TYPE,0,General.FONT_SIZE));
 			setOpaque(true);

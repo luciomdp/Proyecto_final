@@ -1,6 +1,5 @@
 package backend;
 import java.io.Serializable;
-import java.util.Date;
 
 public class BackPartido implements Serializable{
 	
@@ -10,7 +9,6 @@ public class BackPartido implements Serializable{
 	
 	private Equipo equipo1,equipo2;
 	private double Media_totE1,Media_totE2;
-	private Date fecha_juego;
 	private int golesE1,golesE2;
 	private Referi referi;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------

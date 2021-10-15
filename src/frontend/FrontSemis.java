@@ -1,15 +1,24 @@
 package frontend;
-import java.awt.*;
+
+import java.awt.BorderLayout;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.Box;
+import javax.swing.JComboBox;
+import javax.swing.JPanel;
 
 import proyecto_final.Controlador;
 
 public class FrontSemis extends General{
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1660981834575268289L;
+
 	private int AUMENTO_FUENTE = 4;
 			
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -121,6 +130,11 @@ public class FrontSemis extends General{
 	
 	
 	private class panelS extends General {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -6170406982552920046L;
+
 		panelS () {
 			super.paint(getGraphics());
 		}

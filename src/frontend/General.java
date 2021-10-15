@@ -16,8 +16,14 @@ import proyecto_final.Controlador;
 public class General extends JPanel{
 	//-----------------------------------CONSTANTES-----------------------------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3518373160364526784L;
+	
 	//-----------------------------------ALTO Y LARGO FRAME-----------------------------
 	
+
 	/**
 	 * 
 	 */

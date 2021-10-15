@@ -1,7 +1,20 @@
 package frontend;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 
 import proyecto_final.Controlador;
 
@@ -139,6 +152,7 @@ public class FrontZonas extends General{
 			add(Partidos,BorderLayout.SOUTH);
 		}
 		
+		@SuppressWarnings("unused")
 		public JButton getPartidos() {
 			return Partidos;
 		}
