@@ -9,6 +9,7 @@ import javax.swing.Box;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
+import backend.BackSemis;
 import proyecto_final.Controlador;
 
 public class FrontSemis extends General{
@@ -64,33 +65,46 @@ public class FrontSemis extends General{
 		
 		ScomboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int partido_simulado = 0;
+				int partido_simulado = getControlador().getEtapaSemis();
+				Controlador _control = getControlador();
 				if((String)ScomboBox.getSelectedItem() != "Semifinales") {
 					if((String)ScomboBox.getSelectedItem() == "Simula partido") {
-						partido_simulado = getControlador().SimulaPartidoS(); 
-						  switch(partido_simulado) {
-						  		case 0:
-						  			Partido1.setText(getControlador().getESemis(0),getControlador().getESemis(1));
-						  		break;
-						  		case 1:
-						  			Partido2.setText(getControlador().getESemis(2),getControlador().getESemis(3));
-						  		break;
-						  }
-						 
-						//se simula el partido que sea
+						switch (partido_simulado) {	
+						case 0:
+							_control.SimulaPartidoS();
+							Partido1.setText(_control.getESemis(0), _control.getESemis(1));
+							break;
+							
+						case 1:
+							_control.SimulaPartidoS();
+							Partido2.setText(_control.getESemis(2), _control.getESemis(3));
+							break;
+							
+						case 2:
+							_control.SimulaPartidoS();
+							Partido1.setText(_control.getESemis(0), _control.getESemis(1));
+							break;
+							
+						case 3:
+							_control.SimulaPartidoS();
+							Partido2.setText(_control.getESemis(2), _control.getESemis(3));
+							break;
+						}
+						
+						
 					}else {
 						if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos de ida") {
-							partido_simulado = getControlador().simulaPartidosIdaS();
+							partido_simulado = _control.simulaPartidosIdaS();
 						}else {
 							if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos")
-								partido_simulado = getControlador().simulaPartidosSemis();
+								partido_simulado = _control.simulaPartidosSemis();
 						}
 						//partido_simulado = getControlador().simulaPartidosSemis();
 						  switch(partido_simulado) {
 						  		case 0:
-						  			Partido1.setText(getControlador().getESemis(0),getControlador().getESemis(1));
+						  			Partido1.setText(_control.getESemis(0),_control.getESemis(1));
 						  		case 1:
-						  			Partido2.setText(getControlador().getESemis(2),getControlador().getESemis(3));
+						  			Partido2.setText(_control.getESemis(2),_control.getESemis(3));
 						  }
 					}
 				}

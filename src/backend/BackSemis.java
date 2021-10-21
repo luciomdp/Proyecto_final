@@ -74,8 +74,8 @@ public class BackSemis implements Serializable{
 					partidos[partidoActual].getEquipo1().setGolesPenalesC(-1);
 					partidos[partidoActual].getEquipo2().setGolesPenalesC(-1);
 					partidos[partidoActual].simulacionNM();
-					partidos[partidoActual].getEquipo1().setGolesVueltaSemis(partidos[partidoActual].getGolesE1());
-					partidos[partidoActual].getEquipo2().setGolesVueltaSemis(partidos[partidoActual].getGolesE2());
+					partidos[partidoActual].getEquipo1().setGolesVuelta(partidos[partidoActual].getGolesE1());
+					partidos[partidoActual].getEquipo2().setGolesVuelta(partidos[partidoActual].getGolesE2());
 					partidos[partidoActual].getEquipo1().setGolesContra(partidos[partidoActual].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
 					partidos[partidoActual].getEquipo2().setGolesContra(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getEquipo1().setpJ(); //INCREMENTA LOS PARTIDOS JUGADOS PARA CADA EQUIPO
@@ -118,8 +118,8 @@ public class BackSemis implements Serializable{
 				}
 				else {
 					partidos[partidoActual].simulacionNM();
-					partidos[partidoActual].getEquipo1().setGolesIdaSemis(partidos[partidoActual].getGolesE1());
-					partidos[partidoActual].getEquipo2().setGolesIdaSemis(partidos[partidoActual].getGolesE2());
+					partidos[partidoActual].getEquipo1().setGolesIda(partidos[partidoActual].getGolesE1());
+					partidos[partidoActual].getEquipo2().setGolesIda(partidos[partidoActual].getGolesE2());
 					partidos[partidoActual].getEquipo1().setGolesContra(partidos[partidoActual].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
 					partidos[partidoActual].getEquipo2().setGolesContra(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getArbitro().dirigePartido();
@@ -165,8 +165,7 @@ public class BackSemis implements Serializable{
 	
 	public int getCANT_P() {
 		return CANT_P;
-	}
-	
+	}	
 	
 	public ArrayList<Integer> getGanadoresNum() {
 		return ganadoresNum;

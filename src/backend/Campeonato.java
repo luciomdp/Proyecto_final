@@ -357,4 +357,14 @@ public class Campeonato implements Serializable {
 
 		return t;
 	}
+	public void seteaGoles (ArrayList <Equipo> equipos) {
+		for (Equipo e: equipos) {
+			e.setGolesIda(0);
+			e.setGolesVuelta(0);
+		}
+	}
+
+	public int getCANTZ() {
+		return CANTZ;
+	}
 }

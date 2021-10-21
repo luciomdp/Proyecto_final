@@ -61,8 +61,8 @@ public class BackCuartos implements Serializable{
 			if (!cuartosTodoSimulado) {
 				if (partidoActual >= CANT_P/2) { //SI YA ESTA EN LOS PARTIDOS DE VUELTA
 					partidos[partidoActual].simulacionNM();
-					partidos[partidoActual].getEquipo1().setGolesVueltaCuartos(partidos[partidoActual].getGolesE1());
-					partidos[partidoActual].getEquipo2().setGolesVueltaCuartos(partidos[partidoActual].getGolesE2());
+					partidos[partidoActual].getEquipo1().setGolesVuelta(partidos[partidoActual].getGolesE1());
+					partidos[partidoActual].getEquipo2().setGolesVuelta(partidos[partidoActual].getGolesE2());
 					partidos[partidoActual].getEquipo1().setGolesContra(partidos[partidoActual].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
 					partidos[partidoActual].getEquipo2().setGolesContra(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getEquipo1().setpJ(); //INCREMENTA LOS PARTIDOS JUGADOS PARA CADA EQUIPO
@@ -105,8 +105,8 @@ public class BackCuartos implements Serializable{
 				}
 				else {
 					partidos[partidoActual].simulacionNM();
-					partidos[partidoActual].getEquipo1().setGolesIdaCuartos(partidos[partidoActual].getGolesE1());
-					partidos[partidoActual].getEquipo2().setGolesIdaCuartos(partidos[partidoActual].getGolesE2());
+					partidos[partidoActual].getEquipo1().setGolesIda(partidos[partidoActual].getGolesE1());
+					partidos[partidoActual].getEquipo2().setGolesIda(partidos[partidoActual].getGolesE2());
 					partidos[partidoActual].getEquipo1().setGolesContra(partidos[partidoActual].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
 					partidos[partidoActual].getEquipo2().setGolesContra(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getArbitro().dirigePartido();
