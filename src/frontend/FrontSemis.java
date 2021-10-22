@@ -9,7 +9,6 @@ import javax.swing.Box;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-import backend.BackSemis;
 import proyecto_final.Controlador;
 
 public class FrontSemis extends General{

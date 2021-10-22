@@ -59,8 +59,7 @@ public class Campeonato implements Serializable {
         Collections.shuffle(equipos); //MEZCLA EL ARRAYLIST PARA QUE CADA VEZ QUE SE QUIERA CREAR UN CAMPEONATO, LAS ZONAS SEAN DISTINTAS
         for (int z = 0; z < CANTZ; z++) {
             Equipo equiposZona[] = {equipos.get(j), equipos.get(j+1), equipos.get(j+2), equipos.get(j+3)}; 
-            //0 1 2 3 /+4/ 4 5 6 7 /+4/ 8 9 10 11 /+4/ 12 13 14 15
-            zonas[z] = new BackZonas(equiposZona, z +1, referis);
+            zonas[z] = new BackZonas(equiposZona, z + 1, referis);
             j += 4;
         }
 		this.cuartosDeFinal = null;
@@ -194,8 +193,6 @@ public class Campeonato implements Serializable {
 	public String listaJugadores(Posicion pos) { 
 		String s = "--------------------------------------JUGADORES--------------------------------------------\n\n";
 		
-	
-		
 		ArrayList <Jugador> jugadoresEquipo;
 		float promedio;
 		for (Equipo e: equipos) {//equipo
@@ -207,6 +204,7 @@ public class Campeonato implements Serializable {
 					s+= player.toString();
 					if (pos == Posicion.arquero) {
 						s+= "Goles en contra: " + e.getGolesContra() + "\n";
+
 						if (e.getpJ() > 0) {
 							promedio = (float)e.getGolesContra() / (float)e.getpJ();
 							s+= "Promedio de goles recibido: " + promedio + "\n";
