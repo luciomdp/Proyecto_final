@@ -178,7 +178,7 @@ public class Informacion extends General{
 		 * 
 		 */
 		private static final long serialVersionUID = -5076033681079441032L;
-		//panel que se muestra si se pide un listado de equipos
+		//panel que se muestra si se pide un listado de jugadores
 		
 		IFpanel_J() {
 			super();
@@ -207,7 +207,7 @@ public class Informacion extends General{
 		 * 
 		 */
 		private static final long serialVersionUID = -5076033681079441032L;
-		//panel que se muestra si se pide un listado de equipos
+		//panel que se muestra si se pide un listado de referis
 		IFpanel_R() {
 			super();
 			getBoton_muestra().setText("Listar referis");
