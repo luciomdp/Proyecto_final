@@ -77,16 +77,19 @@ public class FrontSemis extends General{
 							
 						case 1:
 							_control.SimulaPartidoS();
+							SemisSimuladaIda();
 							Partido2.setText(_control.getESemis(2), _control.getESemis(3));
 							break;
 							
 						case 2:
 							_control.SimulaPartidoS();
+							SemisSimuladaIda();
 							Partido1.setText(_control.getESemis(0), _control.getESemis(1));
 							break;
 							
 						case 3:
 							_control.SimulaPartidoS();
+							SemisSimuladaIda();
 							Partido2.setText(_control.getESemis(2), _control.getESemis(3));
 							break;
 						}

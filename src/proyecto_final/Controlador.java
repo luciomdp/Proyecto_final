@@ -18,7 +18,6 @@ public class Controlador implements Serializable {
 	
 	/** Serial*/
 	private static final long serialVersionUID = 1L;
-	/*transient => no se serializa*/
 	/** Objeto del campeonato actual*/
 	private Campeonato campeonatoActual;
 	/** Front-end*/
@@ -387,22 +386,18 @@ public class Controlador implements Serializable {
 	
 	/**
 	 * Simula partido de semifinal
-	 * @return Integer representando el partido que se jugo
 	 */
-	public void SimulaPartidoS() { //Devuelve el partido que se jugo (1,2,3 o 4)
-		if (campeonatoActual.getSemiFinal().getPartidoAct() + 1  == campeonatoActual.getSemiFinal().getCANT_P()) {
+	public void SimulaPartidoS() {
+		if (!(campeonatoActual.getSemiFinal().getPartidoAct() + 1  == campeonatoActual.getSemiFinal().getCANT_P())) {
+			campeonatoActual.getSemiFinal().SimulaPartido();
+			if(!(campeonatoActual.getSemiFinal().getPartidoAct() - 1 < campeonatoActual.getSemiFinal().getCANT_P()/2)) { //0 o 1
+				frameActual.StodoSimulado(0, 0, 0);
+			}
+			
+		} else {
 			campeonatoActual.getSemiFinal().SimulaPartido();
 			SemiFinalesSimuladas(); //se fija si esta en el ultimo partido de la semi
-			//return campeonatoActual.getSemiFinal().getPartidoAct() - 3  ; //devuelve 3
-		}else {
-			campeonatoActual.getSemiFinal().SimulaPartido();
-			if(campeonatoActual.getSemiFinal().getPartidoAct() - 1 < campeonatoActual.getSemiFinal().getCANT_P()/2) { //0 o 1
-				//return campeonatoActual.getSemiFinal().getPartidoAct() - 1; 
-			}else {
-				frameActual.StodoSimulado(0, 0, 0);
-				//return campeonatoActual.getSemiFinal().getPartidoAct() - 3 ; // 2
-			}
-		}
+		}	
 	}
 	
 	/**
@@ -414,7 +409,7 @@ public class Controlador implements Serializable {
 		if (partidoComienzo < campeonatoActual.getSemiFinal().getCANT_P()/2) {
 			campeonatoActual.getSemiFinal().SimulaIda();
 		}
-		frameActual.StodoSimulado(0, 0, 0); //saca del frame la posibilidad de jugar mas partidos ida
+		frameActual.StodoSimulado(0, 0, 0); //hace que pase a semis
 		return 0;
 	}
 	

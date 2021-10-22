@@ -112,6 +112,12 @@ public class FrontZonas extends General{
 		getCombo(zona).setEnabled(false);
 	}
 	
+	public void ZonasSimuladas() {
+		for (int i = 0; i < 4; i++) {
+			getCombo(i).setEnabled(false);
+		}
+	}
+	
 	//-------------------------------------------------<<CLASES INTERNAS>>-------------------------------------------------
 	
 	private class panelZ extends General {

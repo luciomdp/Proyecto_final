@@ -145,6 +145,7 @@ public class Frame extends JFrame{
 	public void ZtodoSimulado() {
 		
 		cuartos.InicializaVariables();
+		zona.ZonasSimuladas();
 		zona.getSimula_todo().setEnabled(false);
 		tabbedPane.remove(tabbedPane.indexOfTab("Informacion"));
 		tabbedPane.addTab("Cuartos", null, cuartos, null);
