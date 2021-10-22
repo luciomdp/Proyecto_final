@@ -18,6 +18,8 @@ public class Campeonato implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/** Cantidad de zonas*/
 	private final int CANTZ = 4;
+	/** Cantidad de partidos de semis*/
+	private final int CANT_PS = 4;
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
@@ -227,13 +229,13 @@ public class Campeonato implements Serializable {
 		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
 		float promedio;
 		DecimalFormat formato = new DecimalFormat ("#.00");
-		for (Equipo  e: equipos) {
-			s+= e.getNombre() + "\nEdad media jugadores: ";
-			s+= e.edadMediaJugadores() + "\nEdad DT:";
-			s+= e.getEntrenador().getEdad() + ", \nNacionalidad DT: ";
-			s+= e.getEntrenador().getNacionalidad() + "\nEfectividad en el torneo: " ;
-			if(e.getpJ() > 0 && e.getpG() > 0) {
-				promedio = ((float)e.getpG()/(float)e.getpJ())*100;
+		for (int i = 0; i < equipos.size(); i++) {
+			s+= equipos.get(i).getNombre() + "\nEdad media jugadores: ";
+			s+= equipos.get(i).edadMediaJugadores() + "\nEdad DT:";
+			s+= equipos.get(i).getEntrenador().getEdad() + ", \nNacionalidad DT: ";
+			s+= equipos.get(i).getEntrenador().getNacionalidad() + "\nEfectividad en el torneo: " ;
+			if((equipos.get(i).getpJ()) > 0 && (equipos.get(i).getpG() > 0)) {
+				promedio = ((float)equipos.get(i).getpG()/(float)equipos.get(i).getpJ())*100;
 				s+= formato.format(promedio)+ "\n\n";
 			}
 			else
@@ -364,5 +366,12 @@ public class Campeonato implements Serializable {
 
 	public int getCANTZ() {
 		return CANTZ;
+	}
+
+	/**
+	 * @return the cANT_PS
+	 */
+	public int getCANT_PS() {
+		return CANT_PS;
 	}
 }

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 
-public class Equipo implements Serializable{
+public class Equipo implements Serializable {
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
@@ -92,9 +92,9 @@ public class Equipo implements Serializable{
 	 */
 	public String getEstadisticas() {
 		if (goles-golesContra >= 0)
-			return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pE + "| " + pP +  "|  " +(goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
+			return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pE + "| " + pP +  "|  " + (goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
 		else
-			return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pE + "| " + pP +  "| " +(goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
+			return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pE + "| " + pP +  "| " + (goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
 			
 	}
 	
@@ -146,7 +146,6 @@ public class Equipo implements Serializable{
 			return ""+golesIda;
 		else
 			return golesIda + " ("+ (golesPenalesC + 1) + ")";
-			
 	}
 	
 	public void setGolVisitante (boolean condicion) {
@@ -179,11 +178,11 @@ public class Equipo implements Serializable{
 	}
 	
 	public int getpJ() {
-		return this.pJ;
+		return pJ;
 	}
 
 	public int getpG() {
-		return this.pG;
+		return pG;
 	}
 
     public int getGoles () {

@@ -69,6 +69,7 @@ public class Controlador implements Serializable {
 			String[] zonas = new String[campeonatoActual.getCANTZ()];
 			
 			for (int i = 0; i < zonas.length; i++) {
+				System.out.println(campeonatoActual.getZona(i).getValoresTabla());
 				zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
 			}
 			
@@ -302,13 +303,13 @@ public class Controlador implements Serializable {
 	 * @return Integer representando el partido que se jugo
 	 */
 	public int SimulaPartidoC() { //Devuelve el partido que se jugo (0, 1, 2, 3)
-		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1  == campeonatoActual.getSemiFinal().getCANT_P()) {
+		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1  == campeonatoActual.getCANT_PS()) {
 			campeonatoActual.getCuartosDeFinal().SimulaPartido();
 			CuartosSimulado();
 			return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 5  ;
 		}else {
 			campeonatoActual.getCuartosDeFinal().SimulaPartido();
-			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < campeonatoActual.getSemiFinal().getCANT_P()/2) 
+			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < campeonatoActual.getCANT_PS()/2) 
 				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 1;
 			else {
 				frameActual.CtodoSimulado(0, 0, 0, 0, 0);

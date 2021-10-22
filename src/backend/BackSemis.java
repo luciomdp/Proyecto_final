@@ -32,12 +32,12 @@ public class BackSemis implements Serializable{
 		partidos = new PartidoIdaVuelta [CANT_P];
 		ganadores = new ArrayList <Equipo> ();
 		ganadoresNum = new ArrayList <Integer>();
-		Random aleratorio = new Random ();
-	    Referi referi = referis.get(aleratorio.nextInt(referis.size()));
+		Random aleatorio = new Random ();
+	    Referi referi = referis.get(aleatorio.nextInt(referis.size()));
 		Collections.shuffle(equipos);
 		for(;i<CANT_P/2;i++) {
         	while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
-        		referi = referis.get(aleratorio.nextInt(referis.size()));
+        		referi = referis.get(aleatorio.nextInt(referis.size()));
         	}
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi);
 			k+=2;
@@ -45,7 +45,7 @@ public class BackSemis implements Serializable{
 		k= 0;
 		for(;i<CANT_P;i++) {
         	while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
-        		referi = referis.get(aleratorio.nextInt(referis.size()));
+        		referi = referis.get(aleatorio.nextInt(referis.size()));
         	}
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi);
 			k += 2;
