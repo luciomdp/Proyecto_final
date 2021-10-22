@@ -40,8 +40,8 @@ public class BackFinal implements Serializable{
 			partidoFinal.getEquipo1().setGolesPenalesC(-1);
 			partidoFinal.getEquipo2().setGolVisitante(false);
 			partidoFinal.getEquipo2().setGolesPenalesC(-1);
-			partidoFinal.getEquipo1().setGolesFinal(partidoFinal.getGolesE1());
-			partidoFinal.getEquipo2().setGolesFinal(partidoFinal.getGolesE2());
+			partidoFinal.getEquipo1().setGolesIda(partidoFinal.getGolesE1());
+			partidoFinal.getEquipo2().setGolesIda(partidoFinal.getGolesE2());
 			partidoFinal.getEquipo1().setGolesContra(partidoFinal.getGolesE2());
 			partidoFinal.getEquipo2().setGolesContra(partidoFinal.getGolesE1());
 			partidoFinal.getArbitro().dirigePartido();

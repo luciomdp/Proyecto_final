@@ -200,7 +200,7 @@ public class FrontFinal extends General{
 		}
 
 		/**
-		 * @return the partido
+		 * @return partido
 		 */
 		public PartidoFinal getPartidoFinal() {
 			return Partido;

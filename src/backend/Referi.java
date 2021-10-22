@@ -34,7 +34,7 @@ public class Referi extends Persona{
 	
 	public String getCredencial() {
 		String s = "\n----------------------------------------------------<<REFERI>>---------------------------------------------------- \n\n";
-		s +=  toString();
+		s += toString();
 		return s;
 	}
 
@@ -50,14 +50,13 @@ public class Referi extends Persona{
 	}
 
 	public String ListaReferi () {
-		return "Nombre: "+ this.getNombre()+"\nApellido: "+ this.getApellido()+ "\nAnios en el referato: "+ this.getAños_referato()+ "\nPartidos Dirigidos: " + this.getPartidosDirigidos() + "\n"; 
+		return "Nombre: "+ this.getNombre()+"\nApellido: "+ this.getApellido()+ "\nAnios en el referato: "+ this.getAños_referato()+ "\nPartidos Dirigidos: " + partidosDirigidos + "\n"; 
 	}
 	
 	public String toString() {
 		return "Referi: " +super.getApellido()+ " " +super.getNombre()+ "\nFecha Nacimiento: "+ 
 				super.getNacimiento()+"\nTipoDni: " + getTipoDni() +"\nDNI: " +super.getDni()+ "\nAños referato: " + años_referato + "\nPartidos dirigidos: " +
-				partidosDirigidos + "\nNacionalidad: " + nacionalidad ;
+				partidosDirigidos + "\nNacionalidad: " + nacionalidad;
 	}
-
 
 }

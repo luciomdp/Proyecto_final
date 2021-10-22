@@ -19,23 +19,10 @@ public class Controlador implements Serializable {
 	/** Serial*/
 	private static final long serialVersionUID = 1L;
 	/*transient => no se serializa*/
-	/** Cantidad de partidos por zona*/
-	final transient int CANT_PZ = 6;
-	/** Cantidad de zonas*/
-	final transient int CANTZ = 4;
-	/** Cantidad de fechas*/
-	final transient int CANT_FECHAS = 3;
-	/** Cantidad de partidos en cuartos*/
-	final transient int CANT_PARTIDOS_CUARTOS = 8;
-	/** Cantidad de partidos en semis*/
-	final transient int CANT_PARTIDOS_SEMIS = 4;
-	/** Cantidad de partidos en la final*/
-	final transient int CANT_PARTIDOS_FINAL = 1;
 	/** Objeto del campeonato actual*/
 	private Campeonato campeonatoActual;
 	/** Front-end*/
 	private Frame frameActual;
-	
 	
 	/**
 	 * Constructor del controlador
@@ -60,9 +47,9 @@ public class Controlador implements Serializable {
 	 */
 	public void IniciaTorneo() {
 		//inicia torneo con todos datos neutros (no paso nada)
-		String Zonas[] = new String[CANTZ];
+		String Zonas[] = new String[campeonatoActual.getCANTZ()];
 		campeonatoActual.IniciaTorneo();
-		for(int i = 0; i<CANTZ; i++) 
+		for(int i = 0; i<Zonas.length; i++) 
 			Zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
 		//pasarle por parametro al inicia torneo del frame, los strings de las 4 zonas.
 		
@@ -80,7 +67,7 @@ public class Controlador implements Serializable {
 		try {
 			this.setCampeonato((Campeonato) Serializacion.leeProgreso());
 			
-			String[] zonas = new String[CANTZ];
+			String[] zonas = new String[campeonatoActual.getCANTZ()];
 			
 			for (int i = 0; i < zonas.length; i++) {
 				zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
@@ -204,7 +191,7 @@ public class Controlador implements Serializable {
 	 * @param zona Integer representando la zona
 	 */
 	public void SimulaPartidoZ (int zona) { //recibe la zona de la que se simula un partido 
-		if(campeonatoActual.getZona(zona).getPartidoAct() + 1 == CANT_PZ) {
+		if(campeonatoActual.getZona(zona).getPartidoAct() + 1 == campeonatoActual.getCANTZ()) {
 			campeonatoActual.getZona(zona).SimulaPartido();
 			frameActual.ZonaSimulada(zona);
 			ZonaSimulada();
@@ -219,7 +206,7 @@ public class Controlador implements Serializable {
 	 */
 	public void SimulaFechaZ (int zona) { //recibe la zona de la que se simula una fecha
 		
-		if(campeonatoActual.getZona(zona).getFechaAct() == CANT_FECHAS) {
+		if(campeonatoActual.getZona(zona).getFechaAct() == campeonatoActual.getZona(0).getCANT_PF()) {
 			campeonatoActual.getZona(zona).SimulaFecha();
 			frameActual.ZonaSimulada(zona);
 			ZonaSimulada();
@@ -245,7 +232,7 @@ public class Controlador implements Serializable {
 	 * Simula todas las zonas
 	 */
 	public void SimulaZonas() { //simula todas las zonas
-		for (int i = 0; i < CANTZ; i++) {
+		for (int i = 0; i < campeonatoActual.getCANTZ(); i++) {
 			campeonatoActual.getZona(i).SimulaZona();
 			frameActual.ZonaSimulada(i);
 		}
@@ -315,16 +302,14 @@ public class Controlador implements Serializable {
 	 * Simula un partido de cuartos de final
 	 * @return Integer representando el partido que se jugo
 	 */
-	public int SimulaPartidoC() { //Devuelve el partido que se jugo (1,2,3 o 4)
-		//evaluar si se puede simular otro partido de ida, sino, llamar al metodo CtodoSimulado(0) del Frame
-		//evaluar si se puede simular otro partido , sino, llamar al metodo CtodoSimulado(1) del Frame
-		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1  == CANT_PARTIDOS_CUARTOS) {
+	public int SimulaPartidoC() { //Devuelve el partido que se jugo (0, 1, 2, 3)
+		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1  == campeonatoActual.getSemiFinal().getCANT_P()) {
 			campeonatoActual.getCuartosDeFinal().SimulaPartido();
 			CuartosSimulado();
 			return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 5  ;
 		}else {
 			campeonatoActual.getCuartosDeFinal().SimulaPartido();
-			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < CANT_PARTIDOS_CUARTOS/2) 
+			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < campeonatoActual.getSemiFinal().getCANT_P()/2) 
 				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 1;
 			else {
 				frameActual.CtodoSimulado(0, 0, 0, 0, 0);
@@ -337,9 +322,9 @@ public class Controlador implements Serializable {
 	 * Simula los partidos de ida de los cuartos de final
 	 * @return Integer representando el partido que se jugo
 	 */
-	public int simulaPartidosIdaC() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
+	public int simulaPartidosIdaC() {//Devuelve a partir de que partido  se simulo (0, 1, 2, 3)
 		int partidoComienzo = campeonatoActual.getCuartosDeFinal().getPartidoActual();
-		if (partidoComienzo < CANT_PARTIDOS_CUARTOS/2) {
+		if (partidoComienzo < campeonatoActual.getCuartosDeFinal().getCANT_P()/2) {
 			campeonatoActual.getCuartosDeFinal().SimulaIda();
 		}
 		frameActual.CtodoSimulado(0, 0, 0, 0, 0);  //saca del frame la posibilidad de jugar mas partidos ida
@@ -404,20 +389,18 @@ public class Controlador implements Serializable {
 	 * Simula partido de semifinal
 	 * @return Integer representando el partido que se jugo
 	 */
-	public int SimulaPartidoS() { //Devuelve el partido que se jugo (1,2,3 o 4)
-		//evaluar si se puede simular otro partido de ida, sino, llamar al metodo CtodoSimulado(0) del Frame
-		//evaluar si se puede simular otro partido , sino, llamar al metodo CtodoSimulado(1) del Frame
-		if (campeonatoActual.getSemiFinal().getPartidoAct() + 1  == CANT_PARTIDOS_SEMIS) {
+	public void SimulaPartidoS() { //Devuelve el partido que se jugo (1,2,3 o 4)
+		if (campeonatoActual.getSemiFinal().getPartidoAct() + 1  == campeonatoActual.getSemiFinal().getCANT_P()) {
 			campeonatoActual.getSemiFinal().SimulaPartido();
-			SemiFinalesSimuladas();
-			return campeonatoActual.getSemiFinal().getPartidoAct() - 3  ;
+			SemiFinalesSimuladas(); //se fija si esta en el ultimo partido de la semi
+			//return campeonatoActual.getSemiFinal().getPartidoAct() - 3  ; //devuelve 3
 		}else {
 			campeonatoActual.getSemiFinal().SimulaPartido();
-			if(campeonatoActual.getSemiFinal().getPartidoAct() - 1 < CANT_PARTIDOS_SEMIS/2) 
-				return campeonatoActual.getSemiFinal().getPartidoAct() - 1;
-			else {
+			if(campeonatoActual.getSemiFinal().getPartidoAct() - 1 < campeonatoActual.getSemiFinal().getCANT_P()/2) { //0 o 1
+				//return campeonatoActual.getSemiFinal().getPartidoAct() - 1; 
+			}else {
 				frameActual.StodoSimulado(0, 0, 0);
-				return campeonatoActual.getSemiFinal().getPartidoAct() - 3 ;
+				//return campeonatoActual.getSemiFinal().getPartidoAct() - 3 ; // 2
 			}
 		}
 	}
@@ -428,7 +411,7 @@ public class Controlador implements Serializable {
 	 */
 	public int simulaPartidosIdaS() {//Devuelve a partir de que partido se simulo (1,2,3 o 4)
 		int partidoComienzo = campeonatoActual.getSemiFinal().getPartidoAct();
-		if (partidoComienzo < CANT_PARTIDOS_SEMIS/2) {
+		if (partidoComienzo < campeonatoActual.getSemiFinal().getCANT_P()/2) {
 			campeonatoActual.getSemiFinal().SimulaIda();
 		}
 		frameActual.StodoSimulado(0, 0, 0); //saca del frame la posibilidad de jugar mas partidos ida
@@ -505,5 +488,9 @@ public class Controlador implements Serializable {
 	
 	public int getGanador() {
 		return campeonatoActual.getFinal().getCampeonNum();
+	}
+
+	public int getEtapaSemis() {
+		return campeonatoActual.getSemiFinal().getPartidoAct();
 	}
 }

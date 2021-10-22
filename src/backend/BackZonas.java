@@ -22,10 +22,6 @@ public class BackZonas implements Serializable{
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	private int partidoAct,fechaAct;
-	/*TODO este comentario creo que lo pusieron mientras estaban haciendo lo de simulacion, si ya no es necesario, lo borro?
-	 * Cada partido va a tener asignado un valor "partidoAct", cada fecha son 2 partidos de partidoAct (teniendo en cuenta el valor
-	 * actual de partidoAct, tenes una variable "fechaAct", que dice en que fecha se encuentra, y simular toda la zona, es iterar desde el partidoAct
-	 * actual hasta el final)*/
     private Equipo [] tabla = new Equipo [CANTE]; // TABLA DE LA ZONA 
     private BackPartido partidosZona[];
     private Resultados resultados [];
@@ -154,7 +150,7 @@ public class BackZonas implements Serializable{
 	/**
 	 * Actualiza los valores de la tabla de la zona.
 	 */
-    public void ActualizaTabla(){ // TODO HAY QUE PROBARLO, PRINCIPALMENTE POR LA ULTIMA INSTANCIA
+    public void ActualizaTabla(){ 
     	
     	Equipo aux;
     	int posicion = 0;
@@ -242,7 +238,7 @@ public class BackZonas implements Serializable{
 
 	
     public String getValoresTabla(){
-    	String s = "ZONA " + nroZona + "\nEquipo                    PT PJ PG PE PP DG\n"; //Equipo 1 | 2 | 1 | 0 | 4 \\nEquipo 2 | 1 | 2 | 0 | 2\\nEquipo 3 | 1 | 1 | 1 | 1\\nEquipo 4 | 0 | 1 | 2 | -2";
+    	String s = "ZONA " + nroZona + "\nEquipo                    PT PJ PG PE PP  DG\n"; //Equipo 1 | 2 | 1 | 0 | 4 \\nEquipo 2 | 1 | 2 | 0 | 2\\nEquipo 3 | 1 | 1 | 1 | 1\\nEquipo 4 | 0 | 1 | 2 | -2";
         for (int i = 0; i < CANTE; i++ )
             s +=tabla[i].getEstadisticas()+ "\n";
         
@@ -272,6 +268,14 @@ public class BackZonas implements Serializable{
 	}
 	public BackPartido[] getPartidosZona() {
 			return partidosZona;
+	}
+
+	public int getCANT_PF() {
+		return CANT_PF;
+	}
+
+	public int getCANTE() {
+		return CANTE;
 	}
 	
 }
