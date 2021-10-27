@@ -3,10 +3,12 @@ package proyecto_final;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import backend.Campeonato;
+import backend.Equipo;
 import backend.Posicion;
 import backend.Serializacion;
 import frontend.Frame;
@@ -45,6 +47,7 @@ public class Controlador implements Serializable {
 	 * Inicia un torneo desde cero
 	 */
 	public void IniciaTorneo() {
+		
 		//inicia torneo con todos datos neutros (no paso nada)
 		String Zonas[] = new String[campeonatoActual.getCANTZ()];
 		campeonatoActual.IniciaTorneo();
@@ -68,8 +71,9 @@ public class Controlador implements Serializable {
 			
 			String[] zonas = new String[campeonatoActual.getCANTZ()];
 			
+			this.actualizaEstadisticas();
+			
 			for (int i = 0; i < zonas.length; i++) {
-				System.out.println(campeonatoActual.getZona(i).getValoresTabla());
 				zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
 			}
 			
@@ -110,6 +114,16 @@ public class Controlador implements Serializable {
 		}
 	}
 	
+	private void actualizaEstadisticas() {
+		
+		ArrayList<Equipo> _newEquipos = new ArrayList<Equipo>();
+		for (int i = 0; i < campeonatoActual.getCANTZ(); i++) {
+			campeonatoActual.getZona(i).getEquipos().forEach( (equipo) -> {_newEquipos.add(equipo); });
+		}
+		campeonatoActual.setEquipos(_newEquipos);
+		
+	}
+
 	/**
 	 * Guarda un torneo en un archivo 'Progreso'
 	 * @see Serializacion

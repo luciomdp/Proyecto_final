@@ -22,7 +22,7 @@ public class BackZonas implements Serializable{
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
 	
 	private int partidoAct,fechaAct;
-    private Equipo [] tabla = new Equipo [CANTE]; // TABLA DE LA ZONA 
+    private ArrayList<Equipo> tabla = new ArrayList<Equipo>(CANTE); // TABLA DE LA ZONA 
     private BackPartido partidosZona[];
     private Resultados resultados [];
     private int nroZona; 
@@ -38,7 +38,7 @@ public class BackZonas implements Serializable{
     	this.partidosZona = new BackPartido [CANT_PZ];
     	this.partidosZona = creaFechas(equipos, referis);
         for (int i = 0; i < CANTE; i++) {
-        	this.tabla[i] = equipos[i];
+        	tabla.add(equipos[i]);
         }
         this.partidoAct = 0;
         this.fechaAct = 1;
@@ -154,44 +154,44 @@ public class BackZonas implements Serializable{
     	
     	Equipo aux;
     	int posicion = 0;
-        for (int i = 0; i < tabla.length - 1; i++) {
-        	for (int j = 0; j < tabla.length - i - 1; j++) {
+        for (int i = 0; i < tabla.size() - 1; i++) {
+        	for (int j = 0; j < tabla.size() - i - 1; j++) {
             	
-                if (tabla[j + 1].getPuntos() > tabla[j].getPuntos()) {
-                    aux = tabla[j + 1];
-                    tabla[j + 1] = tabla[j];
-                    tabla[j] = aux;
+                if (tabla.get(j + 1).getPuntos() > tabla.get(j).getPuntos()) {
+                    aux = tabla.get(j + 1);
+                    tabla.set(j+1, tabla.get(j));
+                    tabla.set(j, aux);
                 }
-                else if (tabla[j + 1].getPuntos() == tabla[j].getPuntos()) {
+                else if (tabla.get(j + 1).getPuntos() == tabla.get(j).getPuntos()) {
                 	
-                    if (tabla[j + 1].getGoles() > tabla[j].getGoles()) {
-                        aux = tabla[j + 1];
-                        tabla[j + 1] = tabla[j];
-                        tabla[j] = aux;
+                    if (tabla.get(j + 1).getGoles() > tabla.get(j).getGoles()) {
+                        aux = tabla.get(j + 1);
+                        tabla.set(j+1, tabla.get(j));
+                        tabla.set(j, aux);
                     }
-                    else if (tabla[j + 1].getGoles() == tabla[j].getGoles()) {
+                    else if (tabla.get(j + 1).getGoles() == tabla.get(j).getGoles()) {
                     	
-                        if (tabla[j + 1].getGoles() - tabla[j + 1].getGolesContra() > tabla[j].getGoles() - tabla[j].getGolesContra() ) {
-                            aux = tabla[j + 1];
-                            tabla[j + 1] = tabla[j];
-                            tabla[j] = aux;
+                        if (tabla.get(j + 1).getGoles() - tabla.get(j + 1).getGolesContra() > tabla.get(j).getGoles() - tabla.get(j).getGolesContra() ) {
+                            aux = tabla.get(j + 1);
+                            tabla.set(j+1, tabla.get(j));
+                            tabla.set(j, aux);
                         }
-                        else if (tabla[j + 1].getGoles() - tabla[j + 1].getGolesContra() == tabla[j].getGoles() - tabla[j].getGolesContra() ) {
+                        else if (tabla.get(j + 1).getGoles() - tabla.get(j + 1).getGolesContra() == tabla.get(j).getGoles() - tabla.get(j).getGolesContra() ) {
                         	
-                        	posicion = buscaResultado (tabla[j].getNombre(), tabla[j + 1].getNombre()); // 	BUSCAMOS LA POSICION DONDE ESTÁ EL PARTIDO ENTRE LOS EQUIPOS QUE ESTAN IGUALADOS EN PUNTOS, GOLES Y DIF DE GOLES
+                        	posicion = buscaResultado (tabla.get(j).getNombre(), tabla.get(j + 1).getNombre()); // 	BUSCAMOS LA POSICION DONDE ESTÁ EL PARTIDO ENTRE LOS EQUIPOS QUE ESTAN IGUALADOS EN PUNTOS, GOLES Y DIF DE GOLES
                         	if (posicion >= 0) { // SI ES >= 0 YA SE JUGÓ EL PARTIDO
                         		if (resultados [posicion].getGolesE1() > resultados [posicion].getGolesE2()) {
-                        			if (resultados [posicion].getE1() == tabla [j+1].getNombre()) {
-                                        aux = tabla[j + 1];
-                                        tabla[j + 1] = tabla[j];
-                                        tabla[j] = aux;
+                        			if (resultados [posicion].getE1() == tabla.get(j + 1).getNombre()) {
+                                        aux = tabla.get(j + 1);
+                                        tabla.set(j+1, tabla.get(j));
+                                        tabla.set(j, aux);
                         			}
                         		}
                         		else if (resultados [posicion].getGolesE1() < resultados [posicion].getGolesE2()) {
-                            			if (resultados [posicion].getE2() == tabla [j+1].getNombre()) {
-                                            aux = tabla[j + 1];
-                                            tabla[j + 1] = tabla[j];
-                                            tabla[j] = aux;
+                            			if (resultados [posicion].getE2() == tabla.get(j + 1).getNombre()) {
+                                            aux = tabla.get(j + 1);
+                                            tabla.set(j+1, tabla.get(j));
+                                            tabla.set(j, aux);
                             			}
                             		
                         		}
@@ -240,13 +240,13 @@ public class BackZonas implements Serializable{
     public String getValoresTabla(){
     	String s = "ZONA " + nroZona + "\nEquipo                    PT PJ PG PE PP  DG\n"; //Equipo 1 | 2 | 1 | 0 | 4 \\nEquipo 2 | 1 | 2 | 0 | 2\\nEquipo 3 | 1 | 1 | 1 | 1\\nEquipo 4 | 0 | 1 | 2 | -2";
         for (int i = 0; i < CANTE; i++ )
-            s +=tabla[i].getEstadisticas()+ "\n";
+            s +=tabla.get(i).getEstadisticas()+ "\n";
         return s;
     }
     
     public Equipo getEquipo(int equipo) {
     	
-		return tabla[equipo];
+		return tabla.get(equipo);
 	}
     
    
@@ -275,6 +275,10 @@ public class BackZonas implements Serializable{
 
 	public int getCANTE() {
 		return CANTE;
+	}
+	
+	public ArrayList<Equipo> getEquipos() {
+		return tabla;
 	}
 	
 }

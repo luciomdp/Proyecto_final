@@ -208,10 +208,10 @@ public class Campeonato implements Serializable {
 						s+= "Goles en contra: " + e.getGolesContra() + "\n";
 
 						if (e.getpJ() > 0) {
-							promedio = (float)e.getGolesContra() / (float)e.getpJ();
-							s+= "Promedio de goles recibido: " + promedio + "\n";
+							promedio = ((float)e.getGolesContra() / (float)e.getpJ()) * 100;
+							s+= "Promedio de goles recibido: " + promedio + "%\n";
 						} else {
-							s+= "Promedio de goles recibido: 0";
+							s+= "Promedio de goles recibido: 0%";
 						}
 					}
 					s+= "\n\n";
@@ -236,10 +236,10 @@ public class Campeonato implements Serializable {
 			s+= equipos.get(i).getEntrenador().getNacionalidad() + "\nEfectividad en el torneo: " ;
 			if((equipos.get(i).getpJ()) > 0 && (equipos.get(i).getpG() > 0)) {
 				promedio = ((float)equipos.get(i).getpG()/(float)equipos.get(i).getpJ())*100;
-				s+= formato.format(promedio)+ "\n\n";
+				s+= formato.format(promedio)+ "%\n\n";
 			}
 			else
-				s+= 0 + "\n\n";
+				s+= 0 + "%\n\n";
 		}
 		return s;
 	}
@@ -368,6 +368,14 @@ public class Campeonato implements Serializable {
 		return CANTZ;
 	}
 
+	public ArrayList<Equipo> getEquipos() {
+		return equipos;
+	}
+	
+	public void setEquipos(ArrayList<Equipo> _equipos) {
+		equipos = _equipos;
+	}
+	
 	/**
 	 * @return the cANT_PS
 	 */
