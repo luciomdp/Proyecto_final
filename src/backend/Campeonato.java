@@ -18,6 +18,8 @@ public class Campeonato implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/** Cantidad de zonas*/
 	private final int CANTZ = 4;
+	/** Cantidad de partidos de cuartos*/
+	private final int CANT_PC = 8;
 	/** Cantidad de partidos de semis*/
 	private final int CANT_PS = 4;
 	
@@ -208,10 +210,10 @@ public class Campeonato implements Serializable {
 						s+= "Goles en contra: " + e.getGolesContra() + "\n";
 
 						if (e.getpJ() > 0) {
-							promedio = ((float)e.getGolesContra() / (float)e.getpJ()) * 100;
-							s+= "Promedio de goles recibido: " + promedio + "%\n";
+							promedio = ((float)e.getGolesContra() / (float)e.getpJ());
+							s+= "Promedio de goles recibido: " + promedio + "\n";
 						} else {
-							s+= "Promedio de goles recibido: 0%";
+							s+= "Promedio de goles recibido: 0";
 						}
 					}
 					s+= "\n\n";
@@ -381,5 +383,9 @@ public class Campeonato implements Serializable {
 	 */
 	public int getCANT_PS() {
 		return CANT_PS;
+	}
+
+	public int getCANT_PC() {
+		return CANT_PC;
 	}
 }

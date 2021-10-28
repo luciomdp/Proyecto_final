@@ -131,14 +131,15 @@ public class BackZonas implements Serializable{
 		BackPartido[] partidos = new BackPartido[CANT_PZ]; //cada dos partidos, una fecha
 
         Equipo[] equiposQueRotan = Arrays.copyOfRange(equipos, 1, equipos.length); //array de equipos que van a ir rotando {1, 2, 3}
-        Random aleratorio = new Random ();
-        Referi referi1 = referis.get(aleratorio.nextInt(referis.size())), referi2 =  referis.get(aleratorio.nextInt(referis.size()));
+        Random aleatorio = new Random ();
+        Referi referi1 = referis.get(aleatorio.nextInt(referis.size())), referi2 =  referis.get(aleatorio.nextInt(referis.size()));
         for (int i = 0; i < CANT_PZ; i += 2) {
+        	
         	while (referi1.getNacionalidad() != equipos[0].getPais() && referi1.getNacionalidad() != equiposQueRotan[0].getPais()) {
-        		referi1 = referis.get(aleratorio.nextInt(referis.size()));
+        		referi1 = referis.get(aleatorio.nextInt(referis.size()));
         	}
         	while (referi2.getNacionalidad() != equiposQueRotan[1].getPais() && referi2.getNacionalidad() != equiposQueRotan[2].getPais()) {
-        		referi2 = referis.get(aleratorio.nextInt(referis.size()));
+        		referi2 = referis.get(aleatorio.nextInt(referis.size()));
         	}
         	partidos[i] = new BackPartido(equipos[0], equiposQueRotan[0], referi1);
         	partidos[i+1] = new BackPartido(equiposQueRotan[1], equiposQueRotan[2], referi2);

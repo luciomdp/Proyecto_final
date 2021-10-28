@@ -80,15 +80,16 @@ public class FrontCuartos extends General{
 						  		break;
 						  		case 3:
 						  			Partido4.setText(getControlador().getECuartos(6),getControlador().getECuartos(7));
+						  			CuartosSimuladoIda();
 						  		break;
 						  }			  
 						//se simula el partido que sea
 					}else {
 						if((String)CcomboBox.getSelectedItem() == "Simula todos los partidos de ida") {
-							partido_simulado = getControlador().simulaPartidosIdaC();
+							getControlador().simulaPartidosIdaC();
 						}else {
 							if((String)CcomboBox.getSelectedItem() == "Simula todos los partidos")
-								partido_simulado = getControlador().simulaPartidosCuartos(); 
+								getControlador().simulaPartidosCuartos(); 
 						}
 						//cambio el string de los partidos de cuartos a partir del partido "partido_simulado", ya que el resto de opciones
 						//simula todo, por lo que si se simula un anterior, se simulara el posterior (siempre se simulan los partidos en orden)

@@ -96,10 +96,10 @@ public class FrontSemis extends General{
 						
 					}else {
 						if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos de ida") {
-							partido_simulado = _control.simulaPartidosIdaS();
+							_control.simulaPartidosIdaS();
 						}else {
 							if((String)ScomboBox.getSelectedItem() == "Simula todos los partidos")
-								partido_simulado = _control.simulaPartidosSemis();
+								_control.simulaPartidosSemis();
 						}
 						//partido_simulado = getControlador().simulaPartidosSemis();
 						  switch(partido_simulado) {

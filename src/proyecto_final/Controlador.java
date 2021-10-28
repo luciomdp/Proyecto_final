@@ -317,13 +317,13 @@ public class Controlador implements Serializable {
 	 * @return Integer representando el partido que se jugo
 	 */
 	public int SimulaPartidoC() { //Devuelve el partido que se jugo (0, 1, 2, 3)
-		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1  == campeonatoActual.getCANT_PS()) {
+		if (campeonatoActual.getCuartosDeFinal().getPartidoActual() + 1  == campeonatoActual.getCANT_PC()) {
 			campeonatoActual.getCuartosDeFinal().SimulaPartido();
 			CuartosSimulado();
 			return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 5  ;
 		}else {
 			campeonatoActual.getCuartosDeFinal().SimulaPartido();
-			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < campeonatoActual.getCANT_PS()/2) 
+			if(campeonatoActual.getCuartosDeFinal().getPartidoActual () - 1 < campeonatoActual.getCANT_PC()/2) 
 				return campeonatoActual.getCuartosDeFinal().getPartidoActual() - 1;
 			else {
 				frameActual.CtodoSimulado(0, 0, 0, 0, 0);
@@ -336,25 +336,23 @@ public class Controlador implements Serializable {
 	 * Simula los partidos de ida de los cuartos de final
 	 * @return Integer representando el partido que se jugo
 	 */
-	public int simulaPartidosIdaC() {//Devuelve a partir de que partido  se simulo (0, 1, 2, 3)
+	public void simulaPartidosIdaC() {//Devuelve a partir de que partido  se simulo (0, 1, 2, 3)
 		int partidoComienzo = campeonatoActual.getCuartosDeFinal().getPartidoActual();
-		if (partidoComienzo < campeonatoActual.getCuartosDeFinal().getCANT_P()/2) {
+		if (partidoComienzo < campeonatoActual.getCANT_PC()/2) {
 			campeonatoActual.getCuartosDeFinal().SimulaIda();
 		}
 		frameActual.CtodoSimulado(0, 0, 0, 0, 0);  //saca del frame la posibilidad de jugar mas partidos ida
-		return 0;
 	}
 	
 	/**
      * Simula los partidos de cuartos de final.
 	 * @return Integer representando el partido que se jugo
 	 */
-	public int simulaPartidosCuartos() {
+	public void simulaPartidosCuartos() {
 		//int partidoInicio = campeonatoActual.getCuartosDeFinal().getPartidoActual();
 		if (!campeonatoActual.getCuartosDeFinal().isCuartosSimulado())
 			campeonatoActual.getCuartosDeFinal().SimulaCuartos();
 		CuartosSimulado();
-		return 0;
 	}
 	
 	/**
@@ -419,25 +417,23 @@ public class Controlador implements Serializable {
 	 * Simula los partidos de ida de la semifinal
 	 * @return Integer representando el partido que se jugo
 	 */
-	public int simulaPartidosIdaS() {//Devuelve a partir de que partido se simulo (1,2,3 o 4)
+	public void simulaPartidosIdaS() {//Devuelve a partir de que partido se simulo (1,2,3 o 4)
 		int partidoComienzo = campeonatoActual.getSemiFinal().getPartidoAct();
 		if (partidoComienzo < campeonatoActual.getSemiFinal().getCANT_P()/2) {
 			campeonatoActual.getSemiFinal().SimulaIda();
 		}
 		frameActual.StodoSimulado(0, 0, 0); //hace que pase a semis
-		return 0;
 	}
 	
 	/**
 	 * Simula los partidos de la semifinal
 	 * @return Integer representando el partido que se jugo
 	 */
-	public int simulaPartidosSemis() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
+	public void simulaPartidosSemis() {//Devuelve a partir de que partido  se simulo (1,2,3 o 4)
 		//int partidoInicio = campeonatoActual.getSemiFinal().getPartidoAct();
 		if (!campeonatoActual.getSemiFinal().SemiFinalSimulada())
 			campeonatoActual.getSemiFinal().SimulaSemis();
 		SemiFinalesSimuladas();
-		return 0;
 	}
 	
 	/**
