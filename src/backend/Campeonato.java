@@ -241,8 +241,8 @@ public class Campeonato implements Serializable {
 		DecimalFormat formato = new DecimalFormat ("#.00");
 		for (int i = 0; i < equipos.size(); i++) {
 			s+= equipos.get(i).getNombre() + "\nEdad media jugadores: ";
-			s+= equipos.get(i).edadMediaJugadores() + "\nEdad DT:";
-			s+= equipos.get(i).getEntrenador().getEdad() + ", \nNacionalidad DT: ";
+			s+= equipos.get(i).edadMediaJugadores() + "\nEdad DT: ";
+			s+= equipos.get(i).getEntrenador().getEdad() + "\nNacionalidad DT: ";
 			s+= equipos.get(i).getEntrenador().getNacionalidad() + "\nEfectividad en el torneo: " ;
 			if((equipos.get(i).getpJ()) > 0 && (equipos.get(i).getpG() > 0)) {
 				promedio = ((float)equipos.get(i).getpG()/(float)equipos.get(i).getpJ())*100;
