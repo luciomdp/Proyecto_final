@@ -1,5 +1,7 @@
 package backend;
 
+import java.time.LocalDate;
+
 public class PartidoFinal extends BackPartido{
 	
 	//-------------------------------------------------<<VARIABLES>>-------------------------------------------------
@@ -9,8 +11,8 @@ public class PartidoFinal extends BackPartido{
 	
 	//-------------------------------------------------<<COSNTRUCTOR>>-------------------------------------------------
 	
-	public PartidoFinal(Equipo a, Equipo b, Referi referi) {
-		super(a, b, referi);	
+	public PartidoFinal(Equipo a, Equipo b, Referi referi, LocalDate fecha) {
+		super(a, b, referi, fecha);	
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------

@@ -1,6 +1,7 @@
 package backend;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -79,7 +80,7 @@ public class BackZonas implements Serializable{
 					partidosZona[partidoAct].getEquipo1().setpE();
 				}
 					
-				resultados [partidoAct] = new Resultados (partidosZona[partidoAct].getEquipo1(), partidosZona[partidoAct].getEquipo2(), partidosZona[partidoAct].getGolesE1(), partidosZona[partidoAct].getGolesE2() );
+				resultados [partidoAct] = new Resultados (partidosZona[partidoAct].getEquipo1(), partidosZona[partidoAct].getEquipo2(), partidosZona[partidoAct].getGolesE1(), partidosZona[partidoAct].getGolesE2(), partidosZona[partidoAct].getFecha() );
 				this.ActualizaTabla();
 				this.getValoresTabla();
 				partidoAct++;
@@ -127,11 +128,12 @@ public class BackZonas implements Serializable{
         /*  
          * DEVUELVE = [Boca vs River] [Racing vs Indep] .....
         */
-		
+		int dias = 0;
 		BackPartido[] partidos = new BackPartido[CANT_PZ]; //cada dos partidos, una fecha
 
         Equipo[] equiposQueRotan = Arrays.copyOfRange(equipos, 1, equipos.length); //array de equipos que van a ir rotando {1, 2, 3}
         Random aleatorio = new Random ();
+        LocalDate fechaActual = LocalDate.now(); //fecha de inicio del torneo
         Referi referi1 = referis.get(aleatorio.nextInt(referis.size())), referi2 =  referis.get(aleatorio.nextInt(referis.size()));
         for (int i = 0; i < CANT_PZ; i += 2) {
         	
@@ -141,9 +143,10 @@ public class BackZonas implements Serializable{
         	while (referi2.getNacionalidad() != equiposQueRotan[1].getPais() && referi2.getNacionalidad() != equiposQueRotan[2].getPais()) {
         		referi2 = referis.get(aleatorio.nextInt(referis.size()));
         	}
-        	partidos[i] = new BackPartido(equipos[0], equiposQueRotan[0], referi1);
-        	partidos[i+1] = new BackPartido(equiposQueRotan[1], equiposQueRotan[2], referi2);
+        	partidos[i] = new BackPartido(equipos[0], equiposQueRotan[0], referi1, fechaActual.plusDays(dias));
+        	partidos[i+1] = new BackPartido(equiposQueRotan[1], equiposQueRotan[2], referi2, fechaActual.plusDays(dias));
         	Collections.rotate(Arrays.asList(equiposQueRotan), equiposQueRotan.length - 1);
+        	dias++;
         }
         
         return partidos;
@@ -267,7 +270,7 @@ public class BackZonas implements Serializable{
 		return ZonaSimulada;
 	}
 	public BackPartido[] getPartidosZona() {
-			return partidosZona;
+		return partidosZona;
 	}
 
 	public int getCANT_PF() {

@@ -1,6 +1,7 @@
 package backend;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -26,6 +27,7 @@ public class BackSemis implements Serializable{
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
 	public BackSemis(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
+		LocalDate fechaActual = LocalDate.now();
 		int i = 0,k = 0;
 		semisTodaSimulada = false;
 		this.equipos = equipos;
@@ -39,7 +41,7 @@ public class BackSemis implements Serializable{
         	while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
         		referi = referis.get(aleatorio.nextInt(referis.size()));
         	}
-			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi);
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi, fechaActual);
 			k+=2;
 		}
 		k= 0;
@@ -47,7 +49,7 @@ public class BackSemis implements Serializable{
         	while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
         		referi = referis.get(aleatorio.nextInt(referis.size()));
         	}
-			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi);
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi, fechaActual);
 			k += 2;
 		}
 		this.resultados = new Resultados [CANT_P];
@@ -81,7 +83,7 @@ public class BackSemis implements Serializable{
 					partidos[partidoActual].getEquipo1().setpJ(); //INCREMENTA LOS PARTIDOS JUGADOS PARA CADA EQUIPO
 					partidos[partidoActual].getEquipo2().setpJ();
 					partidos[partidoActual].getArbitro().dirigePartido();
-					resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2());
+					resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2(), partidos[partidoActual].getFecha());
 					if (resultados[partidoActual].getGolesE1() + resultados [partidoActual-(CANT_P/2)].getGolesE2() == resultados[partidoActual].getGolesE2() + resultados [partidoActual-(CANT_P/2)].getGolesE1()) { //SI LA SUMA DE LOS GOLES DE CADA EQUIPO EN AMBOS PARTIDOS ES IGUAL
 						if (resultados[partidoActual].getGolesE2() > resultados [partidoActual-(CANT_P/2)].getGolesE2()) { //SI LOS GOLES DEL EQUIPO 2 EN LA IDA SON MAYORES QUE LOS DEL EQUIPO 2 EN LA VUELTA
 							ganadores.add(partidos[partidoActual].getEquipo2());
@@ -123,7 +125,7 @@ public class BackSemis implements Serializable{
 					partidos[partidoActual].getEquipo1().setGolesContra(partidos[partidoActual].getGolesE2()); //ASIGNA GOLES EN CONTRA DE CADA EQUIPO
 					partidos[partidoActual].getEquipo2().setGolesContra(partidos[partidoActual].getGolesE1());
 					partidos[partidoActual].getArbitro().dirigePartido();
-					resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2());
+					resultados[partidoActual] = new Resultados (partidos[partidoActual].getEquipo1(), partidos[partidoActual].getEquipo2(), partidos[partidoActual].getGolesE1(), partidos[partidoActual].getGolesE2(), partidos[partidoActual].getFecha());
 				}
 				partidoActual++;
 				if (partidoActual == CANT_P)

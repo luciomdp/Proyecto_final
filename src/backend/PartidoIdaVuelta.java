@@ -1,5 +1,6 @@
 package backend;
 
+import java.time.LocalDate;
 
 public class PartidoIdaVuelta extends BackPartido{
 
@@ -10,8 +11,8 @@ public class PartidoIdaVuelta extends BackPartido{
 	
 	//-------------------------------------------------<<COSNTRUCTOR>>-------------------------------------------------
 	
-	public PartidoIdaVuelta(Equipo a, Equipo b, Referi referi) {
-		super(a, b, referi);
+	public PartidoIdaVuelta(Equipo a, Equipo b, Referi referi, LocalDate fecha) {
+		super(a, b, referi, fecha);
 	}
 	
 	//-------------------------------------------------<<MÉTODOS>>-------------------------------------------------
@@ -57,6 +58,10 @@ public class PartidoIdaVuelta extends BackPartido{
 	
 	public int getGolesP2() {
 		return golesP2;
+	}
+	
+	public LocalDate getFecha() {
+		return this.getFecha();
 	}
 
 }

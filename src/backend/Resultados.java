@@ -1,6 +1,7 @@
 package backend;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
  public class Resultados implements Serializable{
 	 
@@ -10,12 +11,14 @@ import java.io.Serializable;
     private Equipo e2;
     private int golesE1;
     private int golesE2;
+    private LocalDate fecha;
 
-    public Resultados(Equipo equipo1, Equipo equipo2, int golesE1, int golesE2) {
+    public Resultados(Equipo equipo1, Equipo equipo2, int golesE1, int golesE2, LocalDate fecha) {
         this.e1 = equipo1;
         this.e2 = equipo2;
         this.golesE1 = golesE1;
         this.golesE2 = golesE2;
+        this.fecha = fecha;
     }
 
     public String getE1() {

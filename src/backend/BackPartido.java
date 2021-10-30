@@ -1,5 +1,6 @@
 package backend;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class BackPartido implements Serializable{
 	
@@ -11,13 +12,14 @@ public class BackPartido implements Serializable{
 	private double Media_totE1,Media_totE2;
 	private int golesE1,golesE2;
 	private Referi referi;
+	private LocalDate fecha;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
-	public BackPartido(Equipo a, Equipo b, Referi referi) {
+	public BackPartido(Equipo a, Equipo b, Referi referi, LocalDate fecha) {
 		equipo1 = a;
 		equipo2 = b;
 		this.referi = referi;
-		this.referi = referi;
+		this.fecha = fecha;
 		golesE1 = 0;
 		golesE2 = 0;
 	}
@@ -84,6 +86,10 @@ public class BackPartido implements Serializable{
 
 	public Equipo getEquipo2() {
 		return equipo2;
+	}
+
+	public LocalDate getFecha() {
+		return fecha;
 	}
 
 }

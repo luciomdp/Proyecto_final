@@ -94,14 +94,14 @@ public class Campeonato implements Serializable {
 	
 	public String GeneraCredenciales (String equipo1, String equipo2, int etapa) {
 		
-		int i;
+		int i = 0;
 		String s = "", E1 = equipo1.substring(0, 25), E2 = equipo2.substring(0, 25);
-		i = 0;
 		s += "<<=========================================================================>>\n";
 		switch(etapa){//Se piden las credenciales de los equipos 1 y 2 que jugaron...
 		case 0://zona 1
 			while ((!zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E2)) && (!zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E2))) 
 				i++;
+			s += "Fecha: " + zonas[etapa].getPartidosZona()[zonas[etapa].getFechaAct()-1].getFecha().toString();
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
 			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
 			s += "\n_______________________________________________________________________________\n";

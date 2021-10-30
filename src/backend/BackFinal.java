@@ -1,6 +1,7 @@
 package backend;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,13 +19,14 @@ public class BackFinal implements Serializable{
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
 	public BackFinal(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
+		LocalDate fechaActual = LocalDate.now();
 		this.equipos = equipos;
 		Random aleratorio = new Random ();
 	    Referi referi = referis.get(aleratorio.nextInt(referis.size()));
     	while (referi.getNacionalidad() != this.equipos.get(0).getPais() && referi.getNacionalidad() != this.equipos.get(1).getPais()) {
     		referi = referis.get(aleratorio.nextInt(referis.size()));
     	}
-		partidoFinal = new PartidoIdaVuelta (equipos.get(0), equipos.get(1), referi);
+		partidoFinal = new PartidoIdaVuelta (equipos.get(0), equipos.get(1), referi, fechaActual);
 		finalSimulada = false;
 	}
 	
@@ -45,7 +47,7 @@ public class BackFinal implements Serializable{
 			partidoFinal.getEquipo1().setGolesContra(partidoFinal.getGolesE2());
 			partidoFinal.getEquipo2().setGolesContra(partidoFinal.getGolesE1());
 			partidoFinal.getArbitro().dirigePartido();
-			resultado = new Resultados (partidoFinal.getEquipo1(), partidoFinal.getEquipo2(), partidoFinal.getGolesE1(), partidoFinal.getGolesE2());
+			resultado = new Resultados (partidoFinal.getEquipo1(), partidoFinal.getEquipo2(), partidoFinal.getGolesE1(), partidoFinal.getGolesE2(), partidoFinal.getFecha());
 			if (resultado.getGolesE1() == resultado.getGolesE2()) {
 				partidoFinal.simulacionPen();
 				partidoFinal.getEquipo1().setGolesPenalesC(partidoFinal.getGolesP1());
