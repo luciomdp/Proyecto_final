@@ -43,10 +43,10 @@ public class FrontCuartos extends General{
 		CpanelN = new JPanel();
 		CpanelC = new panelC(); 
 		CcomboBox = new JComboBox<String>();
-		Partido1 = new FrontPartido(c,4);
-		Partido2 = new FrontPartido(c,4);
-		Partido3 = new FrontPartido(c,4);
-		Partido4 = new FrontPartido(c,4);
+		Partido1 = new FrontPartido(c, 4, 0);
+		Partido2 = new FrontPartido(c, 4, 1);
+		Partido3 = new FrontPartido(c, 4, 2);
+		Partido4 = new FrontPartido(c, 4, 3);
 		VBox = Box.createVerticalBox();
 		HBox1 = Box.createHorizontalBox();
 		HBox2 = Box.createHorizontalBox();

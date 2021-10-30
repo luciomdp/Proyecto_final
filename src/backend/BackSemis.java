@@ -27,7 +27,7 @@ public class BackSemis implements Serializable{
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
 	public BackSemis(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
-		LocalDate fechaActual = LocalDate.now();
+		LocalDate fechaActual = LocalDate.now().plusDays(6);
 		int i = 0,k = 0;
 		semisTodaSimulada = false;
 		this.equipos = equipos;

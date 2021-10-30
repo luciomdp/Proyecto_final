@@ -236,7 +236,7 @@ public class FrontZonas extends General{
 			
 			PanelScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 			for(int i = 0; i < PJ; i++) {
-				Partidos[i] = new FrontPartido(c,zona);
+				Partidos[i] = new FrontPartido(c,zona, i);
 				Partidos[i].setText(E1[i], E2[i]);
 				Partidos[i].SetFontSizeIncr(8);
 				VBox.add(Box.createVerticalStrut(ESPACIO_VERTICAL));

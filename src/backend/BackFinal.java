@@ -19,7 +19,7 @@ public class BackFinal implements Serializable{
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 
 	public BackFinal(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
-		LocalDate fechaActual = LocalDate.now();
+		LocalDate fechaActual = LocalDate.now().plusDays(8);
 		this.equipos = equipos;
 		Random aleratorio = new Random ();
 	    Referi referi = referis.get(aleratorio.nextInt(referis.size()));

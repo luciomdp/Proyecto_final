@@ -59,9 +59,5 @@ public class PartidoIdaVuelta extends BackPartido{
 	public int getGolesP2() {
 		return golesP2;
 	}
-	
-	public LocalDate getFecha() {
-		return this.getFecha();
-	}
 
 }

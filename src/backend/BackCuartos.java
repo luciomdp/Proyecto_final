@@ -24,8 +24,8 @@ public class BackCuartos implements Serializable{
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
 	
 	public BackCuartos(ArrayList <Equipo> equipos, ArrayList <Referi> referis) {
-		LocalDate fechaActual = LocalDate.now();
-		int i = 0,k = 0;
+		LocalDate fechaActual = LocalDate.now().plusDays(4);
+		int k = 0;
 		cuartosTodoSimulado = false;
 		this.equipos = equipos;
 		ganadores = new ArrayList <Equipo> ();
@@ -34,19 +34,19 @@ public class BackCuartos implements Serializable{
 		partidos = new PartidoIdaVuelta [CANT_P] ;
 		Random aleatorio = new Random ();
 	    Referi referi1 = referis.get(aleatorio.nextInt(referis.size()));
-		for(;i<CANT_P/2;i++) {
+		for(int i=0; i<CANT_P/2; i++) {
         	while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
         		referi1 = referis.get(aleatorio.nextInt(referis.size()));
         	}
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi1, fechaActual);
-			k+=2;
+			k += 2;
 		}
 		k= 0;
-		for(;i<CANT_P;i++) {
+		for(int i=4; i<CANT_P; i++) {
 			while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
         		referi1 = referis.get(aleatorio.nextInt(referis.size()));
         	}
-			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi1, fechaActual);
+			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi1, fechaActual.plusDays(1));
 			k += 2;
 		}
 		this.resultados = new Resultados [CANT_P];
@@ -154,6 +154,9 @@ public class BackCuartos implements Serializable{
 	}
 	public int getCANT_P() {
 		return CANT_P;
+	}
+	public boolean isIdaSimulada() {
+		return partidoActual >= CANT_P/2 ? true : false;
 	}
 
 }

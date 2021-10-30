@@ -92,7 +92,7 @@ public class Campeonato implements Serializable {
 		return zonas[zona].getValoresTabla();
 	}
 	
-	public String GeneraCredenciales (String equipo1, String equipo2, int etapa) {
+	public String GeneraCredenciales (String equipo1, String equipo2, int etapa, int nroPartido) {
 		
 		int i = 0;
 		String s = "", E1 = equipo1.substring(0, 25), E2 = equipo2.substring(0, 25);
@@ -101,52 +101,57 @@ public class Campeonato implements Serializable {
 		case 0://zona 1
 			while ((!zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E2)) && (!zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E2))) 
 				i++;
-			s += "Fecha: " + zonas[etapa].getPartidosZona()[zonas[etapa].getFechaAct()-1].getFecha().toString();
+			s += "Fecha: " + zonas[etapa].getPartidosZona()[nroPartido].getFecha().toString();
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
-			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getEquipo1().getCredenciales();
 			s += "\n_______________________________________________________________________________\n";
 			s +="\n<<===============================EQUIPO 2===============================>>\n\n" + E2.trim() + "\n\n";
-			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
-			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getEquipo2().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getArbitro().getCredencial();
 		break;
 		case 1://zona 2
 			while ((!zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E2)) && (!zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E2)))
 				i++;
+			s += "Fecha: " + zonas[etapa].getPartidosZona()[nroPartido].getFecha().toString();
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
-			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getEquipo1().getCredenciales();
 			s += "\n_______________________________________________________________________________\n";
 			s +="\n<<===============================EQUIPO 2===============================>>\n\n" + E2.trim() + "\n\n";
-			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
-			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getEquipo2().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getArbitro().getCredencial();
 		break;
 		case 2://zona 3
 			while ((!zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E2)) && (!zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E2)))
 				i++;
+			s += "Fecha: " + zonas[etapa].getPartidosZona()[nroPartido].getFecha().toString();
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
-			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getEquipo1().getCredenciales();
 			s += "\n_______________________________________________________________________________\n";
 			s +="\n<<===============================EQUIPO 2===============================>>\n\n" + E2.trim() + "\n\n";
-			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
-			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getEquipo2().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getArbitro().getCredencial();
 		break;
 		case 3://zona 4
 			while ((!zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E2)) && (!zonas[etapa].getPartidosZona()[i].getEquipo2().getNombre().equals(E1) && !zonas[etapa].getPartidosZona()[i].getEquipo1().getNombre().equals(E2)))
 				i++;
+			s += "Fecha: " + zonas[etapa].getPartidosZona()[nroPartido].getFecha().toString();
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
-			s += zonas[etapa].getPartidosZona()[i].getEquipo1().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getEquipo1().getCredenciales();
 			s += "\n_______________________________________________________________________________\n";
 			s +="\n<<===============================EQUIPO 2===============================>>\n\n" + E2.trim() + "\n\n";
-			s += zonas[etapa].getPartidosZona()[i].getEquipo2().getCredenciales();
-			s += zonas[etapa].getPartidosZona()[i].getArbitro().getCredencial();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getEquipo2().getCredenciales();
+			s += zonas[etapa].getPartidosZona()[nroPartido].getArbitro().getCredencial();
 		break;
 		case 4://cuartos
 			while (!(cuartosDeFinal.getPartidoCuartos()[i].getEquipo1().getNombre().equals(E1) && !cuartosDeFinal.getPartidoCuartos()[i].getEquipo2().getNombre().equals(E2)) && (!cuartosDeFinal.getPartidoCuartos()[i].getEquipo2().getNombre().equals(E1) && !cuartosDeFinal.getPartidoCuartos()[i].getEquipo1().getNombre().equals(E2))) 
 				i++;
+			s += "Fecha ida: " + cuartosDeFinal.getPartidoCuartos()[nroPartido].getFecha().toString();
+			s += "\tFecha vuelta: " + cuartosDeFinal.getPartidoCuartos()[nroPartido].getFecha().plusDays(1).toString();
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
-			s += cuartosDeFinal.getPartidoCuartos()[i].getEquipo1().getCredenciales();
+			s += cuartosDeFinal.getPartidoCuartos()[nroPartido].getEquipo1().getCredenciales();
 			s += "\n_______________________________________________________________________________\n";
 			s +="\n<<===============================EQUIPO 2===============================>>\n\n" + E2.trim() + "\n\n";
-			s += cuartosDeFinal.getPartidoCuartos()[i].getEquipo2().getCredenciales();
+			s += cuartosDeFinal.getPartidoCuartos()[nroPartido].getEquipo2().getCredenciales();
 			if (cuartosDeFinal.getPartidoActual() > cuartosDeFinal.getCANT_P()/2) { //si está en los partidos de vuelta
 				s += "\n----------------------------------------------<<REFERI partido IDA>>---------------------------------------------- \n\n";
 				s += cuartosDeFinal.getPartidoCuartos()[i-1].getArbitro().toString(); //árbitro del partido de ida
@@ -159,11 +164,13 @@ public class Campeonato implements Serializable {
 		case 5://semis
 			while (!(semiFinal.getPartidoSemis()[i].getEquipo1().getNombre().equals(E1) && !semiFinal.getPartidoSemis()[i].getEquipo2().getNombre().equals(E2)) && (!semiFinal.getPartidoSemis()[i].getEquipo2().getNombre().equals(E1) && !semiFinal.getPartidoSemis()[i].getEquipo1().getNombre().equals(E2))) 
 				i++;
+			s += "Fecha ida: " + semiFinal.getPartidoSemis()[nroPartido].getFecha().toString();
+			s += "\tFecha vuelta: " + semiFinal.getPartidoSemis()[nroPartido].getFecha().plusDays(1).toString();
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
-			s += semiFinal.getPartidoSemis()[i].getEquipo1().getCredenciales();
+			s += semiFinal.getPartidoSemis()[nroPartido].getEquipo1().getCredenciales();
 			s += "\n_______________________________________________________________________________\n";
 			s +="\n<<===============================EQUIPO 2===============================>>\n\n" + E2.trim() + "\n\n";
-			s += semiFinal.getPartidoSemis()[i].getEquipo2().getCredenciales();
+			s += semiFinal.getPartidoSemis()[nroPartido].getEquipo2().getCredenciales();
 			if (semiFinal.getPartidoAct() >= semiFinal.getCANT_P()/2) {
 				s += "\n----------------------------------------------<<REFERI partido IDA>>---------------------------------------------- \n\n";
 				s += semiFinal.getPartidoSemis()[i-1].getArbitro().toString(); 
@@ -174,6 +181,7 @@ public class Campeonato implements Serializable {
 			s += semiFinal.getPartidoSemis()[i].getArbitro().toString();
 			break;
 		case 6://final
+			s += "Fecha: " + final_Campeonato.getPartidoFinal().getFecha().toString();
 			s +="\n<<===============================EQUIPO 1===============================>>\n\n" + E1.trim() + "\n\n";
 			s += final_Campeonato.getPartidoFinal().getEquipo1().getCredenciales();
 			s += "\n_______________________________________________________________________________\n";

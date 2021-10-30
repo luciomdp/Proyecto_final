@@ -133,7 +133,7 @@ public class FrontFinal extends General{
 				
 				Credenciales.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						new Credencial(c.EmitirCredenciales(FEquipo1.getText(),FEquipo2.getText(),6));
+						new Credencial(c.EmitirCredenciales(FEquipo1.getText(),FEquipo2.getText(),6, 0));
 					}	
 				});
 				

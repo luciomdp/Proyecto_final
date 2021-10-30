@@ -43,8 +43,8 @@ public class FrontSemis extends General{
 		SpanelN = new JPanel();
 		SpanelC = new panelS(); 
 		ScomboBox = new JComboBox<String>();
-		Partido1 = new FrontPartido(c,5);
-		Partido2 = new FrontPartido(c,5);
+		Partido1 = new FrontPartido(c,5, 0);
+		Partido2 = new FrontPartido(c,5, 1);
 		HBox = Box.createHorizontalBox();
 		
 			

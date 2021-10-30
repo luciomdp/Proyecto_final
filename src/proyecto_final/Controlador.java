@@ -193,8 +193,8 @@ public class Controlador implements Serializable {
 	 * @param etapa
 	 * @return
 	 */
-	public String EmitirCredenciales(String equipo1, String equipo2, int etapa) {
-		return campeonatoActual.GeneraCredenciales(equipo1, equipo2, etapa);
+	public String EmitirCredenciales(String equipo1, String equipo2, int etapa, int nroPartido) {
+		return campeonatoActual.GeneraCredenciales(equipo1, equipo2, etapa, nroPartido);
 	}
 	
 	
