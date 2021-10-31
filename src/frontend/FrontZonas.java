@@ -235,6 +235,7 @@ public class FrontZonas extends General{
 			//Panel.setLayout(new FlowLayout(FlowLayout.LEFT)); ACTIVAR SI SE PREFIERE A LA IZQUIERDA LOS PARTIDOS
 			
 			PanelScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			PanelScroll.getVerticalScrollBar().setUnitIncrement(16);
 			for(int i = 0; i < PJ; i++) {
 				Partidos[i] = new FrontPartido(c,zona, i);
 				Partidos[i].setText(E1[i], E2[i]);

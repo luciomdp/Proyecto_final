@@ -387,12 +387,15 @@ public class Campeonato implements Serializable {
 	}
 	
 	/**
-	 * @return the cANT_PS
+	 * @return la cantidad de partidos en la semis
 	 */
 	public int getCANT_PS() {
 		return CANT_PS;
 	}
 
+	/**
+	 * @return la cantidad de partidos en los cuartos
+	 */
 	public int getCANT_PC() {
 		return CANT_PC;
 	}
