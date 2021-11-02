@@ -115,7 +115,7 @@ public class FrontSemis extends General{
 		//-------------------------------------------------<<AÑADO A LAS SEMIS>>-------------------------------------------------
 			
 		HBox.add(Partido1);
-		HBox.add(Box.createHorizontalStrut(WIDTH/10));
+		HBox.add(Box.createHorizontalStrut(WIDTH/12));
 		HBox.add(Partido2);
 		SpanelC.add(HBox);
 		SpanelN.add(ScomboBox);

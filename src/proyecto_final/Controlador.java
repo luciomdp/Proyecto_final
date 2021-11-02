@@ -6,10 +6,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import backend.Campeonato;
 import backend.Equipo;
 import backend.Posicion;
+import backend.Referi;
 import backend.Serializacion;
 import frontend.Frame;
 
@@ -30,8 +34,7 @@ public class Controlador implements Serializable {
 	 * @param c Campeonato a controlar
 	 * @param f Frame del programa
 	 */
-	public Controlador (Campeonato c, Frame f) {
-		campeonatoActual = c;
+	public Controlador (Frame f) {
 		frameActual = f;
 	}
 	
@@ -48,15 +51,30 @@ public class Controlador implements Serializable {
 	 */
 	public void IniciaTorneo() {
 		
-		//inicia torneo con todos datos neutros (no paso nada)
-		String Zonas[] = new String[campeonatoActual.getCANTZ()];
-		campeonatoActual.IniciaTorneo();
-		for(int i = 0; i<Zonas.length; i++) 
-			Zonas[i] = campeonatoActual.getZona(i).getValoresTabla();
-		//pasarle por parametro al inicia torneo del frame, los strings de las 4 zonas.
+		ArrayList <Equipo> equipos = new ArrayList <Equipo>();
+		ArrayList <Referi> referis = new ArrayList <Referi>();
 		
-		frameActual.setControlador(this);
-		frameActual.IniciaTorneo(Zonas);
+		try {
+			//funcion principal de lectura
+			Serializacion.leeArchivo(equipos, referis);
+		
+			this.setCampeonato(new Campeonato(equipos, referis));
+			
+			campeonatoActual.IniciaTorneo();
+			
+			//inicia torneo con todos datos neutros (no paso nada)
+			String[] Zonas = campeonatoActual.getValoresZonas();
+			
+			//pasarle por parametro al inicia torneo del frame, los strings de las 4 zonas.
+			
+			frameActual.setControlador(this);
+			frameActual.IniciaTorneo(Zonas);
+			
+			
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			JOptionPane.showMessageDialog(null, "Se produjo un error. \nError: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			
+		}	
 	}
 	
 	/**
@@ -191,7 +209,7 @@ public class Controlador implements Serializable {
 	 * @param equipo1
 	 * @param equipo2
 	 * @param etapa
-	 * @return
+	 * @return las credencialesS
 	 */
 	public String EmitirCredenciales(String equipo1, String equipo2, int etapa, int nroPartido) {
 		return campeonatoActual.GeneraCredenciales(equipo1, equipo2, etapa, nroPartido);
@@ -205,13 +223,12 @@ public class Controlador implements Serializable {
 	 * @param zona Integer representando la zona
 	 */
 	public void SimulaPartidoZ (int zona) { //recibe la zona de la que se simula un partido 
-		if(campeonatoActual.getZona(zona).getPartidoAct() + 1 == campeonatoActual.getCANTZ()) {
+		if(campeonatoActual.getZona(zona).getPartidoAct() == campeonatoActual.getCANTZ() + 1) {
 			campeonatoActual.getZona(zona).SimulaPartido();
 			frameActual.ZonaSimulada(zona);
 			ZonaSimulada();
 		} else
 			campeonatoActual.getZona(zona).SimulaPartido();
-		//evaluar si se puede simular otro partido, sino, llamar al metodo ZtodoSimulado(zona) del Frame
 	}
 	
 	/**
@@ -220,14 +237,13 @@ public class Controlador implements Serializable {
 	 */
 	public void SimulaFechaZ (int zona) { //recibe la zona de la que se simula una fecha
 		
-		if(campeonatoActual.getZona(zona).getFechaAct() == campeonatoActual.getZona(0).getCANT_PF()) {
+		if(campeonatoActual.getZona(zona).getFechaAct() == campeonatoActual.getZona(0).getCANT_PF() + 1) {
 			campeonatoActual.getZona(zona).SimulaFecha();
 			frameActual.ZonaSimulada(zona);
 			ZonaSimulada();
 		} else {
 			campeonatoActual.getZona(zona).SimulaFecha();	
 		}
-		//evaluar si se puede simular otro partido, sino, llamar al metodo ZtodoSimulado(zona) del Frame
 	}
 	
 	/**

@@ -53,7 +53,15 @@ public class Campeonato implements Serializable {
 	}
 
 	//-------------------------------------------------<<MÉTODOS DE LA CLASE>>-------------------------------------------------
-	
+	public String[] getValoresZonas() {
+		String[] aux = new String[CANTZ];
+		
+		for(int i = 0; i < CANTZ; i++) 
+			aux[i] = this.getZona(i).getValoresTabla();
+		
+		return aux;
+	}
+		
 	/**
 	 * Inicia el torneo, mezclando los equipos para que cada vez que se inicie un nuevo torneo, las zonas sean distintas
 	 */
@@ -399,4 +407,6 @@ public class Campeonato implements Serializable {
 	public int getCANT_PC() {
 		return CANT_PC;
 	}
+
+	
 }
