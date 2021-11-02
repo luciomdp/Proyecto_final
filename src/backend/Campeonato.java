@@ -9,7 +9,6 @@ import java.util.Comparator;
 /**
  * Clase encargada de crear el campeonato que se jugará
  */
-
 public class Campeonato implements Serializable {
 	
 	//-------------------------------------------------<<CONSTANTES>>-------------------------------------------------
@@ -360,10 +359,11 @@ public class Campeonato implements Serializable {
 	public void IniciaFinal () {
 		final_Campeonato = new BackFinal (semiFinal.getGanadores(), referis);
 	}
+	
 	/**
 	 * Devuelve la mayor cantidad de títulos, entre todos los entrenadores del campeonato.
+	 * @return mayor cantidad de títulos
 	 */
-	
 	 public static final byte getTitulos () {
 		 
 		byte t = 0;
@@ -375,7 +375,12 @@ public class Campeonato implements Serializable {
 
 		return t;
 	}
-	public void seteaGoles (ArrayList <Equipo> equipos) {
+	
+	/**
+	 * Setea los goles en 0
+	 * @param equipos los equipos
+	 */
+	public void seteaGoles(ArrayList <Equipo> equipos) {
 		for (Equipo e: equipos) {
 			e.setGolesIda(0);
 			e.setGolesVuelta(0);
