@@ -178,6 +178,3 @@ public abstract class Serializacion implements Serializable{
 	}
 
 }
-
-	  
-}
