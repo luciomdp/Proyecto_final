@@ -11,7 +11,17 @@ public class Jugador extends Persona{
 	private byte puntaje; //0 - 100
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
-	
+	/**
+	 * Para los jugadores se registra su posición (arquero, defensor, mediocampista, delantero) y puntaje 
+		de valoración.
+	 * @param apellido
+	 * @param nombre
+	 * @param nacimiento
+	 * @param tipo
+	 * @param dni
+	 * @param posicion
+	 * @param puntaje
+	 */
 	public Jugador(String apellido, String nombre, LocalDate nacimiento, String tipo, int dni, Posicion posicion, byte puntaje) {
 		super(apellido, nombre, nacimiento, dni, tipo);
 		this.posicion = posicion;

@@ -243,6 +243,7 @@ public class Campeonato implements Serializable {
 	 * @return String con la lista
 	 */
 	public String listaEquipos() { 
+		Collections.sort(equipos, Comparator.comparing(Equipo::getNombre)); //ordena alfabeticamente
 		String s = "----------------------------------------EQUIPOS--------------------------------------------\n\n";
 		float promedio;
 		DecimalFormat formato = new DecimalFormat ("#.00");

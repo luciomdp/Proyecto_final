@@ -15,7 +15,15 @@ public abstract class Persona implements Serializable {
 	private String tipoDni;
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
-	
+	/**
+	 * Para cada persona que participa del torneo (jugador, DT, referí) se registra su apellido y nombre, 
+		fecha de nacimiento, tipo y número de documento.
+	 * @param apellido
+	 * @param nombre
+	 * @param nacimiento
+	 * @param dni
+	 * @param tipo
+	 */
 	public Persona (String apellido, String nombre, LocalDate nacimiento, int dni, String tipo){
 		this.apellido = apellido;
 		this.nombre = nombre;

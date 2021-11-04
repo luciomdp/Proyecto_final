@@ -14,7 +14,16 @@ public class BackPartido implements Serializable{
 	private Referi referi;
 	private LocalDate fecha;
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
-	
+    /**
+     * Para cada partido se registra: fecha, los dos equipos que se enfrentan y el referí. El referí no podrá 
+	tener la misma nacionalidad que cualquiera de los equipos, a no ser que se enfrenten dos equipos 
+	de la misma nacionalidad.
+
+     * @param Equipo a
+     * @param Equipo b
+     * @param referi
+     * @param fecha
+     */
 	public BackPartido(Equipo a, Equipo b, Referi referi, LocalDate fecha) {
 		equipo1 = a;
 		equipo2 = b;

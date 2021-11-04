@@ -12,7 +12,16 @@ public class Referi extends Persona{
 	private int partidosDirigidos;
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
-	
+	/**
+	 * Para los referís se registra nacionalidad y cantidad de años en el referato.
+	 * @param apellido
+	 * @param nombre
+	 * @param nacimiento
+	 * @param dni
+	 * @param tipo
+	 * @param nacionalidad
+	 * @param añosReferato
+	 */
 	public Referi(String apellido, String nombre, LocalDate nacimiento, int dni, String tipo, Pais nacionalidad, int añosReferato) {
 		super(apellido, nombre, nacimiento, dni, tipo);
 		this.nacionalidad = nacionalidad;

@@ -11,7 +11,17 @@ public class Dt extends Persona{
 	private byte titulos;
 	
 	//-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
-	
+	/**
+	 * Para los DT ser registra nacionalidad y cantidad de títulos obtenidos en todos los niveles (nacional o 
+	internacional).
+	 * @param apellido
+	 * @param nombre
+	 * @param nacimiento
+	 * @param dni
+	 * @param tipo
+	 * @param nacionalidad
+	 * @param titulos
+	 */
 	public Dt(String apellido, String nombre, LocalDate nacimiento, int dni, String tipo, Pais nacionalidad, byte titulos) {
 		super(apellido, nombre, nacimiento, dni, tipo);
 		this.titulos = titulos;

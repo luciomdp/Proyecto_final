@@ -29,7 +29,16 @@ public class Equipo implements Serializable {
     private double mediaEquipo;
     
   //-------------------------------------------------<<CONSTRUCTOR>>-------------------------------------------------
-    
+    /**
+     * Para cada equipo se registra: nombre, país, posición en ranking continental, su plantel de 18 
+		jugadores (2 arqueros, 6 defensores, 5 mediocampistas, 5 delanteros) y su DT.
+
+     * @param nombre
+     * @param nacionalidad
+     * @param ranking
+     * @param jugadores
+     * @param entrenador
+     */
     public Equipo (String nombre, Pais nacionalidad, int ranking, ArrayList<Jugador> jugadores, Dt entrenador){ 
 		for(int i = nombre.length(); i < 25; i++) {
 			nombre += " ";
@@ -92,9 +101,9 @@ public class Equipo implements Serializable {
 	 */
 	public String getEstadisticas() {
 		if (goles-golesContra >= 0)
-			return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pE + "| " + pP +  "|  " + (goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
+			return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pE + "| " + pP +  "|  " + (goles - golesContra) + "|";
 		else
-			return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pE + "| " + pP +  "| " + (goles - golesContra) + "|";//+ golesContra + (goles - golesContra);
+			return nombre + "| " + puntos + "| " + pJ + "| " + pG + "| " + pE + "| " + pP +  "| " + (goles - golesContra) + "|";
 			
 	}
 	

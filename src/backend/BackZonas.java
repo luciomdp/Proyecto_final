@@ -175,7 +175,7 @@ public class BackZonas implements Serializable{
                     }
                     else if (tabla.get(j + 1).getGoles() == tabla.get(j).getGoles()) {
                     	
-                        if (tabla.get(j + 1).getGoles() - tabla.get(j + 1).getGolesContra() > tabla.get(j).getGoles() - tabla.get(j).getGolesContra() ) {
+                        if (tabla.get(j + 1).getGoles() - tabla.get(j + 1).getGolesContra() > tabla.get(j).getGoles() - tabla.get(j).getGolesContra() ) { //diferencia de goles
                             aux = tabla.get(j + 1);
                             tabla.set(j+1, tabla.get(j));
                             tabla.set(j, aux);
