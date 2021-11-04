@@ -17,7 +17,6 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
 import backend.Posicion;
 import proyecto_final.Controlador;
 
@@ -165,7 +164,7 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Listado de equipos"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					getArea().setText(getControlador().getListadoEquipos());
+					getArea().setText(getControlador().getListadoEquipos());		
 				}		
 			});
 		}

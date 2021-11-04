@@ -31,20 +31,11 @@ public class Controlador implements Serializable {
 	
 	/**
 	 * Constructor del controlador
-	 * @param c Campeonato a controlar
 	 * @param f Frame del programa
 	 */
 	public Controlador (Frame f) {
 		frameActual = f;
 	}
-	
-	/**
-	 * Setea el front
-	 */
-	public void setFrame(Frame _frame) {
-		this.frameActual = _frame;
-	}
-	
 	
 	/**
 	 * Inicia un torneo desde cero
@@ -209,7 +200,7 @@ public class Controlador implements Serializable {
 	 * @param equipo1
 	 * @param equipo2
 	 * @param etapa
-	 * @return las credencialesS
+	 * @return las credenciales
 	 */
 	public String EmitirCredenciales(String equipo1, String equipo2, int etapa, int nroPartido) {
 		return campeonatoActual.GeneraCredenciales(equipo1, equipo2, etapa, nroPartido);
