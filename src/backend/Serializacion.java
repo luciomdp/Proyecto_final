@@ -1,5 +1,6 @@
 package backend;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +8,17 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  * Clase encargada de serializar progreso.
@@ -52,26 +64,7 @@ public abstract class Serializacion implements Serializable{
 		return _campeonato;
 			
 	}
-	
-	
-	/**
-	 * Lee el progreso desde un archivo.
-	 * @return Una instancia de Campeonato
-	 * @throws FileNotFoundException Si el archivo no existe
-	 * @throws IOException Si no puede leer el archivo
-	 * @throws ClassNotFoundException Si no se encuentra la clase Campeonato
-	 */
-	public static Campeonato leeProgreso() throws FileNotFoundException, IOException, ClassNotFoundException{
-		
-		FileInputStream fs = new FileInputStream("Progreso");
-		ObjectInputStream os = new ObjectInputStream(fs);
-			
-		Campeonato _campeonato = (Campeonato) os.readObject();
 
-		os.close();
-		return _campeonato;
-			
-	}
 
 	/**
 	 * Lee el documento pasado
