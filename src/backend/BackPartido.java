@@ -43,16 +43,16 @@ public class BackPartido implements Serializable{
 	 * Asigna valores a golesE1 y golesE2.
 	 */
 	public void simulacionNM() {
-		int OportunidadesGolA = (int) (equipo1.getMediaEquipo()/5); //Cada equipo tiene como maximo 10 oportunidades de gol. Si hay pocas oportunidades, hacer mas chico el denominador
-		int OportunidadesGolB = (int) (equipo2.getMediaEquipo()/5);
-		double probabilidadesGolA = 0; // el 50% es random, el otro 50% depende de las características de los jugadores
+		int OportunidadesGolA = (int) (equipo1.getMediaEquipo()/10); // el mejor equipo que tiene una
+		int OportunidadesGolB = (int) (equipo2.getMediaEquipo()/10);
+		double probabilidadesGolA = 0; 
 		double probabilidadesGolB = 0;
 		int i;
 	
 		probabilidadesGolA = (Math.random()*100 *0.2) + ((equipo1.getMediaPos (Posicion.delantero) * 0.75 + equipo1.getMediaPos (Posicion.mediocampista) * 0.25)*0.4 *10) - ((equipo2.getMediaPos (Posicion.defensor) * 0.6 + equipo2.getMediaPos (Posicion.arquero) * 0.4)*0.4 *10);
 		if (probabilidadesGolA < 10)
 			probabilidadesGolA = 5; // minimamente por partido el equipo tiene 5% probabilidades de que lo metan
-		probabilidadesGolA = (Math.random()*100 *0.2) + ((equipo2.getMediaPos (Posicion.delantero) * 0.75 + equipo2.getMediaPos (Posicion.mediocampista) * 0.25)*0.4 *10) - ((equipo1.getMediaPos (Posicion.defensor) * 0.6 + equipo1.getMediaPos (Posicion.arquero) * 0.4)*0.4 *10);
+		probabilidadesGolB = (Math.random()*100 *0.2) + ((equipo2.getMediaPos (Posicion.delantero) * 0.75 + equipo2.getMediaPos (Posicion.mediocampista) * 0.25)*0.4 *10) - ((equipo1.getMediaPos (Posicion.defensor) * 0.6 + equipo1.getMediaPos (Posicion.arquero) * 0.4)*0.4 *10);
 		if (probabilidadesGolB < 10)
 			probabilidadesGolB = 5;
 		

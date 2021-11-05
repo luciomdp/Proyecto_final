@@ -136,12 +136,17 @@ public class BackZonas implements Serializable{
         LocalDate fechaActual = LocalDate.now(); //fecha de inicio del torneo
         Referi referi1 = referis.get(aleatorio.nextInt(referis.size())), referi2 =  referis.get(aleatorio.nextInt(referis.size()));
         for (int i = 0; i < CANT_PZ; i += 2) {
-        	
-        	while (referi1.getNacionalidad() != equipos[0].getPais() && referi1.getNacionalidad() != equiposQueRotan[0].getPais()) {
-        		referi1 = referis.get(aleatorio.nextInt(referis.size()));
+        	referi1 = referis.get(aleatorio.nextInt(referis.size()));
+        	referi2 = referis.get(aleatorio.nextInt(referis.size()));
+        	if (!(equipos[0].getPais().equals(equiposQueRotan[1]))) {
+        		while (referi1.getNacionalidad() != equipos[0].getPais() && referi1.getNacionalidad() != equiposQueRotan[0].getPais()) 
+        			referi1 = referis.get(aleatorio.nextInt(referis.size()));
+        		
         	}
-        	while (referi2.getNacionalidad() != equiposQueRotan[1].getPais() && referi2.getNacionalidad() != equiposQueRotan[2].getPais()) {
-        		referi2 = referis.get(aleatorio.nextInt(referis.size()));
+        	if (!(equiposQueRotan[1].getPais().equals(equiposQueRotan[0]))) {
+        		while (referi2.getNacionalidad() != equiposQueRotan[1].getPais() && referi2.getNacionalidad() != equiposQueRotan[2].getPais()) 
+        			referi2 = referis.get(aleatorio.nextInt(referis.size()));
+        		
         	}
         	partidos[i] = new BackPartido(equipos[0], equiposQueRotan[0], referi1, fechaActual.plusDays(dias));
         	partidos[i+1] = new BackPartido(equiposQueRotan[1], equiposQueRotan[2], referi2, fechaActual.plusDays(dias));
@@ -185,14 +190,14 @@ public class BackZonas implements Serializable{
                         	posicion = buscaResultado (tabla.get(j).getNombre(), tabla.get(j + 1).getNombre()); // 	BUSCAMOS LA POSICION DONDE ESTÁ EL PARTIDO ENTRE LOS EQUIPOS QUE ESTAN IGUALADOS EN PUNTOS, GOLES Y DIF DE GOLES
                         	if (posicion >= 0) { // SI ES >= 0 YA SE JUGÓ EL PARTIDO
                         		if (resultados [posicion].getGolesE1() > resultados [posicion].getGolesE2()) {
-                        			if (resultados [posicion].getE1() == tabla.get(j + 1).getNombre()) {
+                        			if (resultados [posicion].getE1().equals(tabla.get(j + 1).getNombre())) {
                                         aux = tabla.get(j + 1);
                                         tabla.set(j+1, tabla.get(j));
                                         tabla.set(j, aux);
                         			}
                         		}
                         		else if (resultados [posicion].getGolesE1() < resultados [posicion].getGolesE2()) {
-                            			if (resultados [posicion].getE2() == tabla.get(j + 1).getNombre()) {
+                            			if (resultados [posicion].getE2().equals(tabla.get(j + 1).getNombre())) {
                                             aux = tabla.get(j + 1);
                                             tabla.set(j+1, tabla.get(j));
                                             tabla.set(j, aux);
@@ -217,10 +222,10 @@ public class BackZonas implements Serializable{
     	int k = 0;
     	
     	while ( k <= partidoAct && k <= resultados.length) {
-    		if (resultados[k].getE1() == e1 && resultados[k].getE2() == e2) {
+    		if (resultados[k].getE1().equals(e1) && resultados[k].getE2().equals(e2)) {
     			return k;
     		} 
-    		else if (resultados[k].getE1() == e2 && resultados[k].getE2() == e1) {
+    		else if (resultados[k].getE1().equals(e2) && resultados[k].getE2().equals(e1)) {
     			return k;
     		} 
     		k++;

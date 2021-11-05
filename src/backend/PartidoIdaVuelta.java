@@ -26,8 +26,14 @@ public class PartidoIdaVuelta extends BackPartido{
 		golesP1 = 0;
 		golesP2 = 0;
 		
-		probab1 = ((getEquipo1().getMediaPos(Posicion.delantero) + getEquipo1().getMediaPos(Posicion.mediocampista) + getEquipo1().getMediaPos(Posicion.defensor))/3*10) - getEquipo2().getMediaPos(Posicion.arquero)*10* 0.5;
-		probab2= ((getEquipo2().getMediaPos(Posicion.delantero) + getEquipo2().getMediaPos(Posicion.mediocampista) + getEquipo2().getMediaPos(Posicion.defensor))/3*10) - getEquipo1().getMediaPos(Posicion.arquero)*10* 0.5;
+		probab1 = ((getEquipo1().getMediaPos(Posicion.delantero) + getEquipo1().getMediaPos(Posicion.mediocampista) + getEquipo1().getMediaPos(Posicion.defensor))/3*10) - getEquipo2().getMediaPos(Posicion.arquero)*10* 0.4;
+		probab2 = ((getEquipo2().getMediaPos(Posicion.delantero) + getEquipo2().getMediaPos(Posicion.mediocampista) + getEquipo2().getMediaPos(Posicion.defensor))/3*10) - getEquipo1().getMediaPos(Posicion.arquero)*10* 0.4;
+		
+		if (probab1 < 0)
+			probab1 = 5;
+		
+		if (probab2 < 0)
+			probab2 = 5;
 		
 		for(i = 0;i<5;i++) {
 
