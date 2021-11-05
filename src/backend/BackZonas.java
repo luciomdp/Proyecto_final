@@ -138,12 +138,12 @@ public class BackZonas implements Serializable{
         for (int i = 0; i < CANT_PZ; i += 2) {
         	referi1 = referis.get(aleatorio.nextInt(referis.size()));
         	referi2 = referis.get(aleatorio.nextInt(referis.size()));
-        	if (!(equipos[0].getPais().equals(equiposQueRotan[1]))) {
+        	if (!(equipos[0].getPais().equals(equiposQueRotan[0]))) {
         		while (referi1.getNacionalidad() != equipos[0].getPais() && referi1.getNacionalidad() != equiposQueRotan[0].getPais()) 
         			referi1 = referis.get(aleatorio.nextInt(referis.size()));
         		
         	}
-        	if (!(equiposQueRotan[1].getPais().equals(equiposQueRotan[0]))) {
+        	if (!(equiposQueRotan[1].getPais().equals(equiposQueRotan[2]))) {
         		while (referi2.getNacionalidad() != equiposQueRotan[1].getPais() && referi2.getNacionalidad() != equiposQueRotan[2].getPais()) 
         			referi2 = referis.get(aleatorio.nextInt(referis.size()));
         		

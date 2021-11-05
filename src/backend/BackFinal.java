@@ -23,9 +23,11 @@ public class BackFinal implements Serializable{
 		this.equipos = equipos;
 		Random aleratorio = new Random ();
 	    Referi referi = referis.get(aleratorio.nextInt(referis.size()));
-    	while (referi.getNacionalidad() != this.equipos.get(0).getPais() && referi.getNacionalidad() != this.equipos.get(1).getPais()) {
-    		referi = referis.get(aleratorio.nextInt(referis.size()));
-    	}
+	    if (! (this.equipos.get(0).getPais().equals(this.equipos.get(1).getPais()))) {
+	    	while (referi.getNacionalidad().equals(this.equipos.get(0).getPais()) && referi.getNacionalidad().equals(this.equipos.get(1).getPais())) {
+	    		referi = referis.get(aleratorio.nextInt(referis.size()));
+	    	}	
+	    }
 		partidoFinal = new PartidoIdaVuelta (equipos.get(0), equipos.get(1), referi, fechaActual);
 		finalSimulada = false;
 	}

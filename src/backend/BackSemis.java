@@ -38,17 +38,22 @@ public class BackSemis implements Serializable{
 	    Referi referi = referis.get(aleatorio.nextInt(referis.size()));
 		Collections.shuffle(equipos);
 		for(;i<CANT_P/2;i++) {
-        	while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
-        		referi = referis.get(aleatorio.nextInt(referis.size()));
-        	}
+			if (!(this.equipos.get(k).getPais().equals(this.equipos.get(k+1).getPais()))) {
+				while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
+					referi = referis.get(aleatorio.nextInt(referis.size()));
+				}
+			}
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi, fechaActual);
 			k+=2;
 		}
 		k= 0;
+		referi = referis.get(aleatorio.nextInt(referis.size()));
 		for(;i<CANT_P;i++) {
-        	while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
-        		referi = referis.get(aleatorio.nextInt(referis.size()));
-        	}
+			if (!(this.equipos.get(k).getPais().equals(this.equipos.get(k+1).getPais()))) {
+				while (referi.getNacionalidad() != this.equipos.get(k).getPais() && referi.getNacionalidad() != this.equipos.get(k+1).getPais()) {
+					referi = referis.get(aleatorio.nextInt(referis.size()));
+				}
+			}
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi, fechaActual);
 			k += 2;
 		}
