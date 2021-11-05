@@ -94,10 +94,7 @@ public class Frame extends JFrame{
 		int ganadorFinal;
 		
 		/** 1: en cuartos | 2: en semis | 3: en final | 4: todo jugado*/
-		switch (flag) {
-			case 0: 
-				break;
-			
+		switch (flag) {			
 			case 1:
 				ZtodoSimulado();
 				break;
