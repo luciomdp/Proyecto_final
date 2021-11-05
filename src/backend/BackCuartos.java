@@ -35,17 +35,22 @@ public class BackCuartos implements Serializable{
 		Random aleatorio = new Random ();
 	    Referi referi1 = referis.get(aleatorio.nextInt(referis.size()));
 		for(int i=0; i<CANT_P/2; i++) {
-        	while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
-        		referi1 = referis.get(aleatorio.nextInt(referis.size()));
-        	}
+			if (!(this.equipos.get(k).getPais().equals(this.equipos.get(k+1).getPais()))){
+				while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
+					referi1 = referis.get(aleatorio.nextInt(referis.size()));
+				}
+			}
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k),this.equipos.get(k+1), referi1, fechaActual);
 			k += 2;
 		}
 		k= 0;
+		referi1 = referis.get(aleatorio.nextInt(referis.size()));
 		for(int i=4; i<CANT_P; i++) {
-			while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
-        		referi1 = referis.get(aleatorio.nextInt(referis.size()));
-        	}
+			if (!(this.equipos.get(k).getPais().equals(this.equipos.get(k+1).getPais()))) {
+				while (referi1.getNacionalidad() != this.equipos.get(k).getPais() && referi1.getNacionalidad() != this.equipos.get(k+1).getPais()) {
+					referi1 = referis.get(aleatorio.nextInt(referis.size()));
+				}
+			}
 			partidos[i] = new PartidoIdaVuelta (this.equipos.get(k+1),this.equipos.get(k), referi1, fechaActual.plusDays(1));
 			k += 2;
 		}
