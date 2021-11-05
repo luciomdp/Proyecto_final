@@ -115,7 +115,7 @@ public class FrontSemis extends General{
 		//-------------------------------------------------<<AÑADO A LAS SEMIS>>-------------------------------------------------
 			
 		HBox.add(Partido1);
-		HBox.add(Box.createHorizontalStrut(WIDTH/12));
+		HBox.add(Box.createHorizontalStrut(WIDTH/8));
 		HBox.add(Partido2);
 		SpanelC.add(HBox);
 		SpanelN.add(ScomboBox);
@@ -126,13 +126,17 @@ public class FrontSemis extends General{
 	
 	//-------------------------------------------------<<METODOS DE CLASE>>-------------------------------------------------
 	
-	public void SemisSimuladaIda() {
+	public void SemisSimuladaIda() {			
 		ScomboBox.removeItem("Simula todos los partidos de ida");
 	}
 	
 	public void SemisSimulada(int G1,int G2) {
 		Partido1.SetGanador(G1);
 		Partido2.SetGanador(G2);
+		if( (FrontPartido.getLongitudTexto()) > 68) {
+			Partido1.SetFontSizeIncr(-1);
+			Partido2.SetFontSizeIncr(-1);
+	    }
 		ScomboBox.setSelectedIndex(0);
 		ScomboBox.setEnabled(false);
 	}

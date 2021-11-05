@@ -31,10 +31,12 @@ public class FrontPartido extends JPanel{
 	private Label Equipo1;
 	private Label Equipo2;
 	private JButton Credenciales;
+	private static Controlador c;
 	
 	public FrontPartido(Controlador c, int Etapa, int nroPartido) {
 		
 		setLayout(new BorderLayout());
+		this.c = c;
 		
 		//-------------------------------------------------<<INICIALIZO VARIABLES>>-------------------------------------------------
 		
@@ -87,6 +89,10 @@ public class FrontPartido extends JPanel{
 	public void SetFontSizeIncr(int x) {
 		Equipo1.setFont(new Font(General.FONT_TYPE,0,General.FONT_SIZE + x));
 		Equipo2.setFont(new Font(General.FONT_TYPE,0,General.FONT_SIZE + x));
+	}
+	
+	public static int getLongitudTexto() {
+		return (c.getESemis(0).length() > c.getESemis(1).length() ? c.getESemis(0).length():c.getESemis(1).length()) + (c.getESemis(2).length() > c.getESemis(3).length() ? c.getESemis(2).length():c.getESemis(3).length());
 	}
 	
 	public void SetGanador(int ganador) {
