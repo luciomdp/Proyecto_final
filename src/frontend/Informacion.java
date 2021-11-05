@@ -136,7 +136,11 @@ public class Informacion extends General{
 			add(panel_area,BorderLayout.CENTER);
 			setVisible(false);
 		}
-	
+		
+		public JScrollPane getPanelArea() {
+			return panel_area;
+		}
+		
 		public void Desactiva () {
 			setVisible(false);
 		}
@@ -164,7 +168,8 @@ public class Informacion extends General{
 			setBorder(BorderFactory.createTitledBorder("Listado de equipos"));
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					getArea().setText(getControlador().getListadoEquipos());		
+					getArea().setText(getControlador().getListadoEquipos());	
+					getArea().setCaretPosition(0);;
 				}		
 			});
 		}
@@ -196,6 +201,8 @@ public class Informacion extends General{
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					getArea().setText(getControlador().getListadoJugadores((Posicion)IFpos.getSelectedItem()));
+					getArea().setCaretPosition(0);;
+					
 				}
 			});
 		}
@@ -215,6 +222,7 @@ public class Informacion extends General{
 			getBoton_muestra().addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					getArea().setText(getControlador().getListadoArbitros());
+					getArea().setCaretPosition(0);;
 				}
 			});
 		}
